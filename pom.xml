@@ -36,6 +36,13 @@
 			<version>3.1.0</version>
 		</dependency>
 
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-web-api</artifactId>
+			<version>8.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+
 		<!-- add the jstl api dependency: jstl -->
 		<dependency>
 			<groupId>jstl</groupId>
