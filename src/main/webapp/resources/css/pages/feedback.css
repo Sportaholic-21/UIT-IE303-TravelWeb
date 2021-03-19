@@ -1,6 +1,7 @@
 .feedback {
-  background-position: bottom;
-  background-size: cover;
+  background-position: bottom !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
 }
 
 .feedback__content {

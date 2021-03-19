@@ -17,7 +17,12 @@
           type="search"
           aria-label="Search"
         />
-        <button class="btn btn-info text-white rounded-pill pe-4 ps-4" type="submit">SEND</button>
+        <button
+          class="btn btn-info text-white rounded-pill pe-4 ps-4"
+          type="submit"
+        >
+          SEND
+        </button>
       </form>
     </div>
     <div class="row bg-white p-5 mt-5">
@@ -38,9 +43,15 @@
           est mauris, eget ullamcorper.
         </p>
         <div class="d-flex">
-          <a href="twitter.com" class="me-3"><i class="fa fa-twitter footer__icon-social"></i></a>
-          <a href="youtube.com" class="me-3"><i class="fa fa-youtube footer__icon-social"></i></a>
-          <a href="facebook.com" class="me-3"><i class="fa fa-facebook-f footer__icon-social"></i></a>
+          <a href="twitter.com" class="me-3"
+            ><i class="fa fa-twitter footer__icon-social"></i
+          ></a>
+          <a href="youtube.com" class="me-3"
+            ><i class="fa fa-youtube footer__icon-social"></i
+          ></a>
+          <a href="facebook.com" class="me-3"
+            ><i class="fa fa-facebook-f footer__icon-social"></i
+          ></a>
         </div>
       </div>
       <div class="col-3 ps-5">
@@ -56,14 +67,22 @@
       <div class="col-4">
         <h4>CONTACT</h4>
         <ul class="footer__contact">
-        	<li class="mt-3 d-flex align-items-center">
-          <i class="fa fa-map-marker me-2 footer__contact-icon"></i>123 Levart Ho Chi Minh, Vietnam.
-        </li>
-        <li class="mt-3 d-flex align-items-center"><i class="fa fa-phone me-2 footer__contact-icon"></i>0123456789</li>
-        <li class="mt-3 d-flex align-items-center"><i class="fa fa-envelope me-2 footer__contact-icon"></i>levart@gmail.com</li>
+          <li class="mt-3 d-flex align-items-center">
+            <i class="fa fa-map-marker me-2 footer__contact-icon"></i>123 Levart
+            Ho Chi Minh, Vietnam.
+          </li>
+          <li class="mt-3 d-flex align-items-center">
+            <i class="fa fa-phone me-2 footer__contact-icon"></i>0123456789
+          </li>
+          <li class="mt-3 d-flex align-items-center">
+            <i class="fa fa-envelope me-2 footer__contact-icon"></i
+            >levart@gmail.com
+          </li>
         </ul>
       </div>
     </div>
-    <div class="bg-info text-center text-white p-3 footer__slogan">A NEW SKY, A NEW LIFE</div>
+    <div class="bg-info text-center text-white p-3 footer__slogan">
+      A NEW SKY, A NEW LIFE
+    </div>
   </div>
 </footer>
