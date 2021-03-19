@@ -1,4 +1,12 @@
 .container {
-	width: 1170px;
-	margin: 0 auto;
+  width: 1170px;
+  margin: 0 auto;
+}
+
+a {
+  color: inherit;
+}
+
+a:hover {
+  color: inherit;
 }

@@ -1,0 +1,23 @@
+.navbar {
+  background: rgba(0, 0, 0, 0.12);
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.navbar__logo--img {
+  width: 45px;
+  height: 45px;
+}
+
+.nav__cta {
+  padding: 7px 15px !important;
+  background: #ba71da;
+  vertical-align: center;
+}
+
+.nav__menu-img {
+	width: 25px;
+	height: 25px;
+	cursor: pointer;	
+}
