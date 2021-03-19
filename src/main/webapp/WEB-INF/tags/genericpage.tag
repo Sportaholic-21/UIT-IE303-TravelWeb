@@ -22,6 +22,9 @@
 <!-- css page style -->
 <link rel="stylesheet" type="text/css"
 			href="${pageContext.request.contextPath}/resources/css/style.css">
+
+<link rel="stylesheet" type="text/css"
+			href="${pageContext.request.contextPath}/resources/css/components/_navbar.css">
 			
 <jsp:invoke fragment="pageCSSLink" />
 
