@@ -1,0 +1,37 @@
+.footer {
+	background-size: cover !important;
+	background-position: bottom !important;
+	background-repeat: no-repeat !important;
+}
+
+.footer__logo {
+  width: 45px;
+  height: 45px;
+}
+
+.footer__icon-social {
+	font-size: 30px;
+}
+
+.footer__icon-social:hover {
+	color: #00BCD9;
+}
+
+.footer__agency-link a{
+	text-decoration: none;
+}
+
+.footer__contact {
+	list-style: none;
+	padding-left: 20px;
+}
+
+.footer__contact-icon {
+	font-size: 20px;	
+}
+
+.footer__slogan {
+	margin-left: -12px;
+	margin-right: -12px;
+}
+

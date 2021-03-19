@@ -19,12 +19,18 @@
 	integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
 	crossorigin="anonymous">
 
+<!-- font awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <!-- css page style -->
 <link rel="stylesheet" type="text/css"
 			href="${pageContext.request.contextPath}/resources/css/style.css">
 
 <link rel="stylesheet" type="text/css"
 			href="${pageContext.request.contextPath}/resources/css/components/_navbar.css">
+
+<link rel="stylesheet" type="text/css"
+			href="${pageContext.request.contextPath}/resources/css/components/_footer.css">
 			
 <jsp:invoke fragment="pageCSSLink" />
 
