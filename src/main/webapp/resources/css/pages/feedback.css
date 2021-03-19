@@ -1,0 +1,17 @@
+.feedback {
+  background-position: bottom;
+  background-size: cover;
+}
+
+.feedback__content {
+  width: 1000px;
+  padding: 70px 40px;
+}
+
+.feedback__cta {
+  font-size: 11px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: #dd9933;
+  padding: 3px 8px;
+}
