@@ -34,7 +34,7 @@
 	<jsp:include page="../views/template/navbar.jsp" />
 	<jsp:include page="../views/template/sidebar.jsp" />
 
-	<main id="body">
+	<main id="body" class="main">
 		<jsp:doBody />
 	</main>
 
