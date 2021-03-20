@@ -43,13 +43,13 @@
           est mauris, eget ullamcorper.
         </p>
         <div class="d-flex">
-          <a href="twitter.com" class="me-3"
+          <a href="https://twitter.com/" class="me-3"
             ><i class="fa fa-twitter footer__icon-social"></i
           ></a>
-          <a href="youtube.com" class="me-3"
+          <a href="https://www.youtube.com/" class="me-3"
             ><i class="fa fa-youtube footer__icon-social"></i
           ></a>
-          <a href="facebook.com" class="me-3"
+          <a href="https://www.facebook.com/" class="me-3"
             ><i class="fa fa-facebook-f footer__icon-social"></i
           ></a>
         </div>
