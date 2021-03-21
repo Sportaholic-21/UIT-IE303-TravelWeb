@@ -1,19 +1,14 @@
 .contact {
-  background-position: bottom !important;
-  background-size: cover !important;
+  background-position: top !important;
   background-repeat: no-repeat !important;
 }
 
-.contact__body{
-	background-color:white;
-}
 .contact__content {
   width: 1200px;
   padding: 70px 40px;
 }
 
 .contact__header{
-	color: white;
 	font-size: 50px;
 	padding: 70px 85px;
 	margin: 20px;

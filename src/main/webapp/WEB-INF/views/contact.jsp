@@ -30,9 +30,9 @@
     </script>
 	</jsp:attribute>
 	<jsp:body>
-  		<div class ="contact" style ="background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url('${pageContext.request.contextPath}/resources/images/contact-background.jpg');">
-  			<h2 class = "contact__header">Contact Us</h2>
-  			<div class ="contact__body">
+  		<div class ="contact pb-0" style ="background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url('${pageContext.request.contextPath}/resources/images/contact-background.jpg');">
+  			<h2 class = "contact__header text-white">Contact Us</h2>
+  			<div class ="bg-white">
 	  			<div class = "contact__content ms-auto me-auto text-dark">
 	  				<div class="row align-items-start justify-content-between">
 						<div class="col-5">
@@ -110,6 +110,5 @@
 			</div>
 			
 		</div>
-		<div class = "mb-4"></div>
     </jsp:body>
 </t:genericpage>
