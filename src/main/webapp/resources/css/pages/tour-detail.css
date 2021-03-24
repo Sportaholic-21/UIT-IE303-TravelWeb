@@ -307,17 +307,12 @@ p strong {
     transition: background-color 2s ease-in-out, transform 2s;
 }
 
-.destination:hover span::after {
+ .destination:hover {
     display: block;
-    background-color: aqua;
+    background-color: blue;
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
-    content: "sdfgshf";
-    color: white;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-}
+} 
 
 .destination:not(:hover) span {
     display: block;
