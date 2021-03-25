@@ -13,7 +13,7 @@
             <div class="cover-info">
                 <h1 class="cover-info__name col-12 p-0">Hong Kong</h1>
                 <div class="cover-info__prop d-xl-flex ">
-                    <div class="mr-4"><i class="fa fa-map-marker-alt"></i> ASIA</div>
+                    <div class="mr-4"><i class="fas fa-map-marker-alt"></i> ASIA</div>
                     <div class="mr-4"><i class="far fa-clock"></i> 1 - 3 DAYS</div>
                 </div>
             </div>
@@ -229,7 +229,7 @@
                             <div class="d-flex flex-column justify-content-between">
                                 <div>
                                     <h5>Berlin</h5>
-                                    <p><i class="fa fa-map-marker-alt mr-2"></i> Europe</p>
+                                    <p><i class="fas fa-map-marker-alt mr-2"></i> Europe</p>
                                 </div>
                                 <button><a href="#">FORM 700$</a></button>
                             </div>
@@ -239,7 +239,7 @@
                             <div class="d-flex flex-column justify-content-between">
                                 <div>
                                     <h5>Hong Kong</h5>
-                                    <p><i class="fa fa-map-marker-alt mr-2"></i>Asia </p>
+                                    <p><i class="fas fa-map-marker-alt mr-2"></i>Asia </p>
                                 </div>
                                 <button><a href="#">FORM 700$</a></button>
                             </div>
@@ -249,7 +249,7 @@
                             <div class="d-flex flex-column justify-content-between">
                                 <div>
                                     <h5>San Fancisco</h5>
-                                    <p><i class="fa fa-map-marker-alt mr-2"></i>United States </p>
+                                    <p><i class="fas fa-map-marker-alt mr-2"></i>United States </p>
                                 </div>
                                 <button><a href="#">FORM 700$</a></button>
                             </div>
@@ -276,7 +276,7 @@
                         <a href="#">Amsterdam</a>
                         <a href="#">Tuscany</a>
                         <a href="#map">Adventure</a>
-                        <button class="mt-3">view destination</button>
+                        <button class="mt-3"><a href="">view destination</a></button>
                     </div>
                     <div class="view-destination-before">
                         <h5>Europe</h5>
@@ -300,11 +300,151 @@
                     </div>
                 </section>
                 
+                 <!-- feedback  -->
+                <section class="feedback">
+                    <h5>Feedback</h5>
+                    <div class="feedback-content">
+                        <div class="feedback-info">
+                            <p><img src="${pageContext.request.contextPath}/resources/images/tour-detail-img/testimonial-1.jpg" alt=""></p>
+                            <div>
+                                <h5 class="username">Duc Tho</h5>
+                                <p>I love discover the world</p>
+                            </div>
+                        </div>
+                        <div class="content">a bis rowm ruws did ras ta nas chacws bangw lowps acj xanh dady acj xa qua didjch</div>
+                    </div>
+
+                    <div class="feedback-content">
+                        <div class="feedback-info">
+                            <p><img src="${pageContext.request.contextPath}/resources/images/tour-detail-img/testimonial-1.jpg" alt=""></p>
+                            <div>
+                                <h5 class="username">Duc Tho</h5>
+                                <p>I love discover the world</p>
+                            </div>
+                        </div>
+                        <div class="content">a bis rowm ruws did ras ta nas chacws bangw lowps acj xanh dady acj xa qua didjch</div>
+                    </div>
+
+                    <div class="feedback-content">
+                        <div class="feedback-info">
+                            <p><img src="${pageContext.request.contextPath}/resources/images/tour-detail-img/testimonial-1.jpg" alt=""></p>
+                            <div>
+                                <h5 class="username">Duc Tho</h5>
+                                <p>I love discover the world</p>
+                            </div>
+                        </div>
+                        <div class="content">a bis rowm ruws did ras ta nas chacws bangw lowps acj xanh dady acj xa qua didjch</div>
+                    </div>
+                    <div class="d-flex align-items-center flex-column">
+                        <button class="see-more-feedback"><a href="">...</a></button>
+                        <p>or</p>
+                        <button class="direct-to-feedback"><a href="">leave feedback</a> </button>
+                    </div>
+
+                </section>
+                
             </div>
 
         </div>
         <section class="section--border-bot "></section>
-        <div class="tour-info__relatedTour "></div>
+        <div class="tour-info__related-tour mt-5 mb-5">
+            <div class="related-tour__title">
+                <h6>RELATED</h6>
+                <h2>PACKAGES</h2>
+            </div>
+            <div class="d-md-flex">
+                <div class="related-tour__card col-xl-4 mt-3 mb-3">
+                    <img src="${pageContext.request.contextPath}/resources/images/tour-detail-img/package-1-1024x640.jpg" alt="" style="width:100%; height: auto;">
+                    <div class="border p-4 ">
+                        <div class="mb-2">
+                            <a href="#">
+                                <h5>Berlin</h5>
+                            </a>
+                            <a href="">
+                                <p><i class="fas fa-map-marker-alt"></i> Europe</p>
+                            </a>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center border-top border-bottom pt-2 pb-2 mb-3">
+                            <div class="card__category">
+                                <p>CULTURAL</p>
+                                <p>RELAX <span style=" background-color: var(--color_primary); border-radius: 15px; padding: 2px 10px; color: white;">+ 2</span></p>
+                            </div>
+                            <p style="font-size: 30px; color: black;">700$</p>
+                        </div>
+
+                        <div class="card__des mb-3">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut efficitur ante. Donec dapibus dictum scelerisque.</p>
+                        </div>
+
+                        <a href="">
+                            <button class="card__button--color">DETAILS</button>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div class="related-tour__card col-xl-4 mt-3 mb-3">
+                    <img src="${pageContext.request.contextPath}/resources/images/tour-detail-img/package-1-1024x640.jpg" alt="" style="width:100%; height: auto;">
+                    <div class="border p-4 ">
+                        <div class="mb-2">
+                            <a href="#">
+                                <h5>Berlin</h5>
+                            </a>
+                            <a href="">
+                                <p><i class="fas fa-map-marker-alt"></i> Europe</p>
+                            </a>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center border-top border-bottom pt-2 pb-2 mb-3">
+                            <div class="card__category">
+                                <p>HISTORY</p>
+                                <p>RELAX <span style=" background-color: var(--color_primary); border-radius: 15px; padding: 2px 10px; color: white;">+ 2</span></p>
+                            </div>
+                            <p style="font-size: 30px; color: black;">700$</p>
+                        </div>
+
+                        <div class="card__des mb-3">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut efficitur ante. Donec dapibus dictum scelerisque.</p>
+                        </div>
+
+                        <a href="">
+                            <button class="card__button--color">DETAILS</button>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div class="related-tour__card col-xl-4 mt-3 mb-3">
+                    <img src="${pageContext.request.contextPath}/resources/images/tour-detail-img/package-1-1024x640.jpg" alt="" style="width:100%; height: auto;">
+                    <div class="border p-4 ">
+                        <div class="mb-2">
+                            <a href="#">
+                                <h5>Berlin</h5>
+                            </a>
+                            <a href="">
+                                <p><i class="fas fa-map-marker-alt"></i> Europe</p>
+                            </a>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center border-top border-bottom pt-2 pb-2 mb-3">
+                            <div class="card__category">
+                                <p>SPORT</p>
+                                <p>RELAX <span style=" background-color: var(--color_primary); border-radius: 15px; padding: 2px 10px; color: white;">+ 2</span></p>
+                            </div>
+                            <p style="font-size: 30px; color: black;">700$</p>
+                        </div>
+
+                        <div class="card__des mb-3">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut efficitur ante. Donec dapibus dictum scelerisque.</p>
+                        </div>
+
+                        <a href="">
+                            <button class="card__button--color">DETAILS</button>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN " crossorigin="anonymous "></script>

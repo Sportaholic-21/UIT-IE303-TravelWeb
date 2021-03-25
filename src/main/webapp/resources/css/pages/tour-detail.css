@@ -295,7 +295,7 @@ p strong {
     background-image: url('/parallax-3-1.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 500px;
+    height: 400px;
     color: white;
     background-position: bottom right;
     position: relative;
@@ -350,7 +350,7 @@ p strong {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-     z-index: 999;
+    z-index: 999;
 }
 
 .destination .view-destination-before {
@@ -377,7 +377,7 @@ p strong {
     color: rgba(255, 255, 255, 0);
 }
 
-.destination .view-destination a,
+.destination .view-destination a.view-destination--direct,
 .destination .view-destination h5 {
     color: rgba(255, 255, 255, 0);
     font-weight: bold;
@@ -385,31 +385,34 @@ p strong {
 }
 
 .destination .view-destination button {
-    color: rgba(0, 255, 255, 0);
     background-color: rgba(255, 255, 255, 0);
     border-radius: 20px;
     border: none;
     padding-left: 15px;
     padding-right: 15px;
-    transition: color 1.5s ease-in, background-color 1.5s ease-in;
+    transition: background-color 1.5s ease-in;
     outline: none;
-    font-weight: bold;
 }
 
-.destination:hover .view-destination a,
+.destination .view-destination button a {
+    color: rgba(0, 255, 255, 0);
+    font-weight: bold;
+    transition: color 1.5s ease-in;
+}
+
+.destination:hover .view-destination a.view-destination--direct,
 .destination:hover .view-destination h5 {
     color: rgba(255, 255, 255, 1);
 }
 
 .destination:hover .view-destination button {
-    color: rgba(0, 255, 255, 1);
     background-color: rgba(255, 255, 255, 1);
 }
 
+.destination:hover .view-destination button a {
+    color: rgba(0, 255, 255, 1);
+}
 
-/* .destination:not(:hover) div {
-    color: rgba(255, 255, 255, 1);
-} */
 
 
 /* tags */
@@ -428,6 +431,94 @@ p strong {
     padding: 5px 15px;
     margin: 5px;
 }
+.tags .tags-list a:hover {
+    border: 1px #000000 solid !important;
+}
+
+
+.feedback .feedback-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10px;
+    /* background-color: #9DA0AA; */
+}
+
+.feedback-info {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ececec;
+    margin-bottom: 5px;
+}
+
+.feedback .feedback-content img {
+    width: 70px;
+    border-radius: 50%;
+    margin: 20px;
+}
+
+.feedback .feedback-content .content {
+    background-color: rgb(20, 185, 213);
+    width: 100%;
+    padding: 5px 15px;
+    color: white;
+    border-radius: 25px;
+    position: relative;
+    margin-top: 0;
+    text-align: center;
+        box-shadow: 5px 10px 15px #888888;
+    
+}
+
+.feedback .feedback-content .content::before {
+    display: block;
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid rgb(20, 185, 213);
+    position: absolute;
+    top: -13px;
+    left: 40px;
+}
+
+.feedback button a {
+    color: white;
+    font-weight: bold;
+}
+
+.feedback .see-more-feedback,
+.feedback .direct-to-feedback {
+    background-color: #00ffff;
+    border-radius: 25px;
+    padding: 2px 25px;
+    border-color: white;
+}
+
+
+
+.card__button--color {
+    background-color: var(--color_primary);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-weight: lighter;
+    font-size: 12px;
+    padding: 10px 20px;
+}
+
+.related-tour__card .card__category p {
+    font-size: 12px;
+    color: #000000;
+}
+
+.tour-info__related-tour .related-tour__title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
 
 /* responsive */
 
