@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
-<t:genericpage pageTitle="Feedback">
+<t:genericpage pageTitle="Hong Kong">
 	<jsp:attribute name="pageCSSLink">
 		<link rel="stylesheet" type="text/css"
 			href="${pageContext.request.contextPath}/resources/css/pages/tour-detail.css">
@@ -268,8 +268,38 @@
                 </section>
 
                 <section class="destination" style="background-image: url('${pageContext.request.contextPath}/resources/images/tour-detail-img/parallax-3-1.jpg');">
+               
                     <span></span>
+                    <div class="view-destination">
+                        <h5 class="mb-3">Packages</h5>
+                        <a href="#">Berlin</a>
+                        <a href="#">Amsterdam</a>
+                        <a href="#">Tuscany</a>
+                        <a href="#map">Adventure</a>
+                        <button class="mt-3">view destination</button>
+                    </div>
+                    <div class="view-destination-before">
+                        <h5>Europe</h5>
+                        <p>3 packages</p>
+                    </div>
                 </section>
+                <section class="tags">
+                    <h5>Tags</h5>
+                    <div class="tags-list">
+                        <a href="#">Adventure</a>
+                        <a href="#">Family</a>
+                        <a href="#">Adventure</a>
+                        <a href="#">Adventure</a>
+                        <a href="#">Holiday</a>
+                        <a href="#">Adventure</a>
+                        <a href="#">Adventure</a>
+                        <a href="#">Tours</a>
+                        <a href="#">Travel</a>
+                        <a href="#">Adventure</a>
+                        <a href="#">Adventure</a>
+                    </div>
+                </section>
+                
             </div>
 
         </div>

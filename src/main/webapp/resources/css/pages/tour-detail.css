@@ -23,7 +23,9 @@ a {
     font-weight: lighter;
     /* text-align: justify; */
 }
-
+a:hover {
+    text-decoration: none;
+}
 .cover {
     position: relative;
     
@@ -290,37 +292,142 @@ p strong {
 }
 
 .destination {
-    
+    background-image: url('/parallax-3-1.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     height: 500px;
     color: white;
     background-position: bottom right;
+    position: relative;
 }
 
 .destination span {
     /* display: none; */
+    display: block;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0);
+    background-color: rgba(0, 0, 0, 0.3);
     -webkit-transition: background-color 2s, -webkit-transform 2s;
-    transition: background-color 2s ease-in-out, transform 2s;
+    transition: background-color 1s ease-in-out, transform 1s;
 }
 
- .destination:hover {
+.destination:hover span {
     display: block;
-    background-color: blue;
-    -webkit-transform: scaleX(1);
-    transform: scaleX(1);
-} 
-
-.destination:not(:hover) span {
-    display: block;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(0, 255, 255, 0.8);
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
 }
 
+.destination:hover span::after {
+    display: flex;
+}
+
+.destination span::after {
+    display: none;
+    /* content: "Packages"; */
+    content: "";
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* .destination:not(:hover) span {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.5);
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+} */
+
+.destination .view-destination {
+    position: absolute;
+    top: 0px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+     z-index: 999;
+}
+
+.destination .view-destination-before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.destination .view-destination-before h5,
+.destination .view-destination-before p {
+    color: rgba(255, 255, 255, 1);
+    transition: color 1.5s ease-in;
+}
+
+.destination:hover .view-destination-before h5,
+.destination:hover .view-destination-before p {
+    color: rgba(255, 255, 255, 0);
+}
+
+.destination .view-destination a,
+.destination .view-destination h5 {
+    color: rgba(255, 255, 255, 0);
+    font-weight: bold;
+    transition: color 1.5s ease-in;
+}
+
+.destination .view-destination button {
+    color: rgba(0, 255, 255, 0);
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 20px;
+    border: none;
+    padding-left: 15px;
+    padding-right: 15px;
+    transition: color 1.5s ease-in, background-color 1.5s ease-in;
+    outline: none;
+    font-weight: bold;
+}
+
+.destination:hover .view-destination a,
+.destination:hover .view-destination h5 {
+    color: rgba(255, 255, 255, 1);
+}
+
+.destination:hover .view-destination button {
+    color: rgba(0, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 1);
+}
+
+
+/* .destination:not(:hover) div {
+    color: rgba(255, 255, 255, 1);
+} */
+
+
+/* tags */
+
+.tags .tags-list {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.tags .tags-list a {
+    border: #e2e2e2 solid 1px;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    padding: 5px 15px;
+    margin: 5px;
+}
 
 /* responsive */
 
