@@ -23,10 +23,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto me-auto mb-lg-0 text-uppercase">
-        <li class="nav-item">
+        <li class="nav-item me-4">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item me-4 dropdown">
           <a
             class="nav-link dropdown-toggle"
             href="#"
@@ -45,11 +45,11 @@
           </ul>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item me-4">
           <a class="nav-link" href="about-us">About us</a>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item me-4">
           <a class="nav-link" href="forum">Forum</a>
         </li>
 
