@@ -7,7 +7,8 @@
 			href="${pageContext.request.contextPath}/resources/css/pages/tour-detail.css">
 	</jsp:attribute>
 	<jsp:body>
-  		<div class="cover" style="background-image: url('${pageContext.request.contextPath}/resources/images/tour-detail-img/hongkong-cover.jpg');">
+  		<div class="body__tour-detail pt-0">
+  			<div class="cover" style="background-image: url('${pageContext.request.contextPath}/resources/images/tour-detail-img/hongkong-cover.jpg');">
         <span></span>
         <div class="container">
             <div class="cover-info">
@@ -63,17 +64,17 @@
                 <section class="directToParam mt-4 mb-4 ">
 
                     <ul class="nav d-xl-flex justify-content-around">
-                        <li class="nav-item">
-                            <a class="nav-link active " href="#description ">DESCRIPTION</a>
+                        <li class="nav-item ">
+                            <a class="nav-link nav-linka active adetail" href="#description ">DESCRIPTION</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="#map ">MAP</a>
+                            <a class="nav-link nav-linka adetail" href="#map ">MAP</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="#gallery ">PHOTOS</a>
+                            <a class="nav-link nav-linka adetail" href="#gallery ">PHOTOS</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link " href="#program ">PROGRAM</a>
+                            <a class="nav-link nav-linka adetail" href="#program ">PROGRAM</a>
                         </li>
                     </ul>
                 </section>
@@ -190,12 +191,10 @@
                     </div>
                     <form id="form-send-now" action="" method="post">
                         <div class="form-row">
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-12">
                                 <input type="text" class="form-control" id="name" placeholder="Name" required>
                             </div>
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" id="surname" placeholder="Surname" required>
-                            </div>
+                            
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -231,7 +230,7 @@
                                     <h5>Berlin</h5>
                                     <p><i class="fas fa-map-marker-alt mr-2"></i> Europe</p>
                                 </div>
-                                <button><a href="#">FORM 700$</a></button>
+                                <button><a class="adetail" href="#">FORM 700$</a></button>
                             </div>
                         </div>
                         <div class="package d-flex">
@@ -241,7 +240,7 @@
                                     <h5>Hong Kong</h5>
                                     <p><i class="fas fa-map-marker-alt mr-2"></i>Asia </p>
                                 </div>
-                                <button><a href="#">FORM 700$</a></button>
+                                <button><a class="adetail" href="#">FORM 700$</a></button>
                             </div>
                         </div>
                         <div class="package d-flex">
@@ -251,7 +250,7 @@
                                     <h5>San Fancisco</h5>
                                     <p><i class="fas fa-map-marker-alt mr-2"></i>United States </p>
                                 </div>
-                                <button><a href="#">FORM 700$</a></button>
+                                <button><a class="adetail" href="#">FORM 700$</a></button>
                             </div>
                         </div>
                     </div>
@@ -272,11 +271,11 @@
                     <span></span>
                     <div class="view-destination">
                         <h5 class="mb-3">Packages</h5>
-                        <a href="#">Berlin</a>
-                        <a href="#">Amsterdam</a>
-                        <a href="#">Tuscany</a>
-                        <a href="#map">Adventure</a>
-                        <button class="mt-3"><a href="">view destination</a></button>
+                        <a class="adetail" href="#">Berlin</a>
+                        <a class="adetail" href="#">Amsterdam</a>
+                        <a class="adetail" href="#">Tuscany</a>
+                        <a class="adetail" href="#map">Adventure</a>
+                        <button class="mt-3"><a class="adetail" href="">view destination</a></button>
                     </div>
                     <div class="view-destination-before">
                         <h5>Europe</h5>
@@ -286,17 +285,17 @@
                 <section class="tags">
                     <h5>Tags</h5>
                     <div class="tags-list">
-                        <a href="#">Adventure</a>
-                        <a href="#">Family</a>
-                        <a href="#">Adventure</a>
-                        <a href="#">Adventure</a>
-                        <a href="#">Holiday</a>
-                        <a href="#">Adventure</a>
-                        <a href="#">Adventure</a>
-                        <a href="#">Tours</a>
-                        <a href="#">Travel</a>
-                        <a href="#">Adventure</a>
-                        <a href="#">Adventure</a>
+                        <a class="adetail" href="#">Adventure</a>
+                        <a class="adetail" href="#">Family</a>
+                        <a class="adetail" href="#">Adventure</a>
+                        <a class="adetail" href="#">Adventure</a>
+                        <a class="adetail" href="#">Holiday</a>
+                        <a class="adetail" href="#">Adventure</a>
+                        <a class="adetail" href="#">Adventure</a>
+                        <a class="adetail" href="#">Tours</a>
+                        <a class="adetail" href="#">Travel</a>
+                        <a class="adetail" href="#">Adventure</a>
+                        <a class="adetail" href="#">Adventure</a>
                     </div>
                 </section>
                 
@@ -336,9 +335,9 @@
                         <div class="content">a bis rowm ruws did ras ta nas chacws bangw lowps acj xanh dady acj xa qua didjch</div>
                     </div>
                     <div class="d-flex align-items-center flex-column">
-                        <button class="see-more-feedback"><a href="">...</a></button>
+                        <button class="see-more-feedback"><a class="adetail" href="">...</a></button>
                         <p>or</p>
-                        <button class="direct-to-feedback"><a href="">leave feedback</a> </button>
+                        <button class="direct-to-feedback"><a class="adetail" href="">leave feedback</a> </button>
                     </div>
 
                 </section>
@@ -357,10 +356,10 @@
                     <img src="${pageContext.request.contextPath}/resources/images/tour-detail-img/package-1-1024x640.jpg" alt="" style="width:100%; height: auto;">
                     <div class="border p-4 ">
                         <div class="mb-2">
-                            <a href="#">
+                            <a class="adetail" href="#">
                                 <h5>Berlin</h5>
                             </a>
-                            <a href="">
+                            <a class="adetail" href="">
                                 <p><i class="fas fa-map-marker-alt"></i> Europe</p>
                             </a>
                         </div>
@@ -376,7 +375,7 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut efficitur ante. Donec dapibus dictum scelerisque.</p>
                         </div>
 
-                        <a href="">
+                        <a class="adetail" href="">
                             <button class="card__button--color">DETAILS</button>
                         </a>
 
@@ -387,10 +386,10 @@
                     <img src="${pageContext.request.contextPath}/resources/images/tour-detail-img/package-1-1024x640.jpg" alt="" style="width:100%; height: auto;">
                     <div class="border p-4 ">
                         <div class="mb-2">
-                            <a href="#">
+                            <a class="adetail" href="#">
                                 <h5>Berlin</h5>
                             </a>
-                            <a href="">
+                            <a class="adetail" href="">
                                 <p><i class="fas fa-map-marker-alt"></i> Europe</p>
                             </a>
                         </div>
@@ -406,7 +405,7 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut efficitur ante. Donec dapibus dictum scelerisque.</p>
                         </div>
 
-                        <a href="">
+                        <a class="adetail" href="">
                             <button class="card__button--color">DETAILS</button>
                         </a>
 
@@ -417,10 +416,10 @@
                     <img src="${pageContext.request.contextPath}/resources/images/tour-detail-img/package-1-1024x640.jpg" alt="" style="width:100%; height: auto;">
                     <div class="border p-4 ">
                         <div class="mb-2">
-                            <a href="#">
+                            <a class="adetail" href="#">
                                 <h5>Berlin</h5>
                             </a>
-                            <a href="">
+                            <a class="adetail" href="">
                                 <p><i class="fas fa-map-marker-alt"></i> Europe</p>
                             </a>
                         </div>
@@ -436,7 +435,7 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut efficitur ante. Donec dapibus dictum scelerisque.</p>
                         </div>
 
-                        <a href="">
+                        <a class="adetail" href="">
                             <button class="card__button--color">DETAILS</button>
                         </a>
 
@@ -446,6 +445,7 @@
 
         </div>
     </div>
+  		</div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN " crossorigin="anonymous "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q " crossorigin="anonymous "></script>

@@ -6,29 +6,38 @@ ul {
     list-style-type: none;
 }
 
-* {
+
+.body__tour-detail {
     padding: 0;
     margin: 0;
     font-family: 'Poppins', sans-serif;
     font-size: 0.9 rem;
     line-height: 1.8;
     letter-spacing: 1.5px;
+    padding-top:0px;
+}
+a{
+	color: #ffffff;
 }
 
-p,
-a {
+ p,
+ a.adetail{
     padding: 0px;
     margin: 0px;
-    color: #9DA0AA;
+    color: #9DA0AA;     
     font-weight: lighter;
     /* text-align: justify; */
+}
+.directToParam li a.nav-linka.adetail {
+    color: #9DA0AA;
+     padding: 5px 20px;
+     border-radius: 20px;
 }
 a:hover {
     text-decoration: none;
 }
 .cover {
     position: relative;
-    
     background-size: cover;
     background-repeat: no-repeat;
     height: 318px;
@@ -37,14 +46,15 @@ a:hover {
     z-index: -1;
 }
 
-.cover span {
+ .cover span {
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(255, 255, 255, 0.1);
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-}
+    z-index:-2;
+} 
 
 .cover .cover-info {
     position: absolute;
@@ -110,17 +120,19 @@ h1 {
     display: block;
 }
 
-.nav-item:hover .nav-link {
+.directToParam .nav-item:hover .nav-linka {
     background-color: var(--color_primary);
     border-radius: 20px;
     color: white;
+   
 }
 
-.active {
+.directToParam a.nav-linka.active {
     background-color: var(--color_primary);
     border-radius: 20px;
     /* width: fit-content; */
-    color: white;
+    color: white !important;
+    padding: 5px 20px;
 }
 
 tr {
