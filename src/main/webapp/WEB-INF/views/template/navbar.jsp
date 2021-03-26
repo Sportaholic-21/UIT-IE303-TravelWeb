@@ -68,7 +68,7 @@
           <a class="nav-link" href="profile">Anna</a>
         </li> -->
           
-        <li class="nav-item">
+        <li class="nav-item" id="sidebar-menu">
           <div class="me-5 ms-3 nav__menu-img">
             <img
               src="${pageContext.request.contextPath}/resources/images/menu.png"

@@ -28,6 +28,9 @@
 
 <link rel="stylesheet" type="text/css"
 			href="${pageContext.request.contextPath}/resources/css/components/_navbar.css">
+			
+<link rel="stylesheet" type="text/css"
+			href="${pageContext.request.contextPath}/resources/css/components/_sidebar.css">
 
 <link rel="stylesheet" type="text/css"
 			href="${pageContext.request.contextPath}/resources/css/components/_footer.css">
@@ -46,11 +49,14 @@
 
 	<jsp:include page="../views/template/footer.jsp" />
 
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
 		crossorigin="anonymous"></script>
 
+	<script src="${pageContext.request.contextPath}/resources/js/toggle-btn-sidebar.js"></script>
 	<!-- page script -->
 	<jsp:invoke fragment="pageScript" />
 </body>
