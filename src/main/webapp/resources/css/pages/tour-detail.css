@@ -1,0 +1,551 @@
+:root {
+    --color_primary: rgb(247, 101, 112);
+}
+
+ul {
+    list-style-type: none;
+}
+
+
+.body__tour-detail {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9 rem;
+    line-height: 1.8;
+    letter-spacing: 1.5px;
+    padding-top:0px;
+}
+a{
+	color: #ffffff;
+}
+
+ p,
+ a.adetail{
+    padding: 0px;
+    margin: 0px;
+    color: #9DA0AA;     
+    font-weight: lighter;
+    /* text-align: justify; */
+}
+.directToParam li a.nav-linka.adetail {
+    color: #9DA0AA;
+     padding: 5px 20px;
+     border-radius: 20px;
+}
+a:hover {
+    text-decoration: none;
+}
+.cover {
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 318px;
+    color: white;
+    background-position: center;
+    z-index: -1;
+}
+
+ .cover span {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.1);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index:-2;
+} 
+
+.cover .cover-info {
+    position: absolute;
+    bottom: 50px;
+}
+
+
+/* .tour-info {
+     color: black;
+ } */
+
+.tour-info .detail__left__items img {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+}
+
+.detail__left__img .header-form {
+    display: none;
+    width: 100%;
+    padding: 0px;
+    height: 105px;
+    background-color: var(--color_primary);
+}
+
+.detail__left__img .header-form p {
+    color: white;
+    font-size: 1.8rem;
+    line-height: 105px;
+    text-align: center;
+    padding: 0px;
+}
+
+.detail__left__img .header-form p span {
+    text-decoration: line-through;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.5)
+}
+
+.tour-info .detail__left__items p,
+.tour-info .detail__left__items h6 {
+    font-size: 1rem;
+}
+
+.tour-info .detail__left__items h6,
+h1 {
+    font-weight: bolder;
+}
+
+.tour-info .detail__left__img img {
+    padding: 0;
+}
+
+
+/* overwrite BS4 */
+
+
+/* .nav-item {
+    margin-right: 30px;
+} */
+
+.directToParam {
+    display: block;
+}
+
+.directToParam .nav-item:hover .nav-linka {
+    background-color: var(--color_primary);
+    border-radius: 20px;
+    color: white;
+   
+}
+
+.directToParam a.nav-linka.active {
+    background-color: var(--color_primary);
+    border-radius: 20px;
+    /* width: fit-content; */
+    color: white !important;
+    padding: 5px 20px;
+}
+
+tr {
+    border-bottom: solid #F1F1F1 1px;
+    border-top: solid #F1F1F1 1px;
+}
+
+table,
+tr,
+th,
+td {
+    padding: 15px 15px;
+    line-height: 1.9;
+    /* width: 100%; */
+}
+
+i.fas {
+    line-height: 1.9;
+    /* padding-left: 15px; */
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6,
+th {
+    color: rgb(85, 85, 85);
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+td,
+li {
+    color: #9DA0AA;
+}
+
+.section--border-bot {
+    border-bottom: solid #e2e2e2 2px;
+}
+
+.section--border-bot:last-child {
+    border-bottom: solid #e2e2e2 0px;
+}
+
+.color--primary {
+    color: var(--color_primary);
+}
+
+p strong {
+    font-weight: 600;
+}
+
+
+/* detai-right */
+
+.detail__right {
+    width: 100%;
+    max-width: 100vw;
+}
+
+.detail__right .form-send-now {
+    border: #ececec solid 1px;
+    margin-top: 30px;
+}
+
+.form-send-now form {
+    width: 80%;
+    margin: 40px auto;
+}
+
+.form-send-now .form-group .form-control {
+    border-radius: 20px;
+    background-color: #F9F9F9;
+    border: solid #ececec 1px;
+    padding: 10px 0;
+    padding-left: 20px;
+}
+
+.form-send-now button {
+    border-radius: 20px;
+    border: none;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.form-send-now .form-group .form-control::placeholder {
+    color: rgb(168, 168, 168);
+}
+
+.form-send-now .header-form {
+    width: 340px;
+    padding: 0px;
+    height: 105px;
+    background-color: var(--color_primary);
+}
+
+.form-send-now .header-form p {
+    color: white;
+    font-size: 1.8rem;
+    line-height: 105px;
+    text-align: center;
+    padding: 0px;
+}
+
+.form-send-now .header-form p span {
+    text-decoration: line-through;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.5)
+}
+
+.best-packages .package {
+    font-size: 15px;
+    margin: 30px 0px 30px 0;
+}
+
+.best-packages .package h5 {
+    font-weight: lighter;
+}
+
+.best-packages .package button {
+    border: none;
+    padding: 0;
+    border-radius: 25px;
+    padding: 0px 15px;
+    background-color: var(--color_primary);
+}
+
+.best-packages .package button a {
+    color: white;
+}
+
+.package__img img {
+    width: 100px;
+    height: 100px;
+    margin-right: 30px;
+}
+
+.search h5 {
+    margin-bottom: 20px;
+}
+
+.search .form-group .form-control {
+    border-radius: 25px;
+    background-color: #F9F9F9;
+    border: solid #ececec 1px;
+    padding: 10px 0;
+    padding-left: 20px;
+}
+
+.search button {
+    border-radius: 25px;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    font-weight: bold;
+    font-size: 10px;
+    font-weight: lighter;
+}
+
+.search .form-group .form-control::placeholder {
+    color: rgb(168, 168, 168);
+}
+
+.destination {
+    background-image: url('/parallax-3-1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 400px;
+    color: white;
+    background-position: bottom right;
+    position: relative;
+}
+
+.destination span {
+    /* display: none; */
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    -webkit-transition: background-color 2s, -webkit-transform 2s;
+    transition: background-color 1s ease-in-out, transform 1s;
+}
+
+.destination:hover span {
+    display: block;
+    background-color: rgba(0, 255, 255, 0.8);
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+.destination:hover span::after {
+    display: flex;
+}
+
+.destination span::after {
+    display: none;
+    /* content: "Packages"; */
+    content: "";
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* .destination:not(:hover) span {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.5);
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+} */
+
+.destination .view-destination {
+    position: absolute;
+    top: 0px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.destination .view-destination-before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.destination .view-destination-before h5,
+.destination .view-destination-before p {
+    color: rgba(255, 255, 255, 1);
+    transition: color 1.5s ease-in;
+}
+
+.destination:hover .view-destination-before h5,
+.destination:hover .view-destination-before p {
+    color: rgba(255, 255, 255, 0);
+}
+
+.destination .view-destination a,
+.destination .view-destination h5 {
+    color: rgba(255, 255, 255, 0);
+    font-weight: bold;
+    transition: color 1.5s ease-in;
+}
+
+.destination .view-destination button {
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 20px;
+    border: none;
+    padding-left: 15px;
+    padding-right: 15px;
+    transition: background-color 1.5s ease-in;
+    outline: none;
+}
+
+.destination .view-destination button a {
+    color: rgba(0, 255, 255, 0);
+    font-weight: bold;
+    transition: color 1.5s ease-in;
+}
+
+.destination:hover .view-destination a,
+.destination:hover .view-destination h5 {
+    color: rgba(255, 255, 255, 1);
+}
+
+.destination:hover .view-destination button {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.destination:hover .view-destination button a {
+    color: rgba(0, 255, 255, 1);
+}
+
+
+
+/* tags */
+
+.tags .tags-list {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.tags .tags-list a {
+    border: #e2e2e2 solid 1px;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    padding: 5px 15px;
+    margin: 5px;
+}
+.tags .tags-list a:hover {
+    border: 1px #000000 solid !important;
+    color: #000000;
+}
+
+
+.feedback .feedback-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10px;
+    /* background-color: #9DA0AA; */
+}
+
+.feedback-info {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ececec;
+    margin-bottom: 5px;
+}
+
+.feedback .feedback-content img {
+    width: 70px;
+    border-radius: 50%;
+    margin: 20px;
+}
+
+.feedback .feedback-content .content {
+    background-color: rgb(20, 185, 213);
+    width: 100%;
+    padding: 5px 15px;
+    color: white;
+    border-radius: 25px;
+    position: relative;
+    margin-top: 0;
+    text-align: center;
+        box-shadow: 5px 10px 15px #888888;
+    
+}
+
+.feedback .feedback-content .content::before {
+    display: block;
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid rgb(20, 185, 213);
+    position: absolute;
+    top: -13px;
+    left: 40px;
+}
+
+.feedback button a {
+    color: white;
+    font-weight: bold;
+}
+
+.feedback .see-more-feedback,
+.feedback .direct-to-feedback {
+    background-color: #00ffff;
+    border-radius: 25px;
+    padding: 2px 25px;
+    border-color: white;
+}
+
+
+
+.card__button--color {
+    background-color: var(--color_primary);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-weight: lighter;
+    font-size: 12px;
+    padding: 10px 20px;
+}
+
+.related-tour__card .card__category p {
+    font-size: 12px;
+    color: #000000;
+}
+
+.tour-info__related-tour .related-tour__title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+
+/* responsive */
+
+@media only screen and (max-width: 480px) {
+    .detail__left__img .header-form {
+        display: block;
+    }
+    .form-send-now .header-form {
+        display: none;
+    }
+    .detail__right .form-send-now {
+        margin-top: 30px;
+    }
+    .directToParam {
+        flex-direction: column;
+    }
+}
