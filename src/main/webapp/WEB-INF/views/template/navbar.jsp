@@ -54,7 +54,7 @@
         </li>
 
         <li class="nav-item ms-2">
-          <a class="nav-link nav__cta rounded-pill" href="contact">Contact</a>
+          <a class="nav-link nav__cta rounded-pill nav__contact-link" href="contact">Contact</a>
         </li>
       </ul>
 

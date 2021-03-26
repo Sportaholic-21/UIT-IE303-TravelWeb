@@ -21,3 +21,7 @@
 	height: 25px;
 	cursor: pointer;	
 }
+
+.nav__contact-link:hover {
+	color: #fff !important;
+}
