@@ -271,11 +271,11 @@
                     <span></span>
                     <div class="view-destination">
                         <h5 class="mb-3">Packages</h5>
-                        <a class="adetail" href="#">Berlin</a>
-                        <a class="adetail" href="#">Amsterdam</a>
-                        <a class="adetail" href="#">Tuscany</a>
-                        <a class="adetail" href="#map">Adventure</a>
-                        <button class="mt-3"><a class="adetail" href="">view destination</a></button>
+                        <a class="" href="#">Berlin</a>
+                        <a class="" href="#">Amsterdam</a>
+                        <a class="" href="#">Tuscany</a>
+                        <a class="" href="#map">Adventure</a>
+                        <button class="mt-3"><a class="" href="">view destination</a></button>
                     </div>
                     <div class="view-destination-before">
                         <h5>Europe</h5>

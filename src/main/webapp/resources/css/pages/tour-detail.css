@@ -389,7 +389,7 @@ p strong {
     color: rgba(255, 255, 255, 0);
 }
 
-.destination .view-destination a.view-destination--direct,
+.destination .view-destination a,
 .destination .view-destination h5 {
     color: rgba(255, 255, 255, 0);
     font-weight: bold;
@@ -412,7 +412,7 @@ p strong {
     transition: color 1.5s ease-in;
 }
 
-.destination:hover .view-destination a.view-destination--direct,
+.destination:hover .view-destination a,
 .destination:hover .view-destination h5 {
     color: rgba(255, 255, 255, 1);
 }
@@ -445,6 +445,7 @@ p strong {
 }
 .tags .tags-list a:hover {
     border: 1px #000000 solid !important;
+    color: #000000;
 }
 
 
