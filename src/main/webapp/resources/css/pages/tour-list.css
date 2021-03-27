@@ -1,0 +1,87 @@
+/*Landing Section*/
+.landing
+{
+    background: url("./product-page.jpg") no-repeat center;
+    background-size: cover;
+    height: 650px;
+    padding-bottom: 100px;
+    margin-bottom: 100px;
+}
+
+.landing-h1
+{
+    padding-left: 100px;
+    text-align: left;
+    font-weight: bold;
+    color: azure;
+    font-size: 20pt;
+}
+
+.landing-h3
+{
+    padding-left: 100px;
+    padding-top: 100px;
+    text-align: left;
+    color: azure;
+}
+
+/*Search form*/
+.search-container
+{
+    background-color: white;
+    width: 40%;
+    margin-top: 110px;
+    margin-left: 100px;
+    padding: 30px;
+}
+
+.search-row
+{
+    padding-bottom: 10px;
+}
+
+.search-label
+{
+    font-weight: bold;
+}
+
+
+/*Combo Section*/
+.combo
+{
+    width: 1170px;
+    margin: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.combo-image
+{
+    width: 377px;
+    height: 225px;
+}
+
+.card {width: 377px;}
+
+.combo-name, .combo-category, .combo-content
+{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.combo-category
+{
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    padding-bottom: 0;
+}
+
+.combo-content
+{
+    padding-top: 10px;
+}
+
+.btn-group
+{
+    padding-left: 15px;
+}
