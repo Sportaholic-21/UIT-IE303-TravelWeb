@@ -1,0 +1,104 @@
+/*Landing Section*/
+.landing
+{
+    height: 850px;
+    background-repeat: no-repeat;
+}
+
+.landing-h1
+{
+    padding-top: 100px;
+    text-align: center;
+    font-weight: bold;
+    color: azure;
+}
+
+.landing-h3
+{
+    padding-top: 20px;
+    text-align: center;
+    color: azure;
+}
+
+.search-container form
+{
+    width: 50%;
+    padding-top: 50px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.search-bar
+{
+    margin: 0 auto;
+    background-color: white;
+    width: 50%;;
+    border-radius: 10px;
+}
+
+.search-container input[type="text"]
+{
+    width: 300px;
+    height: 47px;
+    border-style: none;
+}
+
+/*Destination Section*/
+.destination, .combo
+{
+    width: 1170px;
+    margin: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.destination-h2, .combo-h2
+{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.destination-card
+{  
+    position: relative;
+    height: 330px;
+}
+
+.destination-text
+{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    font-size: 20pt;
+}
+
+/*Combo Section*/
+.combo-image
+{
+    width: 377px;
+    height: 225px;
+}
+
+.combo-name, .combo-category, .combo-content
+{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.combo-category
+{
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    padding-bottom: 0;
+}
+
+.combo-content
+{
+    padding-top: 10px;
+}
+
+.btn-group
+{
+    padding-left: 15px;
+}
