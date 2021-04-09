@@ -1,12 +1,12 @@
-package com.levart;
+package com.levart.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class TourDetailController {
-	@RequestMapping("/tour-detail")
+public class TourListController {
+    @RequestMapping("/tour-list")
 	public String showPage() {
-		return "tour-detail";
+		return "tour-list";
 	}
 }
