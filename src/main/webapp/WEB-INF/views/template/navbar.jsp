@@ -24,7 +24,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto me-auto mb-lg-0 text-uppercase">
         <li class="nav-item me-4">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <a class="nav-link active" aria-current="page" href="home">Home</a>
         </li>
         <li class="nav-item me-4 dropdown">
           <a
