@@ -22,6 +22,15 @@
 	</properties>
 
 	<dependencies>
+
+		<!--MS SQL-->
+		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
+			<version>9.3.0.jre15-preview</version>
+			<scope>runtime</scope>
+		</dependency>
+
 		<!-- Add support for Hibernate: hibernate-core -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
