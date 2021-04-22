@@ -14,4 +14,8 @@ public class DatabaseManager {
             System.out.println("Connected");
         return conn;
     }
+    public static void main() throws SQLException {
+    	DatabaseManager db=new DatabaseManager();
+    	db.Connect();
+    }
 }

@@ -230,7 +230,7 @@
                                     <h5>Berlin</h5>
                                     <p><i class="fas fa-map-marker-alt mr-2"></i> Europe</p>
                                 </div>
-                                <button><a class="adetail" href="#">FORM 700$</a></button>
+                                <a class="adetail" href="#"><button>FORM 700$</button></a>
                             </div>
                         </div>
                         <div class="package d-flex">
@@ -240,7 +240,7 @@
                                     <h5>Hong Kong</h5>
                                     <p><i class="fas fa-map-marker-alt mr-2"></i>Asia </p>
                                 </div>
-                                <button><a class="adetail" href="#">FORM 700$</a></button>
+                                <a class="adetail" href="#"><button>FORM 700$</button></a>
                             </div>
                         </div>
                         <div class="package d-flex">
@@ -250,7 +250,7 @@
                                     <h5>San Fancisco</h5>
                                     <p><i class="fas fa-map-marker-alt mr-2"></i>United States </p>
                                 </div>
-                                <button><a class="adetail" href="#">FORM 700$</a></button>
+                                <a class="adetail" href="#"><button>FORM 700$</button></a>
                             </div>
                         </div>
                     </div>
@@ -275,7 +275,7 @@
                         <a class="" href="#">Amsterdam</a>
                         <a class="" href="#">Tuscany</a>
                         <a class="" href="#map">Adventure</a>
-                        <button class="mt-3"><a class="" href="">view destination</a></button>
+                        <a class="" href=""><button class="mt-3">view destination</button></a>
                     </div>
                     <div class="view-destination-before">
                         <h5>Europe</h5>
@@ -335,9 +335,9 @@
                         <div class="content">a bis rowm ruws did ras ta nas chacws bangw lowps acj xanh dady acj xa qua didjch</div>
                     </div>
                     <div class="d-flex align-items-center flex-column">
-                        <button class="see-more-feedback"><a class="adetail" href="">...</a></button>
+                        <a class="adetail" href=""><button class="see-more-feedback">...</button></a>
                         <p>or</p>
-                        <button class="direct-to-feedback"><a class="adetail" href="">leave feedback</a> </button>
+                        <a class="adetail" href=""><button class="direct-to-feedback">leave feedback </button></a>
                     </div>
 
                 </section>
@@ -356,12 +356,12 @@
                     <img src="${pageContext.request.contextPath}/resources/images/tour-detail-img/package-1-1024x640.jpg" alt="" style="width:100%; height: auto;">
                     <div class="border p-4 ">
                         <div class="mb-2">
-                            <a class="adetail" href="#">
-                                <h5>Berlin</h5>
-                            </a>
-                            <a class="adetail" href="">
-                                <p><i class="fas fa-map-marker-alt"></i> Europe</p>
-                            </a>
+                            <h5><a class="adetail" href="#">
+                                Berlin
+                            </a></h5>
+                            <p><a class="adetail" href="">
+                                <i class="fas fa-map-marker-alt"></i>Europe
+                            </a></p>
                         </div>
                         <div class="d-flex justify-content-between align-items-center border-top border-bottom pt-2 pb-2 mb-3">
                             <div class="card__category">
@@ -386,12 +386,12 @@
                     <img src="${pageContext.request.contextPath}/resources/images/tour-detail-img/package-1-1024x640.jpg" alt="" style="width:100%; height: auto;">
                     <div class="border p-4 ">
                         <div class="mb-2">
-                            <a class="adetail" href="#">
-                                <h5>Berlin</h5>
-                            </a>
-                            <a class="adetail" href="">
-                                <p><i class="fas fa-map-marker-alt"></i> Europe</p>
-                            </a>
+                            <h5><a class="adetail" href="#">
+                                Berlin
+                            </a></h5>
+                            <p><a class="adetail" href="">
+                                <i class="fas fa-map-marker-alt"></i> Europe
+                            </a></p>
                         </div>
                         <div class="d-flex justify-content-between align-items-center border-top border-bottom pt-2 pb-2 mb-3">
                             <div class="card__category">
@@ -416,12 +416,12 @@
                     <img src="${pageContext.request.contextPath}/resources/images/tour-detail-img/package-1-1024x640.jpg" alt="" style="width:100%; height: auto;">
                     <div class="border p-4 ">
                         <div class="mb-2">
-                            <a class="adetail" href="#">
-                                <h5>Berlin</h5>
-                            </a>
-                            <a class="adetail" href="">
-                                <p><i class="fas fa-map-marker-alt"></i> Europe</p>
-                            </a>
+                            <h5><a class="adetail" href="#">
+                                Berlin
+                            </a></h5>
+                            <p><a class="adetail" href="">
+                                <i class="fas fa-map-marker-alt"></i> Europe
+                            </a></p>
                         </div>
                         <div class="d-flex justify-content-between align-items-center border-top border-bottom pt-2 pb-2 mb-3">
                             <div class="card__category">
