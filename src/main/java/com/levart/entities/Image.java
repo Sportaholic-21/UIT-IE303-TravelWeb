@@ -22,7 +22,7 @@ public class Image {
 	@Column(name = "packageID")
 	@OneToOne
 	@JoinColumn(name = "package_id") // Liên kết với nhau qua khóa ngoại package_id
-	private Package packageID; 
+	private TourPackage packageID; 
 	
 	@Column(name = "imageName")
 	private String imageName;
@@ -31,7 +31,7 @@ public class Image {
 		super();
 	}
 
-	public Image(int imageID, Package packageID, String imageName) {
+	public Image(int imageID, TourPackage packageID, String imageName) {
 		super();
 		this.imageID = imageID;
 		this.packageID = packageID;
@@ -46,11 +46,11 @@ public class Image {
 		this.imageID = imageID;
 	}
 
-	public Package getPackageID() {
+	public TourPackage getPackageID() {
 		return packageID;
 	}
 
-	public void setPackageID(Package packageID) {
+	public void setPackageID(TourPackage packageID) {
 		this.packageID = packageID;
 	}
 

@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "packageTable")
-public class Package  {
+public class TourPackage  {
 	@Id
 	@Column(name = "packageID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,11 +41,11 @@ public class Package  {
 	}
 
 	
-	public Package() {
+	public TourPackage() {
 		super();
 	}
 
-	public Package(int packageID, String nation, String continent) {
+	public TourPackage(int packageID, String nation, String continent) {
 		super();
 		this.packageID = packageID;
 		this.nation = nation;

@@ -8,15 +8,16 @@
         <property name="hibernate.connection.password">pastwent12345</property>
         <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=levart</property>
         <property name="hibernate.connection.username">sa</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
         
-        
-        
-        
-        <!-- mapping các entity với nhau -->
-        <mapping class=""></mapping>
-        
-        
-        
+        <mapping class="com.levart.entities.TourPackage"/>
+        <mapping class="com.levart.entities.Contact"/>
+        <mapping class="com.levart.entities.Feedback"/>
+        <mapping class="com.levart.entities.FeedbackId"/>
+        <mapping class="com.levart.entities.Image"/>
+        <mapping class="com.levart.entities.Tour"/>
+        <mapping class="com.levart.entities.Typology"/>
+        <mapping class="com.levart.entities.User"/>
         
     </session-factory>
 </hibernate-configuration>

@@ -29,15 +29,12 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>5.4.29.Final</version>
 		</dependency>
-		<!--MS SQL -->
 		<!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
 		<dependency>
 			<groupId>com.microsoft.sqlserver</groupId>
 			<artifactId>mssql-jdbc</artifactId>
 			<version>9.2.1.jre8</version>
 		</dependency>
-
-
 
 
 		<!-- add the servlet api dependency: javax.servlet-api -->

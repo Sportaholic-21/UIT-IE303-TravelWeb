@@ -18,7 +18,7 @@ public class Tour {
 	@Column
 	@OneToOne
 	@JoinColumn(name = "package_id") // Liên kết với nhau qua khóa ngoại package_id
-    private Package packageID; 
+    private TourPackage packageID; 
 	
 	//Biểu diễn quan hệ giữa tour và typology
 	@Column
@@ -52,11 +52,11 @@ public class Tour {
 		this.tourID = tourID;
 	}
 
-	public Package getPackageID() {
+	public TourPackage getPackageID() {
 		return packageID;
 	}
 
-	public void setPackageID(Package packageID) {
+	public void setPackageID(TourPackage packageID) {
 		this.packageID = packageID;
 	}
 
@@ -116,7 +116,7 @@ public class Tour {
 		this.rating = rating;
 	}
 
-	public Tour(int tourID, Package packageID, Typology typologyID, String descriptions, String detail, Currency price,
+	public Tour(int tourID, TourPackage packageID, Typology typologyID, String descriptions, String detail, Currency price,
 			LocalDateTime startDate, int duration, int rating) {
 		super();
 		this.tourID = tourID;
