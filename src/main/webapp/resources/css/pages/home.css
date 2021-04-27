@@ -75,31 +75,35 @@
 }
 
 /*Combo Section*/
-.combo-image
-{
-    width: 377px;
-    height: 225px;
+a{
+	color: #ffffff;
 }
 
-.combo-name, .combo-category, .combo-content
-{
-    width: 90%;
-    margin: 0 auto;
+ p,
+ a.adetail{
+    padding: 0px;
+    margin: 0px;
+    color: #9DA0AA;     
+    font-weight: lighter;
+    /* text-align: justify; */
 }
 
-.combo-category
-{
-    border-top: 1px solid;
-    border-bottom: 1px solid;
-    padding-bottom: 0;
+.card__button--color {
+    background-color: red;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-weight: lighter;
+    font-size: 12px;
+    padding: 10px 20px;
 }
 
-.combo-content
-{
-    padding-top: 10px;
+.related-tour__card .card__category p {
+    font-size: 12px;
+    color: #000000;
 }
 
-.btn-group
-{
-    padding-left: 15px;
+.tour-info__related-tour .related-tour__title {
+    text-align: center;
+    margin-bottom: 20px;
 }
