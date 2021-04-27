@@ -10,10 +10,10 @@ public class Package  {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int packageID;
 
-	@Column(name = "nation")
+	@Column(name = "nation", length = 20)
 	private String nation;
 
-	@Column(name = "continent")
+	@Column(name = "continent", length = 20)
 	private String continent;
 
 	public int getPackageID() {
