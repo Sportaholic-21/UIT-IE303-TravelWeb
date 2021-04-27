@@ -10,7 +10,7 @@ public class Typology {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int typologyID;
 
-	@Column(name = "typologyName")
+	@Column(name = "typologyName", length = 20)
 	private String typologyName;
 	
 	public int getTypologyID() {
