@@ -10,7 +10,7 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int userID;
 	
-	@Column(name = "username")
+	@Column(name = "username", length = 20)
 	private String username;
 	
 	@Column(name = "email")
