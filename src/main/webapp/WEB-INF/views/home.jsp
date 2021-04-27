@@ -1,16 +1,16 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-	<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
-		<t:genericpage pageTitle="Home">
-			<jsp:attribute name="pageCSSLink">
-				<link rel="stylesheet" type="text/css"
-					href="${pageContext.request.contextPath}/resources/css/pages/home.css">
-			</jsp:attribute>
-			<jsp:body>
-				<!--Landing Section-->
-				<section class="landing" style="background: linear-gradient( rgba(0, 0, 0, 0.3) 100%,
-		rgba(0, 0, 0, 0.3)100%),
-		  url('${pageContext.request.contextPath}/resources/images/feedback-background.jpg');">
+<t:genericpage pageTitle="Home">
+	<jsp:attribute name="pageCSSLink">
+		<link rel="stylesheet" type="text/css"
+			  href="${pageContext.request.contextPath}/resources/css/pages/home.css">
+	</jsp:attribute>
+	<jsp:body>
+		<!--Landing Section-->
+		<section class="landing" style="background: linear-gradient( rgba(0, 0, 0, 0.3) 100%,
+										rgba(0, 0, 0, 0.3)100%),
+		  								url('${pageContext.request.contextPath}/resources/images/feedback-background.jpg');">
 					<h1 class="landing-h1">SEARCH FOR YOUR BEST ADVENTURE</h1>
 					<h3 class="landing-h3">Check out out best promotions</h3>
 					<div class="search-container">
@@ -31,7 +31,7 @@
 				<section class="destination">
 					<h2 class="destination-h2">Popular Destinations</h2>
 					<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-						<div class="col">
+						<div class="col-md-4">
 							<div class="destination-card shadow-sm vietnam" style="background: url('${pageContext.request.contextPath}/resources/images/vietnam.jpg') no-repeat top; 
 		   background-size: cover;">
 								<div class="destination-text">
@@ -41,7 +41,7 @@
 							</div>
 						</div>
 
-						<div class="col">
+						<div class="col-md-4">
 							<div class="destination-card shadow-sm" style="background: url('${pageContext.request.contextPath}/resources/images/australia.jpg') no-repeat top;
 		   background-size: cover;">
 								<div class="destination-text">
@@ -51,7 +51,7 @@
 							</div>
 						</div>
 
-						<div class="col">
+						<div class="col-md-4">
 							<div class="destination-card shadow-sm" style="background: url('${pageContext.request.contextPath}/resources/images/america.jpg') no-repeat top;
 		   background-size: cover;">
 								<div class="destination-text">
@@ -61,7 +61,7 @@
 							</div>
 						</div>
 
-						<div class="col">
+						<div class="col-md-4">
 							<div class="destination-card shadow-sm" style="background: url('${pageContext.request.contextPath}/resources/images/japan.jpg') no-repeat top;
 		   background-size: cover;">
 								<div class="destination-text">
@@ -71,7 +71,7 @@
 							</div>
 						</div>
 
-						<div class="col">
+						<div class="col-md-4">
 							<div class="destination-card shadow-sm" style="background: url('${pageContext.request.contextPath}/resources/images/madagascar.jpg') no-repeat top;
 		   background-size: cover;">
 								<div class="destination-text">
@@ -81,7 +81,7 @@
 							</div>
 						</div>
 
-						<div class="col">
+						<div class="col-md-4">
 							<div class="destination-card shadow-sm" style="background: url('${pageContext.request.contextPath}/resources/images/italy.jpg') no-repeat top;
 		   background-size: cover;">
 								<div class="destination-text">
@@ -97,7 +97,7 @@
 				<section class="combo">
 					<h2 class="combo-h2">Promotions</h2>
 					<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-						<div class="col">
+						<div class="col-md-4">
 							<div class="card shadow-sm">
 								<img class="combo-image" src="${pageContext.request.contextPath}/resources/images/melbourne.jpg" />
 								<div class="card-body">
@@ -122,7 +122,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col">
+						<div class="col-md-4">
 							<div class="card shadow-sm">
 								<img class="combo-image" src="${pageContext.request.contextPath}/resources/images/melbourne.jpg" />
 								<div class="card-body">
@@ -147,7 +147,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col">
+						<div class="col-md-4">
 							<div class="card shadow-sm">
 								<img class="combo-image" src="${pageContext.request.contextPath}/resources/images/melbourne.jpg" />
 								<div class="card-body">
