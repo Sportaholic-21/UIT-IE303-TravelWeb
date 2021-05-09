@@ -15,13 +15,13 @@ public class Tour {
 		
 	// Biểu diễn quan hệ 1-1 giữa tour và package
 	// 1 tour có 1 và chỉ 1 package
-	@Column
+//	@Column
 	@OneToOne
 	@JoinColumn(name = "package_id") // Liên kết với nhau qua khóa ngoại package_id
     private TourPackage packageID; 
 	
 	//Biểu diễn quan hệ giữa tour và typology
-	@Column
+//	@Column
 	@OneToOne
 	@JoinColumn(name = "typology_id")
 	private Typology typologyID;

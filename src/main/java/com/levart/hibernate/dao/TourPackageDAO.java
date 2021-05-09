@@ -30,7 +30,7 @@ public class TourPackageDAO {
 			for (TourPackage tourPackage: packageList) {
 				System.out.println(tourPackage.getPackageID());
 			}
-			tx.commit();
+//			tx.commit();
 		} catch (RuntimeException e) {
 			session.getTransaction().rollback();
 			e.printStackTrace();
@@ -48,7 +48,7 @@ public class TourPackageDAO {
 			Transaction tx = session.beginTransaction();
 			// thực thi câu query dạng hql
 			session.save(tourPackage);
-			tx.commit();
+//			tx.commit();
 			System.out.println("Insert success!");
 		} catch (RuntimeException e) {
 			session.getTransaction().rollback();
@@ -60,9 +60,10 @@ public class TourPackageDAO {
 	}
 	public static void main(String []args){
 		TourPackage p = new TourPackage( );
-		p.setNation("Viet Nam");
+		p.setNation("CHina");
 		p.setContinent("Khap the gioi");
 		TourPackageDAO tourPackageDAO= new TourPackageDAO();
+		tourPackageDAO.addTourPackage(p);
 		tourPackageDAO.getTourPackage();
 		System.out.println("hello");
 	}

@@ -19,7 +19,7 @@ public class Image {
 	
 	// Biểu diễn quan hệ 1-1 giữa image và package
 	
-	@Column(name = "packageID")
+//	@Column(name = "packageID")
 	@OneToOne
 	@JoinColumn(name = "package_id") // Liên kết với nhau qua khóa ngoại package_id
 	private TourPackage packageID; 
