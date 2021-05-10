@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
-
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <t:genericpage pageTitle="Feedback">
 	<jsp:attribute name="pageCSSLink">
 		<link rel="stylesheet" type="text/css"
@@ -17,30 +18,32 @@
         <h3 class="landing-h3">Our offers</h3>
         <h1 class="landing-h1">FIND YOUR HOLIDAY</h1>
         <div class="search-container">
-            <form action="actionpage.php" method="post">
+            <form:form action="searchPackage" modelAttribute="contentSearchPackage">
                 <div class="row search-row search-dest">
                     <div class="col-sm-5 search-label">Choose Your Destination:</div>
                     <div class="col-sm-7 search-input">
-                        <select class="form-select" name="" id="" style="background-image: url('${pageContext.request.contextPath}/resources/images/tour-list/icons/pin.svg')">
-                            <option selected>All Destinations</option>
-                        </select>
+                        <form:select path="destination" class="form-select" name="" id="" style="background-image: url('${pageContext.request.contextPath}/resources/images/tour-list/icons/pin.svg')">
+                              <form:option value="1" label="All Destinations1"/>
+                              <form:option value="2" label="All Destinations2"/>
+                              <form:option value="3" label="All Destinations3"/>
+                        </form:select>
                     </div>
                 </div>
                 <div class="row search-row search-date">
                     <div class="col-sm-5 search-label">Choose Your Date:</div>
                     <div class="col-sm-7 search-input">
-                        <select class="form-select" name="" id="" style="background-image: url('${pageContext.request.contextPath}/resources/images/tour-list/icons/calendar.png')">
-                            <option value="">DD-MM-YYYY</option>
-                        </select>
+                        <form:select path="day" class="form-select" name="" id="" style="background-image: url('${pageContext.request.contextPath}/resources/images/tour-list/icons/calendar.png')">                           
+                            <form:option value="1" label="DD-MM-YYYY"/> 
+                        </form:select>
                     </div>
                 </div>
                 <div class="row search-row search-price">
                     <div class="col-sm-5 search-label">Max Price:</div>
                     <div class="col-sm-7 search-input">
-                        <input type="range" class="form-range" name="" id="">
+                        <form:input path="maxPrice" type="range" class="form-range" name="" id="" />
                     </div>
                 </div>
-            </form>
+            </form:form>
         </div>
     </section>
     <!--Package Section-->

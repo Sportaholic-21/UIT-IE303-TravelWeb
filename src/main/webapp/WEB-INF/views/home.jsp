@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
-
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <t:genericpage pageTitle="Home">
 	<jsp:attribute name="pageCSSLink">
 		<link rel="stylesheet" type="text/css"
@@ -14,17 +15,16 @@
 					<h1 class="landing-h1">SEARCH FOR YOUR BEST ADVENTURE</h1>
 					<h3 class="landing-h3">Check out out best promotions</h3>
 					<div class="search-container">
-						<form action="/action_page.php">
+						<form:form action="/action_page.php" modelAttribute="textSearch">
 							<div class="search-bar">
-								<input type="text" placeholder="Where would you want to go?..." name="search">
+								<form:input path="text" type="text" placeholder="Where would you want to go?..." name="search" />
 								<input type="submit" value=""
 									   width="47px" height="47px"
 									   style="background: url('${pageContext.request.contextPath}/resources/images/icons/magniGlass.svg') no-repeat center transparent;
                         					  background-size: 100%;
-                        					  border-style: none;"	
-								>
+                        					  border-style: none;"	>
 							</div>
-						</form>
+						</form:form>
 					</div>
 				</section>
 				<!--Destination Section-->

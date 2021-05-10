@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
-
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <t:genericpage pageTitle="Sign in">
 	<jsp:attribute name="pageCSSLink">
 		<link rel="stylesheet" type="text/css"
@@ -32,48 +33,47 @@
 							</div>
 							
 							<div class = "form-inner">
-								<form action="#" class = "login">
+								<form:form action="signIn" class = "login" modelAttribute="contentSignIn">
 									<div class = "field">
-										<input type="email" placeholder="Email Address" required>
+										<form:input path="email" type="email" placeholder="Email Address" />
 									</div>
 									<div class = "field">
-										<input type="password" placeholder="Password" required>
+										<form:password path="pass" placeholder="Password" />
 									</div>
 									<div class = "pass-link">
 										<a href="#">Forgot password ?</a>
 									</div>
 									
 									<div class = "remember__field">
-										<input type="checkbox" placeholder="" name= "remeberme" value="Remember me" checked>
+										<form:checkbox path="rememberme" value="1"/>
 										<label for ="remeberme">Remember me</label>
 									</div>
 									
 									<div class = "field">
 										<input type="submit" value="Sign in" class="submit">
 									</div>
-								</form>
+								</form:form>
 								
-								<form action="#" class = "signup">
+								<form:form action="signUp" class = "signup" modelAttribute="contentSignUp">
 									<div class = "field">
-										<input type="text" placeholder="Name" required>
+										<form:input path="name" type="text" placeholder="Name" />
 									</div>
 									<div class = "field">
-										<input type="tel" placeholder="Phone number" required>
+										<form:input path="phone" type="tel" placeholder="Phone number" />
 									</div>
 									<div class = "field">
-										<input type="email" placeholder="Email Address" required>
+										<form:input path="email" type="email" placeholder="Email Address" />
 									</div>
 									<div class = "field">
-										<input type="password" placeholder="Password" required>
+										<form:input path="pass" type="password" placeholder="Password" />
 									</div>
 									<div class = "field">
-										<input type="password" placeholder="Confirm password" required>
-									</div>
-									
+										<form:input path="" type="password" placeholder="Confirm password" />
+									</div>									
 									<div class = "field">
 										<input type="submit" value="Sign up" class="submit">
 									</div>
-								</form>
+								</form:form>
 							</div>
 						</div>
 					</div>

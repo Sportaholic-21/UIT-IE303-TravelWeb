@@ -1,4 +1,4 @@
-package com.levart.entities;
+ package com.levart.entities;
 
 import javax.persistence.*;
 
