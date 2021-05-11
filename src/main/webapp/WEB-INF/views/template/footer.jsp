@@ -1,3 +1,5 @@
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <footer
   class="footer p-5"
   style="
@@ -11,8 +13,8 @@
         <h2 class="fw-bolder fs-1 mb-0">Travel with Us</h2>
       </div>
 
-      <form class="d-flex mb-1 col-4">
-        <input
+      <form:form action="search" class="d-flex mb-1 col-4" modelAttribute="textSearch">
+        <form:input path="text"
           class="form-control me-2 rounded-pill p-2"
           type="search"
           aria-label="Search"
@@ -23,7 +25,7 @@
         >
           SEND
         </button>
-      </form>
+      </form:form>
     </div>
     <div class="row bg-white p-5 mt-5">
       <div class="col-5">
