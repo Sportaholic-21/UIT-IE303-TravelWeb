@@ -37,6 +37,8 @@
 <link rel="stylesheet" type="text/css"
 			href="${pageContext.request.contextPath}/resources/css/components/_footer.css">
 			
+<link rel="icon" type="image/png" href="${pageContext.request.contextPath}/resources/images/logo-color.png"/>
+			
 <jsp:invoke fragment="pageCSSLink" />
 
 <title>Levart | ${pageTitle}</title>
