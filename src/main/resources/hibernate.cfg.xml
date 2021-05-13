@@ -5,7 +5,7 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-        <property name="hibernate.connection.password">pastwent12345</property>
+        <property name="hibernate.connection.password">1234</property>
         <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=levart</property>
         <property name="hibernate.connection.username">sa</property>
         <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
