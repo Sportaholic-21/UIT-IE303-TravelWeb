@@ -20,8 +20,8 @@ import com.levart.form_entities.FormSearch;
 @Controller
 public class ContactController {
 
-	@Autowired
-	JavaMailSender mailSender;
+	/*@Autowired
+	JavaMailSender mailSender;*/
 
 	@ModelAttribute("messageContact")
 	public FormMessage setContact() {
