@@ -22,6 +22,9 @@ public class User {
 	@Column(name = "userRole")
 	private int userRole;
 
+	@Column(name = "phone")
+	private String phone;
+
 	public User() {
 		super();
 	}
@@ -75,6 +78,12 @@ public class User {
 		this.userRole = userRole;
 	}
 	
-	
+	public void setPhone(String phone){
+		this.phone = phone;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
 	
 }
