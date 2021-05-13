@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg text-white position-absolute">
   <div class="container-xxl">
-    <a class="ms-5 navbar-brand d-flex align-items-center" href="/">
+    <a class="ms-5 navbar-brand d-flex align-items-center" href="home">
       <div class="navbar__logo--img me-3">
         <img
           src="${pageContext.request.contextPath}/resources/images/logo.png"
