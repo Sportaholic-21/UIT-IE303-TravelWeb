@@ -35,10 +35,10 @@
 							<div class = "form-inner">
 								<form:form action="signIn" class = "login" modelAttribute="contentSignIn">
 									<div class = "field">
-										<form:input path="email" type="email" placeholder="Email Address" />
+										<form:input path="email" type="email" placeholder="Email Address" required="required"/>
 									</div>
 									<div class = "field">
-										<form:password path="pass" placeholder="Password" />
+										<form:password path="pass" placeholder="Password" required="required"/>
 									</div>
 									<div class = "pass-link">
 										<a href="#">Forgot password ?</a>
@@ -56,19 +56,19 @@
 								
 								<form:form action="signUp" class = "signup" modelAttribute="contentSignUp">
 									<div class = "field">
-										<form:input path="name" type="text" placeholder="Name" />
+										<form:input path="name" type="text" placeholder="Name" required="required"/>
 									</div>
 									<div class = "field">
-										<form:input path="phone" type="tel" placeholder="Phone number" />
+										<form:input path="phone" type="tel" placeholder="Phone number" required="required"/>
 									</div>
 									<div class = "field">
-										<form:input path="email" type="email" placeholder="Email Address" />
+										<form:input path="email" type="email" placeholder="Email Address" required="required"/>
 									</div>
 									<div class = "field">
-										<form:input path="pass" type="password" placeholder="Password" />
+										<form:input path="pass" type="password" placeholder="Password" required="required"/>
 									</div>
 									<div class = "field">
-										<form:input path="" type="password" placeholder="Confirm password" />
+										<form:input path="" type="password" placeholder="Confirm password" required="required"/>
 									</div>									
 									<div class = "field">
 										<input type="submit" value="Sign up" class="submit">
