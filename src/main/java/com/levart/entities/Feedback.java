@@ -3,49 +3,58 @@
 import javax.persistence.*;
 
 @Entity
-@Table(name = "feedbackTable")
+@Table(name = "feedback")
 public class Feedback {
+	@Id
+	@Column(name = "feedbackID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private String feedbackID;
 	
-	@EmbeddedId FeedbackId feedbackID;
-	@Column(name = "feedback")
-	private String feedback;
+	@OneToOne
+	@JoinColumn(name = "tourBookingID")
+	private int tourBookingID;
+
+	@Column(name = "feedbackMessage")
+	private String feedbackMessage;
 	
-	@Column(name = "starNumber")
-	private int starNumber;
-
-	public FeedbackId getFeedbackID() {
-		return feedbackID;
-	}
-
-	public void setFeedbackID(FeedbackId feedbackID) {
-		this.feedbackID = feedbackID;
-	}
-
-	public String getFeedback() {
-		return feedback;
-	}
-
-	public void setFeedback(String feedback) {
-		this.feedback = feedback;
-	}
-
-	public int getStarNumber() {
-		return starNumber;
-	}
-
-	public void setStarNumber(int starNumber) {
-		this.starNumber = starNumber;
-	}
-
-	public Feedback(FeedbackId feedbackID, String feedback, int starNumber) {
-		super();
-		this.feedbackID = feedbackID;
-		this.feedback = feedback;
-		this.starNumber = starNumber;
-	}
-
+	@Column(name="star")
+	private float start;
+	
 	public Feedback() {
 		super();
 	}
+
+	public String getFeedbackID() {
+		return feedbackID;
+	}
+
+	public void setFeedbackID(String feedbackID) {
+		this.feedbackID = feedbackID;
+	}
+
+	public int getTourBookingID() {
+		return tourBookingID;
+	}
+
+	public void setTourBookingID(int tourBookingID) {
+		this.tourBookingID = tourBookingID;
+	}
+
+	public String getFeedbackMessage() {
+		return feedbackMessage;
+	}
+
+	public void setFeedbackMessage(String feedbackMessage) {
+		this.feedbackMessage = feedbackMessage;
+	}
+
+	public float getStart() {
+		return start;
+	}
+
+	public void setStart(float start) {
+		this.start = start;
+	}
+	
 	
 }

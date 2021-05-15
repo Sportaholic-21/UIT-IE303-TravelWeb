@@ -3,7 +3,7 @@ package com.levart.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "typologyTable")
+@Table(name = "typology")
 public class Typology {
 	@Id
 	@Column(name = "typologyID")
