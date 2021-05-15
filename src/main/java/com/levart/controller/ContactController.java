@@ -1,5 +1,7 @@
 package com.levart.controller;
 
+import java.util.List;
+
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
@@ -13,15 +15,24 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
 import com.levart.entities.Contact;
+import com.levart.entities.User;
 import com.levart.form_entities.FormMessage;
 import com.levart.form_entities.FormSearch;
+import com.levart.hibernate.dao.UserDAO;
 
 @Controller
+@SessionAttributes("user")
 public class ContactController {
 
 	/*@Autowired
 	JavaMailSender mailSender;*/
+	@ModelAttribute("user")
+	public User newUser() {
+		return new User();
+	}
 
 	@ModelAttribute("messageContact")
 	public FormMessage setContact() {
@@ -33,9 +44,20 @@ public class ContactController {
 	}
 
 	@GetMapping("/contact")
-	public String showPage() {
+	public String showPage(@ModelAttribute("user") User user, Model model) {
+		if (user.getEmail() == null) {
+			model.addAttribute("username", null);
+		} else {
+			UserDAO userDAO = new UserDAO();
+			List<User> users = userDAO.getUser();
+			int i = userDAO.findUserIndex(user.getEmail(), user.getPass());
+			if (i == -1) return "contact";
+			user = users.get(i);
+			model.addAttribute("username", user.getUsername());
+		}
 		return "contact";
 	}
+
 
 //	@PostMapping("/sendContact")
 //	@ResponseBody

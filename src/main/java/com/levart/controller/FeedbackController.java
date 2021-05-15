@@ -6,13 +6,24 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
+import java.util.List;
+
+import com.levart.entities.User;
 import com.levart.form_entities.FormMessage;
 import com.levart.form_entities.FormSearch;
+import com.levart.hibernate.dao.UserDAO;
 
 @Controller
+@SessionAttributes("user")
 public class FeedbackController {
+
+	@ModelAttribute("user")
+	public User newUser() {
+		return new User();
+	}
+
 	@RequestMapping("/feedback")
 	public String showPage() {
 		return "feedback";
@@ -28,7 +39,20 @@ public class FeedbackController {
 	}
 	
 	@RequestMapping("/sendFeedback")
-	public String sendFeedback(@ModelAttribute("messageFeedback") FormMessage messageFeedback, Model model) {
+	public String sendFeedback(@ModelAttribute("messageFeedback") FormMessage messageFeedback,
+							   @ModelAttribute("user") User user, 
+							   Model model) {
+		//kiểm tra user
+		if (user.getEmail() == null) {
+			model.addAttribute("username", null);
+		} else {
+			UserDAO userDAO = new UserDAO();
+			List<User> users = userDAO.getUser();
+			int i = userDAO.findUserIndex(user.getEmail(), user.getPass());
+			user = users.get(i);
+			model.addAttribute("username", user.getUsername());
+		}
+		//end Ktra
 		String name=messageFeedback.getName();
 		String email=messageFeedback.getEmail();
 		String message=messageFeedback.getMessage();

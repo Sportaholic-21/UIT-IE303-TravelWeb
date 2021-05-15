@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.List;
 
 import com.levart.entities.User;
 import com.levart.form_entities.FormSearch;
@@ -13,8 +16,12 @@ import com.levart.form_entities.FormSignUp;
 import com.levart.hibernate.dao.UserDAO;
 
 @Controller
-@SessionAttributes("contentSignIn")
+@SessionAttributes("user")
 public class SignInController {
+	@ModelAttribute("user")
+	public User setUser() {
+		return new User();
+	}
 	@ModelAttribute("contentSignIn")
 	public FormSignUp setSignIn() {
 		return new FormSignUp();
@@ -34,8 +41,23 @@ public class SignInController {
 		return "sign-in";
 	}
 	@PostMapping("/signIn")
-	public String handleSignIn(@ModelAttribute("contentSignIn") FormSignUp userForm){
-		
+	public String handleSignIn(@ModelAttribute("contentSignIn") FormSignUp userForm, 
+							   @ModelAttribute("user") User user,
+							   RedirectAttributes redirectAttributes){
+		String email = userForm.getEmail();
+		String password = userForm.getPass();
+		userForm.setRememberme(1);
+		UserDAO userDAO = new UserDAO();
+		List<User> users = userDAO.getUser();
+		int i = userDAO.findUserIndex(email,password);
+		System.out.println(i);
+		if (i==-1){
+			return "redirect: sign-in";
+		}
+		user = users.get(i);
+		user.setUsername("username");
+		redirectAttributes.addFlashAttribute("user", user);
+		System.out.println(user.getUsername());
 		return "redirect: home"; 
 	}
 	@PostMapping("/signUp")
