@@ -16,23 +16,19 @@ public class UserDAO {
 
 	private String hql = "from User";
 
-	/*private List<User> users = new ArrayList<>();
+	private List<User> users = new ArrayList<>();
 
-	public List<User> getAll(){
-		return users;
-	}
-*/
 	public UserDAO(){
 
 	}
 
-	public void getUser(){
+	public List<User> getUser(){
 		Session session = factory.openSession();
 		try {
 			Transaction tx = session.beginTransaction();
 			@SuppressWarnings("unchecked")
 			Query<User> query=session.createQuery(hql);
-			List<User> users = query.getResultList();
+			users = query.getResultList();
 			for (User user: users){
 				System.out.println(user.getUserID());
 			}
@@ -44,6 +40,7 @@ public class UserDAO {
 			session.flush();
 			session.close();
 		}*/
+		return users;
 	}
 
 	public void addUser(User user) {
@@ -62,12 +59,12 @@ public class UserDAO {
 		}*/
 	}
 
-	public static void main(String []args){
-		User a = new User();
-		a.setUsername("Long");
-		UserDAO userDAO = new UserDAO();
-		userDAO.addUser(a);
-		userDAO.getUser();
-		System.out.println("Hello");
+	//Search
+	public int findUserIndex(String email, String password){
+		int i;
+		for (i = 0; i < users.size() 
+					&& !(users.get(i).getEmail().equals(email) && users.get(i).getPass().equals(password)); 
+					i++);
+		return (i == users.size()) ? -1 : i;
 	}
 }

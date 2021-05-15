@@ -38,6 +38,16 @@ public class User {
 		this.userRole = userRole;
 	}
 
+	public User(User user)
+	{
+		super();
+		this.userID = user.getUserID();
+		this.username = user.getUsername();
+		this.email = user.getEmail();
+		this.pass = user.getPass();
+		this.userRole = user.getUserRole();
+	}
+
 	public int getUserID() {
 		return userID;
 	}
