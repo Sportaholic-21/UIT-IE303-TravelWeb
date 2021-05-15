@@ -60,7 +60,11 @@
 
       <ul class="navbar-nav mb-2 mb-lg-0 text-uppercase align-items-center">
         <li class="nav-item">
+        <% if (request.getAttribute("username") == null) {%>
           <a class="nav-link" href="sign-in">Sign in</a>
+        <% } else {%>
+          <a class="nav-link" href="profile">${username}</a>
+        <% }%>
         </li>
 
         <!-- already login -->

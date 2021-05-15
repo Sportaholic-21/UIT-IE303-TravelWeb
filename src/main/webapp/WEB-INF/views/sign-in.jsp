@@ -45,7 +45,7 @@
 									</div>
 									
 									<div class = "remember__field">
-										<form:checkbox path="rememberme" value="1"/>
+										<form:checkbox path="rememberme" value="1" checked="checked"/>
 										<label for ="remeberme">Remember me</label>
 									</div>
 									

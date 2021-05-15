@@ -94,4 +94,22 @@
 				700 $</p>
 		</a>
 	</div>
+
+	<% if (request.getAttribute("username") != null){ %> 
+		<div>
+			<button type="button" class="btn btn-danger" id="signOut">
+				<span class="glyphicon glyphicon-log-out"></span>Log Out
+			</button>
+		</div>
+	<%}%>
 </div>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script defer>
+	var signOut = document.getElementById("signOut");
+	signOut.addEventListener("click", () => {
+		axios.post("/UIT-IE303-TravelWeb/signOut")
+			 .then(function(res){window.location="/UIT-IE303-TravelWeb/"})
+			 .catch(function(err){console.log(err)})
+	})
+</script>

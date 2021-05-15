@@ -42,3 +42,8 @@
 	height: 25px;
 	cursor: pointer;
 }
+
+#signOut {
+	display: block;
+	margin: 50px auto;
+}
