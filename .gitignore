@@ -163,3 +163,5 @@ $RECYCLE.BIN/
 
 # Personal
 .personal
+
+src/main/hibernate.cfg.xml
