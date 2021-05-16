@@ -8,29 +8,29 @@ import org.hibernate.query.Query;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.levart.entities.User;
+import com.levart.entities.Account;
 import com.levart.hibernate.utils.HibernateUtils;
 
 public class AccountDAO {
 	SessionFactory factory=HibernateUtils.getSessionFactory();
 
-	private String hql = "from User";
+	private String hql = "from Account";
 
-	private List<User> users = new ArrayList<>();
+	private List<Account> accounts = new ArrayList<>();
 
-	public UserDAO(){
+	public AccountDAO(){
 
 	}
 
-	public List<User> getUser(){
+	public List<Account> getAccount(){
 		Session session = factory.openSession();
 		try {
 			Transaction tx = session.beginTransaction();
 			@SuppressWarnings("unchecked")
-			Query<User> query=session.createQuery(hql);
-			users = query.getResultList();
-			for (User user: users){
-				System.out.println(user.getUserID());
+			Query<Account> query=session.createQuery(hql);
+			accounts = query.getResultList();
+			for (Account account: accounts){
+				System.out.println(account.getAccountID());
 			}
 			tx.commit();
 		} catch (RuntimeException e){
@@ -40,14 +40,14 @@ public class AccountDAO {
 			session.flush();
 			session.close();
 		}*/
-		return users;
+		return accounts;
 	}
 
-	public void addUser(User user) {
+	public void addAccount(Account account) {
 		Session session = factory.openSession();
 		try {
 			Transaction tx = session.beginTransaction();
-			session.save(user);
+			session.save(account);
 			tx.commit();
 			System.out.println("OK");
 		} catch (RuntimeException e){
@@ -60,11 +60,11 @@ public class AccountDAO {
 	}
 
 	//Search
-	public int findUserIndex(String email, String password){
+	public int findAccountIndex(String email, String password){
 		int i;
-		for (i = 0; i < users.size() 
-					&& !(users.get(i).getEmail().equals(email) && users.get(i).getPass().equals(password)); 
+		for (i = 0; i < accounts.size() 
+					&& !(accounts.get(i).getEmail().equals(email) && accounts.get(i).getPass().equals(password)); 
 					i++);
-		return (i == users.size()) ? -1 : i;
+		return (i == accounts.size()) ? -1 : i;
 	}
 }

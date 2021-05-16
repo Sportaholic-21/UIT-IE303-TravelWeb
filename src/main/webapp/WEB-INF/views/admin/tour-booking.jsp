@@ -6,10 +6,10 @@ tagdir="/WEB-INF/tags"%>
     <form class="needs-validation" novalidate>
       <div class="form-row">
         <div class="col-md-6 mb-3">
-          <label for="validationCustom01">User</label>
-          <input list="user" type="text" class="form-control"
+          <label for="validationCustom01">Account</label>
+          <input list="account" type="text" class="form-control"
                 id="validationCustom01" required>
-        <datalist id="user">
+        <datalist id="account">
         <option value="01 - a">
                 <option value="02 - b">
               </datalist>

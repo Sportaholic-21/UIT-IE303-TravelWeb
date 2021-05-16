@@ -16,7 +16,7 @@ public class Account {
 	@Column(name = "email")
 	private String email;
 	
-	@Column(name = "password")
+	@Column(name = "pass")
 	private String password;
 	
 	@Column(name = "accountRole")
@@ -50,11 +50,11 @@ public class Account {
 		this.email = email;
 	}
 
-	public String getPassword() {
+	public String getPass() {
 		return password;
 	}
 
-	public void setPassword(String password) {
+	public void setPass(String password) {
 		this.password = password;
 	}
 

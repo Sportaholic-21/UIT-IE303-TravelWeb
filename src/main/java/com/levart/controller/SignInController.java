@@ -10,17 +10,17 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
-import com.levart.entities.User;
+import com.levart.entities.Account;
 import com.levart.form_entities.FormSearch;
 import com.levart.form_entities.FormSignUp;
-import com.levart.hibernate.dao.UserDAO;
+import com.levart.hibernate.dao.AccountDAO;
 
 @Controller
-@SessionAttributes("user")
+@SessionAttributes("account")
 public class SignInController {
-	@ModelAttribute("user")
-	public User setUser() {
-		return new User();
+	@ModelAttribute("account")
+	public Account setAccount() {
+		return new Account();
 	}
 	@ModelAttribute("contentSignIn")
 	public FormSignUp setSignIn() {
@@ -42,37 +42,37 @@ public class SignInController {
 	}
 	@PostMapping("/signIn")
 	public String handleSignIn(@ModelAttribute("contentSignIn") FormSignUp userForm, 
-							   @ModelAttribute("user") User user,
+							   @ModelAttribute("account") Account account,
 							   RedirectAttributes redirectAttributes){
 		String email = userForm.getEmail();
 		String password = userForm.getPass();
 		userForm.setRememberme(1);
-		UserDAO userDAO = new UserDAO();
-		List<User> users = userDAO.getUser();
-		int i = userDAO.findUserIndex(email,password);
+		AccountDAO userDAO = new AccountDAO();
+		List<Account> users = userDAO.getAccount();
+		int i = userDAO.findAccountIndex(email,password);
 		System.out.println(i);
 		if (i==-1){
 			return "redirect: sign-in";
 		}
-		user = users.get(i);
-		user.setUsername("username");
-		redirectAttributes.addFlashAttribute("user", user);
-		System.out.println(user.getUsername());
+		account = users.get(i);
+		account.setUsername("username");
+		redirectAttributes.addFlashAttribute("account", account);
+		System.out.println(account.getUsername());
 		return "redirect: home"; 
 	}
 	@PostMapping("/signUp")
 	public String handleSignUp(@ModelAttribute("contentSignUp") FormSignUp userForm){
-		UserDAO userDAO = new UserDAO();
-		User user = new User();
-		user.setUsername(userForm.getName());
-		user.setEmail(userForm.getEmail());
-		user.setPass(userForm.getPass());
-		user.setPhone(userForm.getPhone());
-		user.setUserRole(0);
+		AccountDAO userDAO = new AccountDAO();
+		Account account = new Account();
+		account.setUsername(userForm.getName());
+		account.setEmail(userForm.getEmail());
+		account.setPass(userForm.getPass());
+		//account.setPhone(userForm.getPhone());
+		account.setAccountRole(0);
 		try{
-			userDAO.addUser(user);
-			userDAO.getUser();
-			System.out.println(user.getPhone());
+			userDAO.addAccount(account);
+			userDAO.getAccount();
+			//System.out.println(account.getPhone());
 		} catch(Exception e){
 			return "redirect: sign-in";
 		}

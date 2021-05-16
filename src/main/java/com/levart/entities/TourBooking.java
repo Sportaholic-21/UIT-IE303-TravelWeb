@@ -17,12 +17,14 @@ public class TourBooking {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int tourBookingID;
 
-	@OneToOne
-	@JoinColumn(name = "accountID")
-	private String accountID;
+	// @OneToOne
+	// @JoinColumn(name = "accountID")
+	@Column(name = "accountID")
+	private int accountID;
 
-	@OneToOne
-	@JoinColumn(name = "tourID")
+	//@OneToOne
+	//@JoinColumn(name = "tourID")
+	@Column(name="tourID")
 	private String tourID;
 
 	@Column(name = "bookDate")
@@ -39,11 +41,11 @@ public class TourBooking {
 		this.tourBookingID = tourBookingID;
 	}
 
-	public String getAccountID() {
+	public int getAccountID() {
 		return accountID;
 	}
 
-	public void setAccountID(String accountID) {
+	public void setAccountID(int accountID) {
 		this.accountID = accountID;
 	}
 

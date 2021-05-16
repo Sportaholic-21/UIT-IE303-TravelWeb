@@ -10,14 +10,15 @@
         <property name="hibernate.connection.username">sa</property>
         <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
         
-        <mapping class="com.levart.entities.TourPackage"/>
-        <mapping class="com.levart.entities.Contact"/>
-        <mapping class="com.levart.entities.Feedback"/>
-        <mapping class="com.levart.entities.FeedbackId"/>
-        <mapping class="com.levart.entities.Image"/>
-        <mapping class="com.levart.entities.Tour"/>
+
+        <mapping class="com.levart.entities.Continent"/>
         <mapping class="com.levart.entities.Typology"/>
-        <mapping class="com.levart.entities.User"/>
+        <mapping class="com.levart.entities.Account"/>
+        <mapping class="com.levart.entities.Tour"/>
+        <mapping class="com.levart.entities.TourBooking"/>
+        <mapping class="com.levart.entities.Feedback"/>
+        <mapping class="com.levart.entities.Image"/>
+        
         
     </session-factory>
 </hibernate-configuration>

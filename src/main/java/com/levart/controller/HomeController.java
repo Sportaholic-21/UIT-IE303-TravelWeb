@@ -9,17 +9,17 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.util.List;
 
-import com.levart.entities.User;
+import com.levart.entities.Account;
 import com.levart.form_entities.FormSearch;
-import com.levart.hibernate.dao.UserDAO;
+import com.levart.hibernate.dao.AccountDAO;
 
 @Controller
-@SessionAttributes("user")
+@SessionAttributes("account")
 public class HomeController {
 	
-	@ModelAttribute("user")
-	public User newUser() {
-		return new User();
+	@ModelAttribute("account")
+	public Account newAccount() {
+		return new Account();
 	}
 
 	@ModelAttribute("textSearch")
@@ -28,24 +28,24 @@ public class HomeController {
 	}
 	
     @RequestMapping("/home")
-	public String showPage(@ModelAttribute(name="user") User user, Model model){
-		if (user.getEmail() == null) {
+	public String showPage(@ModelAttribute(name="account") Account account, Model model){
+		if (account.getEmail() == null) {
 			model.addAttribute("username", null);
 		} else {
-			UserDAO userDAO = new UserDAO();
-			List<User> users = userDAO.getUser();
-			int i = userDAO.findUserIndex(user.getEmail(), user.getPass());
-			user = users.get(i);
-			model.addAttribute("username", user.getUsername());
+			AccountDAO userDAO = new AccountDAO();
+			List<Account> users = userDAO.getAccount();
+			int i = userDAO.findAccountIndex(account.getEmail(), account.getPass());
+			account = users.get(i);
+			model.addAttribute("username", account.getUsername());
 		}
 		return "home";
 	}
 
 	@PostMapping("/signOut")
-	public String handleSignOut(@ModelAttribute(name="user") User user)
+	public String handleSignOut(@ModelAttribute(name="account") Account account)
 	{
-		user.setPass(null);
-		user.setEmail(null);
+		account.setPass(null);
+		account.setEmail(null);
 		return "home"; //Cái này chắc sau này đổi
 	}
 }

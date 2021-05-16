@@ -1,4 +1,4 @@
- package com.levart.entities;
+package com.levart.entities;
 
 import javax.persistence.*;
 
@@ -10,8 +10,9 @@ public class Feedback {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String feedbackID;
 	
-	@OneToOne
-	@JoinColumn(name = "tourBookingID")
+	// @OneToOne
+	// @JoinColumn(name = "tourBookingID")
+	@Column(name = "tourBookingID")
 	private int tourBookingID;
 
 	@Column(name = "feedbackMessage")

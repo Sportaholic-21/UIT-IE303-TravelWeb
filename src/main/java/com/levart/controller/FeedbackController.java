@@ -10,18 +10,18 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.util.List;
 
-import com.levart.entities.User;
+import com.levart.entities.Account;
 import com.levart.form_entities.FormMessage;
 import com.levart.form_entities.FormSearch;
-import com.levart.hibernate.dao.UserDAO;
+import com.levart.hibernate.dao.AccountDAO;
 
 @Controller
-@SessionAttributes("user")
+@SessionAttributes("account")
 public class FeedbackController {
 
-	@ModelAttribute("user")
-	public User newUser() {
-		return new User();
+	@ModelAttribute("account")
+	public Account newAccount() {
+		return new Account();
 	}
 
 	@RequestMapping("/feedback")
@@ -40,17 +40,17 @@ public class FeedbackController {
 	
 	@RequestMapping("/sendFeedback")
 	public String sendFeedback(@ModelAttribute("messageFeedback") FormMessage messageFeedback,
-							   @ModelAttribute("user") User user, 
+							   @ModelAttribute("account") Account account, 
 							   Model model) {
-		//kiểm tra user
-		if (user.getEmail() == null) {
+		//kiểm tra account
+		if (account.getEmail() == null) {
 			model.addAttribute("username", null);
 		} else {
-			UserDAO userDAO = new UserDAO();
-			List<User> users = userDAO.getUser();
-			int i = userDAO.findUserIndex(user.getEmail(), user.getPass());
-			user = users.get(i);
-			model.addAttribute("username", user.getUsername());
+			AccountDAO userDAO = new AccountDAO();
+			List<Account> users = userDAO.getAccount();
+			int i = userDAO.findAccountIndex(account.getEmail(), account.getPass());
+			account = users.get(i);
+			model.addAttribute("username", account.getUsername());
 		}
 		//end Ktra
 		String name=messageFeedback.getName();

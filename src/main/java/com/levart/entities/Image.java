@@ -17,8 +17,9 @@ public class Image {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int imageID;
 	
-	@OneToOne
-	@JoinColumn(name = "tourID")
+	// @OneToOne
+	// @JoinColumn(name = "tourID")
+	@Column(name = "tourID")
 	private int tourID; 
 	
 	@Column(name = "url")
