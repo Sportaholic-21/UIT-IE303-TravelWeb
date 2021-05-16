@@ -11,7 +11,7 @@ import java.util.List;
 import com.levart.entities.User;
 import com.levart.hibernate.utils.HibernateUtils;
 
-public class UserDAO {
+public class AccountDAO {
 	SessionFactory factory=HibernateUtils.getSessionFactory();
 
 	private String hql = "from User";

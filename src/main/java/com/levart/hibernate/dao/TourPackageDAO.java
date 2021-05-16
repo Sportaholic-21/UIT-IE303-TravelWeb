@@ -7,7 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import com.levart.hibernate.utils.HibernateUtils;
-import com.levart.entities.TourPackage;
+import com.levart.entities.Tour;
 
 public class TourPackageDAO {
 	static SessionFactory factory = HibernateUtils.getSessionFactory();
@@ -17,18 +17,18 @@ public class TourPackageDAO {
 	}
 
 	//select
-	public void getTourPackage() {
+	public void getTour() {
 		Session session = factory.openSession();
 		try {
 			// bắt đầu 1 transaction (giao dịch)
 			Transaction tx = session.beginTransaction();
 			// thực thi câu query dạng hql
 			@SuppressWarnings("unchecked")
-			Query<TourPackage> query=session.createQuery("from TourPackage");
-			List<TourPackage> packageList = query.getResultList();
+			Query<Tour> query=session.createQuery("from TourPackage");
+			List<Tour> packageList = query.getResultList();
 			
-			for (TourPackage tourPackage: packageList) {
-				System.out.println(tourPackage.getPackageID());
+			for (Tour tourPackage: packageList) {
+				System.out.println(tourPackage.getTourID());
 			}
 //			tx.commit();
 		} catch (RuntimeException e) {
@@ -41,14 +41,14 @@ public class TourPackageDAO {
 	}
 	
 	//insert
-	public void addTourPackage(TourPackage tourPackage) {
+	public void addTour(Tour tourPackage) {
 		Session session = factory.openSession();
 		try {
 			// bắt đầu 1 transaction (giao dịch)
 			Transaction tx = session.beginTransaction();
 			// thực thi câu query dạng hql
 			session.save(tourPackage);
-//			tx.commit();
+			tx.commit();
 			System.out.println("Insert success!");
 		} catch (RuntimeException e) {
 			session.getTransaction().rollback();
@@ -59,12 +59,12 @@ public class TourPackageDAO {
 		}
 	}
 	public static void main(String []args){
-		TourPackage p = new TourPackage( );
-		p.setNation("CHina");
-		p.setContinent("Khap the gioi");
+		Tour p = new Tour();
+//		p.setNation("CHina");
+//		p.setContinent("Khap the gioi");
 		TourPackageDAO tourPackageDAO= new TourPackageDAO();
-		tourPackageDAO.addTourPackage(p);
-		tourPackageDAO.getTourPackage();
+		tourPackageDAO.addTour(p);
+		tourPackageDAO.getTour();
 		System.out.println("hello");
 	}
 }

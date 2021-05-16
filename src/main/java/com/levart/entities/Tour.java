@@ -1,48 +1,54 @@
 package com.levart.entities;
 
-import java.time.LocalDateTime;
 import java.util.Currency;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tourTable")
+@Table(name = "tour")
 public class Tour {
 	@Id
 	@Column(name = "tourID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int tourID;
-		
-	// Biểu diễn quan hệ 1-1 giữa tour và package
-	// 1 tour có 1 và chỉ 1 package
-//	@Column
+
 	@OneToOne
-	@JoinColumn(name = "package_id") // Liên kết với nhau qua khóa ngoại package_id
-    private TourPackage packageID; 
-	
-	//Biểu diễn quan hệ giữa tour và typology
-//	@Column
-	@OneToOne
-	@JoinColumn(name = "typology_id")
+	@JoinColumn(name = "typologyID")
 	private Typology typologyID;
-	
-	@Column(name = "descriptions")
-	private String descriptions;
-	
-	@Column(name = "detail")
-	private String detail;
-	
+
+	@OneToOne
+	@JoinColumn(name = "continentID")
+	private Typology continentID;
+
+	@Column(name = "tourName")
+	private String tourName;
+
+	@Column(name = "nation")
+	private String nation;
+
+	@Column(name = "shortDesc")
+	private String shortDesc;
+
+	@Column(name = "desc")
+	private String desc;
+
+	@Column(name = "schedule")
+	private String schedule;
+
 	@Column(name = "price")
 	private Currency price;
-	
-	@Column(name = "startDate")
-	private LocalDateTime startDate;
-	
+
+	@Column(name = "discount")
+	private String discount;
+
+	@Column(name = "cycle")
+	private String cycle;
+
 	@Column(name = "duration")
 	private int duration;
-	
+
 	@Column(name = "rating")
-	private int rating;
+	private float rating;
 
 	public int getTourID() {
 		return tourID;
@@ -50,14 +56,6 @@ public class Tour {
 
 	public void setTourID(int tourID) {
 		this.tourID = tourID;
-	}
-
-	public TourPackage getPackageID() {
-		return packageID;
-	}
-
-	public void setPackageID(TourPackage packageID) {
-		this.packageID = packageID;
 	}
 
 	public Typology getTypologyID() {
@@ -68,20 +66,52 @@ public class Tour {
 		this.typologyID = typologyID;
 	}
 
-	public String getDescriptions() {
-		return descriptions;
+	public Typology getContinentID() {
+		return continentID;
 	}
 
-	public void setDescriptions(String descriptions) {
-		this.descriptions = descriptions;
+	public void setContinentID(Typology continentID) {
+		this.continentID = continentID;
 	}
 
-	public String getDetail() {
-		return detail;
+	public String getTourName() {
+		return tourName;
 	}
 
-	public void setDetail(String detail) {
-		this.detail = detail;
+	public void setTourName(String tourName) {
+		this.tourName = tourName;
+	}
+
+	public String getNation() {
+		return nation;
+	}
+
+	public void setNation(String nation) {
+		this.nation = nation;
+	}
+
+	public String getShortDesc() {
+		return shortDesc;
+	}
+
+	public void setShortDesc(String shortDesc) {
+		this.shortDesc = shortDesc;
+	}
+
+	public String getDesc() {
+		return desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+
+	public String getSchedule() {
+		return schedule;
+	}
+
+	public void setSchedule(String schedule) {
+		this.schedule = schedule;
 	}
 
 	public Currency getPrice() {
@@ -92,12 +122,20 @@ public class Tour {
 		this.price = price;
 	}
 
-	public LocalDateTime getStartDate() {
-		return startDate;
+	public String getDiscount() {
+		return discount;
 	}
 
-	public void setStartDate(LocalDateTime startDate) {
-		this.startDate = startDate;
+	public void setDiscount(String discount) {
+		this.discount = discount;
+	}
+
+	public String getCycle() {
+		return cycle;
+	}
+
+	public void setCycle(String cycle) {
+		this.cycle = cycle;
 	}
 
 	public int getDuration() {
@@ -108,31 +146,16 @@ public class Tour {
 		this.duration = duration;
 	}
 
-	public int getRating() {
+	public float getRating() {
 		return rating;
 	}
 
-	public void setRating(int rating) {
-		this.rating = rating;
-	}
-
-	public Tour(int tourID, TourPackage packageID, Typology typologyID, String descriptions, String detail, Currency price,
-			LocalDateTime startDate, int duration, int rating) {
-		super();
-		this.tourID = tourID;
-		this.packageID = packageID;
-		this.typologyID = typologyID;
-		this.descriptions = descriptions;
-		this.detail = detail;
-		this.price = price;
-		this.startDate = startDate;
-		this.duration = duration;
+	public void setRating(float rating) {
 		this.rating = rating;
 	}
 
 	public Tour() {
 		super();
 	}
-	
-	
+
 }
