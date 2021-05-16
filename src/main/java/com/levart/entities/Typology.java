@@ -1,5 +1,7 @@
 package com.levart.entities;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,6 +15,19 @@ public class Typology {
 	@Column(name = "typologyName", length = 20)
 	private String typologyName;
 	
+	@OneToMany(mappedBy = "typology", cascade = {
+			CascadeType.PERSIST, CascadeType.MERGE,
+			CascadeType.DETACH, CascadeType.REFRESH })
+	private List<Tour> tours;
+	
+	public List<Tour> getTours() {
+		return tours;
+	}
+
+	public void setTours(List<Tour> tours) {
+		this.tours = tours;
+	}
+
 	public int getTypologyID() {
 		return typologyID;
 	}

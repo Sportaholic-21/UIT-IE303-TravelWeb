@@ -12,13 +12,15 @@ public class Tour {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int tourID;
 
-	@OneToOne
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE,
+			CascadeType.DETACH, CascadeType.REFRESH })
 	@JoinColumn(name = "typologyID")
-	private Typology typologyID;
+	private Typology typology;
 
-	@OneToOne
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE,
+			CascadeType.DETACH, CascadeType.REFRESH })
 	@JoinColumn(name = "continentID")
-	private Typology continentID;
+	private Typology continent;
 
 	@Column(name = "tourName")
 	private String tourName;
@@ -58,20 +60,20 @@ public class Tour {
 		this.tourID = tourID;
 	}
 
-	public Typology getTypologyID() {
-		return typologyID;
+	public Typology getTypology() {
+		return typology;
 	}
 
-	public void setTypologyID(Typology typologyID) {
-		this.typologyID = typologyID;
+	public void setTypology(Typology typology) {
+		this.typology = typology;
 	}
 
-	public Typology getContinentID() {
-		return continentID;
+	public Typology getContinent() {
+		return continent;
 	}
 
-	public void setContinentID(Typology continentID) {
-		this.continentID = continentID;
+	public void setContinent(Typology continent) {
+		this.continent = continent;
 	}
 
 	public String getTourName() {
