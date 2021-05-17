@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%> <%@taglib prefix="t"
 tagdir="/WEB-INF/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>>
 
 <t:adminpage pageHeading="Booked Tours">
   <jsp:body>
@@ -37,26 +38,28 @@ tagdir="/WEB-INF/tags"%>
               </tr>
             </tfoot>
             <tbody>
+            
+            <c:forEach var="tourBooking" items="${tourBookings }"> 
               <tr>
-                <td>Tiger Nixon</td>
-                <td>test@gmail.com</td>
-                <td>01/01/2001</td>
+                <td>${tourBooking.account.username }</td>
+                <td>${tourBooking.account.email }</td>
+                <td>${tourBooking.bookDate }</td>
                 <td>
-                  <a href="${pageContext.request.contextPath}/tour-detail"
-                    >Hong Kong</a
+                  <a href="${pageContext.request.contextPath}/tour/${tourBooking.tour.tourID }"
+                    >${tourBooking.tour.tourName }</a
                   >
                 </td>
                 <td>
                   <select class="custom-select">
-                    <option value="1" selected>Not Start Yet</option>
-                    <option value="2">Started</option>
-                    <option value="3">Ended</option>
-                    <option value="4">Cancel</option>
+                    <option value="1"  selected="${tourBooking.bookStatus == 1 ? 'selected' : ''}">Not Start Yet</option>
+                    <option value="2" selected="${tourBooking.bookStatus == 2 ? 'selected' : ''}">Started</option>
+                    <option value="3" selected="${tourBooking.bookStatus == 3 ? 'selected' : ''}">Ended</option>
+                    <option value="4"selected="${tourBooking.bookStatus == 4 ? 'selected' : ''}">Cancel</option>
                   </select>
                 </td>
                 <td>
                   <a
-                    href="${pageContext.request.contextPath}/admin/edit-booked-tour"
+                    href="${pageContext.request.contextPath}/admin/booked-tour/edit?id=${tourBooking.tour.tourID }"
                     ><button type="button" class="btn btn-link">Edit</button></a
                   >
                   <button data-toggle="modal" data-target="#deleteModel" type="button" class="btn btn-link text-danger">
@@ -64,6 +67,8 @@ tagdir="/WEB-INF/tags"%>
                   </button>
                 </td>
               </tr>
+              </c:forEach>
+              
             </tbody>
           </table>
         </div>
