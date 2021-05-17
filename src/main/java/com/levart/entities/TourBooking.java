@@ -1,11 +1,13 @@
 package com.levart.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -16,23 +18,23 @@ public class TourBooking {
 	@Column(name = "tourBookingID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int tourBookingID;
-
-	// @OneToOne
-	// @JoinColumn(name = "accountID")
-	@Column(name = "accountID")
-	private int accountID;
-
-	//@OneToOne
-	//@JoinColumn(name = "tourID")
-	@Column(name="tourID")
-	private String tourID;
+	
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.DETACH,
+			CascadeType.MERGE, CascadeType.REFRESH })
+	@JoinColumn(name = "accountID")
+	private Account account;
+	
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.DETACH,
+	CascadeType.MERGE, CascadeType.REFRESH })
+	@JoinColumn(name = "tourID")
+	private Tour tour;
 
 	@Column(name = "bookDate")
 	private String bookDate;
 
 	@Column(name = "bookStatus")
 	private String bookStatus;
-
+	
 	public int getTourBookingID() {
 		return tourBookingID;
 	}
@@ -41,21 +43,21 @@ public class TourBooking {
 		this.tourBookingID = tourBookingID;
 	}
 
-	public int getAccountID() {
-		return accountID;
+	public Account getAccount() {
+		return account;
 	}
 
-	public void setAccountID(int accountID) {
-		this.accountID = accountID;
+	public void setAccount(Account account) {
+		this.account = account;
 	}
 
-	public String getTourID() {
-		return tourID;
-	}
-
-	public void setTourID(String tourID) {
-		this.tourID = tourID;
-	}
+		public Tour getTour() {
+			return tour;
+		}
+	
+		public void setTour(Tour tour) {
+			this.tour = tour;
+		}
 
 	public String getBookDate() {
 		return bookDate;
