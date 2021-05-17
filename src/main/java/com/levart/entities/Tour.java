@@ -31,20 +31,17 @@ public class Tour {
 	@Column(name = "shortDesc")
 	private String shortDesc;
 
-	@Column(name = "desc")
+	@Column(name = "descr")
 	private String desc;
 
 	@Column(name = "schedule")
 	private String schedule;
 
 	@Column(name = "price")
-	private Currency price;
+	private String price;
 
 	@Column(name = "discount")
 	private String discount;
-
-	@Column(name = "cycle")
-	private String cycle;
 
 	@Column(name = "duration")
 	private int duration;
@@ -116,11 +113,11 @@ public class Tour {
 		this.schedule = schedule;
 	}
 
-	public Currency getPrice() {
+	public String getPrice() {
 		return price;
 	}
 
-	public void setPrice(Currency price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 
@@ -130,14 +127,6 @@ public class Tour {
 
 	public void setDiscount(String discount) {
 		this.discount = discount;
-	}
-
-	public String getCycle() {
-		return cycle;
-	}
-
-	public void setCycle(String cycle) {
-		this.cycle = cycle;
 	}
 
 	public int getDuration() {
@@ -159,5 +148,17 @@ public class Tour {
 	public Tour() {
 		super();
 	}
+
+	@Override
+	public String toString() {
+		return "Tour [tourID=" + tourID + ", typology=" + typology
+				+ ", continent=" + continent + ", tourName="
+				+ tourName + ", nation=" + nation + ", shortDesc="
+				+ shortDesc + ", desc=" + desc + ", schedule="
+				+ schedule + ", price=" + price + ", discount="
+				+ discount + ", duration=" + duration + ", rating="
+				+ rating + "]";
+	}
+	
 
 }
