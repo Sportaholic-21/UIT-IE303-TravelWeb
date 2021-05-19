@@ -42,6 +42,23 @@ public class AccountDAO {
 		}*/
 		return accounts;
 	}
+	
+	public Account getAccount(int id) {
+		factory = HibernateUtils.getSessionFactory();
+		Session session = factory.openSession();
+		try {
+			Account account = session.get(Account.class, id);
+			return account;
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+			factory.close();
+		}
+		
+		return null;
+	}	
 
 	public void addAccount(Account account) {
 		Session session = factory.openSession();
