@@ -80,4 +80,11 @@ public class TourBooking {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public String toString() {
+		return "TourBooking [tourBookingID=" + tourBookingID
+				+ ", account=" + account + ", tour=" + tour
+				+ ", bookDate=" + bookDate + ", bookStatus="
+				+ bookStatus + "]";
+	}
 }
