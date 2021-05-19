@@ -39,7 +39,11 @@ tagdir="/WEB-INF/tags"%>
             </tfoot>
             <tbody>
             
-            <c:forEach var="tourBooking" items="${tourBookings }"> 
+            <c:forEach var="tourBooking" items="${tourBookings }">
+            	<c:url var="editLink" value="/admin/booked-tour/edit">
+            		<c:param name="id" value="${tourBooking.tourBookingID }" />
+            	</c:url>
+             
               <tr>
                 <td>${tourBooking.account.username }</td>
                 <td>${tourBooking.account.email }</td>
@@ -59,7 +63,7 @@ tagdir="/WEB-INF/tags"%>
                 </td>
                 <td>
                   <a
-                    href="${pageContext.request.contextPath}/admin/booked-tour/edit?id=${tourBooking.tour.tourID }"
+                    href="${editLink }"
                     ><button type="button" class="btn btn-link">Edit</button></a
                   >
                   <button data-toggle="modal" data-target="#deleteModel" type="button" class="btn btn-link text-danger">

@@ -26,11 +26,47 @@ public class TourBookingDAO {
 			session.getTransaction().rollback();
 			e.printStackTrace();
 		} finally {
-//			session.flush();
 			session.close();
 			factory.close();
 		}
 		
 		return null;
 	}
+	
+	public TourBooking getTourBooking(int id) {
+		factory = HibernateUtils.getSessionFactory();
+		Session session = factory.openSession();
+		try {
+			TourBooking tour = session.get(TourBooking.class, id);
+			return tour;
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+			factory.close();
+		}
+		
+		return null;
+	}	
+	
+	public void updateTourBooking(TourBooking tourBooking) {
+		factory = HibernateUtils.getSessionFactory();
+		Session session = factory.openSession();
+		Transaction tx = null;
+		
+		try {
+			tx = session.beginTransaction();
+			
+			session.saveOrUpdate(tourBooking);
+			
+			tx.commit();
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+			factory.close();
+		}
+	}	
 }
