@@ -37,7 +37,7 @@ public class TourListController {
 			model.addAttribute("username", null);
 		} else {
 			AccountDAO userDAO = new AccountDAO();
-			List<Account> users = userDAO.getAccount();
+			List<Account> users = userDAO.getAllAccounts();
 			int i = userDAO.findAccountIndex(account.getEmail(), account.getPass());
 			if (i == -1) return "tour-list";
 			account = users.get(i);

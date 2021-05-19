@@ -22,7 +22,7 @@ public class AccountDAO {
 
 	}
 
-	public List<Account> getAccount(){
+	public List<Account> getAllAccounts(){
 		Session session = factory.openSession();
 		try {
 			Transaction tx = session.beginTransaction();

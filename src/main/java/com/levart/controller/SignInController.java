@@ -48,7 +48,7 @@ public class SignInController {
 		String password = userForm.getPass();
 		userForm.setRememberme(1);
 		AccountDAO userDAO = new AccountDAO();
-		List<Account> users = userDAO.getAccount();
+		List<Account> users = userDAO.getAllAccounts();
 		int i = userDAO.findAccountIndex(email,password);
 		System.out.println(i);
 		if (i==-1){
@@ -71,7 +71,7 @@ public class SignInController {
 		account.setAccountRole(0);
 		try{
 			userDAO.addAccount(account);
-			userDAO.getAccount();
+			userDAO.getAllAccounts();
 			//System.out.println(account.getPhone());
 		} catch(Exception e){
 			return "redirect: sign-in";

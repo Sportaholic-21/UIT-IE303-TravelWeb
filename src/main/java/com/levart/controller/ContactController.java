@@ -49,7 +49,7 @@ public class ContactController {
 			model.addAttribute("username", null);
 		} else {
 			AccountDAO userDAO = new AccountDAO();
-			List<Account> users = userDAO.getAccount();
+			List<Account> users = userDAO.getAllAccounts();
 			int i = userDAO.findAccountIndex(account.getEmail(), account.getPass());
 			if (i == -1) return "contact";
 			account = users.get(i);

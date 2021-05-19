@@ -47,7 +47,7 @@ public class FeedbackController {
 			model.addAttribute("username", null);
 		} else {
 			AccountDAO userDAO = new AccountDAO();
-			List<Account> users = userDAO.getAccount();
+			List<Account> users = userDAO.getAllAccounts();
 			int i = userDAO.findAccountIndex(account.getEmail(), account.getPass());
 			account = users.get(i);
 			model.addAttribute("username", account.getUsername());
