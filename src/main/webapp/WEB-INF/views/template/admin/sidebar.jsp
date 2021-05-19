@@ -109,7 +109,7 @@
           >
             <a
               class="nav-link"
-              href="${pageContext.request.contextPath}/admin/booked-tours"
+              href="${pageContext.request.contextPath}/admin/booked-tour"
             >
               Booked Tour List
               <div class="sb-sidenav-collapse-arrow">
@@ -118,7 +118,7 @@
             </a>
             <a
               class="nav-link"
-              href="${pageContext.request.contextPath}/admin/tour-booking"
+              href="${pageContext.request.contextPath}/admin/booked-tour/add"
             >
               Add Booked Tour
               <div class="sb-sidenav-collapse-arrow">
