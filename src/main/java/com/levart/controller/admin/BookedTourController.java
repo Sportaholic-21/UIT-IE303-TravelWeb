@@ -25,12 +25,12 @@ public class BookedTourController {
 		
 		model.addAttribute("tourBookings", tourBookings);
 		
-		return "/admin/booked-tour";
+		return "/admin/booked-tour/list";
 	}
 	
 	@RequestMapping(value={"/add"})
 	public String showPage() {
-		return "/admin/tour-booking";
+		return "/admin/booked-tour/addForm";
 	}
 	
 	@RequestMapping(value = { "/edit" })
@@ -50,7 +50,7 @@ public class BookedTourController {
 		model.addAttribute("username", editedTourBooking.getAccount().getUsername());
 		
 		// return view
-		return "/admin/booked-tour-editing";
+		return "/admin/booked-tour/editForm";
 	}
 	
 	@PostMapping(value = { "/api/update" })

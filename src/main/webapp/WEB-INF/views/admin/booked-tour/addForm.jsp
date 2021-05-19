@@ -25,7 +25,7 @@ tagdir="/WEB-INF/tags"%>
         </div>
       </div>
       <button class="btn btn-primary" type="submit">Submit</button>
-      <a href="${pageContext.request.contextPath}/admin/booked-tours" class="btn btn-warning">Cancel</a>
+      <a href="${pageContext.request.contextPath}/admin/booked-tour" class="btn btn-warning">Cancel</a>
     </form>
   </jsp:body>
 </t:adminpage>
