@@ -66,7 +66,7 @@ tagdir="/WEB-INF/tags"%>
                     href="${editLink }"
                     ><button type="button" class="btn btn-link">Edit</button></a
                   >
-                  <button data-toggle="modal" data-target="#deleteModel" type="button" class="btn btn-link text-danger">
+                  <button data-toggle="modal" data-target="#deleteModel" data-id="${tourBooking.tourBookingID}" data-link="booked-tour/api/delete" type="button" class="btn btn-link text-danger deleteBtn">
                     Delete
                   </button>
                 </td>
@@ -99,12 +99,12 @@ tagdir="/WEB-INF/tags"%>
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">Are you sure to delete this booking?</div>
+      <div class="modal-body">Are you sure to delete this booking? - ID = <span id="id"></span></div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">
           Close
         </button>
-        <button type="button" class="btn btn-danger">Delete</button>
+        <a type="button" class="btn btn-danger" id="deleteLink">Delete</a>
       </div>
     </div>
   </div>

@@ -67,4 +67,16 @@ public class BookedTourController {
 
 		return "redirect:/admin/booked-tour";
 	}
+	
+	@RequestMapping(value = { "/api/delete" })
+	public String delete(@RequestParam("id") int id, Model model) {
+		//	 get the booked tour from the db
+		TourBookingDAO tourBookingDAO = new TourBookingDAO();
+		TourBooking deletedTourBooking = tourBookingDAO
+				.getTourBooking(id);
+		
+		tourBookingDAO.deleteTourBooking(deletedTourBooking);
+		
+		return "redirect:/admin/booked-tour";
+	}
 }

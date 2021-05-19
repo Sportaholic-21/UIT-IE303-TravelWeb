@@ -64,5 +64,7 @@
 		crossorigin="anonymous"></script>
 	<script
 		src="${pageContext.request.contextPath}/resources/admin/assets/demo/datatables-demo.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/admin/js/passDataToModalDelete.js"></script>
 </body>
 </html>
