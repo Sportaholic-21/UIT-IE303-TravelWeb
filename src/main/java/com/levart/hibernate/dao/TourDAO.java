@@ -1,5 +1,6 @@
 package com.levart.hibernate.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -15,9 +16,24 @@ public class TourDAO {
 	public TourDAO() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Tour getTour(int id) {
+		Session session = factory.openSession();
+		try {
+			Tour tour = session.get(Tour.class, id);
+			return tour;
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		
+		return null;
+	}
 
 	//select
-	public void getTour() {
+	public List<Tour> getAllTours() {
 		Session session = factory.openSession();
 		try {
 			// bắt đầu 1 transaction (giao dịch)
@@ -25,12 +41,9 @@ public class TourDAO {
 			// thực thi câu query dạng hql
 			@SuppressWarnings("unchecked")
 			Query<Tour> query=session.createQuery("from Tour");
-			List<Tour> packageList = query.getResultList();
+			List<Tour> tourList = query.getResultList();
 			
-			for (Tour tour: packageList) {
-				System.out.println(tour.getTourID());
-			}
-//			tx.commit();
+			return tourList;
 		} catch (RuntimeException e) {
 			session.getTransaction().rollback();
 			e.printStackTrace();
@@ -38,6 +51,8 @@ public class TourDAO {
 			session.flush();
 			session.close();
 		}
+		
+		return null;
 	}
 	
 	//insert
@@ -64,7 +79,7 @@ public class TourDAO {
 //		p.setContinent("Khap the gioi");
 		TourDAO tourDAO= new TourDAO();
 		tourDAO.addTour(p);
-		tourDAO.getTour();
+		tourDAO.getAllTours();
 		System.out.println("hello");
 	}
 }
