@@ -48,6 +48,28 @@ public class Tour {
 
 	@Column(name = "rating")
 	private float rating;
+	
+	@Column(name = "numberFeedback")
+	private float numberFeedback;
+	
+	@Column(name = "numberBooking")
+	private float numberBooking;
+	
+	public float getNumberFeedback() {
+		return numberFeedback;
+	}
+
+	public void setNumberFeedback(float numberFeedback) {
+		this.numberFeedback = numberFeedback;
+	}
+
+	public float getNumberBooking() {
+		return numberBooking;
+	}
+
+	public void setNumberBooking(float numberBooking) {
+		this.numberBooking = numberBooking;
+	}
 
 	public int getTourID() {
 		return tourID;

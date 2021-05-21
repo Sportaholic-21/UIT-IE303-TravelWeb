@@ -31,10 +31,21 @@ public class TourBooking {
 
 	@Column(name = "bookDate")
 	private String bookDate;
+	
+	@Column(name = "scheduleDate")
+	private String scheduleDate;
 
 	@Column(name = "bookStatus")
 	private String bookStatus;
 	
+	public String getScheduleDate() {
+		return scheduleDate;
+	}
+
+	public void setScheduleDate(String scheduleDate) {
+		this.scheduleDate = scheduleDate;
+	}
+
 	public int getTourBookingID() {
 		return tourBookingID;
 	}
