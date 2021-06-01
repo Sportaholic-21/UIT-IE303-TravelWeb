@@ -69,6 +69,28 @@ public class TourBookingDAO {
 			factory.close();
 		}
 	}	
+	public void updateStatusTourBooking(int tourBookingID, String bookStatus) {
+		factory = HibernateUtils.getSessionFactory();
+		Session session = factory.openSession();
+		Transaction tx = null;
+		
+		try {
+			tx = session.beginTransaction();
+			String s="update TourBooking  set bookStatus= :bookStatus where tourBookingID= :tourBookingID";
+			Query query=session.createQuery(s);
+			query.setParameter("bookStatus", bookStatus);
+			query.setParameter("tourBookingID", tourBookingID);
+			query.executeUpdate();
+			System.out.println("dc roi");
+			tx.commit();
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+			factory.close();
+		}
+	}	
 	
 	public void deleteTourBooking(TourBooking tourBooking) {
 		factory = HibernateUtils.getSessionFactory();
@@ -88,5 +110,9 @@ public class TourBookingDAO {
 			session.close();
 			factory.close();
 		}
-	}	
+	}
+	public static void main(String [] args) {
+		TourBookingDAO dao= new TourBookingDAO();
+		dao.updateStatusTourBooking(31, "3");
+	}
 }
