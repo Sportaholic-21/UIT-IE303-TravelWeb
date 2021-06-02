@@ -1,8 +1,14 @@
 package com.levart.entities;
 
-import java.util.Currency;
-
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "tour")
@@ -20,7 +26,7 @@ public class Tour {
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE,
 			CascadeType.DETACH, CascadeType.REFRESH })
 	@JoinColumn(name = "continentID")
-	private Typology continent;
+	private Continent continent;
 
 	@Column(name = "tourName")
 	private String tourName;
@@ -87,11 +93,11 @@ public class Tour {
 		this.typology = typology;
 	}
 
-	public Typology getContinent() {
+	public Continent getContinent() {
 		return continent;
 	}
 
-	public void setContinent(Typology continent) {
+	public void setContinent(Continent continent) {
 		this.continent = continent;
 	}
 
