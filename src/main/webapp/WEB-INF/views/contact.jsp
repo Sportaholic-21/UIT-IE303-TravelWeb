@@ -45,26 +45,27 @@
 							<h2>Drop us a line</h2>
 							<p>Do you have any problem while wandering our website ? Please contact for support.</p>
 							<form:form action="sendContact" class="needs-validation"
-									modelAttribute="messageContact">
+									modelAttribute="messageContact" method="post">
 							<div class="mb-3">
 								<label for="name" class="form-label">Name</label>
 								<form:input path="name" class="form-control rounded-pill p-2"
-											id="name" aria-describedby="emailHelp" />
+											id="name" aria-describedby="emailHelp" value="${param.name}" />
 							</div>
 							<div class="mb-3">
 								<label for="phone" class="form-label">Number Phone</label>
 								<form:input path="phone" class="form-control rounded-pill p-2"
-											id="phone" aria-describedby="emailHelp" />
+											id="phone" aria-describedby="emailHelp" value="${param.phone}"/>
 							</div>
 							<div class="mb-3">
 								<label for="email" class="form-label">Email</label>
 								<form:input path="email" class="form-control rounded-pill p-2"
-											id="email" aria-describedby="emailHelp" />
+											id="email" aria-describedby="emailHelp" value="${param.email}"/>
 							</div>
 							<div class="mb-3">
 								<label for="message" class="form-label">Message</label>
+								
 								<form:textarea path="message" class="form-control rounded p-2"
-											id="message" aria-describedby="emailHelp" rows="5"></form:textarea>
+											id="message" aria-describedby="emailHelp" rows="5" placeholder="ahi" ></form:textarea>
 								<div class="invalid-feedback">
 									Please provide a valid city.
 								</div>
@@ -72,7 +73,11 @@
 							<input type="submit"
 										class="btn btn-info text-white rounded-pill ps-4 pe-4" value="SEND"/>
 						</form:form>
-									
+									<script type="text/javascript">
+									let params = new URLSearchParams(location.search);
+										document.querySelector("#message").value=params.get("message")
+									 
+									</script>
 				
 						</div>
 
