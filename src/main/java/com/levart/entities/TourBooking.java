@@ -35,16 +35,16 @@ public class TourBooking {
 	private LocalDateTime bookDate=LocalDateTime.now();
 	
 	@Column(name = "scheduleDate")
-	private String scheduleDate;
+	private LocalDateTime scheduleDate;
 
 	@Column(name = "bookStatus")
 	private String bookStatus;
 	
-	public String getScheduleDate() {
+	public LocalDateTime getScheduleDate() {
 		return scheduleDate;
 	}
 
-	public void setScheduleDate(String scheduleDate) {
+	public void setScheduleDate(LocalDateTime scheduleDate) {
 		this.scheduleDate = scheduleDate;
 	}
 
