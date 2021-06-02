@@ -98,7 +98,7 @@ public class ContactController {
 		message.setContent(htmlMessage, "text/html");
 		helper.setFrom("thomnd131200@gmail.com");
 		helper.setTo(messageContact.getEmail());
-		helper.setSubject("Test Test nha");
+		helper.setSubject("[Contact] Thank for your contacting!!!");
 //		message.setText("Hello cac ban, ahii!!");
 
 		// gui email thong qua gmail
