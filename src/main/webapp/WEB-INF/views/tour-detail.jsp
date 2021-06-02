@@ -2,7 +2,8 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<t:genericpage pageTitle="Hong Kong">
+<c:forEach items = "${tourList}" var = "obj">
+<t:genericpage pageTitle="${obj.tourName}">
 	<jsp:attribute name="pageCSSLink">
 		<link rel="stylesheet" type="text/css"
 			href="${pageContext.request.contextPath}/resources/css/pages/tour-detail.css">
@@ -14,12 +15,10 @@
         <span></span>
         <div class="container">
             <div class="cover-info">
-                <h1 class="cover-info__name col-12 p-0">Hong Kong</h1>
-                <div class="cover-info__prop d-xl-flex ">
-                    <div class="mr-4">
-								<i class="fas fa-map-marker-alt"></i> ASIA</div>
-                    <div class="mr-4">
-								<i class="far fa-clock"></i> 1 - 3 DAYS</div>
+                <h1 class="cover-info__name col-12 p-0">${obj.tourName}</h1>
+                <div class="d-flex flex-column bd-highlight mp-3 ">
+                	<div class="p-2 bd-highlight"><i class="fas fa-map-marker-alt"></i> ${obj.nation} - ${obj.continent.continentName}</div>
+  					<div class="p-2 bd-highlight"><i class="far fa-clock"></i> ${obj.duration} DAYS</div>
                 </div>
             </div>
         </div>
@@ -39,7 +38,7 @@
                         <div>
                             <h6>TYPOLOGIES</h6>
                             <p>
-                                History
+                                ${obj.typology.typologyName}
                                 <span
 											style="background-color: var(- -color_primary); border-radius: 15px; padding: 2px 10px; color: white;">+ 2</span>
                             </p>
@@ -106,13 +105,9 @@
                     <h2 class="tour-des__title mb-3 ">Amazing Experience</h2>
                     <div class="tour-des__content ">
                         <p class="mb-3 ">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut venenatis lorem. Nunc sodales interdum rhoncus. Nulla a leo finibus, ullamcorper lorem vel, scelerisque massa. Vivamus leo dui, interdum non fermentum eget, laoreet ac lorem. Aliquam
-                            a ultricies nisl. Nulla consequat lobortis urna sed cursus.
+                           ${obj.desc}
                         </p>
-                        <p class="mb-3 ">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut venenatis lorem. Nunc sodales interdum rhoncus. Nulla a leo finibus, ullamcorper lorem vel, scelerisque massa. Vivamus leo dui, interdum non fermentum eget, laoreet ac lorem. Aliquam
-                            a ultricies nisl. Nulla consequat lobortis urna sed cursus.
-                        </p>
+                     
                         <div class="content__table ">
                             <table class="">
                                 <tr class=" ">
@@ -202,8 +197,7 @@
 							id="program ">
                     <h2 class="tour-map__title mb-3 ">Day by Day</h2>
                     <div>
-                        <p class="mb-4 ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut venenatis lorem. Nunc sodales interdum rhoncus. Nulla a leo finibus, ullamcorper lorem vel, scelerisque massa. Vivamus leo dui, interdum non fermentum eget,
-                            laoreet ac lorem. Aliquam a ultricies nisl. Nulla consequat lobortis urna sed cursus. ipsum dolor sit amet, consectetur adipiscing elit consectef lorem vel, scelerisque massa. Vivamus leo dui, interdum non.</p>
+                        <p class="mb-4 ">${obj.schedule}</p>
                         <ul>
                             <li class="d-flex"><i
 										class="fas fa-plus-square mr-3 color--primary "></i>
@@ -239,7 +233,7 @@
                 <section class="form-send-now">
                     <div class="header-form">
                         <p>
-									<span>1000</span> 500 $</p>
+									<span> </span> ${obj.price}$</p>
                     </div>
                     <form:form id="form-send-now" action="sendContact"
 								modelAttribute="messageContact">
@@ -578,3 +572,4 @@
   		
     </jsp:body>
 </t:genericpage>
+</c:forEach>
