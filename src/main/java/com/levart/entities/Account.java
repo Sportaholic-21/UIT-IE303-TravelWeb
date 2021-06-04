@@ -16,6 +16,12 @@ public class Account {
 	@Column(name = "email")
 	private String email;
 	
+	@Column(name = "fullName")
+	private String fullName;
+	
+	@Column(name = "avatar")
+	private String avatar;
+	
 	@Column(name = "pass")
 	private String password;
 	
@@ -94,6 +100,22 @@ public class Account {
 
 	public void setAccountRole(int accountRole) {
 		this.accountRole = accountRole;
+	}
+
+	public String getAvatar() {
+		return this.avatar;
+	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
+
+	public String getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 
 	@Override
