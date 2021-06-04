@@ -22,6 +22,36 @@ public class Account {
 	@Column(name = "accountRole")
 	private int accountRole;
 
+	@Column(name = "accountAddress")
+	private String accountAddress;
+	
+	@Column(name = "socialMediaLink")
+	private String socialMediaLink;
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getAccountAddress() {
+		return accountAddress;
+	}
+
+	public void setAccountAddress(String accountAddress) {
+		this.accountAddress = accountAddress;
+	}
+
+	public String getSocialMediaLink() {
+		return socialMediaLink;
+	}
+
+	public void setSocialMediaLink(String socialMediaLink) {
+		this.socialMediaLink = socialMediaLink;
+	}
+
 	public Account() {
 		super();
 	}
@@ -70,6 +100,7 @@ public class Account {
 	public String toString() {
 		return "Account [accountID=" + accountID + ", username="
 				+ username + ", email=" + email + ", password="
-				+ password + ", accountRole=" + accountRole + "]";
+				+ password + ", accountRole=" + accountRole + "Social Media: " + socialMediaLink
+				+ "Address: = " + accountAddress+"]";
 	}
 }
