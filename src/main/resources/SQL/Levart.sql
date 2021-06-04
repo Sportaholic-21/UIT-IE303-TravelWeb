@@ -25,11 +25,13 @@ CREATE TABLE account
 (
     accountID int IDENTITY(1,1) PRIMARY KEY,
     username varchar(20) UNIQUE,
+	fullName varchar(50),
     email varchar(20) UNIQUE,
     pass varchar(20),
+    avatar varchar(70) default 'https://i.ibb.co/t42CQhf/profile-default.png',
     accountRole bit default 1, /* 0 la admin, 1 la client nha */
-	accountAddress varchar(1000),
-	socialMediaLink varchar(1000),
+	accountAddress varchar(1000) NOT NULL,
+	socialMediaLink varchar(1000) default '',
 )
 GO
 
@@ -56,7 +58,8 @@ CREATE TABLE tour
     discount float default 0,
 	priceDiscount decimal(10,0),
 	numberBooking int default 0, /* so luong dat tour cua tour nay */
-	numberFeedback int default 0 /* so luong feedback cua tour do */
+	numberFeedback int default 0, /* so luong feedback cua tour do */
+	coordinate varchar(40) default ''
 )
 GO
 
@@ -226,5 +229,5 @@ END
 GO
 
 /* SP_WHO 
-KILL 70
-drop database levart
+KILL 59
+drop database levart */
