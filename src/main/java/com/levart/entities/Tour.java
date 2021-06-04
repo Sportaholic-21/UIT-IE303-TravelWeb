@@ -27,15 +27,26 @@ public class Tour {
 			CascadeType.DETACH, CascadeType.REFRESH })
 	@JoinColumn(name = "continentID")
 	private Continent continent;
+	
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE,
+			CascadeType.DETACH, CascadeType.REFRESH })
+	@JoinColumn(name = "nationID")
+	private Nation nation;
 
 	@Column(name = "tourName")
 	private String tourName;
 
-	@Column(name = "nation")
-	private String nation;
 
 	@Column(name = "shortDesc")
 	private String shortDesc;
+
+	public Nation getNation() {
+		return nation;
+	}
+
+	public void setNation(Nation nation) {
+		this.nation = nation;
+	}
 
 	@Column(name = "descr")
 	private String desc;
@@ -61,6 +72,17 @@ public class Tour {
 	@Column(name = "numberBooking")
 	private float numberBooking;
 	
+	@Column(name = "priceDiscount")
+	private String priceDiscount;
+	
+	public String getPriceDiscount() {
+		return priceDiscount;
+	}
+
+	public void setPriceDiscount(String priceDiscount) {
+		this.priceDiscount = priceDiscount;
+	}
+
 	public float getNumberFeedback() {
 		return numberFeedback;
 	}
@@ -109,14 +131,7 @@ public class Tour {
 		this.tourName = tourName;
 	}
 
-	public String getNation() {
-		return nation;
-	}
-
-	public void setNation(String nation) {
-		this.nation = nation;
-	}
-
+	
 	public String getShortDesc() {
 		return shortDesc;
 	}
@@ -184,7 +199,7 @@ public class Tour {
 				+ tourName + ", nation=" + nation + ", shortDesc="
 				+ shortDesc + ", desc=" + desc + ", schedule="
 				+ schedule + ", price=" + price + ", discount="
-				+ discount + ", duration=" + duration + ", rating="
+				+ discount + "price after discount= " + priceDiscount + ", duration=" + duration + ", rating="
 				+ rating + "]";
 	}
 	
