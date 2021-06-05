@@ -32,8 +32,13 @@ CREATE TABLE account
     accountRole bit default 1, /* 0 la admin, 1 la client nha */
 	accountAddress varchar(1000) NOT NULL,
 	socialMediaLink varchar(1000) default '',
+	point int default 0,
 )
 GO
+
+-- Dành cho việc cập nhật bảng account nếu đã pull file này trước trưa ngày 5/6/2021 hoặc trước đó
+/* alter table account
+add point int default 0*/
 
 CREATE TABLE typology
 (
@@ -46,10 +51,9 @@ CREATE TABLE tour
 (
 	tourID int IDENTITY(1,1) PRIMARY KEY,
 	nationID int FOREIGN KEY REFERENCES nation(nationID),
-	continentID int FOREIGN KEY REFERENCES continent(continentID),
 	typologyID int FOREIGN KEY REFERENCES typology(typologyID),
 	tourName varchar(20),
-    shortDesc varchar(100),
+    shortDesc varchar(200),
 	descr varchar(8000),
 	price decimal(10,0),
 	duration smallint, /* bao nhieu ngay */
@@ -62,7 +66,14 @@ CREATE TABLE tour
 	coordinate varchar(40) default ''
 )
 GO
-
+select * from tour
+-- Dành cho việc cập nhật bảng tour nếu đã pull file này trước buổi trưa ngày 5/6/2021
+/* alter table tour
+drop CONSTRAINT FK__tour__continentI__30F848ED
+alter table tour
+drop column continentID
+alter table tour
+alter column shortDesc varchar(200)*/ 
 
 CREATE TABLE tourBooking
 (
@@ -88,12 +99,17 @@ CREATE TABLE tourImage
 (
     tourImageID int IDENTITY(1,1) PRIMARY KEY,
     tourID int FOREIGN KEY REFERENCES tour(tourID),
-    imageURL varchar(20),
-    tourImageName varchar(20),
+    imageURL varchar(50),
+    tourImageName varchar(100),
     imageRole bit default 1 /* 1 la cho gallery, 0 la cover image */
 )
-
 GO
+-- Dành cho việc cập nhật kiểu dữ liệu bảng tourImage nếu đã pull file này trước buổi trưa 5/6/2021
+/* Alter table tourImage
+alter column imageURL varchar(50)
+Alter table tourImage
+alter column tourImageName varchar(100) */
+
 /* ko cho phep cung 1 nguoi va dat cung 1 ngay */
 ALTER TABLE tourBooking
   ADD CONSTRAINT ucCodes UNIQUE (accountID, bookDate)
