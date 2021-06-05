@@ -39,5 +39,7 @@
 		src="${pageContext.request.contextPath}/resources/user/js/popper.min.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/resources/user/js/bootstrap-material-design.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/js/passDataToModalDelete.js"></script>
 </body>
 </html>
