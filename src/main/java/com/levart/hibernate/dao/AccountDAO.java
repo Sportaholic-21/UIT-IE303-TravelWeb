@@ -43,12 +43,18 @@ public class AccountDAO {
 		return accounts;
 	}
 	
-	public Account getAccount(int id) {
+	public Account getAccount(String username) {
 		factory = HibernateUtils.getSessionFactory();
 		Session session = factory.openSession();
 		try {
-			Account account = session.get(Account.class, id);
-			return account;
+			@SuppressWarnings("unchecked")
+			Query<Account> query = session.createQuery("from Account account where account.username=:theParam");
+
+			query.setParameter("theParam", username);
+			
+			Account tempAccount = query.getSingleResult();
+
+			return tempAccount;
 		} catch (RuntimeException e) {
 			session.getTransaction().rollback();
 			e.printStackTrace();
@@ -83,5 +89,29 @@ public class AccountDAO {
 					&& !(accounts.get(i).getEmail().equals(email) && accounts.get(i).getPass().equals(password)); 
 					i++);
 		return (i == accounts.size()) ? -1 : i;
+	}
+	
+	// get tourBooking of specific account
+	public Account getAccountWithTourBooking(String username) {
+		factory = HibernateUtils.getSessionFactory();
+		Session session = factory.openSession();
+		try {
+			@SuppressWarnings("unchecked")
+			Query<Account> query = session.createQuery("select i from Account i JOIN FETCH i.tourBookings where i.username=:theParam");
+			
+			query.setParameter("theParam", username);
+			
+			Account tempAccount = query.getSingleResult();
+			
+			return tempAccount;
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+			factory.close();
+		}
+		
+		return null;
 	}
 }

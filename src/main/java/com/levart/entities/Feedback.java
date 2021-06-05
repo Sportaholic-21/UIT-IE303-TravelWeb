@@ -10,10 +10,9 @@ public class Feedback {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String feedbackID;
 	
-	// @OneToOne
-	// @JoinColumn(name = "tourBookingID")
-	@Column(name = "tourBookingID")
-	private int tourBookingID;
+	@OneToOne
+	@JoinColumn(name = "tourBookingID")
+	private TourBooking tourBooking;
 
 	@Column(name = "feedbackMessage")
 	private String feedbackMessage;
@@ -33,12 +32,12 @@ public class Feedback {
 		this.feedbackID = feedbackID;
 	}
 
-	public int getTourBookingID() {
-		return tourBookingID;
+	public TourBooking getTourBookingID() {
+		return tourBooking;
 	}
 
-	public void setTourBookingID(int tourBookingID) {
-		this.tourBookingID = tourBookingID;
+	public void setTourBookingID(TourBooking tourBooking) {
+		this.tourBooking = tourBooking;
 	}
 
 	public String getFeedbackMessage() {

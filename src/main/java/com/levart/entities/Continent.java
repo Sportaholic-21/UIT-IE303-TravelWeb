@@ -2,6 +2,7 @@ package com.levart.entities;
 
 import java.util.List;
 
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name = "continent")
@@ -25,14 +27,15 @@ public class Continent {
 	@OneToMany(mappedBy = "continent", cascade = {
 			CascadeType.PERSIST, CascadeType.MERGE,
 			CascadeType.DETACH, CascadeType.REFRESH })
-	private List<Tour> tours;
+	private List<Nation> nations;
 	
-	public List<Tour> getTours() {
-		return tours;
+	
+	public List<Nation> getNations() {
+		return nations;
 	}
 
-	public void setTours(List<Tour> tours) {
-		this.tours = tours;
+	public void setNations(List<Nation> nations) {
+		this.nations = nations;
 	}
 
 	public int getContinentID() {

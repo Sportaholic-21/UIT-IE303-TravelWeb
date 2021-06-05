@@ -1,8 +1,14 @@
 package com.levart.entities;
 
-import java.util.Currency;
-
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "tour")
@@ -17,19 +23,26 @@ public class Tour {
 	@JoinColumn(name = "typologyID")
 	private Typology typology;
 
+	
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE,
 			CascadeType.DETACH, CascadeType.REFRESH })
-	@JoinColumn(name = "continentID")
-	private Typology continent;
+	@JoinColumn(name = "nationID", referencedColumnName = "nationID")
+	private Nation nation;
 
 	@Column(name = "tourName")
 	private String tourName;
 
-	@Column(name = "nation")
-	private String nation;
 
 	@Column(name = "shortDesc")
 	private String shortDesc;
+
+	public Nation getNation() {
+		return nation;
+	}
+
+	public void setNation(Nation nation) {
+		this.nation = nation;
+	}
 
 	@Column(name = "descr")
 	private String desc;
@@ -55,6 +68,17 @@ public class Tour {
 	@Column(name = "numberBooking")
 	private float numberBooking;
 	
+	@Column(name = "priceDiscount")
+	private String priceDiscount;
+	
+	public String getPriceDiscount() {
+		return priceDiscount;
+	}
+
+	public void setPriceDiscount(String priceDiscount) {
+		this.priceDiscount = priceDiscount;
+	}
+
 	public float getNumberFeedback() {
 		return numberFeedback;
 	}
@@ -87,13 +111,6 @@ public class Tour {
 		this.typology = typology;
 	}
 
-	public Typology getContinent() {
-		return continent;
-	}
-
-	public void setContinent(Typology continent) {
-		this.continent = continent;
-	}
 
 	public String getTourName() {
 		return tourName;
@@ -103,14 +120,7 @@ public class Tour {
 		this.tourName = tourName;
 	}
 
-	public String getNation() {
-		return nation;
-	}
-
-	public void setNation(String nation) {
-		this.nation = nation;
-	}
-
+	
 	public String getShortDesc() {
 		return shortDesc;
 	}
@@ -173,14 +183,12 @@ public class Tour {
 
 	@Override
 	public String toString() {
-		return "Tour [tourID=" + tourID + ", typology=" + typology
-				+ ", continent=" + continent + ", tourName="
-				+ tourName + ", nation=" + nation + ", shortDesc="
+		return "Tour [tourID=" + tourID +  ", nation=" + nation
+				+ ", tourName=" + tourName + ", shortDesc="
 				+ shortDesc + ", desc=" + desc + ", schedule="
 				+ schedule + ", price=" + price + ", discount="
 				+ discount + ", duration=" + duration + ", rating="
-				+ rating + "]";
+				+ rating + ", numberFeedback=" + numberFeedback
+				+ ", numberBooking=" + numberBooking;
 	}
-	
-
 }

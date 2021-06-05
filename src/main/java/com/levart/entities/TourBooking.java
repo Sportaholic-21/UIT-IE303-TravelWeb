@@ -30,6 +30,9 @@ public class TourBooking {
 	CascadeType.MERGE, CascadeType.REFRESH })
 	@JoinColumn(name = "tourID")
 	private Tour tour;
+	
+	@OneToOne(mappedBy = "tourBooking", cascade = CascadeType.ALL)
+	private Feedback Feedback;
 
 	@Column(name = "bookDate")
 	private LocalDateTime bookDate=LocalDateTime.now();
@@ -38,7 +41,7 @@ public class TourBooking {
 	private LocalDateTime scheduleDate;
 
 	@Column(name = "bookStatus")
-	private String bookStatus;
+	private int bookStatus;
 	
 	public LocalDateTime getScheduleDate() {
 		return scheduleDate;
@@ -80,11 +83,11 @@ public class TourBooking {
 		this.bookDate = bookDate;
 	}
 
-	public String getBookStatus() {
+	public int getBookStatus() {
 		return bookStatus;
 	}
 
-	public void setBookStatus(String bookStatus) {
+	public void setBookStatus(int bookStatus) {
 		this.bookStatus = bookStatus;
 	}
 
@@ -93,10 +96,18 @@ public class TourBooking {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Feedback getFeedback() {
+		return Feedback;
+	}
+
+	public void setFeedback(Feedback feedback) {
+		Feedback = feedback;
+	}
+
 	@Override
 	public String toString() {
 		return "TourBooking [tourBookingID=" + tourBookingID
-				+ ", account=" + account + ", tour=" + tour
+				 + ", tour=" + tour
 				+ ", bookDate=" + bookDate + ", bookStatus="
 				+ bookStatus + "]";
 	}
