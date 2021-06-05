@@ -27,11 +27,6 @@ public class Continent {
 	@OneToMany(mappedBy = "continent", cascade = {
 			CascadeType.PERSIST, CascadeType.MERGE,
 			CascadeType.DETACH, CascadeType.REFRESH })
-	private List<Tour> tours;
-	
-	@OneToMany(mappedBy = "continent", cascade = {
-			CascadeType.PERSIST, CascadeType.MERGE,
-			CascadeType.DETACH, CascadeType.REFRESH })
 	private List<Nation> nations;
 	
 	
@@ -41,14 +36,6 @@ public class Continent {
 
 	public void setNations(List<Nation> nations) {
 		this.nations = nations;
-	}
-
-	public List<Tour> getTours() {
-		return tours;
-	}
-
-	public void setTours(List<Tour> tours) {
-		this.tours = tours;
 	}
 
 	public int getContinentID() {

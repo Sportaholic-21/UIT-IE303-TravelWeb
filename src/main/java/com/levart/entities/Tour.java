@@ -23,10 +23,6 @@ public class Tour {
 	@JoinColumn(name = "typologyID")
 	private Typology typology;
 
-	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE,
-			CascadeType.DETACH, CascadeType.REFRESH })
-	@JoinColumn(name = "continentID")
-	private Continent continent;
 	
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE,
 			CascadeType.DETACH, CascadeType.REFRESH })
@@ -115,13 +111,6 @@ public class Tour {
 		this.typology = typology;
 	}
 
-	public Continent getContinent() {
-		return continent;
-	}
-
-	public void setContinent(Continent continent) {
-		this.continent = continent;
-	}
 
 	public String getTourName() {
 		return tourName;
@@ -195,7 +184,7 @@ public class Tour {
 	@Override
 	public String toString() {
 		return "Tour [tourID=" + tourID + ", typology=" + typology
-				+ ", continent=" + continent + ", tourName="
+				+ ", continent=" + nation.getContinent().getContinentID() + ", tourName="
 				+ tourName + ", nation=" + nation + ", shortDesc="
 				+ shortDesc + ", desc=" + desc + ", schedule="
 				+ schedule + ", price=" + price + ", discount="
