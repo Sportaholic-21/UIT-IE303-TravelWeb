@@ -24,7 +24,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto me-auto mb-lg-0 text-uppercase">
         <li class="nav-item me-4">
-          <a class="nav-link active" aria-current="page" href="home">Home</a>
+          <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/home">Home</a>
         </li>
         <li class="nav-item me-4 dropdown">
           <a
@@ -46,24 +46,24 @@
         </li>
 
         <li class="nav-item me-4">
-          <a class="nav-link" href="about-us">About us</a>
+          <a class="nav-link" href="${pageContext.request.contextPath}/about-us">About us</a>
         </li>
 
         <li class="nav-item me-4">
-          <a class="nav-link" href="forum">Forum</a>
+          <a class="nav-link" href="${pageContext.request.contextPath}/forum">Forum</a>
         </li>
 
         <li class="nav-item ms-2">
-          <a class="nav-link nav__cta rounded-pill nav__contact-link" href="contact">Contact</a>
+          <a class="nav-link nav__cta rounded-pill nav__contact-link" href="${pageContext.request.contextPath}/contact">Contact</a>
         </li>
       </ul>
 
       <ul class="navbar-nav mb-2 mb-lg-0 text-uppercase align-items-center">
         <li class="nav-item">
         <% if (request.getAttribute("username") == null) {%>
-          <a class="nav-link" href="sign-in">Sign in</a>
+          <a class="nav-link" href="${pageContext.request.contextPath}/sign-in">Sign in</a>
         <% } else {%>
-          <a class="nav-link" href="profile">${username}</a>
+          <a class="nav-link" href="${pageContext.request.contextPath}/profile">${username}</a>
         <% }%>
         </li>
 
