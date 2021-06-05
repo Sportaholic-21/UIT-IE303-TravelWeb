@@ -105,12 +105,12 @@
 	                            <c:choose>
 									  <c:when test="${tourEnd.feedback ne null}">
 									    	<td>
-									    		<p>${tourEnd.feedback.start}</p>
+									    		<p class="font-weight-bold text-success">${tourEnd.feedback.start}</p>
 									    		<p>${tourEnd.feedback.feedbackMessage}</p>	
 									    	</td>
 									  </c:when>
 									  <c:otherwise>
-									    	<td><a href="${pageContext.request.contextPath}/feedback?id=${tourEnd.tour.tourID }"  class="btn btn-link">Give feedback</a></td>
+									    	<td><a href="${pageContext.request.contextPath}/feedback?id=${tourEnd.tour.tourID }"  class="font-weight-bold">Give feedback</a></td>
 									  </c:otherwise>
 								</c:choose>
  	                          </tr>
@@ -125,6 +125,7 @@
                       		<th>Tour ID</th>
                       		<th>Tour Name</th>
                       		<th>Nation</th>
+                      		<th>Book Date</th>
                       		<th>Start Date</th>
                       		<th>Duration</th>
                       		<th>Recover</th>
@@ -143,7 +144,7 @@
 	                            <td>${tourCancel.scheduleDate}</td>
 	                            <td>${tourCancel.tour.duration}</td>
 	                            <td>
-		                            <button data-toggle="modal" data-type="recover" data-target="#deleteModel" data-id="${tourNotStart.tourBookingID}" data-link="${pageContext.request.contextPath}/user/booked-tour/api/recover" type="button" rel="tooltip"
+		                            <button data-toggle="modal" data-type="recover" data-target="#deleteModel" data-id="${tourCancel.tourBookingID}" data-link="${pageContext.request.contextPath}/user/booked-tour/api/recover" type="button" rel="tooltip"
 														title="Recover" class="btn btn-danger btn-link btn-sm deleteBtn">
 	                                	<i class="material-icons">update</i>
 	                              </button>
