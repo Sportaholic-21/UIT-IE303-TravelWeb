@@ -30,7 +30,7 @@ public class Tour {
 	
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE,
 			CascadeType.DETACH, CascadeType.REFRESH })
-	@JoinColumn(name = "nationID")
+	@JoinColumn(name = "nationID", referencedColumnName = "nationID")
 	private Nation nation;
 
 	@Column(name = "tourName")
@@ -194,14 +194,12 @@ public class Tour {
 
 	@Override
 	public String toString() {
-		return "Tour [tourID=" + tourID + ", typology=" + typology
-				+ ", continent=" + continent + ", tourName="
-				+ tourName + ", nation=" + nation + ", shortDesc="
+		return "Tour [tourID=" + tourID +  ", nation=" + nation
+				+ ", tourName=" + tourName + ", shortDesc="
 				+ shortDesc + ", desc=" + desc + ", schedule="
 				+ schedule + ", price=" + price + ", discount="
-				+ discount + "price after discount= " + priceDiscount + ", duration=" + duration + ", rating="
-				+ rating + "]";
+				+ discount + ", duration=" + duration + ", rating="
+				+ rating + ", numberFeedback=" + numberFeedback
+				+ ", numberBooking=" + numberBooking;
 	}
-	
-
 }

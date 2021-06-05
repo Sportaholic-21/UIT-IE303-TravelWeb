@@ -1,5 +1,8 @@
 package com.levart.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -34,6 +37,12 @@ public class Account {
 	@Column(name = "socialMediaLink")
 	private String socialMediaLink;
 	
+	@Column(name = "point")
+	private int point;
+	
+	@OneToMany(mappedBy = "account", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<TourBooking> tourBookings;
+
 	public String getPassword() {
 		return password;
 	}
@@ -118,11 +127,41 @@ public class Account {
 		this.fullName = fullName;
 	}
 
-	@Override
-	public String toString() {
-		return "Account [accountID=" + accountID + ", username="
-				+ username + ", email=" + email + ", password="
-				+ password + ", accountRole=" + accountRole + "Social Media: " + socialMediaLink
-				+ "Address: = " + accountAddress+"]";
+	public List<TourBooking> getTourBookings() {
+		return tourBookings;
 	}
+
+	public void setTourBookings(List<TourBooking> tourBookings) {
+		this.tourBookings = tourBookings;
+	}
+	
+	public int getPoint() {
+		return point;
+	}
+
+	public void setPoint(int point) {
+		this.point = point;
+	}
+
+		// add convenience methods for bi-directional relationship
+		public void add(TourBooking tourBooking) {
+			if (this.tourBookings == null) {
+				this.tourBookings = new ArrayList<TourBooking>();
+			}
+			
+			this.tourBookings.add(tourBooking);
+			
+			tourBooking.setAccount(this);
+		}
+
+		@Override
+		public String toString() {
+			return "Account [accountID=" + accountID + ", username="
+					+ username + ", email=" + email + ", fullName="
+					+ fullName + ", avatar=" + avatar + ", password="
+					+ password + ", accountRole=" + accountRole
+					+ ", accountAddress=" + accountAddress
+					+ ", socialMediaLink=" + socialMediaLink
+					+ ", tourBookings=" + tourBookings + "]";
+		}
 }
