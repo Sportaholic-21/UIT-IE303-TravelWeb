@@ -24,12 +24,12 @@
 			          <div class="row ">
 			            <div class="card-avatar col-3">
 			              <a href="javascript:;">
-			                <img class="img" src="${pageContext.request.contextPath}/resources/user/img/profile-default.png" />
+			                <img class="img" src="${account.avatar}" />
 			              </a>
 			            </div>
 			            <div class="card-body col-9 d-flex">
-			              <h4 class="card-title text-left mr-auto mt-2">Alec Thompson</h4>
-			              <a href="javascript:;" class="btn btn-warning btn-round mr-5">Contact via Social</a>
+			              <h4 class="card-title text-left mr-auto mt-2">${account.username}</h4>
+			              <a href="${account.socialMediaLink}" class="btn btn-warning btn-round mr-5">Contact via Social</a>
 			            </div>
 			          </div>
 			        </div>

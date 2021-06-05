@@ -11,14 +11,16 @@ $(document).on("click", ".deleteBtn", function() {
 		$("#deleteModel #exampleModalLabel").text("Confirm Delete");
 		$("#deleteModel #confirmBody").text("Are you sure to Cancel this booking? - ID = ");
 		$("#deleteModel #deleteLink").text("Delete");	
+		$("#deleteModel #deleteLink").removeClass("btn-success");
 		$("#deleteModel #deleteLink").addClass("btn-danger");	
 	}
 	
-	if ($(this).data("recover") == "delete") {
+	if ($(this).data("type") == "recover") {
 		$("#deleteModel #exampleModalLabel").text("Confirm Recover");
 		$("#deleteModel #confirmBody").text("Are you sure to Recover this booking? - ID = ");	
-		$("#deleteModel #deleteLink").addClass("btn-success");
 		$("#deleteModel #deleteLink").text("Recover");
+		$("#deleteModel #deleteLink").removeClass("btn-danger");
+		$("#deleteModel #deleteLink").addClass("btn-success");
 	}
 	
 	$("#deleteModel #id").text(id);	
