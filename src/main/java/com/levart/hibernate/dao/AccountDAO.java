@@ -43,12 +43,18 @@ public class AccountDAO {
 		return accounts;
 	}
 	
-	public Account getAccount(int id) {
+	public Account getAccount(String username) {
 		factory = HibernateUtils.getSessionFactory();
 		Session session = factory.openSession();
 		try {
-			Account account = session.get(Account.class, id);
-			return account;
+			@SuppressWarnings("unchecked")
+			Query<Account> query = session.createQuery("from Account account where account.username=:theParam");
+
+			query.setParameter("theParam", username);
+			
+			Account tempAccount = query.getSingleResult();
+
+			return tempAccount;
 		} catch (RuntimeException e) {
 			session.getTransaction().rollback();
 			e.printStackTrace();
@@ -86,14 +92,14 @@ public class AccountDAO {
 	}
 	
 	// get tourBooking of specific account
-	public Account getAccountWithTourBooking(int accountId) {
+	public Account getAccountWithTourBooking(String username) {
 		factory = HibernateUtils.getSessionFactory();
 		Session session = factory.openSession();
 		try {
 			@SuppressWarnings("unchecked")
-			Query<Account> query = session.createQuery("select i from Account i JOIN FETCH i.tourBookings where i.accountID=:theParam");
+			Query<Account> query = session.createQuery("select i from Account i JOIN FETCH i.tourBookings where i.username=:theParam");
 			
-			query.setParameter("theParam", accountId);
+			query.setParameter("theParam", username);
 			
 			Account tempAccount = query.getSingleResult();
 			
@@ -102,7 +108,6 @@ public class AccountDAO {
 			session.getTransaction().rollback();
 			e.printStackTrace();
 		} finally {
-//			System.out.println(account.getTourBookings());
 			session.close();
 			factory.close();
 		}
