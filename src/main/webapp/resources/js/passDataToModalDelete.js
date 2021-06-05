@@ -8,9 +8,9 @@ $(document).on("click", ".deleteBtn", function() {
 	var id = $(this).data("id");
 	var link = $(this).data("link");
 	if ($(this).data("type") == "delete") {
-		$("#deleteModel #exampleModalLabel").text("Confirm Delete");
+		$("#deleteModel #exampleModalLabel").text("Confirm Cancel");
 		$("#deleteModel #confirmBody").text("Are you sure to Cancel this booking? - ID = ");
-		$("#deleteModel #deleteLink").text("Delete");	
+		$("#deleteModel #deleteLink").text("Cancel");	
 		$("#deleteModel #deleteLink").removeClass("btn-success");
 		$("#deleteModel #deleteLink").addClass("btn-danger");	
 	}

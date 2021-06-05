@@ -8,15 +8,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.levart.entities.Account;
 import com.levart.entities.TourBooking;
 import com.levart.hibernate.dao.AccountDAO;
+import com.levart.hibernate.utils.CRUDBookedTourOperation;
 
 @Controller
 @RequestMapping(value="/user/{username}")
-public class UserController {
-	@RequestMapping(value={"/", ""})
+public class UserController extends CRUDBookedTourOperation {
+	@RequestMapping(value={"", "/"})
 	public String showPage(@PathVariable String username, org.springframework.web.context.request.WebRequest webRequest, Model model) {
 		AccountDAO accountDAO = new AccountDAO();
 		String tab = webRequest.getParameter("tab");
@@ -81,5 +83,19 @@ public class UserController {
 		}
 		
 		return null;
+	}
+	
+	@RequestMapping(value={"/booked-tour/api/cancel"})
+	public String cancelBooking(@PathVariable String username, @RequestParam("id") int id) {
+		super.updateStatus(id, 4);	
+		
+		return "redirect:/user/" + username + "?tab=booked-tours";
+	}
+	
+	@RequestMapping(value={"/booked-tour/api/recover"})
+	public String recoverBooking(@PathVariable String username, @RequestParam("id") int id) {
+		super.updateStatus(id, 1);	
+		
+		return "redirect:/user/" + username + "?tab=booked-tours";
 	}
 }
