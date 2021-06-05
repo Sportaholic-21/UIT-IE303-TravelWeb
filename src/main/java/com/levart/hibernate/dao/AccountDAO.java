@@ -84,4 +84,29 @@ public class AccountDAO {
 					i++);
 		return (i == accounts.size()) ? -1 : i;
 	}
+	
+	// get tourBooking of specific account
+	public Account getAccountWithTourBooking(int accountId) {
+		factory = HibernateUtils.getSessionFactory();
+		Session session = factory.openSession();
+		try {
+			@SuppressWarnings("unchecked")
+			Query<Account> query = session.createQuery("select i from Account i JOIN FETCH i.tourBookings where i.accountID=:theParam");
+			
+			query.setParameter("theParam", accountId);
+			
+			Account tempAccount = query.getSingleResult();
+			
+			return tempAccount;
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+//			System.out.println(account.getTourBookings());
+			session.close();
+			factory.close();
+		}
+		
+		return null;
+	}
 }
