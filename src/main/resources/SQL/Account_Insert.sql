@@ -1,0 +1,1 @@
+INSERT INTO account(username, email, pass, accountAddress, socialMediaLink) values ('ylantt', 'lan@gmail.com', '1234', 'Binh Thuan', 'fb.com/hi')
