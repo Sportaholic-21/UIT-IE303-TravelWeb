@@ -112,7 +112,7 @@ alter column tourImageName varchar(100) */
 
 /* ko cho phep cung 1 nguoi va dat cung 1 ngay */
 ALTER TABLE tourBooking
-  ADD CONSTRAINT ucCodes UNIQUE (accountID, bookDate)
+  ADD CONSTRAINT ucCodes UNIQUE (accountID, scheduleDate)
 
 GO
 /* ko cho phep 2 tour trung ten va trung quoc gia */
@@ -192,6 +192,17 @@ CREATE TRIGGER tg_rating ON feedback FOR INSERT, UPDATE AS BEGIN
 		WHERE tourID = @tourID
 	)
 	WHERE tourID = @tourID
+END
+GO
+
+/* point tăng khi thêm feedback */
+CREATE TRIGGER tg_increasePoint ON feedback FOR INSERT, UPDATE AS BEGIN
+	DECLARE @tourBookingID CHAR(4), @accountID int
+	SELECT @tourBookingID = tourBookingID FROM INSERTED
+	SELECT @accountID = (SELECT accountID from tourBooking where tourBookingID = @tourBookingID)
+	UPDATE account
+	SET point = point + 100
+	WHERE accountID = @accountID
 END
 GO
 
