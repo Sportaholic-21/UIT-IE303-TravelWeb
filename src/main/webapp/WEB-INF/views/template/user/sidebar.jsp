@@ -7,14 +7,14 @@
 	<div class="sidebar-wrapper">
 		<ul class="nav">
 			<li class="nav-item ${active.equals('profile') ? 'active' : ''}"><a class="nav-link"
-				href="${pageContext.request.contextPath}/user/${account.username}?tab=profile"> <i class="material-icons">person</i>
+				href="${pageContext.request.contextPath}/user?tab=profile"> <i class="material-icons">person</i>
 					<p>Profile</p>
 			</a></li>
 			<li class="nav-item  ${active.equals('wishlist') ? 'active' : ''}"><a class="nav-link"
-				href="${pageContext.request.contextPath}/user/insight/wishlist"> <i class="material-icons">favorite</i>
+				href="${pageContext.request.contextPath}/user?tab=wishlist"> <i class="material-icons">favorite</i>
 					<p>Wishlist</p>
 			</a></li>
-			<li class="nav-item ${active.equals('bookedTours') ? 'active' : ''}"><a class="nav-link" href="${pageContext.request.contextPath}/user/${account.username}?tab=booked-tours">
+			<li class="nav-item ${active.equals('bookedTours') ? 'active' : ''}"><a class="nav-link" href="${pageContext.request.contextPath}/user?tab=booked-tours">
 					<i class="material-icons">content_paste</i>
 					<p>Booked Tours</p>
 			</a></li>

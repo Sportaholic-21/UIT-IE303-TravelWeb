@@ -58,19 +58,14 @@
         </li>
       </ul>
 
-      <ul class="navbar-nav mb-2 mb-lg-0 text-uppercase align-items-center">
+      <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
         <li class="nav-item">
         <% if (request.getAttribute("username") == null) {%>
-          <a class="nav-link" href="${pageContext.request.contextPath}/sign-in">Sign in</a>
+          <a class="nav-link text-uppercase" href="${pageContext.request.contextPath}/sign-in">Sign in</a>
         <% } else {%>
-          <a class="nav-link" href="${pageContext.request.contextPath}/profile">${username}</a>
+          <a class="nav-link" href="${pageContext.request.contextPath}/user?tab=profile">${username}</a>
         <% }%>
         </li>
-
-        <!-- already login -->
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="profile">Anna</a>
-        </li> -->
           
         <li class="nav-item" id="sidebar-menu">
           <div class="me-5 ms-3 nav__menu-img">
