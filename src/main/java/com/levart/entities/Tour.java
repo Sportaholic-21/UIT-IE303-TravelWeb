@@ -1,13 +1,17 @@
 package com.levart.entities;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -29,6 +33,9 @@ public class Tour {
 	@JoinColumn(name = "nationID", referencedColumnName = "nationID")
 	private Nation nation;
 
+	@OneToMany(mappedBy = "tour", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<TourBooking> tourBookings;
+	
 	@Column(name = "tourName")
 	private String tourName;
 
@@ -70,6 +77,9 @@ public class Tour {
 	
 	@Column(name = "priceDiscount")
 	private String priceDiscount;
+	
+	@Column(name = "coordinate")
+	private String coordinate;
 	
 	public String getPriceDiscount() {
 		return priceDiscount;
@@ -176,9 +186,25 @@ public class Tour {
 	public void setRating(float rating) {
 		this.rating = rating;
 	}
+	
+	public String getCoordinate() {
+		return coordinate;
+	}
+
+	public void setCoordinate(String coordinate) {
+		this.coordinate = coordinate;
+	}
 
 	public Tour() {
 		super();
+	}
+	
+	public List<TourBooking> getTourBookings() {
+		return tourBookings;
+	}
+
+	public void setTourBookings(List<TourBooking> tourBookings) {
+		this.tourBookings = tourBookings;
 	}
 
 	@Override
