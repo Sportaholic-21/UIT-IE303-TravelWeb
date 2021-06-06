@@ -70,6 +70,26 @@ public class TourBookingDAO {
 		}
 	}	
 	
+	public void updateStatus(TourBooking tourBooking) {
+		factory = HibernateUtils.getSessionFactory();
+		Session session = factory.openSession();
+		Transaction tx = null;
+		
+		try {
+			tx = session.beginTransaction();
+			
+			session.saveOrUpdate(tourBooking);
+			
+			tx.commit();
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+			factory.close();
+		}
+	}	
+	
 	public void deleteTourBooking(TourBooking tourBooking) {
 		factory = HibernateUtils.getSessionFactory();
 		Session session = factory.openSession();
