@@ -67,7 +67,7 @@
                             <td>${tourNotStart.scheduleDate}</td>
                             <td>${tourNotStart.tour.duration}</td>
                             <td>
-                              <button data-type="delete" data-toggle="modal" data-target="#deleteModel" data-id="${tourNotStart.tourBookingID}" data-link="${pageContext.request.contextPath}/user/${account.username}/booked-tour/api/cancel" type="button" rel="tooltip"
+                              <button data-type="delete" data-toggle="modal" data-target="#deleteModel" data-id="${tourNotStart.tourBookingID}" data-link="${pageContext.request.contextPath}/user/booked-tour/api/cancel" type="button" rel="tooltip"
 													title="Cancel" class="btn btn-danger btn-link btn-sm deleteBtn">
                                 <i class="material-icons">close</i>
                               </button>
@@ -144,7 +144,7 @@
 	                            <td>${tourCancel.scheduleDate}</td>
 	                            <td>${tourCancel.tour.duration}</td>
 	                            <td>
-		                            <button data-toggle="modal" data-type="recover" data-target="#deleteModel" data-id="${tourCancel.tourBookingID}" data-link="${pageContext.request.contextPath}/user/${account.username}/booked-tour/api/recover" type="button" rel="tooltip"
+		                            <button data-toggle="modal" data-type="recover" data-target="#deleteModel" data-id="${tourCancel.tourBookingID}" data-link="${pageContext.request.contextPath}/user/booked-tour/api/recover" type="button" rel="tooltip"
 														title="Recover" class="btn btn-danger btn-link btn-sm deleteBtn">
 	                                	<i class="material-icons">update</i>
 	                              </button>

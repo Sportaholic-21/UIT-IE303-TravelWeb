@@ -6,9 +6,11 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.levart.entities.Account;
 import com.levart.entities.Nation;
@@ -18,17 +20,21 @@ import com.levart.hibernate.dao.NationDAO;
 import com.levart.hibernate.utils.CRUDBookedTourOperation;
 
 @Controller
-@RequestMapping(value="/user/{username}")
+@SessionAttributes("account")
+@RequestMapping(value="/user")
 public class UserController extends CRUDBookedTourOperation {
-	@RequestMapping(value={"", "/"})
-	public String showPage(@PathVariable String username, org.springframework.web.context.request.WebRequest webRequest, Model model) {
+	@ModelAttribute("account")
+	public Account newAccount() {
+		return new Account();
+	}
+	
+	@RequestMapping(value={"/{username}"})
+	public String showPage(@PathVariable String username, Model model) {
 		AccountDAO accountDAO = new AccountDAO();
 		NationDAO nationDAO = new NationDAO();
 		
-		String tab = webRequest.getParameter("tab");
+		Account account = accountDAO.getAccountWithTourBooking(username);
 		
-		if (tab == null) {
-			Account account = accountDAO.getAccountWithTourBooking(username);
 			int totalFeedbacks = 0;
 			int count = 0;
 			
@@ -78,11 +84,24 @@ public class UserController extends CRUDBookedTourOperation {
 			model.addAttribute("endedTours", endedTours);
 			
 			return "/user/guest-profile";
+	}
+	
+	@RequestMapping(value={"/", ""})
+	public String showPage(@ModelAttribute("account") Account account,@RequestParam("tab") String tab,  Model model) {
+		if (account.getEmail() == null) {
+			return "redirect:/no-permission";
 		}
+		AccountDAO accountDAO = new AccountDAO();
+
+		List<Account> accounts = accountDAO.getAllAccounts();
+		
+		int index = accountDAO.findAccountIndex(account.getEmail(), account.getPass());
+		
+		if (index == -1) return "redirect:/no-permission";
+		
+		account = accounts.get(index);
 		
 		if (tab.equals("profile")) {
-			Account account = accountDAO.getAccount(username);
-			
 			model.addAttribute("account", account);
 			
 			model.addAttribute("active", "profile");
@@ -91,7 +110,7 @@ public class UserController extends CRUDBookedTourOperation {
 		}
 		
 		if (tab.equals("booked-tours")) {
-			Account account = accountDAO.getAccountWithTourBooking(username);
+			account = accountDAO.getAccountWithTourBooking(account.getUsername());
 			
 			model.addAttribute("account", account);
 			model.addAttribute("active", "profile");
@@ -130,20 +149,50 @@ public class UserController extends CRUDBookedTourOperation {
 			return "/user/bookedTours";
 		}
 		
-		return null;
+		return "redirect: no-permission";
 	}
 	
 	@RequestMapping(value={"/booked-tour/api/cancel"})
-	public String cancelBooking(@PathVariable String username, @RequestParam("id") int id) {
+	public String cancelBooking(@ModelAttribute("account") Account account, @RequestParam("id") int id, Model model) {
+		if (account.getEmail() == null) {
+			return "redirect:/no-permission";
+		}
+		AccountDAO accountDAO = new AccountDAO();
+
+		List<Account> accounts = accountDAO.getAllAccounts();
+		
+		int index = accountDAO.findAccountIndex(account.getEmail(), account.getPass());
+		
+		if (index == -1) return "redirect:/no-permission";
+		
+		account = accounts.get(index);
+		
 		super.updateStatus(id, 4);	
 		
-		return "redirect:/user/" + username + "?tab=booked-tours";
+		model.addAttribute("account", account);
+		
+		return "redirect:/user/?tab=booked-tours";
 	}
 	
 	@RequestMapping(value={"/booked-tour/api/recover"})
-	public String recoverBooking(@PathVariable String username, @RequestParam("id") int id) {
+	public String recoverBooking(@ModelAttribute("account") Account account, @RequestParam("id") int id, Model model) {
+		if (account.getEmail() == null) {
+			return "redirect:/no-permission";
+		}
+		AccountDAO accountDAO = new AccountDAO();
+
+		List<Account> accounts = accountDAO.getAllAccounts();
+		
+		int index = accountDAO.findAccountIndex(account.getEmail(), account.getPass());
+		
+		if (index == -1) return "redirect:/no-permission";
+		
+		account = accounts.get(index);
+		
 		super.updateStatus(id, 1);	
 		
-		return "redirect:/user/" + username + "?tab=booked-tours";
+		model.addAttribute("account", account);
+		
+		return "redirect:/user/?tab=booked-tours";
 	}
 }
