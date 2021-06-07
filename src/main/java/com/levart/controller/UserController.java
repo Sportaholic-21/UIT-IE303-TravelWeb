@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,9 +17,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.levart.entities.Account;
 import com.levart.entities.Nation;
+import com.levart.entities.Tour;
 import com.levart.entities.TourBooking;
 import com.levart.hibernate.dao.AccountDAO;
 import com.levart.hibernate.dao.NationDAO;
+import com.levart.hibernate.dao.TourDAO;
 import com.levart.hibernate.utils.CRUDBookedTourOperation;
 
 @Controller
@@ -149,6 +154,14 @@ public class UserController extends CRUDBookedTourOperation {
 			return "/user/bookedTours";
 		}
 		
+		if (tab.equals("wishlist")) {
+			model.addAttribute("account", account);
+			
+			model.addAttribute("active", "wishlist");
+			
+			return "/user/wishlist";	
+		}
+		
 		return "redirect: no-permission";
 	}
 	
@@ -194,5 +207,50 @@ public class UserController extends CRUDBookedTourOperation {
 		model.addAttribute("account", account);
 		
 		return "redirect:/user/?tab=booked-tours";
+	}
+	
+	// wishList handle
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value={"/wishlist/api"})
+	public String addWishlist(Model model, HttpServletRequest request) {
+		String action = request.getParameter("action");
+		String id = request.getParameter("id");
+		
+		List<Tour> wishlistSession = new ArrayList<Tour>();
+		
+		TourDAO tourDAO = new TourDAO();
+		
+		int tourID = Integer.parseInt(id);
+		
+		Tour tour = tourDAO.getTour(tourID).get(0);
+		
+		HttpSession session = request.getSession();
+		
+		if(session.getAttribute("wishlistSession") != null) {
+			wishlistSession = (ArrayList<Tour>) session.getAttribute("wishlistSession");
+        }else {
+        	wishlistSession = new ArrayList<Tour>();
+        }
+		
+		int index = wishlistSession.indexOf(tour);
+
+		if(action.equals("add")) {
+			if( index == -1 ){
+			  // Remove the item and store it in a variable
+				wishlistSession.add(tour);
+			}	
+		} else if(action.equals("remove")) {
+			if( index != -1 ){
+				  // Remove the item and store it in a variable
+					wishlistSession.remove(tour);
+				}
+			
+			session.setAttribute("wishlistSession", wishlistSession);
+			return "redirect:/user/?tab=wishlist";
+			}
+		
+		session.setAttribute("wishlistSession", wishlistSession);
+		
+		return null;
 	}
 }

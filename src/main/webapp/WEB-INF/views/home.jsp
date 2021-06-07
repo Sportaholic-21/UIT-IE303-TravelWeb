@@ -123,7 +123,7 @@
                         <a class="adetail" href="">
                             <button class="card__button--color">DETAILS</button>
                         </a>
-
+						<button data-type="addWishlist" data-link="${pageContext.request.contextPath}/user/wishlist/api?action=add&id=${tour.tourID}" class="float-right text-danger addWishlist"><i class="far fa-heart fs-1"></i></button>
                     </div>
                 </div>
 

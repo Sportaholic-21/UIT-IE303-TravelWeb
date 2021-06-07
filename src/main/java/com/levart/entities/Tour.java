@@ -81,6 +81,31 @@ public class Tour {
 	@Column(name = "coordinate")
 	private String coordinate;
 	
+	 @Override
+	  public int hashCode() {
+	    final int prime = 31;
+	    int result = 1;
+	    result = prime * result + ((tourName == null) ? 0 : tourName.hashCode());
+	    return result;
+	  }
+
+	  @Override
+	  public boolean equals(Object obj) {
+	    if (this == obj)
+	      return true;
+	    if (obj == null)
+	      return false;
+	    if (!(obj instanceof Tour))
+	      return false;
+	    Tour other = (Tour) obj;
+	    if (tourName == null) {
+	      if (other.tourName != null)
+	        return false;
+	    } else if (!tourName.equals(other.tourName))
+	      return false;
+	    return true;
+	  }
+	
 	public String getPriceDiscount() {
 		return priceDiscount;
 	}

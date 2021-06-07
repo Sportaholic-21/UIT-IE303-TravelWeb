@@ -27,7 +27,7 @@ $(document).on("click", ".deleteBtn", function() {
 	
 	$("#deleteModel #deleteLink").attr(
 		"href",
-		link + "?id=" + id
+		link + "id=" + id
 	);
 	
 });
