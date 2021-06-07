@@ -7,23 +7,24 @@
 	<jsp:attribute name="pageCSSLink">
 		<link rel="stylesheet" type="text/css"
 			href="${pageContext.request.contextPath}/resources/css/pages/tour-detail.css">
+		
 	</jsp:attribute>
 	<jsp:body>
-  		<div class="body__tour-detail pt-0">
-  			<div class="cover"
-				style="background-image: url('${pageContext.request.contextPath}/resources/images/tour-detail-img/hongkong-cover.jpg');">
-        <span></span>
-        <div class="container">
-            <div class="cover-info">
-                <h1 class="cover-info__name col-12 p-0">${obj.tourName}</h1>
-                <div class="d-flex flex-column bd-highlight mp-3 ">
-                	<div class="p-2 bd-highlight"><i class="fas fa-map-marker-alt"></i> ${obj.nation} - ${obj.continent.continentName}</div>
-  					<div class="p-2 bd-highlight"><i class="far fa-clock"></i> ${obj.duration} DAYS</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+  	<div class="body__tour-detail pt-0">
+  	<c:forEach items = "${coverImageDisplay}" var = "cid">
+  			<div class="cover" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.4)) ,url('${cid.imageURL}');" title = "${cid.tourImageName}">
+        		<span></span>
+		        <div class="container">
+		            <div class="cover-info">
+		                <h1 class="cover-info__name col-12 p-0">${obj.tourName}</h1>
+		                <div class="d-flex flex-column bd-highlight mp-3 ">
+		                	<div class="p-2 bd-highlight"><i class="fas fa-map-marker-alt"></i> ${obj.nation.nationName} - ${obj.nation.continent.continentName}</div>
+		  					<div class="p-2 bd-highlight"><i class="far fa-clock"></i> ${obj.duration} DAYS</div>
+		                </div>
+		            </div>
+		        </div>
+    		</div>
+	</c:forEach>
     <div class="container tour-info ">
         <div class="tour-info__detail d-xl-flex">
             <div class="detail__left col-xl-8">
@@ -38,9 +39,7 @@
                         <div>
                             <h6>TYPOLOGIES</h6>
                             <p>
-                                ${obj.typology.typologyName}
-                                <span
-											style="background-color: var(- -color_primary); border-radius: 15px; padding: 2px 10px; color: white;">+ 2</span>
+                               ${obj.typology.typologyName}
                             </p>
                         </div>
                     </div>
@@ -71,11 +70,13 @@
                 <section class="detail__left__img">
                     <div class="header-form">
                         <p>
-									<span>1000</span> 500 $</p>
+									<span></span></p>
                     </div>
-                    <img class="col-xl-12"
-								src="${pageContext.request.contextPath}/resources/images/tour-detail-img/hinh-anh-thanh-pho-hongkong-trung-quoc.jpg "
-								alt="anh hong kong " />
+                    <c:forEach items = "${galleryImagesDisplay}" var = "gal" varStatus = "loop">
+						    	<c:if test = "${loop.first}">
+						      		<img class = "cropped" src = "${gal.imageURL}"  alt = "${gal.tourImageName}" style="width: 100%">
+						    	</c:if>
+					</c:forEach> 
                 </section>
 
                 <section class="directToParam mt-4 mb-4 ">
@@ -91,7 +92,7 @@
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link nav-linka adetail"
-									href="#gallery ">PHOTOS</a>
+									href="#gallery ">GALLERY</a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link nav-linka adetail"
@@ -164,67 +165,56 @@
 
                 <section class="tour-gallery section--border-bot pb-4 "
 							id="gallery ">
+							
                     <h2 class="tour-gallery__title mb-3 ">Gallery</h2>
-                    <div class="d-lg-flex ">
-                        <div class="">
-                            <div class="d-flex ">
-                                <div class=" ">
-                                    <img
-												src="${pageContext.request.contextPath}/resources/images/tour-detail-img/pack-slide-1.jpg "
-												alt=" " style="width: 97%; height: 100%;">
-                                </div>
-                                <div class=" ">
-                                    <img
-												src="${pageContext.request.contextPath}/resources/images/tour-detail-img/pack-slide-4.jpg "
-												alt=" " style="width: 97%; height: 100%;">
-                                </div>
-                            </div>
-                            <div class="mt-2 mb-2">
-                                <img
-											src="${pageContext.request.contextPath}/resources/images/tour-detail-img/pk-sm-1.jpg "
-											alt=" " style="width: 98.5%; height: 100%;">
-                            </div>
-                        </div>
-                        <div class="">
-                            <img
-										src="${pageContext.request.contextPath}/resources/images/tour-detail-img/pk-sm-2.jpg "
-										alt=" " style="width: 230px; height: 92%; min-width: 98.5%;">
-                        </div>
-                    </div>
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+						  <div class="carousel-inner">
+						    <c:forEach items = "${galleryImagesDisplay}" var = "gal" varStatus = "loop">
+						    	<c:if test = "${loop.first}">
+						    		<div class="carousel-item active">
+						      				<img class = "cropped" src = "${gal.imageURL}"  alt = "${gal.tourImageName}" style="width: 100%">
+						    		</div>
+						    	</c:if>
+						    	<c:if test = "${!loop.first}">
+						    		<div class="carousel-item">
+						      			<img class = "cropped" src = "${gal.imageURL}"  alt = "${gal.tourImageName}" style="width: 100%">
+						    		</div>
+						    	</c:if>
+						    </c:forEach> 
+						  </div>
+						  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+						    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						    <span class="sr-only">Previous</span>
+						  </a>
+						  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+						    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+						    <span class="sr-only">Next</span>
+						  </a>
+						</div>
                 </section>
-
+				
                 <section class="tour-program section--border-bot pb-4 "
 							id="program ">
-                    <h2 class="tour-map__title mb-3 ">Day by Day</h2>
+                    <h2 class="tour-program__title mb-3 ">Day by Day</h2>
                     <div>
-                        <p class="mb-4 ">${obj.schedule}</p>
+                        <c:forEach items = "${tourSchedule}" var = "sch" varStatus = "loop">
                         <ul>
-                            <li class="d-flex"><i
-										class="fas fa-plus-square mr-3 color--primary "></i>
-                                <p>
-											<strong>DAY 1</strong> - Departure at the airport and arrival at the hotel</p>
+                            <li class="d-flex">
+                            	<i class="fas fa-plus-square mr-3 color--primary "></i>
+                     			<span>
+                     				<strong><a class ="text-danger" data-toggle="collapse" href="#collapse${loop.count}">DAY ${loop.count}</a></strong>
+	                                <div id="collapse${loop.count}" class="panel-collapse collapse">
+												<span>
+													<c:forTokens items = "${sch}" var = "name" delims = ";" >
+		         										<c:out value = "${name}"/><p>
+		     										</c:forTokens>
+												</span>
+									</div>
+								</span>
                             </li>
-                            <li class="d-flex"><i
-										class="fas fa-plus-square mr-3 color--primary "></i>
-                                <p>
-											<strong>DAY 2</strong> - Visit the main museums and lunch included</p>
-                            </li>
-                            <li class="d-flex"><i
-										class="fas fa-plus-square mr-3 color--primary "></i>
-                                <p>
-											<strong>DAY 3</strong> - Excursion in the natural oasis and picnic</p>
-                            </li>
-                            <li class="d-flex"><i
-										class="fas fa-plus-square mr-3 color--primary "></i>
-                                <p>
-											<strong>DAY 4</strong> - Transfer to the airport and return to the agency</p>
-                            </li>
-                            <li class="d-flex"><i
-										class="fas fa-plus-square mr-3 color--primary "></i>
-                                <p>
-											<strong>DAY 5</strong> - Lorem ipsum dolor sit amet, consectetur adipiscing</p>
-                            </li>
+                            
                         </ul>
+                        </c:forEach>
                     </div>
                 </section>
 
@@ -233,7 +223,7 @@
                 <section class="form-send-now">
                     <div class="header-form">
                         <p>
-									<span> </span> ${obj.price}$</p>
+									<span> ${obj.price}$</span>  ${obj.priceDiscount}$</p>
                     </div>
                     <form:form id="form-send-now" action="sendContact"
 								modelAttribute="messageContact">
@@ -270,7 +260,7 @@
                 </section>
 
                 <section class="best-packages">
-                    <h5>Best Pasckages</h5>
+                    <h5>Best Packages</h5>
                     <div class="">
                         <div class="package d-flex">
                             <p class="package__img">
@@ -355,17 +345,9 @@
                 <section class="tags">
                     <h5>Tags</h5>
                     <div class="tags-list">
-                        <a class="adetail" href="#">Adventure</a>
-                        <a class="adetail" href="#">Family</a>
-                        <a class="adetail" href="#">Adventure</a>
-                        <a class="adetail" href="#">Adventure</a>
-                        <a class="adetail" href="#">Holiday</a>
-                        <a class="adetail" href="#">Adventure</a>
-                        <a class="adetail" href="#">Adventure</a>
-                        <a class="adetail" href="#">Tours</a>
-                        <a class="adetail" href="#">Travel</a>
-                        <a class="adetail" href="#">Adventure</a>
-                        <a class="adetail" href="#">Adventure</a>
+                        <a class="adetail" href="#">${obj.nation.nationName}</a>
+                        <a class="adetail" href="#">${obj.nation.continent.continentName}</a>
+                        <a class="adetail" href="#">${obj.typology.typologyName }</a>
                     </div>
                 </section>
                 

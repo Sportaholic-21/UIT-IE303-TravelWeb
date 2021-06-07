@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import java.util.List;
 
 import com.levart.entities.Account;
+import com.levart.entities.Image;
 import com.levart.entities.Tour;
 import com.levart.form_entities.FormMessage;
 import com.levart.form_entities.FormSearch;
 import com.levart.hibernate.dao.AccountDAO;
+import com.levart.hibernate.dao.ImageDAO;
 import com.levart.hibernate.dao.TourDAO;
 
 @Controller
@@ -63,8 +65,15 @@ public class TourDetailController {
 		// Get dữ liệu
 		int tourID = id;
 		TourDAO tourdao = new TourDAO();
-		List<Tour> list = tourdao.getTour(tourID);
+		List<Tour> list = tourdao.getTour(id);
 		model.addAttribute("tourList", list);
+		List<String> scheduleList = tourdao.getTourSchedule(tourID);
+		model.addAttribute("tourSchedule", scheduleList);
+		ImageDAO imageDAO = new ImageDAO();
+		List<Image> coverImage = imageDAO.getCoverImage(tourID);
+		model.addAttribute("coverImageDisplay", coverImage);
+		List<Image> galleryImages = imageDAO.getGalleryImages(tourID);
+		model.addAttribute("galleryImagesDisplay", galleryImages);
 		return "tour-detail";
 	}
 	
