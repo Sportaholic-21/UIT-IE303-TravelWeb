@@ -29,7 +29,11 @@
 			            </div>
 			            <div class="card-body col-9 d-flex">
 			              <h4 class="card-title text-left mr-auto mt-2">${account.username}</h4>
-			              <a href="${account.socialMediaLink}" class="btn btn-warning btn-round mr-5">Contact via Social</a>
+			              <c:choose>
+			              	<c:when test=${socialMediaLink ne ''}>
+			              		<a href="${account.socialMediaLink}" class="btn btn-warning btn-round mr-5">Contact via Social</a>
+			              	</c:when>
+			              </c:choose>
 			            </div>
 			          </div>
 			        </div>
@@ -51,15 +55,15 @@
 			        <div class="card card-stats">
 			          <div class="card-header card-header-info card-header-icon">
 			            <div class="card-icon">
-			              <i class="material-icons">content_copy</i>
+			              <i class="material-icons">dashboard</i>
 			            </div>
 			            <p class="card-category">Total Tours</p>
-			            <h3 class="card-title">3</h3>
+			            <h3 class="card-title">${endedTours.size()}</h3>
 			          </div>
 			          <div class="card-footer">
 			            <div class="stats">
-			              <i class="material-icons text-danger">warning</i>
-			              <a href="javascript:;">Get More Space...</a>
+			              <i class="material-icons text-danger">date_range</i>
+			              <a>Time To See The World.</a>
 			            </div>
 			          </div>
 			        </div>
@@ -73,12 +77,12 @@
 			            <div class="card-icon">
 			              <i class="material-icons">store</i>
 			            </div>
-			            <p class="card-category">Nations</p>
-			            <h3 class="card-title">2</h3>
+			            <p class="card-category">Total Nations</p>
+			            <h3 class="card-title">${totalNations}</h3>
 			          </div>
 			          <div class="card-footer">
 			            <div class="stats">
-			              <i class="material-icons">date_range</i> Last 24 Hours
+			              <i class="material-icons text-warning">warning</i> Awesome Is New Space.
 			            </div>
 			          </div>
 			        </div>
@@ -92,11 +96,11 @@
 			              <i class="fa fa-comments"></i>
 			            </div>
 			            <p class="card-category">Feedbacks</p>
-			            <h3 class="card-title">2</h3>
+			            <h3 class="card-title">${totalFeedbacks}</h3>
 			          </div>
 			          <div class="card-footer">
 			            <div class="stats">
-			              <i class="material-icons">update</i> Just Updated
+			              <i class="material-icons text-info">update</i> Caring Your Hobbies.
 			            </div>
 			          </div>
 			        </div>
@@ -110,11 +114,11 @@
 			              <i class="material-icons">info_outline</i>
 			            </div>
 			            <p class="card-category">Points</p>
-			            <h3 class="card-title">+1000</h3>
+			            <h3 class="card-title">${account.point}</h3>
 			          </div>
 			          <div class="card-footer">
 			            <div class="stats">
-			              <i class="material-icons">local_offer</i> Tracked from Github
+			              <i class="material-icons text-success">local_offer</i> Be A Better Visitor
 			            </div>
 			          </div>
 			        </div>
@@ -127,6 +131,15 @@
 			src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
 			<script
 			src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
+		
+			<script>
+					var coordinateList = ${coordinates};
+					var tourNames = "${tourNames}";
+					var dates = "${dates}";
+					var stars = ${stars};
+					var tourSize = ${endedTours.size()};
+			</script>
+			
 			<script
 			src="${pageContext.request.contextPath}/resources/user/js/addMap.js"></script>
     </jsp:body>

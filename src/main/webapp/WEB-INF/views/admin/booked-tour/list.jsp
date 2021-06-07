@@ -73,7 +73,7 @@ tagdir="/WEB-INF/tags"%>
                     href="${editLink}"
                     ><button type="button" class="btn btn-link">Edit</button></a
                   >
-                  <button data-toggle="modal" data-target="#deleteModel" data-id="${tourBooking.tourBookingID}" data-link="booked-tour/api/delete" type="button" class="btn btn-link text-danger deleteBtn">
+                  <button data-toggle="modal" data-target="#deleteModel" data-id="${tourBooking.tourBookingID}" data-link="booked-tour/api/delete?" type="button" class="btn btn-link text-danger deleteBtn">
                     Delete
                   </button>
                 </td>

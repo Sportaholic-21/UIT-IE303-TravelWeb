@@ -36,7 +36,7 @@ values(4, 'Ha Long Bay', 1, 'Ha Long Bay has around 1600 islands and islets, for
 	+ Delegation to the boat to admire the scenery of Ha Long Bay - World natural heritage with thousands of rocky islands with strange shapes - admire the elaborate and splendid beauty of Thien Cung cave, the supernatural beauty of Dinh Huong island, Fighting Chickens, Fighting Dogs… ;
 - Noon: Have lunch.;
 	+ Depart for Hanoi, tour guide see you off to Noi Bai airport to catch the flight to Ho Chi Minh City.;
-End of the tour, farewell and see you again.;', 3,3, '(0;0)')
+End of the tour, farewell and see you again.;', 3,3, '107, 20')
 
 /* Dữ liệu mới, được thêm vào ngày 5/6/2021 */
 Insert into tour(typologyID, tourName, nationID, shortDesc, descr, price, discount, duration, rating, schedule, numberBooking, numberFeedback, coordinate)
@@ -67,7 +67,7 @@ values(4, 'Sapa City', 1, 'Sapa is one of the most attractive tourist destinatio
 - Afternoon: 
 	+ The group is free to go to the market, buy specialties as gifts for relatives and family.;
 	+ Tour guide see you off to Noi Bai airport to catch the flight to Ho Chi Minh City.;
-End of the tour, farewell and see you again.;', 3,3, '(0;0)')
+End of the tour, farewell and see you again.;', 3,3, '103, 22')
 
 Insert into tour(typologyID, tourName, nationID, shortDesc, descr, price, discount, duration, rating, schedule, numberBooking, numberFeedback, coordinate)
 values(1, 'Quang Ninh', 1, 'Quang Ninh is a coastal province in the Northeast region of Vietnam. It can be seen as a "miniature Vietnam" - because of having seas, islands, plains and midlands, hills, and borders.', 'Quang Ninh is a mountainous - coastal province. More than 80% of the land is mountainous. More than two thousand islands floating on the sea are also mountains.
@@ -97,13 +97,13 @@ The sea and islands of Quang Ninh are a unique terrain. More than two thousand i
 - Morning: Have breakfast buffet at the hotel.;
 + Depart for Hanoi. On the way stop, visit Tam Chuc Pagoda, the largest temple in the world. With an area up to 5,000 hectares, carved 1,200 statues of volcanic lava and possessing many treasures in the world, with majestic scenery, in front, in the middle of the lake are 6 mountains with the shape of a fruit. bell, behind are 7 mountains that can light up when there is moonlight at night, creating a magnificent view to observe.;
 - Noon: Have lunch. The group is free to visit Hoan Kiem Lake, Ngoc Son Temple.;
-+ Tour guide see you off to Noi Bai airport to catch the flight to Ho Chi Minh City, end the tour, say goodbye to the group and see you again.', 3,3, '(0,0)')
++ Tour guide see you off to Noi Bai airport to catch the flight to Ho Chi Minh City, end the tour, say goodbye to the group and see you again.', 3,3, '107, 20')
 
 Insert into tour(typologyID, tourName, nationID, shortDesc, descr, price, discount, duration, rating, schedule, numberBooking, numberFeedback, coordinate)
 values(4, 'Da Nang', 1, 'Known as a must-visit place once in Vietnam. You can enjoy the magnificent view with the poetic Han River and the iconic Dragon Bridge of the tourist coastal city of Da Nang.',
 'Da Nang''s weather is typical between the North and the South, but has a more typical southern climate. During the year, Da Nang''s climate is divided into two distinct seasons: the dry season (from December to August) and the rainy season (from September to November). Winter in Da Nang is also affected by cold air. Therefore, the most ideal time to travel to Da Nang is from January to July, the peak is from February to May. At this time, the weather is cool, not too hot, the temperature is about 23 - 38 degrees Celsius suitable for fun activities and sightseeing, swimming. If you go from September to October in Da Nang, there is a lot of rain, in addition to storms, so you will not be able to go out much, cannot swim and cannot go to Cu Lao Cham at this time.
 Da Nang is one of the cleanest and most beautiful cities in Vietnam, with a fast economic growth rate. The city has many famous scenic spots such as: Marble Mountains, Cham Island, Han River... and many entertainment areas. In particular, Da Nang has many legendary bridges with unique architecture such as Dragon Bridge, Song Han Bridge... In addition, Da Nang has very good security services, you can rest assured when traveling here.',
-328, 10, 3, 4.5, 
+328, 3, 4.5, 
 'HCMC – DA NANG – HOI AN (lunch, dinner);
 - Morning: You are present at the domestic terminal, Tan Son Nhat airport at least three hours before the flight time.;
 + Representative of Vietnam Travel Company welcomes and supports you to carry out procedures to catch the flight to Da Nang.;
@@ -127,7 +127,7 @@ Da Nang is one of the cleanest and most beautiful cities in Vietnam, with a fast
 + Visiting Hue with the Citadel - Imperial Citadel of 13 Nguyen kings, where there are more than 100 beautiful architectural works: Ngo Mon Gate, Thai Hoa Palace, Forbidden City, The Mieu, Hien Lam Cac, Cuu Dinh, ...;
 + Visit Thien Mu Pagoda - the oldest pagoda in Hue Ancient Capital.;
 + Tour guide see you off to Phu Bai airport, take a flight to Ho Chi Minh City.;
-End of the tour, farewell and see you again.',3,3, '(0;0)')
+End of the tour, farewell and see you again.',3,3, '108, 16')
 
 Insert into tour(typologyID, tourName, nationID, shortDesc, descr, price, discount, duration, rating, schedule, numberBooking, numberFeedback, coordinate)
 values(4, 'Nha Trang', 1, 'Nha Trang is a famous beach tourism city in Khanh Hoa province. This place is endowed by nature for a very mild climate, beautiful beaches, special and unique historical sites.',
@@ -171,7 +171,7 @@ In addition to sea tourist destinations, Nha Trang is also extremely famous for 
 - Noon:;
 + Depart to Phan Thiet, have lunch. After the meal, visitors rest and buy souvenirs for their loved ones;
 - Afternoon:;
-+ The tour group returns to Ho Chi Minh City – Farewell and see you again.;',3,3, '(0;0)')
++ The tour group returns to Ho Chi Minh City – Farewell and see you again.;',3,3, '109, 12')
 -- Africa
 
 -- North America

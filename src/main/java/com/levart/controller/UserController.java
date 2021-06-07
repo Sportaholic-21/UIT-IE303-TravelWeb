@@ -4,36 +4,109 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.levart.entities.Account;
+import com.levart.entities.Nation;
+import com.levart.entities.Tour;
 import com.levart.entities.TourBooking;
 import com.levart.hibernate.dao.AccountDAO;
+import com.levart.hibernate.dao.NationDAO;
+import com.levart.hibernate.dao.TourDAO;
 import com.levart.hibernate.utils.CRUDBookedTourOperation;
 
 @Controller
-@RequestMapping(value="/user/{username}")
+@SessionAttributes("account")
+@RequestMapping(value="/user")
 public class UserController extends CRUDBookedTourOperation {
-	@RequestMapping(value={"", "/"})
-	public String showPage(@PathVariable String username, org.springframework.web.context.request.WebRequest webRequest, Model model) {
+	@ModelAttribute("account")
+	public Account newAccount() {
+		return new Account();
+	}
+	
+	@RequestMapping(value={"/{username}"})
+	public String showPage(@PathVariable String username, Model model) {
 		AccountDAO accountDAO = new AccountDAO();
-		String tab = webRequest.getParameter("tab");
+		NationDAO nationDAO = new NationDAO();
 		
-		if (tab == null) {
-			Account account = accountDAO.getAccount(username);
+		Account account = accountDAO.getAccountWithTourBooking(username);
+		
+			int totalFeedbacks = 0;
+			int count = 0;
+			
+			List<TourBooking> endedTours = new ArrayList<TourBooking>();
+			
+			List<TourBooking> tourBookings = account.getTourBookings();
+			List<String> coordinates = new ArrayList<String>();
+			List<String> tourNames = new ArrayList<String>();
+			List<Integer> isFeedbacks = new ArrayList<Integer>();
+			List<Float> stars = new ArrayList<Float>();
+			List<String> dates = new ArrayList<String>();
+			
+			List<Nation> nations = nationDAO.getListNationByEndedTour();
+			
+			Iterator<TourBooking> tourBookingItem = tourBookings
+					.iterator();
+			while (tourBookingItem.hasNext()) {
+				TourBooking tourBKItem = tourBookingItem.next();
+				if (tourBKItem.getBookStatus() == 3) {
+					endedTours.add(tourBKItem);
+					
+					String coordinate = tourBKItem.getTour().getCoordinate();
+					coordinates.add(coordinate);
+					
+					tourNames.add(tourBKItem.getTour().getTourName());
+					dates.add(tourBKItem.getScheduleDate());
+					
+					if(tourBKItem.getFeedback() != null) {
+						totalFeedbacks++;
+						
+						stars.add(count, tourBKItem.getFeedback().getStart());
+					} else {
+						isFeedbacks.add(0);
+					}
+					
+					count++;
+				}
+			}
 			
 			model.addAttribute("account", account);
+			model.addAttribute("totalFeedbacks", totalFeedbacks);
+			model.addAttribute("coordinates", coordinates);
+			model.addAttribute("tourNames", tourNames);
+			model.addAttribute("totalNations", nations.size());
+			model.addAttribute("dates", dates);
+			model.addAttribute("stars", stars);
+			model.addAttribute("endedTours", endedTours);
 			
 			return "/user/guest-profile";
+	}
+	
+	@RequestMapping(value={"/", ""})
+	public String showPage(@ModelAttribute("account") Account account,@RequestParam("tab") String tab,  Model model) {
+		if (account.getEmail() == null) {
+			return "redirect:/no-permission";
 		}
+		AccountDAO accountDAO = new AccountDAO();
+
+		List<Account> accounts = accountDAO.getAllAccounts();
+		
+		int index = accountDAO.findAccountIndex(account.getEmail(), account.getPass());
+		
+		if (index == -1) return "redirect:/no-permission";
+		
+		account = accounts.get(index);
 		
 		if (tab.equals("profile")) {
-			Account account = accountDAO.getAccount(username);
-			
 			model.addAttribute("account", account);
 			
 			model.addAttribute("active", "profile");
@@ -42,7 +115,7 @@ public class UserController extends CRUDBookedTourOperation {
 		}
 		
 		if (tab.equals("booked-tours")) {
-			Account account = accountDAO.getAccountWithTourBooking(username);
+			account = accountDAO.getAccountWithTourBooking(account.getUsername());
 			
 			model.addAttribute("account", account);
 			model.addAttribute("active", "profile");
@@ -52,7 +125,6 @@ public class UserController extends CRUDBookedTourOperation {
 			List<TourBooking> tourCancels = new ArrayList<TourBooking>();
 			
 			List<TourBooking> tourBookings = account.getTourBookings();
-			System.out.println(tourBookings);
 			Iterator<TourBooking> tourBookingItem = tourBookings
 					.iterator();
 			while (tourBookingItem.hasNext()) {
@@ -82,20 +154,103 @@ public class UserController extends CRUDBookedTourOperation {
 			return "/user/bookedTours";
 		}
 		
-		return null;
+		if (tab.equals("wishlist")) {
+			model.addAttribute("account", account);
+			
+			model.addAttribute("active", "wishlist");
+			
+			return "/user/wishlist";	
+		}
+		
+		return "redirect: no-permission";
 	}
 	
 	@RequestMapping(value={"/booked-tour/api/cancel"})
-	public String cancelBooking(@PathVariable String username, @RequestParam("id") int id) {
+	public String cancelBooking(@ModelAttribute("account") Account account, @RequestParam("id") int id, Model model) {
+		if (account.getEmail() == null) {
+			return "redirect:/no-permission";
+		}
+		AccountDAO accountDAO = new AccountDAO();
+
+		List<Account> accounts = accountDAO.getAllAccounts();
+		
+		int index = accountDAO.findAccountIndex(account.getEmail(), account.getPass());
+		
+		if (index == -1) return "redirect:/no-permission";
+		
+		account = accounts.get(index);
+		
 		super.updateStatus(id, 4);	
 		
-		return "redirect:/user/" + username + "?tab=booked-tours";
+		model.addAttribute("account", account);
+		
+		return "redirect:/user/?tab=booked-tours";
 	}
 	
 	@RequestMapping(value={"/booked-tour/api/recover"})
-	public String recoverBooking(@PathVariable String username, @RequestParam("id") int id) {
+	public String recoverBooking(@ModelAttribute("account") Account account, @RequestParam("id") int id, Model model) {
+		if (account.getEmail() == null) {
+			return "redirect:/no-permission";
+		}
+		AccountDAO accountDAO = new AccountDAO();
+
+		List<Account> accounts = accountDAO.getAllAccounts();
+		
+		int index = accountDAO.findAccountIndex(account.getEmail(), account.getPass());
+		
+		if (index == -1) return "redirect:/no-permission";
+		
+		account = accounts.get(index);
+		
 		super.updateStatus(id, 1);	
 		
-		return "redirect:/user/" + username + "?tab=booked-tours";
+		model.addAttribute("account", account);
+		
+		return "redirect:/user/?tab=booked-tours";
+	}
+	
+	// wishList handle
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value={"/wishlist/api"})
+	public String addWishlist(Model model, HttpServletRequest request) {
+		String action = request.getParameter("action");
+		String id = request.getParameter("id");
+		
+		List<Tour> wishlistSession = new ArrayList<Tour>();
+		
+		TourDAO tourDAO = new TourDAO();
+		
+		int tourID = Integer.parseInt(id);
+		
+		Tour tour = tourDAO.getTour(tourID).get(0);
+		
+		HttpSession session = request.getSession();
+		
+		if(session.getAttribute("wishlistSession") != null) {
+			wishlistSession = (ArrayList<Tour>) session.getAttribute("wishlistSession");
+        }else {
+        	wishlistSession = new ArrayList<Tour>();
+        }
+		
+		int index = wishlistSession.indexOf(tour);
+
+		if(action.equals("add")) {
+			if( index == -1 ){
+			  // Remove the item and store it in a variable
+				wishlistSession.add(tour);
+			}	
+		} else if(action.equals("remove")) {
+			if( index != -1 ){
+				  // Remove the item and store it in a variable
+					wishlistSession.remove(tour);
+				}
+			
+			session.setAttribute("wishlistSession", wishlistSession);
+			return "redirect:/user/?tab=wishlist";
+			}
+		
+		session.setAttribute("wishlistSession", wishlistSession);
+		
+		return null;
 	}
 }

@@ -59,6 +59,7 @@ a:hover {
 .cover .cover-info {
     position: absolute;
     bottom: 50px;
+    color: white;
 }
 
 
@@ -531,6 +532,12 @@ p strong {
     margin-bottom: 20px;
 }
 
+.cropped{
+	width: 800px;
+	height: 460px;
+	object-fit: cover;
+    object-position: 20% 10%;
+}
 
 
 /* responsive */

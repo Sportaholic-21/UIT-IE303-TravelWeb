@@ -61,6 +61,7 @@
 		crossorigin="anonymous"></script>
 
 	<script src="${pageContext.request.contextPath}/resources/js/toggle-btn-sidebar.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/addWishlist.js"></script>
 	<!-- page script -->
 	<jsp:invoke fragment="pageScript" />
 </body>
