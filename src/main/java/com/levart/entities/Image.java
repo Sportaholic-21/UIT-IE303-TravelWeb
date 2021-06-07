@@ -10,53 +10,52 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "image")
+@Table(name = "tourImage")
 public class Image {
 	@Id
-	@Column(name = "imageID")
+	@Column(name = "tourImageID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int imageID;
+	private int tourImageID;
 	
-	// @OneToOne
-	// @JoinColumn(name = "tourID")
-	@Column(name = "tourID")
-	private int tourID; 
+	@OneToOne
+	@JoinColumn(name = "tourID")
+	private Tour tourID; 
 	
-	@Column(name = "url")
-	private String url;
+	@Column(name = "imageURL")
+	private String imageURL;
 
-	@Column(name = "imageName")
-	private String imageName;
+	@Column(name = "tourImageName")
+	private String tourImageName;
 	
 	@Column(name = "imageRole")
 	private String imageRole;
+
 	public Image() {
 		super();
 	}
-	public int getImageID() {
-		return imageID;
+	public int getTourImageID() {
+		return tourImageID;
 	}
-	public void setImageID(int imageID) {
-		this.imageID = imageID;
+	public void setTourImageID(int tourImageID) {
+		this.tourImageID = tourImageID;
 	}
-	
-	public int getTourID() {
+	public Tour getTourID() {
 		return tourID;
 	}
-	public void setTourID(int tourID) {
+	public void setTourID(Tour tourID) {
 		this.tourID = tourID;
 	}
-	public String getUrl() {
-		return url;
+	public String getImageURL() {
+		return imageURL;
 	}
-	public void setUrl(String url) {
-		this.url = url;
+	public void setImageURL(String imageURL) {
+		this.imageURL = imageURL;
 	}
-	public String getImageName() {
-		return imageName;
+	public String getTourImageName() {
+		return tourImageName;
 	}
-	public void setImageName(String imageName) {
-		this.imageName = imageName;
+	public void setTourImageName(String tourImageName) {
+		this.tourImageName = tourImageName;
 	}
 	public String getImageRole() {
 		return imageRole;
@@ -64,6 +63,9 @@ public class Image {
 	public void setImageRole(String imageRole) {
 		this.imageRole = imageRole;
 	}
-
 	
+	@Override
+	public String toString() {
+		return "Image URL: " + imageURL + "ALT text: " + tourImageName;
+	}
 }

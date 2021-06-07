@@ -66,15 +66,17 @@ CREATE TABLE tour
 	coordinate varchar(40) default ''
 )
 GO
-select * from tour
 -- Dành cho việc cập nhật bảng tour nếu đã pull file này trước buổi trưa ngày 5/6/2021
 /* alter table tour
 drop CONSTRAINT FK__tour__continentI__30F848ED
 alter table tour
 drop column continentID
-alter table tour
-alter column shortDesc varchar(200)*/ 
 
+alter table tour
+alter column shortDesc varchar(200)
+
+alter table tour
+add coordinate varchar(40) default ''*/ 
 CREATE TABLE tourBooking
 (
     tourBookingID int IDENTITY(1,1) PRIMARY KEY,
@@ -104,9 +106,9 @@ CREATE TABLE tourImage
     imageRole bit default 1 /* 1 la cho gallery, 0 la cover image */
 )
 GO
--- Dành cho việc cập nhật kiểu dữ liệu bảng tourImage nếu đã pull file này trước buổi trưa 5/6/2021
+-- Dành cho việc cập nhật kiểu dữ liệu bảng tourImage nếu đã pull file này trước buổi tối 6/6/2021
 /* Alter table tourImage
-alter column imageURL varchar(50)
+alter column imageURL varchar(100)
 Alter table tourImage
 alter column tourImageName varchar(100) */
 
