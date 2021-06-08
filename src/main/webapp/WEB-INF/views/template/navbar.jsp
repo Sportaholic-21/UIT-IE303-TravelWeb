@@ -38,10 +38,12 @@
             Tour Types
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="tour-list">Relax</a></li>
-            <li><a class="dropdown-item" href="tour-list">Sport</a></li>
-            <li><a class="dropdown-item" href="tour-list">Cutural</a></li>
-            <li><a class="dropdown-item" href="tour-list">History</a></li>
+            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/tour-list?typologyID=1">Relax</a></li>
+            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/tour-list?typologyID=2">Cultural</a></li>
+            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/tour-list?typologyID=3">Adventure</a></li>
+            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/tour-list?typologyID=4">Sightseeing</a></li>
+            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/tour-list?typologyID=5">Sports</a></li>
+            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/tour-list?typologyID=6">History</a></li>
           </ul>
         </li>
 
