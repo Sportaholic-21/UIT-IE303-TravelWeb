@@ -20,17 +20,9 @@
 					<div class = "wrapper">
 						<div class = "title-text">
 							<div class = "title login">Sign In</div>
-							<div class = "title signup">Sign Up</div>
 						</div>
 						
 						<div class = "form-container">
-							<div class = "slide-controls">
-								<input type = "radio" name = "slider" id = "login" checked>
-								<input type = "radio" name = "slider" id = "signup">
-								<label for = "login" class = "slide login">Sign In</label>
-								<label for = "signup" class = "slide signup">Sign Up</label>
-								<div class = "slide-tab"></div>
-							</div>
 							
 							<div class = "form-inner">
 								<form:form action="signIn" class = "login" modelAttribute="contentSignIn">
