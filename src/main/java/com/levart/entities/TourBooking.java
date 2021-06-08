@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -38,16 +39,16 @@ public class TourBooking {
 	private LocalDateTime bookDate=LocalDateTime.now();
 	
 	@Column(name = "scheduleDate")
-	private LocalDateTime scheduleDate;
+	private Date scheduleDate;
 
 	@Column(name = "bookStatus")
-	private int bookStatus;
+	private int bookStatus=1;
 	
-	public LocalDateTime getScheduleDate() {
+	public Date getScheduleDate() {
 		return scheduleDate;
 	}
 
-	public void setScheduleDate(LocalDateTime scheduleDate) {
+	public void setScheduleDate(Date scheduleDate) {
 		this.scheduleDate = scheduleDate;
 	}
 

@@ -57,9 +57,7 @@ public class TourBookingDAO {
 		
 		try {
 			tx = session.beginTransaction();
-			
 			session.saveOrUpdate(tourBooking);
-			
 			tx.commit();
 		} catch (RuntimeException e) {
 			session.getTransaction().rollback();
@@ -69,7 +67,7 @@ public class TourBookingDAO {
 			factory.close();
 		}
 	}	
-	public void updateStatusTourBooking(int tourBookingID, String bookStatus) {
+	public void updateStatusTourBooking(int tourBookingID, int bookStatus) {
 		factory = HibernateUtils.getSessionFactory();
 		Session session = factory.openSession();
 		Transaction tx = null;
@@ -133,6 +131,6 @@ public class TourBookingDAO {
 	}
 	public static void main(String [] args) {
 		TourBookingDAO dao= new TourBookingDAO();
-		dao.updateStatusTourBooking(31, "3");
+		dao.updateStatusTourBooking(31, 3);
 	}
 }

@@ -59,11 +59,9 @@
         </div>
       	<div class="col-md-4 mb-3">
       		<label for="validationCustom04">ScheduleDate</label>
-      		<form:input path="scheduleDate" type="datetime-local" id="validationCustom04" class="form-control" />
+      		<form:input path="scheduleDate" type="date" id="validationCustom04" class="form-control" />
       	</div>
       <button class="btn btn-primary" type="submit">Submit</button>
-      <a href="${pageContext.request.contextPath}/admin/booked-tour"
-					class="btn btn-warning">Cancel</a>
       </div>
     </form:form>
   </jsp:body>

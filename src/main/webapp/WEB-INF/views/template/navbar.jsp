@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg text-white position-absolute">
   <div class="container-xxl">
-    <a class="ms-5 navbar-brand d-flex align-items-center" href="home">
+    <a class="ms-5 navbar-brand d-flex align-items-center" href="${pageContext.request.contextPath}/home">
       <div class="navbar__logo--img me-3">
         <img
           src="${pageContext.request.contextPath}/resources/images/logo.png"
@@ -24,11 +24,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto me-auto mb-lg-0 text-uppercase">
         <li class="nav-item me-4">
-          <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/home">Home</a>
+          <a class="nav-link active a-nav" aria-current="page" href="${pageContext.request.contextPath}/home">Home</a>
         </li>
         <li class="nav-item me-4 dropdown">
           <a
-            class="nav-link dropdown-toggle"
+            class="nav-link dropdown-toggle a-nav"
             href="#"
             id="navbarDropdown"
             role="button"
@@ -47,25 +47,25 @@
           </ul>
         </li>
 
-        <li class="nav-item me-4">
+        <li class="nav-item me-4 a-nav">
           <a class="nav-link" href="${pageContext.request.contextPath}/about-us">About us</a>
         </li>
 
-        <li class="nav-item me-4">
+        <li class="nav-item me-4 a-nav">
           <a class="nav-link" href="${pageContext.request.contextPath}/forum">Forum</a>
         </li>
 
         <li class="nav-item ms-2">
-          <a class="nav-link nav__cta rounded-pill nav__contact-link" href="${pageContext.request.contextPath}/contact">Contact</a>
+          <a class="nav-link nav__cta rounded-pill nav__contact-link a-nav" href="${pageContext.request.contextPath}/contact">Contact</a>
         </li>
       </ul>
 
-      <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
+      <ul class="navbar-nav mb-2 mb-lg-0 align-items-center ">
         <li class="nav-item">
         <% if (request.getAttribute("username") == null) {%>
-          <a class="nav-link text-uppercase" href="${pageContext.request.contextPath}/sign-in">Sign in</a>
+          <a class="nav-link text-uppercase a-nav" href="${pageContext.request.contextPath}/sign-in">Sign in</a>
         <% } else {%>
-          <a class="nav-link" href="${pageContext.request.contextPath}/user?tab=profile">${username}</a>
+          <a class="nav-link a-nav" href="${pageContext.request.contextPath}/user?tab=profile">${username}</a>
         <% }%>
         </li>
           

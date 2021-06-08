@@ -23,6 +23,7 @@ tagdir="/WEB-INF/tags"%>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Booking Date</th>
+                <th>Schedule Date</th>
                 <th>Booked Tour</th>
                 <th>Status</th>
                 <th>Action</th>
@@ -52,8 +53,9 @@ tagdir="/WEB-INF/tags"%>
                 <td style="width:15px">${tourBooking.account.username }</td>
                 <td>${tourBooking.account.email}</td>
                 <td>${tourBooking.bookDate}</td>
+                <td>${tourBooking.scheduleDate}</td>
                 <td>
-                  <a href="${pageContext.request.contextPath}/tour/${tourBooking.tour.tourID }"
+                  <a href="${pageContext.request.contextPath}/tour-detail/${tourBooking.tour.tourID }"
                     >${tourBooking.tour.tourName}</a
                   >
                 </td>
@@ -65,7 +67,7 @@ tagdir="/WEB-INF/tags"%>
                     <option value="3" ${tourBooking.bookStatus == "3" ? "selected" : ''}>Ended</option>
                     <option value="4" ${tourBooking.bookStatus == "4" ? "selected" : ''}>Cancel</option>
                   </form:select>
-                  <input type="submit"></input>
+                  <input class="mt-1 bg-primary" style="float: right; border-radius: 5px; color:white " type="submit" value="Send"></input>
                   </form:form>
                 </td>
                 <td>

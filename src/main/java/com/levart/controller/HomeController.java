@@ -43,6 +43,7 @@ public class HomeController {
 			AccountDAO userDAO = new AccountDAO();
 			List<Account> users = userDAO.getAllAccounts();
 			int i = userDAO.findAccountIndex(account.getEmail(), account.getPass());
+			if(i==-1) return "home";
 			account = users.get(i);
 			model.addAttribute("username", account.getUsername());
 		}

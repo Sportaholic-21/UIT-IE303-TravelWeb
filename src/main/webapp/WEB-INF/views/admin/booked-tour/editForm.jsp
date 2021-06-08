@@ -15,7 +15,7 @@ tagdir="/WEB-INF/tags"%>
         <div class="col-md-4 mb-3">
           <label for="validationCustom01">User</label>
           <input value="${username}" type="text" class="form-control" 
-                id="validationCustom01" readonly disabled />
+                id="validationCustom01" readonly="true" />
         </div>
         <div class="col-md-4 mb-3">
           <label for="validationCustom03">Booked Tour</label>
@@ -29,7 +29,7 @@ tagdir="/WEB-INF/tags"%>
         </div>
         <div class="col-md-4 mb-3">
       		<label for="validationCustom04">ScheduleDate</label>
-      		<form:input path="scheduleDate" type="datetime-local" id="validationCustom04" class="form-control" value="${tourBooking.scheduleDate}"/>
+      		<form:input path="scheduleDate" type="date" id="validationCustom04" name="scheduleDate" class="form-control" value="${tourBooking.scheduleDate}"/>
       	</div>
       </div>
       <button class="btn btn-primary" type="submit">Submit</button>

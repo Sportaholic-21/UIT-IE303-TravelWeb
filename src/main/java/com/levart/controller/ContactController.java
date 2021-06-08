@@ -72,7 +72,6 @@ public class ContactController {
 		MimeMessage message = mailSender.createMimeMessage();
 		Boolean multipart = true;
 		MimeMessageHelper helper = new MimeMessageHelper(message, multipart);
-//		SimpleMailMessage message=new SimpleMailMessage();
 		String name = messageContact.getName();
 		String phone = messageContact.getPhone();
 		String email = messageContact.getEmail();

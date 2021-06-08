@@ -84,19 +84,19 @@
                     <ul class="nav d-xl-flex justify-content-around">
                         <li class="nav-item ">
                             <a class="nav-link nav-linka active adetail"
-									href="#description ">DESCRIPTION</a>
+									href="#description">DESCRIPTION</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link nav-linka adetail"
-									href="#map ">MAP</a>
+									href="#map">MAP</a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link nav-linka adetail"
-									href="#gallery ">GALLERY</a>
+									href="#gallery">GALLERY</a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link nav-linka adetail"
-									href="#program ">PROGRAM</a>
+									href="#program">PROGRAM</a>
                         </li>
                     </ul>
                 </section>
@@ -164,7 +164,7 @@
                 </section>
 
                 <section class="tour-gallery section--border-bot pb-4 "
-							id="gallery ">
+							id="gallery">
 							
                     <h2 class="tour-gallery__title mb-3 ">Gallery</h2>
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -194,7 +194,7 @@
                 </section>
 				
                 <section class="tour-program section--border-bot pb-4 "
-							id="program ">
+							id="program">
                     <h2 class="tour-program__title mb-3 ">Day by Day</h2>
                     <div>
                         <c:forEach items = "${tourSchedule}" var = "sch" varStatus = "loop">
@@ -335,7 +335,7 @@
                         <a class="" href="#">Amsterdam</a>
                         <a class="" href="#">Tuscany</a>
                         <a class="" href="#map">Adventure</a>
-                        <a class="" href=""><button class="mt-3">view destination</button></a>
+                        <a class="" href=""><button class="mt-3 btt" style="color: rgba(0,0,0,0.5)">view destination</button></a>
                     </div>
                     <div class="view-destination-before">
                         <h5>Europe</h5>
@@ -345,7 +345,7 @@
                 <section class="tags">
                     <h5>Tags</h5>
                     <div class="tags-list">
-                        <a class="adetail" href="#">${obj.nation.nationName}</a>
+                        <a class="adetail" href="${pageContext.request.contextPath}/tour-list?nationID=${obj.nation.nationID}">${obj.nation.nationName}</a>
                         <a class="adetail" href="#">${obj.nation.continent.continentName}</a>
                         <a class="adetail" href="#">${obj.typology.typologyName }</a>
                     </div>
@@ -354,6 +354,8 @@
                  <!-- feedback  -->
                 <section class="feedback">
                     <h5>Feedback</h5>
+                    <c:if test="${feedbackListcheck!=0}">
+                    <c:forEach items="${feedbackList}" var="o">
                     <div class="feedback-content">
                         <div class="feedback-info">
                             <p>
@@ -362,49 +364,26 @@
 											alt="">
 									</p>
                             <div>
-                                <h5 class="username">Duc Tho</h5>
-                                <p>I love discover the world</p>
+                                <h6 class="username" style="margin-top:3px">${o.tourBookingID.account.fullName}</h6>
+                                <p style="margin:0; font-size:10px;"> @${o.tourBookingID.account.username} </p>
+                                <p style="margin:0; font-size:10px;">${o.tourBookingID.bookDate} </p>
                             </div>
                         </div>
-                        <div class="content">a bis rowm ruws did ras ta nas chacws bangw lowps acj xanh dady acj xa qua didjch</div>
+                        <div class="content" style="padding: 15px;">${o.feedbackMessage}</div>
                     </div>
-
-                    <div class="feedback-content">
-                        <div class="feedback-info">
-                            <p>
-										<img
-											src="${pageContext.request.contextPath}/resources/images/tour-detail-img/testimonial-1.jpg"
-											alt="">
-									</p>
-                            <div>
-                                <h5 class="username">Duc Tho</h5>
-                                <p>I love discover the world</p>
-                            </div>
-                        </div>
-                        <div class="content">a bis rowm ruws did ras ta nas chacws bangw lowps acj xanh dady acj xa qua didjch</div>
+					</c:forEach>
+					
+                    </c:if>
+                    
+                    <c:if test="${feedbackListcheck==0 }">
+                    <div>
+                    
+                    	<p style="font-size:14px;">This tour hasn't had any feedback yet.</p>
+                    
                     </div>
-
-                    <div class="feedback-content">
-                        <div class="feedback-info">
-                            <p>
-										<img
-											src="${pageContext.request.contextPath}/resources/images/tour-detail-img/testimonial-1.jpg"
-											alt="">
-									</p>
-                            <div>
-                                <h5 class="username">Duc Tho</h5>
-                                <p>I love discover the world</p>
-                            </div>
-                        </div>
-                        <div class="content">a bis rowm ruws did ras ta nas chacws bangw lowps acj xanh dady acj xa qua didjch</div>
-                    </div>
-                    <div class="d-flex align-items-center flex-column">
-                        <a class="adetail" href=""><button
-										class="see-more-feedback">...</button></a>
-                        <p>or</p>
-                        <a class="adetail" href=""><button
-										class="direct-to-feedback">leave feedback </button></a>
-                    </div>
+                    </c:if>
+                    
+                    
 
                 </section>
                 
