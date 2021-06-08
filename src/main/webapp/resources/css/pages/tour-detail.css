@@ -6,7 +6,9 @@ ul {
     list-style-type: none;
 }
 
-
+.a-nav{
+	color: #ffffff !important;
+}
 .body__tour-detail {
     padding: 0;
     margin: 0;
@@ -16,9 +18,7 @@ ul {
     letter-spacing: 1.5px;
     padding-top:0px;
 }
-a{
-	color: #ffffff;
-}
+
 
  p,
  a.adetail{
@@ -28,7 +28,7 @@ a{
     font-weight: lighter;
     /* text-align: justify; */
 }
-.directToParam li a.nav-linka.adetail {
+.directToParam li a.nav-link.adetail {
     color: #9DA0AA;
      padding: 5px 20px;
      border-radius: 20px;
@@ -128,7 +128,7 @@ h1 {
    
 }
 
-.directToParam a.nav-linka.active {
+.directToParam a.nav-link.active {
     background-color: var(--color_primary);
     border-radius: 20px;
     /* width: fit-content; */

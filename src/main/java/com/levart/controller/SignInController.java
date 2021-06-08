@@ -50,7 +50,7 @@ public class SignInController {
 		AccountDAO userDAO = new AccountDAO();
 		List<Account> users = userDAO.getAllAccounts();
 		int i = userDAO.findAccountIndex(email,password);
-		System.out.println(i);
+//		System.out.println(i);
 		if (i==-1){
 			return "redirect: sign-in";
 		}

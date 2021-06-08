@@ -1,5 +1,8 @@
 package com.levart.entities;
 
+import java.sql.Date;
+import java.time.LocalDateTime;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,19 +36,19 @@ public class TourBooking {
 	private Feedback Feedback;
 
 	@Column(name = "bookDate")
-	private String bookDate;
+	private LocalDateTime bookDate=LocalDateTime.now();
 	
 	@Column(name = "scheduleDate")
-	private String scheduleDate;
+	private Date scheduleDate;
 
 	@Column(name = "bookStatus")
-	private int bookStatus;
+	private int bookStatus=1;
 	
-	public String getScheduleDate() {
+	public Date getScheduleDate() {
 		return scheduleDate;
 	}
 
-	public void setScheduleDate(String scheduleDate) {
+	public void setScheduleDate(Date scheduleDate) {
 		this.scheduleDate = scheduleDate;
 	}
 
@@ -73,11 +76,11 @@ public class TourBooking {
 			this.tour = tour;
 		}
 
-	public String getBookDate() {
+	public LocalDateTime getBookDate() {
 		return bookDate;
 	}
 
-	public void setBookDate(String bookDate) {
+	public void setBookDate(LocalDateTime bookDate) {
 		this.bookDate = bookDate;
 	}
 

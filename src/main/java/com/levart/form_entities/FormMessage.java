@@ -1,10 +1,12 @@
 package com.levart.form_entities;
 
 public class FormMessage {
+	private int tourBookingID;
 	private String name;
 	private String email;
 	private String message;
 	private String phone;
+	private Float start;
 
 	public FormMessage() {
 		// TODO Auto-generated constructor stub
@@ -41,4 +43,21 @@ public class FormMessage {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+
+	public Float getStart() {
+		return start;
+	}
+
+	public void setStart(Float start) {
+		this.start = start;
+	}
+
+	public int getTourBookingID() {
+		return tourBookingID;
+	}
+
+	public void setTourBookingID(int tourBookingID) {
+		this.tourBookingID = tourBookingID;
+	}
+	
 }
