@@ -54,9 +54,14 @@ public class TourListController {
 		}
 		if(typologyID == 0) {
 			TourDAO tourdao = new TourDAO();
-			List<Tour> list = tourdao.findTour(formsearchpackage.getDestination());
-			if(list.isEmpty()) {
-				list = tourdao.getAllTours();
+			List<Tour> list = tourdao.getAllTours();
+			if(formsearchpackage.getDestination() != "" && formsearchpackage.getMaxPrice() > 0)
+				list = tourdao.findTourWithBoth(formsearchpackage.getDestination(), formsearchpackage.getMaxPrice());	
+			else if(formsearchpackage.getDestination() == "" || formsearchpackage.getMaxPrice() == 0) {
+				if(formsearchpackage.getDestination() == "")
+					list = tourdao.findTourWithPrice(formsearchpackage.getMaxPrice());
+				else if(formsearchpackage.getMaxPrice() == 0)
+					list = tourdao.findTour(formsearchpackage.getDestination());			
 			}
 	    	model.addAttribute("searchResult", list);
 	    	ImageDAO imgdao = new ImageDAO();

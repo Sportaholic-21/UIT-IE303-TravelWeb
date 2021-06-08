@@ -60,8 +60,8 @@ public class ImageDAO {
 	public static void main(String []args){
 		ImageDAO imageDAO= new ImageDAO();
 		int id = 1;
-		List<Image> list = imageDAO.getGalleryImages(id);
-		System.out.println(list);
+//		List<Image> list = imageDAO.getThumbnailImage(id);
+//		System.out.println(list);
 		
 	}
 }
