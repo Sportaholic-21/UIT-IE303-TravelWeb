@@ -1,10 +1,7 @@
 package com.levart.form_entities;
 
-import java.util.Calendar;
-
 public class FormSearchPackage {
 	private String destination;
-	private Calendar day;
 	private float maxPrice;
 
 	public FormSearchPackage() {
@@ -27,11 +24,4 @@ public class FormSearchPackage {
 		this.maxPrice = maxPrice;
 	}
 
-	public Calendar getDay() {
-		return day;
-	}
-
-	public void setDay(Calendar day) {
-		this.day = day;
-	}
 }

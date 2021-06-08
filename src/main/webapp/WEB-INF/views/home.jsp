@@ -15,14 +15,15 @@
 					<h1 class="landing-h1">SEARCH FOR YOUR BEST ADVENTURE</h1>
 					<h3 class="landing-h3">Check out out best promotions</h3>
 					<div class="search-container">
-						<form:form action="/action_page.php" modelAttribute="textSearch">
+						<form:form action="tour-list" modelAttribute="contentSearchPackage">
 							<div class="search-bar">
-								<form:input path="text" type="text" placeholder="Where would you want to go?..." name="search" />
-								<input type="submit" value=""
+								<form:input path="destination" type="text" placeholder="Where would you want to go?..." name="destination" />
+								<input type="submit" value="    "
 									   width="47px" height="47px"
 									   style="background: url('${pageContext.request.contextPath}/resources/images/icons/magniGlass.svg') no-repeat center transparent;
-                        					  background-size: 100%;
-                        					  border-style: none;"	>
+                        					  background-size: auto;
+                        					  border-style: none;">
+									   
 							</div>
 						</form:form>
 					</div>
