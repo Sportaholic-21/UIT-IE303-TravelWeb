@@ -1,8 +1,7 @@
 /*Landing Section*/
 .landing
 {
-    height: 850px;
-    background-repeat: no-repeat;
+    height: 100vh;
 }
 
 .landing-h1
