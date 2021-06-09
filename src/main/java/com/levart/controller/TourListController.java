@@ -87,5 +87,28 @@ public class TourListController {
 		return "tour-list";
 	}
     
+    @RequestMapping("/all-tours")
+    	public String showAllTours(@ModelAttribute("account") Account account, Model model) {
+    		if (account.getEmail() == null) {
+    			model.addAttribute("username", null);
+    		} else {
+    			AccountDAO userDAO = new AccountDAO();
+    			List<Account> users = userDAO.getAllAccounts();
+    			int i = userDAO.findAccountIndex(account.getEmail(), account.getPass());
+    			if (i == -1) return "tour-list";
+    			account = users.get(i);
+    			model.addAttribute("username", account.getUsername());
+    		}
+    		TourDAO tourdao = new TourDAO();
+    		List<Tour> list = tourdao.getAllTours();
+    	    model.addAttribute("searchResult", list);
+    	    ImageDAO imgdao = new ImageDAO();
+    	    List<Image> imgList = new ArrayList<Image>();
+    		for (Tour tour : list) {
+    			imgList.add(imgdao.getGalleryImages(tour.getTourID()).get(1));
+    		}
+    		model.addAttribute("imgList", imgList);
+    		return "tour-list";
+    }
     
 }

@@ -29,7 +29,7 @@
         </li>
         
         <li class="nav-item me-4">
-          <a class="nav-link" href="${pageContext.request.contextPath}/tour-list">All Tours</a>
+          <a class="nav-link" href="${pageContext.request.contextPath}/all-tours">All Tours</a>
         </li>
         
         <li class="nav-item me-4 dropdown">
