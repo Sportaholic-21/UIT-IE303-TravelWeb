@@ -1,16 +1,21 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<t:userpage>
+<t:genericpage pageTitle="Wishlist">
 	<jsp:body>
-	 <div class="row">
-	 		<a href="${pageContext.request.contextPath}/contact"  class="btn btn-warning btn-round ml-auto mr-5 mb-3">Book New Tour</a>
-            <div class="col-md-12">
+		<section class="landing pl-5" height="650"
+             style="background: linear-gradient( rgba(0, 0, 0, 0.4) 100%,
+										rgba(0, 0, 0, 0.4)100%),
+		  								url('${pageContext.request.contextPath}/resources/images/wishlist-cover.jpg') 0px -470px no-repeat; background-size:cover"
+		    >
+		        <h1 class="landing-h1 text-white ml-5 pb-5">WISHLIST</h1>
+		    </section>
+		<div class="container wishlist">
+	 		<a href="${pageContext.request.contextPath}/contact"  class="btn btn-warning btn-round mb-5 float-right">Book New Tour</a>
               <div class="card">
                 <div
 						class="card-header card-header-tabs card-header-primary font-weight-bold">
-                 Wishlist
+                <h2> Wishlist</h2>
                 </div>
                 <div class="card-body">
                     <table class="table">
@@ -27,18 +32,18 @@
                         <tbody>
                          <c:forEach var="wishlistItem" items="${wishlistSession}">
                           <tr>
-                          		<td>a</td>
+                          		<td>${wishlistItem.tourID }</td>
 								<td>
-                    	        	<a href="${pageContext.request.contextPath}/tour-detail/${wishlistItem.tourID }"
+                    	        	<a class="text-primary" href="${pageContext.request.contextPath}/tour-detail/${wishlistItem.tourID }"
                     					>${wishlistItem.tourName }</a
                   				></td>
 	                            <td>${wishlistItem.nation.nationName}</td>
 	                            <td>${wishlistItem.duration}</td>
 	                            <td>${wishlistItem.rating}</td>
 	                            <td>
-		                            <button data-toggle="modal" data-type="remove" data-target="#deleteModel" data-id="${wishlistItem.tourID}" data-link="${pageContext.request.contextPath}/user/wishlist/api?action=remove&" type="button" rel="tooltip"
-														title="Remove" class="btn btn-danger btn-link btn-sm deleteBtn">
-	                                	<i class="material-icons">close</i>
+		                            <button data-toggle="modal" data-type="remove" data-target="#deleteModel" data-id="${wishlistItem.tourID}" data-link="${pageContext.request.contextPath}/wishlist/api?action=remove&" type="button" rel="tooltip"
+														title="Remove" class="btn-link btn-sm deleteBtn">
+	                                	<i class="fas fa-times text-danger"></i>
 	                              </button>
                             	</td>
                           	</tr>
@@ -48,7 +53,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              
             <div
 			  class="modal fade"
 			  id="deleteModel"
@@ -74,10 +79,10 @@
 			        <button type="button" class="btn btn-secondary" data-dismiss="modal">
 			          Close
 			        </button>
-			        <a type="button" class="btn btn-danger" id="deleteLink">Remove</a>
+			        <button type="button" class="btn btn-danger removeWishlist" id="deleteLink">Remove</button>
 			      </div>
 			    </div>
 			  </div>
-			</div>
-	</jsp:body>
-</t:userpage>
+			  </div>
+			</jsp:body>
+		</t:genericpage>
