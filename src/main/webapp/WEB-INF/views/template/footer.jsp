@@ -13,11 +13,9 @@
         <h2 class="fw-bolder fs-1 mb-0">Travel with Us</h2>
       </div>
 
-      <form:form action="search" class="d-flex mb-1 col-4" modelAttribute="textSearch">
-        <form:input path="text"
-          class="form-control me-2 rounded-pill p-2"
-          type="search"
-          aria-label="Search"
+      <form class="d-flex mb-1 col-4">
+        <input placeholder="Email"   class="form-control me-2 rounded-pill p-2"
+          type="text"
         />
         <button
           class="btn btn-info text-white rounded-pill pe-4 ps-4"
@@ -25,7 +23,7 @@
         >
           SEND
         </button>
-      </form:form>
+      </form>
     </div>
     <div class="row bg-white p-5 mt-5">
       <div class="col-5">
