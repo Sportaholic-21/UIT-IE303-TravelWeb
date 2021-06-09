@@ -317,10 +317,9 @@
 
                 <section class="search mb-5">
                     <h5>Search</h5>
-                    <form:form action="search" modelAttribute="textSearch">
+                    <form:form action="tour-list" modelAttribute="contentSearchPackage">
                         <div class="form-group col-md-12 pl-0">
-                            <form:input path="text" type="text" class="form-control"
-										id="name" placeholder="Search..." />
+                            <form:input path = "destination" class="form-select" name="destination" id="" style="background-image: url('${pageContext.request.contextPath}/resources/images/tour-list/icons/pin.svg')"/>
                         </div>
                         <button type="submit"
 									style="background-color: var(--color_primary);">SEARCH</button>
@@ -399,122 +398,40 @@
                 <h2>PACKAGES</h2>
             </div>
             <div class="d-md-flex">
-                <div class="related-tour__card col-xl-4 mt-3 mb-3">
-                    <img
-								src="${pageContext.request.contextPath}/resources/images/tour-detail-img/package-1-1024x640.jpg"
-								alt="" style="width: 100%; height: auto;">
-                    <div class="border p-4 ">
-                        <div class="mb-2">
-                            <h5>
-										<a class="adetail" href="#">
-                                Berlin
-                            </a>
-									</h5>
-                            <p>
-										<a class="adetail" href="">
-                                <i class="fas fa-map-marker-alt"></i>Europe
-                            </a>
-									</p>
-                        </div>
-                        <div
-									class="d-flex justify-content-between align-items-center border-top border-bottom pt-2 pb-2 mb-3">
-                            <div class="card__category">
-                                <p>CULTURAL</p>
-                                <p>RELAX <span
-												style="background-color: var(- -color_primary); border-radius: 15px; padding: 2px 10px; color: white;">+ 2</span>
-										</p>
-                            </div>
-                            <p style="font-size: 30px; color: black;">700$</p>
-                        </div>
+            <c:forEach items = "${relatedList}" var = "list">
+                <c:forEach items = "${imgList}" var = "imgList">
+					<c:if test = "${imgList.tourID.tourID == list.tourID}">
+			        	<div class="related-tour__card col-xl-4 mt-3 mb-3">
+				        	<img src="${imgList.imageURL}" alt="${list.tourName} Thumbnail Image" style="width:100%; height: 200px;">
+					        	<div class="border p-4 ">
+					            	<div class="mb-2">
+					                	<p class="combo-name d-flex justify-content-between align-items-center" style = "font-weight: bold; color: black; font-size: 25px;">
+			                        		<span>${list.tourName}</span>
+			                        		<span style = "color: red; font-size: 15px; font-weight:100;">- ${list.discount} % </span>
+			                        	</p>
+					                 </div>
+					                 <div class="d-flex justify-content-between align-items-center border-top border-bottom pt-2 pb-2 mb-3">
+					                 	<div class="card__category">
+					                    	<p style = "font-size:20px">${list.typology.typologyName}</p>
+					                    </div>
+					                    	<p style="font-size: 20px; color: red; font-weight: bold;">${list.price}$</p>
+					                    </div>
+					
+					                  <div class="card__des mb-3">
+					                  	<p style="font-size: 17px; color: black; height: 200px">${list.shortDesc}</p>
+					                  </div>
+					
+					                  <a class="adetail" href="${pageContext.request.contextPath}/tour-detail/${list.tourID}">
+							             <button class="btn btn-danger" style = "font-weight: bold">View</button>
+							          </a>
+										<button data-type="addWishlist" data-link="${pageContext.request.contextPath}/user/wishlist/api?action=add&id=${tour.tourID}" class="float-right text-danger addWishlist" style = "padding: 0; margin = 0; border:none; background-color:white"><i class="far fa-heart fs-1"></i></button>
+					              </div>
+			              </div>
+		              </c:if>
+		    	</c:forEach>
+            </c:forEach>
 
-                        <div class="card__des mb-3">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut efficitur ante. Donec dapibus dictum scelerisque.</p>
-                        </div>
-
-                        <a class="adetail" href="">
-                            <button class="card__button--color">DETAILS</button>
-                        </a>
-
-                    </div>
-                </div>
-
-                <div class="related-tour__card col-xl-4 mt-3 mb-3">
-                    <img
-								src="${pageContext.request.contextPath}/resources/images/tour-detail-img/package-1-1024x640.jpg"
-								alt="" style="width: 100%; height: auto;">
-                    <div class="border p-4 ">
-                        <div class="mb-2">
-                            <h5>
-										<a class="adetail" href="#">
-                                Berlin
-                            </a>
-									</h5>
-                            <p>
-										<a class="adetail" href="">
-                                <i class="fas fa-map-marker-alt"></i> Europe
-                            </a>
-									</p>
-                        </div>
-                        <div
-									class="d-flex justify-content-between align-items-center border-top border-bottom pt-2 pb-2 mb-3">
-                            <div class="card__category">
-                                <p>HISTORY</p>
-                                <p>RELAX <span
-												style="background-color: var(- -color_primary); border-radius: 15px; padding: 2px 10px; color: white;">+ 2</span>
-										</p>
-                            </div>
-                            <p style="font-size: 30px; color: black;">700$</p>
-                        </div>
-
-                        <div class="card__des mb-3">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut efficitur ante. Donec dapibus dictum scelerisque.</p>
-                        </div>
-
-                        <a class="adetail" href="">
-                            <button class="card__button--color">DETAILS</button>
-                        </a>
-
-                    </div>
-                </div>
-
-                <div class="related-tour__card col-xl-4 mt-3 mb-3">
-                    <img
-								src="${pageContext.request.contextPath}/resources/images/tour-detail-img/package-1-1024x640.jpg"
-								alt="" style="width: 100%; height: auto;">
-                    <div class="border p-4 ">
-                        <div class="mb-2">
-                            <h5>
-										<a class="adetail" href="#">
-                                Berlin
-                            </a>
-									</h5>
-                            <p>
-										<a class="adetail" href="">
-                                <i class="fas fa-map-marker-alt"></i> Europe
-                            </a>
-									</p>
-                        </div>
-                        <div
-									class="d-flex justify-content-between align-items-center border-top border-bottom pt-2 pb-2 mb-3">
-                            <div class="card__category">
-                                <p>SPORT</p>
-                                <p>RELAX <span
-												style="background-color: var(- -color_primary); border-radius: 15px; padding: 2px 10px; color: white;">+ 2</span>
-										</p>
-                            </div>
-                            <p style="font-size: 30px; color: black;">700$</p>
-                        </div>
-
-                        <div class="card__des mb-3">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut efficitur ante. Donec dapibus dictum scelerisque.</p>
-                        </div>
-
-                        <a class="adetail" href="">
-                            <button class="card__button--color">DETAILS</button>
-                        </a>
-
-                    </div>
-                </div>
+                
             </div>
 
         </div>

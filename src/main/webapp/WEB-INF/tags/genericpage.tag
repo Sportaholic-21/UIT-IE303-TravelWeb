@@ -44,14 +44,14 @@
 <title>Levart | ${pageTitle}</title>
 </head>
 <body>
-	<jsp:include page="../views/template/navbar.jsp" />
-	<jsp:include page="../views/template/sidebar.jsp" />
+	<jsp:include page="/WEB-INF/views/template/navbar.jsp" />
+	<jsp:include page="/WEB-INF/views/template/sidebar.jsp" />
 
 	<main id="body" class="main">
 		<jsp:doBody />
 	</main>
 
-	<jsp:include page="../views/template/footer.jsp" />
+	<jsp:include page="/WEB-INF/views/template/footer.jsp" />
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	
@@ -60,8 +60,17 @@
 		integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
 		crossorigin="anonymous"></script>
 
+	<script src="${pageContext.request.contextPath}/resources/js/passDataToModalDelete.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/toggle-btn-sidebar.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/addWishlist.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/hideShowNav.js"></script>
+
+	<script
+		src="${pageContext.request.contextPath}/resources/user/js/popper.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/user/js/bootstrap-material-design.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/js/passDataToModalDelete.js"></script>
 	<!-- page script -->
 	<jsp:invoke fragment="pageScript" />
 </body>

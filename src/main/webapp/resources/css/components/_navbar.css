@@ -1,9 +1,19 @@
 .navbar {
-  background: rgba(0, 0, 0, 0.12);
+  background: rgba(0, 0, 0, 0.4);
   width: 100%;
   top: 0;
   left: 0;
+  transition: all 0.2s linear;
+  transform-origin: top;
+  z-index: 1000;
+  position: sticky;
+  position: -webkit-sticky;
+  height: 82px;
 }
+
+.hide {
+    top: -100px;
+  }
 
 .navbar__logo--img {
   width: 45px;
@@ -24,4 +34,21 @@
 
 .nav__contact-link:hover {
 	color: #fff !important;
+}
+
+.nav-item {
+	position: relative;
+}
+
+.whilist-number {
+	background: #BA71DA;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	font-size: 16px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 20px;
+	right: -10px;
+	top: 10px;
 }

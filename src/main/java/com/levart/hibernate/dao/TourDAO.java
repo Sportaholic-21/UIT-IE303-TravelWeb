@@ -12,7 +12,9 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import com.levart.entities.Tour;
+import com.levart.entities.Typology;
 import com.levart.entities.Image;
+import com.levart.entities.Nation;
 import com.levart.hibernate.utils.HibernateUtils;
 
 public class TourDAO {
@@ -41,6 +43,7 @@ public class TourDAO {
 		}
 		return tourList;
 	}
+	
 	
 	//Trích lấy schedule trong db
 //	public ArrayList<List<String>> getTourSchedule(int id){
@@ -235,6 +238,27 @@ public class TourDAO {
 		return null;
 	}
 	
+	public List<Tour> getRelatedTour(int typologyID, int nationID, int id ){
+		Session session = factory.openSession();
+		try {
+			// bắt đầu 1 transaction (giao dịch)
+			Transaction tx = session.beginTransaction();
+			// thực thi câu query dạng hql
+			@SuppressWarnings("unchecked")
+			String hql = "from Tour where typologyID = " + typologyID + "and nationID= " + nationID + " and tourID != " + id;
+			Query<Tour> query = session.createQuery(hql).setMaxResults(3);
+			List<Tour> tourList = query.getResultList();
+			return tourList;
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			session.flush();
+			session.close();
+		}
+		return null;
+	}
+	
 	
 	//insert
 	public void addTour(Tour tour) {
@@ -262,12 +286,14 @@ public class TourDAO {
 		int id = 4;
 		String tourName = "Ha";
 		float price = 200;
+		int typologyID = 4;
+		int nationID = 1;
 		//List<List<String>> list = tourDAO.getTourSchedule(id);
 		//System.out.println(list);
 //		List<Tour> list = tourDAO.getTour(id);
 //		System.out.println(list);
 		
-		List<Tour> list = tourDAO.findTourWithBoth(tourName, price);
+		List<Tour> list = tourDAO.getRelatedTour(typologyID, nationID, id);
 		System.out.println(list);
 		
 	}
