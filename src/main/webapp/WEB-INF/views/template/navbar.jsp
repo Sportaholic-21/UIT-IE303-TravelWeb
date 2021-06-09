@@ -53,7 +53,7 @@
         </li>
 
         <li class="nav-item me-4 a-nav">
-          <a class="nav-link" href="${pageContext.request.contextPath}/about-us">About us</a>
+          <a class="nav-link" href="${pageContext.request.contextPath}/about">About us</a>
         </li>
 
         <li class="nav-item ms-2">

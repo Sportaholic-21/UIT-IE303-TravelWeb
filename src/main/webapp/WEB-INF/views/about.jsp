@@ -7,12 +7,21 @@
     <link rel="stylesheet" id="nicdark-style-css" href="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/themes/lovetravel/style.css?ver=5.2.1" type="text/css" media="all">
     <link rel="stylesheet" id="js_composer_front-css" href="//www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/js_composer/js_composer_front_custom.css?ver=5.4.7" type="text/css" media="all">
     <script type="text/javascript" src="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp"></script>
+	<link rel="stylesheet" type="text/css"
+			href="${pageContext.request.contextPath}/resources/css/components/_navbar.css">
+			<link rel="stylesheet" type="text/css"
+			href="${pageContext.request.contextPath}/resources/css/style.css">
 	<style>
-
+	p a{
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    }
 	</style>
 	</jsp:attribute>
 	<jsp:body>
-	<div id="nd_options_page_header_img_layout_5" class="nd_options_section nd_options_background_size_cover nd_options_background_position_center" style="background-image:url(http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/2018/11/parallax-3-1.jpg);">
+	<div id="nd_options_page_header_img_layout_5" class="nd_options_section nd_options_background_size_cover nd_options_background_position_center" style="background-image:url(http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/2018/11/parallax-3-1.jpg);background-attachment:fixed">
             <div class="">
                 <div class="nd_options_container nd_options_clearfix" style="height:250px">
                    <!--  <div id="nd_options_page_header_image_space_top" class="nd_options_section nd_options_height_110"></div> -->
