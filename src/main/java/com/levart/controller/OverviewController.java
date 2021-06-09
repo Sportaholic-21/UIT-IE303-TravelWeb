@@ -1,7 +1,7 @@
 package com.levart.controller;
 
-import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -44,7 +44,6 @@ public class OverviewController extends CRUDBookedTourOperation {
 			List<Integer> isFeedbacks = new ArrayList<Integer>();
 			List<Float> stars = new ArrayList<Float>();
 			List<Date> dates = new ArrayList<Date>();
-
 			List<Nation> nations = nationDAO.getListNationByEndedTour();
 			
 			Iterator<TourBooking> tourBookingItem = tourBookings

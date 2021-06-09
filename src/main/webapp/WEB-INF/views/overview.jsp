@@ -27,10 +27,8 @@
 </style>
 	</jsp:attribute>
 	<jsp:body>
-		<div class="p-0"></div>
+		<div class=></div>
 		<div class="container">
-		
-
 			<div class="row mt-5">
 			  <div class="col-md-9">
 			    <div class="row">
@@ -144,7 +142,7 @@
 			    </div>
 			  </div>
 			</div>
-          
+          </div>
           <script
 				src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
 			<script
@@ -221,4 +219,4 @@
 				});
 			</script>
     </jsp:body>
-</t:guest-user-page>
+</t:genericpage>

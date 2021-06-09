@@ -47,7 +47,7 @@
 	<jsp:include page="/WEB-INF/views/template/navbar.jsp" />
 	<jsp:include page="/WEB-INF/views/template/sidebar.jsp" />
 
-	<main id="body" class="main">
+	<main id="body" class="main" style="position: relative; top: -88px;">
 		<jsp:doBody />
 	</main>
 
