@@ -9,7 +9,7 @@
 	</jsp:attribute>
 	<jsp:body>
 	<c:if test="${username==null}">
-    <div class="popover12" style=" background-color: rgba(0,0, 0, 0.4); width: 100vw; height: 100vh; margin: 0; padding: 0; position: fixed; z-index: 99;">
+    <div class="popover12" style=" background-color: rgba(0,0, 0, 0.4); width: 100vw; height: 100vh; margin: 0; padding: 0; position: fixed; z-index: 9999;">
         <div style="border-radius: 15px; margin: 20px auto; padding: 40px; width: max-content; background-color:rgba(6, 67, 75, 0.9); align-items: center; display: flex; flex-direction: column; box-shadow: 5px 5px 5px rgba(0,0, 0, 0.4);">
             <h3 style="font-weight: 600; color: white;">You haven't still logged in yet.</h3>
             <p style="color: white;">Please, Log in now!</p>
