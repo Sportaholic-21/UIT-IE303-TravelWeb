@@ -87,7 +87,7 @@
 			              	</c:when>
 			              </c:choose>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Log out</a>
+						<a class="dropdown-item" id="signOut">Log out</a>
 					</div></li>
 			</ul>
 		</div>
