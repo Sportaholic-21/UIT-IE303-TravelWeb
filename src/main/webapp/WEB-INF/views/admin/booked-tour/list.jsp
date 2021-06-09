@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%> <%@taglib prefix="t"
 tagdir="/WEB-INF/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>>
-
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <t:adminpage pageHeading="Booked Tours">
   <jsp:body>
     <div class="card mb-4">
@@ -19,9 +19,11 @@ tagdir="/WEB-INF/tags"%>
           >
             <thead>
               <tr>
+              	<th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Booking Date</th>
+                <th>Schedule Date</th>
                 <th>Booked Tour</th>
                 <th>Status</th>
                 <th>Action</th>
@@ -29,6 +31,7 @@ tagdir="/WEB-INF/tags"%>
             </thead>
             <tfoot>
               <tr>
+              	<th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Booking Date</th>
@@ -45,25 +48,31 @@ tagdir="/WEB-INF/tags"%>
             	</c:url>
              
               <tr>
-                <td>${tourBooking.account.username }</td>
-                <td>${tourBooking.account.email }</td>
-                <td>${tourBooking.bookDate }</td>
+               <form:form action="booked-tour/updateStatusBookedTour" modelAttribute="statusBookedTour">
+               	<td style="width:8px"><form:input path="tourBookingID" value="${tourBooking.tourBookingID}" style="border:none;width:100%"/></td>
+                <td style="width:15px">${tourBooking.account.username }</td>
+                <td>${tourBooking.account.email}</td>
+                <td>${tourBooking.bookDate}</td>
+                <td>${tourBooking.scheduleDate}</td>
                 <td>
-                  <a href="${pageContext.request.contextPath}/tour/${tourBooking.tour.tourID }"
-                    >${tourBooking.tour.tourName }</a
+                  <a href="${pageContext.request.contextPath}/tour-detail/${tourBooking.tour.tourID }"
+                    >${tourBooking.tour.tourName}</a
                   >
                 </td>
+                <form:input path="tour.tourID" value="${tourBooking.tour.tourID}"  style="display:none"/>
                 <td>
-                  <select class="custom-select">
-                    <option value="1"  selected="${tourBooking.bookStatus == 1 ? 'selected' : ''}">Not Start Yet</option>
-                    <option value="2" selected="${tourBooking.bookStatus == 2 ? 'selected' : ''}">Started</option>
-                    <option value="3" selected="${tourBooking.bookStatus == 3 ? 'selected' : ''}">Ended</option>
-                    <option value="4"selected="${tourBooking.bookStatus == 4 ? 'selected' : ''}">Cancel</option>
-                  </select>
+                  <form:select path="bookStatus" class="custom-select">
+                    <option value="1" ${tourBooking.bookStatus == "1" ? "selected" : ''}>Not Start Yet</option>
+                    <option value="2" ${tourBooking.bookStatus == "2" ? "selected" : ''}>Started</option>
+                    <option value="3" ${tourBooking.bookStatus == "3" ? "selected" : ''}>Ended</option>
+                    <option value="4" ${tourBooking.bookStatus == "4" ? "selected" : ''}>Cancel</option>
+                  </form:select>
+                  <input class="mt-1 bg-primary" style="float: right; border-radius: 5px; color:white " type="submit" value="Send"></input>
+                  </form:form>
                 </td>
                 <td>
                   <a
-                    href="${editLink }"
+                    href="${editLink}"
                     ><button type="button" class="btn btn-link">Edit</button></a
                   >
                   <button data-toggle="modal" data-target="#deleteModel" data-id="${tourBooking.tourBookingID}" data-link="booked-tour/api/delete?" type="button" class="btn btn-link text-danger deleteBtn">

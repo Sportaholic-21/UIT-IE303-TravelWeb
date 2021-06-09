@@ -26,7 +26,7 @@ CREATE TABLE account
     accountID int IDENTITY(1,1) PRIMARY KEY,
     username varchar(20) UNIQUE,
 	fullName varchar(50),
-    email varchar(20) UNIQUE,
+    email varchar(100) UNIQUE,
     pass varchar(20),
     avatar varchar(70) default 'https://i.ibb.co/t42CQhf/profile-default.png',
     accountRole bit default 1, /* 0 la admin, 1 la client nha */
@@ -39,6 +39,10 @@ GO
 -- Dành cho việc cập nhật bảng account nếu đã pull file này trước trưa ngày 5/6/2021 hoặc trước đó
 /* alter table account
 add point int default 0*/
+
+/*alter table account
+ * alter column email varchar(100)
+ */
 
 CREATE TABLE typology
 (

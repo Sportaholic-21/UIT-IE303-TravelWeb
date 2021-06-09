@@ -12,12 +12,12 @@ tagdir="/WEB-INF/tags"%>
       <form:hidden path="account.accountID" />
       
       <div class="form-row">
-        <div class="col-md-6 mb-3">
+        <div class="col-md-4 mb-3">
           <label for="validationCustom01">User</label>
           <input value="${username}" type="text" class="form-control" 
-                id="validationCustom01" readonly disabled />
+                id="validationCustom01" readonly="true" />
         </div>
-        <div class="col-md-6 mb-3">
+        <div class="col-md-4 mb-3">
           <label for="validationCustom03">Booked Tour</label>
           <form:input path="tour.tourID" name="tourID" list="tour" type="text" class="form-control" 
                 id="validationCustom03" required="required" />
@@ -27,6 +27,10 @@ tagdir="/WEB-INF/tags"%>
             </c:forEach>
           </datalist>
         </div>
+        <div class="col-md-4 mb-3">
+      		<label for="validationCustom04">ScheduleDate</label>
+      		<form:input path="scheduleDate" type="date" id="validationCustom04" name="scheduleDate" class="form-control" value="${tourBooking.scheduleDate}"/>
+      	</div>
       </div>
       <button class="btn btn-primary" type="submit">Submit</button>
       <a href="${pageContext.request.contextPath}/admin/booked-tour" class="btn btn-warning">Cancel</a>

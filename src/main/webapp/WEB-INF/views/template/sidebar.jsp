@@ -107,9 +107,10 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script defer>
 	var signOut = document.getElementById("signOut");
+	var urlCurrent=window.location.href;
 	signOut.addEventListener("click", () => {
 		axios.post("/UIT-IE303-TravelWeb/signOut")
-			 .then(function(res){window.location="/UIT-IE303-TravelWeb/"})
+			 .then(function(res){window.location=urlCurrent})
 			 .catch(function(err){console.log(err)})
 	})
 </script>

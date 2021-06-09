@@ -57,7 +57,7 @@
         </div>
       </div>
       <div class="col-3 ps-5">
-        <h4>OUR AGENCY</h4>
+        <h4 class="mb-3">OUR AGENCY</h4>
         <ul class="footer__agency-link">
           <li><a href="#">Services</a></li>
           <li><a href="#">Insurancee</a></li>

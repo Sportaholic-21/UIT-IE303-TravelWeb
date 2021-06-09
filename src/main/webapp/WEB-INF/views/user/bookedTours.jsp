@@ -5,7 +5,7 @@
 <t:userpage>
 	<jsp:body>
 	 <div class="row">
-	 		<a href="${pageContext.request.contextPath}/contact"  class="btn btn-warning btn-round ml-auto mr-5 mb-3">Book New Tour</a>
+	 		<a href="${pageContext.request.contextPath}/contact?name=${account.fullName }&phone=0123456789&email=${account.email}"  class="btn btn-warning btn-round ml-auto mr-5 mb-3">Book New Tour</a>
             <div class="col-md-12">
               <div class="card">
                 <div
@@ -110,7 +110,7 @@
 									    	</td>
 									  </c:when>
 									  <c:otherwise>
-									    	<td><a href="${pageContext.request.contextPath}/feedback?id=${tourEnd.tour.tourID }"  class="font-weight-bold">Give feedback</a></td>
+									    	<td><a href="${pageContext.request.contextPath}/feedback?tourID=${tourEnd.tour.tourID }&tourBookingID=${tourEnd.tourBookingID}&email=${account.email}&name=${account.username}"  class="font-weight-bold" target="_blank">Give feedback</a></td>
 									  </c:otherwise>
 								</c:choose>
  	                          </tr>

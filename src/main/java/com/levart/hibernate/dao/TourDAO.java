@@ -1,6 +1,7 @@
 package com.levart.hibernate.dao;
 
 import java.util.ArrayList;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,6 +12,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import com.levart.entities.Tour;
+import com.levart.entities.Image;
 import com.levart.hibernate.utils.HibernateUtils;
 
 public class TourDAO {
@@ -127,6 +129,113 @@ public class TourDAO {
 		return null;
 	}
 	
+	public List<Tour> getTop3Tours(){
+		Session session = factory.openSession();
+		try {
+			// bắt đầu 1 transaction (giao dịch)
+			Transaction tx = session.beginTransaction();
+			// thực thi câu query dạng hql
+			@SuppressWarnings("unchecked")
+			String hql = "from Tour order by rating desc";
+			Query<Tour> query = session.createQuery(hql).setMaxResults(3);
+			List<Tour> tourList = query.getResultList();
+			return tourList;
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			session.flush();
+			session.close();
+		}
+		return null;
+	}
+	
+	//Search
+	public List<Tour> findTour(String tourName){
+		Session session = factory.openSession();
+		try {
+			// bắt đầu 1 transaction (giao dịch)
+			Transaction tx = session.beginTransaction();
+			// thực thi câu query dạng hql
+			@SuppressWarnings("unchecked")
+			String hql = "from Tour where tourName like: searchKey";
+			Query<Tour> query = session.createQuery(hql).setParameter("searchKey", "%" + tourName + "%");
+			List<Tour> tourList = query.getResultList();
+			return tourList;
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			session.flush();
+			session.close();
+		}
+		return null;
+	}
+	
+	public List<Tour> findTourWithPrice(float price){
+		Session session = factory.openSession();
+		try {
+			// bắt đầu 1 transaction (giao dịch)
+			Transaction tx = session.beginTransaction();
+			// thực thi câu query dạng hql
+			@SuppressWarnings("unchecked")
+			String hql = "from Tour where price <= " + price;
+			Query<Tour> query = session.createQuery(hql);
+			List<Tour> tourList = query.getResultList();
+			return tourList;
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			session.flush();
+			session.close();
+		}
+		return null;
+	}
+	
+	public List<Tour> findTourWithBoth(String tourName, float price){
+		Session session = factory.openSession();
+		try {
+			// bắt đầu 1 transaction (giao dịch)
+			Transaction tx = session.beginTransaction();
+			// thực thi câu query dạng hql
+			@SuppressWarnings("unchecked")
+			String hql = "from Tour where tourName like: searchKey and price <= " + price;
+			Query<Tour> query = session.createQuery(hql).setParameter("searchKey", "%" + tourName + "%");
+			List<Tour> tourList = query.getResultList();
+			return tourList;
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			session.flush();
+			session.close();
+		}
+		return null;
+	}
+	
+	public List<Tour> getTourByTypologyID(int id){
+		Session session = factory.openSession();
+		try {
+			// bắt đầu 1 transaction (giao dịch)
+			Transaction tx = session.beginTransaction();
+			// thực thi câu query dạng hql
+			@SuppressWarnings("unchecked")
+			String hql = "from Tour where typologyID = :searchKey";
+			Query<Tour> query = session.createQuery(hql).setParameter("searchKey", id);
+			List<Tour> tourList = query.getResultList();
+			return tourList;
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			session.flush();
+			session.close();
+		}
+		return null;
+	}
+	
+	
 	//insert
 	public void addTour(Tour tour) {
 		Session session = factory.openSession();
@@ -145,13 +254,20 @@ public class TourDAO {
 			session.close();
 		}
 	}
+	
+	
 	public static void main(String []args){
 		TourDAO tourDAO= new TourDAO();
 		tourDAO.getAllTours();
-		int id = 1;
+		int id = 4;
+		String tourName = "Ha";
+		float price = 200;
 		//List<List<String>> list = tourDAO.getTourSchedule(id);
 		//System.out.println(list);
-		List<Tour> list = tourDAO.getTour(id);
+//		List<Tour> list = tourDAO.getTour(id);
+//		System.out.println(list);
+		
+		List<Tour> list = tourDAO.findTourWithBoth(tourName, price);
 		System.out.println(list);
 		
 	}

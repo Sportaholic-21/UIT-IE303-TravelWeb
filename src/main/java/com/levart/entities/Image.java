@@ -63,9 +63,10 @@ public class Image {
 	public void setImageRole(String imageRole) {
 		this.imageRole = imageRole;
 	}
-	
 	@Override
 	public String toString() {
-		return "Image URL: " + imageURL + "ALT text: " + tourImageName;
+		return "Image [tourImageID=" + tourImageID + ", tourID=" + tourID + ", imageURL=" + imageURL
+				+ ", tourImageName=" + tourImageName + ", imageRole=" + imageRole + "]";
 	}
+	
 }
