@@ -7,7 +7,9 @@
 	<jsp:attribute name="pageCSSLink">
 		<link rel="stylesheet" type="text/css"
 			href="${pageContext.request.contextPath}/resources/css/pages/tour-detail.css">
+		<style>
 		
+		</style>
 	</jsp:attribute>
 	<jsp:body>
   	<div class="body__tour-detail pt-0">
@@ -225,7 +227,7 @@
                         <p>
 									<span> ${obj.price}$</span>  ${obj.priceDiscount}$</p>
                     </div>
-                    <form:form id="form-send-now" action="sendContact"
+                    <form:form id="form-send-now" action="${pageContext.request.contextPath}/sendContact"
 								modelAttribute="messageContact">
                         <div class="form-row">
                             <div class="form-group col-md-12">
