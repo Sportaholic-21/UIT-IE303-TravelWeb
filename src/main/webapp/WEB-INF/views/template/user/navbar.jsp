@@ -14,7 +14,7 @@
 				</a>
 					<div class="dropdown-menu dropdown-menu-right"
 						aria-labelledby="navbarDropdownProfile">
-						<a class="dropdown-item" href="${pageContext.request.contextPath}/user/${account.username}">Overview</a>
+						<a class="dropdown-item" href="${pageContext.request.contextPath}/${account.username}">Overview</a>
 						<a class="dropdown-item" href="${pageContext.request.contextPath}/user?tab=profile">Profile</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="#">Log out</a>
