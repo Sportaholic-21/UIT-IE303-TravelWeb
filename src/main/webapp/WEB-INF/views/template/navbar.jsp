@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <nav class="navbar navbar-expand-lg text-white">
   <div class="container-xxl">
     <a class="ms-5 navbar-brand d-flex align-items-center" href="${pageContext.request.contextPath}/home">
@@ -69,7 +70,27 @@
         <% if (request.getAttribute("username") == null) {%>
           <a class="nav-link text-uppercase a-nav" href="${pageContext.request.contextPath}/sign-in">Sign in</a>
         <% } else {%>
-          <a class="nav-link a-nav" href="${pageContext.request.contextPath}/user?tab=profile">${username}</a>
+          <div class="collapse navbar-collapse justify-content-end">
+			<ul class="navbar-nav">
+				<li class="nav-item dropdown"><a class="nav-link"
+					href="javascript:;" id="navbarDropdownProfile"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					${username}
+				</a>
+					<div class="dropdown-menu dropdown-menu-right"
+						aria-labelledby="navbarDropdownProfile">
+						<a class="dropdown-item" href="${pageContext.request.contextPath}/${account.username}">Overview</a>
+						<a class="dropdown-item" href="${pageContext.request.contextPath}/user?tab=profile">Setting</a>
+						<c:choose>
+			              	<c:when test="${account.accountRole == 0}">
+			              		<a class="dropdown-item" href="${pageContext.request.contextPath}/admin">Admin Dashboard</a>
+			              	</c:when>
+			              </c:choose>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Log out</a>
+					</div></li>
+			</ul>
+		</div>
         <% }%>
         </li>
           
