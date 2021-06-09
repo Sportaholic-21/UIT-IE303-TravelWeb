@@ -1,9 +1,19 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<t:genericpage pageTitle="Profile">
+	<jsp:attribute name="pageCSSLink">
+	<!-- CSS Files -->
+	
+	<link
+	href="${pageContext.request.contextPath}/resources/user/css/style.css"
+	rel="stylesheet" />
 
-<t:guest-user-page>
-	<jsp:body>
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css"
+	rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.js"></script>
+
+
 	<style type="text/css">
 		.marker {
 			background:
@@ -14,7 +24,12 @@
 			border-radius: 50%;
 			cursor: pointer;
 		}
-	</style>
+</style>
+	</jsp:attribute>
+	<jsp:body>
+		<div class="p-0"></div>
+		<div class="container">
+		
 
 			<div class="row mt-5">
 			  <div class="col-md-9">
@@ -30,8 +45,9 @@
 			            <div class="card-body col-9 d-flex">
 			              <h4 class="card-title text-left mr-auto mt-2">${account.username}</h4>
 			              <c:choose>
-			              	<c:when test=${socialMediaLink ne ''}>
-			              		<a href="${account.socialMediaLink}" class="btn btn-warning btn-round mr-5">Contact via Social</a>
+			              	<c:when test="${account.socialMediaLink ne ''}">
+			              		<a href="${account.socialMediaLink}"
+													class="btn btn-warning btn-round mr-5">Contact via Social</a>
 			              	</c:when>
 			              </c:choose>
 			            </div>
@@ -55,14 +71,13 @@
 			        <div class="card card-stats">
 			          <div class="card-header card-header-info card-header-icon">
 			            <div class="card-icon">
-			              <i class="material-icons">dashboard</i>
+			              <i class="fas fa-plane"></i>
 			            </div>
 			            <p class="card-category">Total Tours</p>
 			            <h3 class="card-title">${endedTours.size()}</h3>
 			          </div>
 			          <div class="card-footer">
 			            <div class="stats">
-			              <i class="material-icons text-danger">date_range</i>
 			              <a>Time To See The World.</a>
 			            </div>
 			          </div>
@@ -73,16 +88,17 @@
 			    <div class="row">
 			      <div class="col-12">
 			        <div class="card card-stats">
-			          <div class="card-header card-header-success card-header-icon">
+			          <div
+									class="card-header card-header-success card-header-icon">
 			            <div class="card-icon">
-			              <i class="material-icons">store</i>
+			              <i class="fas fa-thumbtack"></i>
 			            </div>
 			            <p class="card-category">Total Nations</p>
 			            <h3 class="card-title">${totalNations}</h3>
 			          </div>
 			          <div class="card-footer">
 			            <div class="stats">
-			              <i class="material-icons text-warning">warning</i> Awesome Is New Space.
+			               Awesome Is New Space.
 			            </div>
 			          </div>
 			        </div>
@@ -91,7 +107,8 @@
 			    <div class="row">
 			      <div class="col-12">
 			        <div class="card card-stats">
-			          <div class="card-header card-header-warning card-header-icon">
+			          <div
+									class="card-header card-header-warning card-header-icon">
 			            <div class="card-icon">
 			              <i class="fa fa-comments"></i>
 			            </div>
@@ -100,7 +117,7 @@
 			          </div>
 			          <div class="card-footer">
 			            <div class="stats">
-			              <i class="material-icons text-info">update</i> Caring Your Hobbies.
+			              Caring Your Hobbies.
 			            </div>
 			          </div>
 			        </div>
@@ -109,16 +126,17 @@
 			    <div class="row">
 			      <div class="col-12">
 			        <div class="card card-stats">
-			          <div class="card-header card-header-danger card-header-icon">
+			          <div
+									class="card-header card-header-danger card-header-icon">
 			            <div class="card-icon">
-			              <i class="material-icons">info_outline</i>
+			              <i class="fas fa-funnel-dollar"></i>
 			            </div>
 			            <p class="card-category">Points</p>
 			            <h3 class="card-title">${account.point}</h3>
 			          </div>
 			          <div class="card-footer">
 			            <div class="stats">
-			              <i class="material-icons text-success">local_offer</i> Be A Better Visitor
+			              Be A Better Visitor
 			            </div>
 			          </div>
 			        </div>
@@ -128,19 +146,20 @@
 			</div>
           
           <script
-			src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
+				src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
 			<script
-			src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
+				src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
 		
 			<script>
-					var coordinateList = ${coordinates};
-					var tourNames = "${tourNames}";
-					var dates = "${dates}";
-					var stars = ${stars};
-					var tourSize = ${endedTours.size()};
+				var coordinateList = ${coordinates};
+				var tourNames = "${tourNames}";
+				var dates = "${dates}";
+				var stars = ${stars};
+				var tourSize = ${endedTours.size()};
 			</script>
 			
 			<script
-			src="${pageContext.request.contextPath}/resources/user/js/addMap.js"></script>
-    </jsp:body>
-</t:guest-user-page>
+				src="${pageContext.request.contextPath}/resources/user/js/addMap.js"></script>
+			 </div>
+		</jsp:body>
+</t:genericpage>
