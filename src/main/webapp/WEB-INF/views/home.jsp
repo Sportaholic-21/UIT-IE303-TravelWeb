@@ -9,9 +9,9 @@
 	</jsp:attribute>
 	<jsp:body>
 		<!--Landing Section-->
-		<section class="landing" style="background: linear-gradient( rgba(0, 0, 0, 0.3) 100%,
-										rgba(0, 0, 0, 0.3)100%),
-		  								url('${pageContext.request.contextPath}/resources/images/feedback-background.jpg');">
+		<section class="landing" style="background: linear-gradient( rgba(0, 0, 0, 0.4) 100%,
+										rgba(0, 0, 0, 0.4)100%),
+		  								url('${pageContext.request.contextPath}/resources/images/home-page-background.jpg') -150px -200px no-repeat;">
 					<h1 class="landing-h1">SEARCH FOR YOUR BEST ADVENTURE</h1>
 					<h3 class="landing-h3">Check out out best promotions</h3>
 					<div class="search-container">
@@ -123,7 +123,7 @@
 					                        <a class="adetail" href="${pageContext.request.contextPath}/tour-detail/${list.tourID}">
 							                            <button class="btn btn-danger" style = "font-weight: bold">View</button>
 							              	</a>
-											<button data-type="addWishlist" data-link="${pageContext.request.contextPath}/user/wishlist/api?action=add&id=${tour.tourID}" class="float-right text-danger addWishlist" style = "padding: 0; margin = 0; border:none; background-color:white"><i class="far fa-heart fs-1"></i></button>
+											<button data-type="addWishlist" data-link="${pageContext.request.contextPath}/wishlist/api?action=add&id=${list.tourID}" class="float-right text-danger addWishlist" style = "padding: 0; margin = 0; border:none; background-color:white"><i class="far fa-heart fs-1"></i></button>
 					                    </div>
 			                	 </div>
 		                	 </c:if>
