@@ -363,9 +363,11 @@
 											alt="">
 									</p>
                             <div>
+                            <a href="${pageContext.request.contextPath}/${o.tourBookingID.account.username}">
                                 <h6 class="username" style="margin-top:3px">${o.tourBookingID.account.fullName}</h6>
                                 <p style="margin:0; font-size:10px;"> @${o.tourBookingID.account.username} </p>
                                 <p style="margin:0; font-size:10px;">${o.tourBookingID.bookDate} </p>
+                                </a>
                             </div>
                         </div>
                         <div class="content" style="padding: 15px;">${o.feedbackMessage}</div>
