@@ -5,8 +5,9 @@
   left: 0;
   transition: all 0.2s linear;
   transform-origin: top;
-  z-index: 1000;
+ 
   position: sticky;
+   z-index: 1000;
   position: -webkit-sticky;
   height: 82px;
 }
