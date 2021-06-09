@@ -108,6 +108,8 @@
                         <p class="mb-3 ">
                            ${obj.desc}
                         </p>
+
+                        <button>Print to PDF</button>
                      
                         <div class="content__table ">
                             <table class="">
