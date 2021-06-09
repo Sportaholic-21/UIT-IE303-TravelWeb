@@ -556,3 +556,12 @@ p strong {
         flex-direction: column;
     }
 }
+
+/* Print */
+@media print {
+    .navbar, #sidebar, .footer, 
+    .detail__left__group, .directToParam, button, 
+    .detail__right, .tour-info__related-tour {
+        display: none;
+    } 
+}
