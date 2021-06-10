@@ -23,6 +23,13 @@
 
 	<dependencies>
 
+		<!-- Password generator-->
+		<dependency>
+			<groupId>org.passay</groupId>
+			<artifactId>passay</artifactId>
+			<version>1.6.0</version>
+		</dependency>		
+
 		<!-- Add support for Hibernate: hibernate-core -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
