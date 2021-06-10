@@ -46,26 +46,6 @@
 									</div>
 								</form:form>
 								
-								<form:form action="signUp" class = "signup" modelAttribute="contentSignUp">
-									<div class = "field">
-										<form:input path="name" type="text" placeholder="Name" required="required"/>
-									</div>
-									<div class = "field">
-										<form:input path="phone" type="tel" placeholder="Phone number" required="required"/>
-									</div>
-									<div class = "field">
-										<form:input path="email" type="email" placeholder="Email Address" required="required"/>
-									</div>
-									<div class = "field">
-										<form:input path="pass" type="password" placeholder="Password" required="required"/>
-									</div>
-									<div class = "field">
-										<form:input path="" type="password" placeholder="Confirm password" required="required"/>
-									</div>									
-									<div class = "field">
-										<input type="submit" value="Sign up" class="submit">
-									</div>
-								</form:form>
 							</div>
 						</div>
 					</div>
@@ -76,24 +56,5 @@
 			</div>	
 		</div>
 		<div class ="mb-5"></div>
-		<script>
-			const loginText = document.querySelector(".title-text .login");
-			const loginForm = document.querySelector("form.login");
-			const loginBtn = document.querySelector("label.login");
-			const signupBtn = document.querySelector("label.signup");
-			const signupLink = document.querySelector("form .signup-link a");
-			signupBtn.onclick = (()=>{
-				loginForm.style.marginLeft = "-50%";
-				loginText.style.marginLeft = "-50%";
-			});
-			loginBtn.onclick = (()=>{
-				loginForm.style.marginLeft = "0%";
-				loginText.style.marginLeft = "0%";
-			});
-			signupLink.onclick = (()=>{
-				signupBtn.click();
-				return false;
-			});
-		</script>
     </jsp:body>
 </t:genericpage>
