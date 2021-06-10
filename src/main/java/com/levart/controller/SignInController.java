@@ -49,8 +49,7 @@ public class SignInController {
 		userForm.setRememberme(1);
 		AccountDAO userDAO = new AccountDAO();
 		List<Account> users = userDAO.getAllAccounts();
-		int i = userDAO.findAccountIndex(email,password);
-//		System.out.println(i);
+		int i = userDAO.findAccountIndex(email,password);;
 		if (i==-1){
 			return "redirect: sign-in";
 		}
@@ -59,23 +58,5 @@ public class SignInController {
 		redirectAttributes.addFlashAttribute("account", account);
 		System.out.println(account.getUsername());
 		return "redirect: home"; 
-	}
-	@PostMapping("/signUp")
-	public String handleSignUp(@ModelAttribute("contentSignUp") FormSignUp userForm){
-		AccountDAO userDAO = new AccountDAO();
-		Account account = new Account();
-		account.setUsername(userForm.getName());
-		account.setEmail(userForm.getEmail());
-		account.setPass(userForm.getPass());
-		//account.setPhone(userForm.getPhone());
-		account.setAccountRole(0);
-		try{
-			userDAO.addAccount(account);
-			userDAO.getAllAccounts();
-			//System.out.println(account.getPhone());
-		} catch(Exception e){
-			return "redirect: sign-in";
-		}
-		return "redirect: home";
 	}
 }
