@@ -109,7 +109,7 @@
                            ${obj.desc}
                         </p>
 
-                        <button>Print to PDF</button>
+                        <button id="printPDF" onclick="print()">Print to PDF</button>
                      
                         <div class="content__table ">
                             <table class="">
@@ -205,7 +205,7 @@
                             	<i class="fas fa-plus-square mr-3 color--primary "></i>
                      			<span>
                      				<strong><a class ="text-danger" data-toggle="collapse" href="#collapse${loop.count}">DAY ${loop.count}</a></strong>
-	                                <div id="collapse${loop.count}" class="panel-collapse collapse">
+	                                <div id="collapse${loop.count}" class="schedule panel-collapse collapse">
 												<span>
 													<c:forTokens items = "${sch}" var = "name" delims = ";" >
 		         										<c:out value = "${name}"/><p>
@@ -424,7 +424,7 @@
 					                  <a class="adetail" href="${pageContext.request.contextPath}/tour-detail/${list.tourID}">
 							             <button class="btn btn-danger" style = "font-weight: bold">View</button>
 							          </a>
-										<button data-type="addWishlist" data-link="${pageContext.request.contextPath}/user/wishlist/api?action=add&id=${tour.tourID}" class="float-right text-danger addWishlist" style = "padding: 0; margin = 0; border:none; background-color:white"><i class="far fa-heart fs-1"></i></button>
+										<button data-type="addWishlist" data-link="${pageContext.request.contextPath}/user/wishlist/api?action=add&id=${tour.tourID}" class="float-right text-danger addWishlist" style = "padding: 0; margin: 0; border:none; background-color:white"><i class="far fa-heart fs-1"></i></button>
 					              </div>
 			              </div>
 		              </c:if>
@@ -449,7 +449,13 @@
 			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js "
 			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl "
 			crossorigin="anonymous "></script>
-  		
+  	<script>
+        function print() {
+            var element = document.getElementsByClassName("schedule")
+            element.classList.add("show")
+            window.print()
+        }
+    </script>
     </jsp:body>
 </t:genericpage>
 </c:forEach>

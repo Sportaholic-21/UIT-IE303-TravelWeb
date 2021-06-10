@@ -559,7 +559,7 @@ p strong {
 
 /* Print */
 @media print {
-    .navbar, #sidebar, .footer, 
+    .navbar, #sidebar, .footer, #gallery
     .detail__left__group, .directToParam, button, 
     .detail__right, .tour-info__related-tour {
         display: none;
