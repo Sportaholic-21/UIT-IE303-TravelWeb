@@ -16,7 +16,7 @@ public class AccountDAO {
 
 	private String hql = "from Account";
 
-	private List<Account> accounts = new ArrayList<>();
+	private static List<Account> accounts = new ArrayList<>();
 
 	public AccountDAO(){
 
@@ -87,6 +87,14 @@ public class AccountDAO {
 		int i;
 		for (i = 0; i < accounts.size() 
 					&& !(accounts.get(i).getEmail().equals(email) && accounts.get(i).getPass().equals(password)); 
+					i++);
+		return (i == accounts.size()) ? -1 : i;
+	}
+
+	public static int findEmail(String email) {
+		int i;
+		for (i = 0; i < accounts.size() 
+					&& !(accounts.get(i).getEmail().equals(email)); 
 					i++);
 		return (i == accounts.size()) ? -1 : i;
 	}

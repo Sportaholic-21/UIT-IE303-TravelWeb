@@ -38,6 +38,11 @@
               href="#"
               >User List</a
             >
+            <a
+              class="nav-link"
+              href="${pageContext.request.contextPath}/admin/user/add"
+              >Add User</a
+            >
           </nav>
         </div>
         <a

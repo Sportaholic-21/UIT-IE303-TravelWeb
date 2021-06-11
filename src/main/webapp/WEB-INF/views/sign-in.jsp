@@ -27,13 +27,13 @@
 							<div class = "form-inner">
 								<form:form action="signIn" class = "login" modelAttribute="contentSignIn">
 									<div class = "field">
-										<form:input path="email" type="email" placeholder="Email Address" required="required"/>
+										<form:input id="emailSignIn" path="email" type="email" placeholder="Email Address" required="required"/>
 									</div>
 									<div class = "field">
 										<form:password path="pass" placeholder="Password" required="required"/>
 									</div>
 									<div class = "pass-link">
-										<a href="#">Forgot password ?</a>
+										<a href="#passForgotten" data-toggle="modal" data-target="#passForgotten">Forgot password ?</a>
 									</div>
 									
 									<div class = "remember__field">
@@ -46,26 +46,6 @@
 									</div>
 								</form:form>
 								
-								<form:form action="signUp" class = "signup" modelAttribute="contentSignUp">
-									<div class = "field">
-										<form:input path="name" type="text" placeholder="Name" required="required"/>
-									</div>
-									<div class = "field">
-										<form:input path="phone" type="tel" placeholder="Phone number" required="required"/>
-									</div>
-									<div class = "field">
-										<form:input path="email" type="email" placeholder="Email Address" required="required"/>
-									</div>
-									<div class = "field">
-										<form:input path="pass" type="password" placeholder="Password" required="required"/>
-									</div>
-									<div class = "field">
-										<form:input path="" type="password" placeholder="Confirm password" required="required"/>
-									</div>									
-									<div class = "field">
-										<input type="submit" value="Sign up" class="submit">
-									</div>
-								</form:form>
 							</div>
 						</div>
 					</div>
@@ -76,24 +56,42 @@
 			</div>	
 		</div>
 		<div class ="mb-5"></div>
-		<script>
-			const loginText = document.querySelector(".title-text .login");
-			const loginForm = document.querySelector("form.login");
-			const loginBtn = document.querySelector("label.login");
-			const signupBtn = document.querySelector("label.signup");
-			const signupLink = document.querySelector("form .signup-link a");
-			signupBtn.onclick = (()=>{
-				loginForm.style.marginLeft = "-50%";
-				loginText.style.marginLeft = "-50%";
-			});
-			loginBtn.onclick = (()=>{
-				loginForm.style.marginLeft = "0%";
-				loginText.style.marginLeft = "0%";
-			});
-			signupLink.onclick = (()=>{
-				signupBtn.click();
-				return false;
-			});
-		</script>
+		<div class="modal fade" id="passForgotten" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <h5 class="modal-title" id="passForgottenLabel">Forgot Password</h5>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+					<h3>Enter your Email</h3>
+					<div class="row" id="status"></div>
+					<div class="row">
+						<label class="col-sm-2" for="">Email:</label>
+					  	<input class="col-sm-5" type="email" name="" id="emailRecovery">
+					</div>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				  <button id="recover" type="button" class="btn btn-primary">Recover</button>
+				</div>
+			  </div>
+			</div>
+		</div>
+	<script>
+		var btn = document.getElementById("recover")
+		var emailSignIn = document.getElementById("emailSignIn")
+		var emailRecovery = document.getElementById("emailRecovery")
+		emailRecovery.value=emailSignIn.value
+		btn.addEventListener("click", async () => {
+			await axios.post("/UIT-IE303-TravelWeb/api/forgotPassword", {
+				email: emailRecovery.value
+			}).then(function(res) {
+				console.log(res.data)
+			})
+		})
+	</script>
     </jsp:body>
 </t:genericpage>
