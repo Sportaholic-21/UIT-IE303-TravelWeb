@@ -23,6 +23,13 @@
 
 	<dependencies>
 
+		<!-- JSON Simple -->
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>		
+
 		<!-- Password generator-->
 		<dependency>
 			<groupId>org.passay</groupId>
