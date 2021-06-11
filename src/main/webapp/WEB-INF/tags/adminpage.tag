@@ -66,5 +66,23 @@
 		src="${pageContext.request.contextPath}/resources/admin/assets/demo/datatables-demo.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/resources/js/passDataToModalDelete.js"></script>
+		
+		<script
+		src="${pageContext.request.contextPath}/resources/user/js/popper.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/user/js/bootstrap-material-design.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/js/passDataToModalDelete.js"></script>
+	<!-- page script -->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script defer>
+		var signOut = document.getElementById("signOut");
+		var urlCurrent=window.location.href;
+		signOut.addEventListener("click", () => {
+			axios.post("/UIT-IE303-TravelWeb/signOut")
+				 .then(function(res){window.location=urlCurrent})
+				 .catch(function(err){console.log(err)})
+		})
+	</script>
 </body>
 </html>
