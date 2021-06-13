@@ -1,5 +1,6 @@
 package com.levart.hibernate.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -7,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import com.levart.entities.Nation;
 import com.levart.entities.TourBooking;
 import com.levart.hibernate.utils.HibernateUtils;
 
@@ -130,7 +132,6 @@ public class TourBookingDAO {
 		}
 	}
 	public static void main(String [] args) {
-		TourBookingDAO dao= new TourBookingDAO();
-		dao.updateStatusTourBooking(31, 3);
+		
 	}
 }
