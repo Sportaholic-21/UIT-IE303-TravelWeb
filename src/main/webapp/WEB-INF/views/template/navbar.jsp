@@ -24,15 +24,16 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto me-auto mb-lg-0 text-uppercase">
-        <li class="nav-item me-4">
-          <a class="nav-link active a-nav" aria-current="page" href="${pageContext.request.contextPath}/home" style="color: white">Home</a>
+     
+        <li class="nav-item me-4 li-nav">
+          <a class="nav-link active a-nav " aria-current="page" href="${pageContext.request.contextPath}/home" style="color: white">Home</a>
         </li>
         
-        <li class="nav-item me-4">
-          <a class="nav-link" href="${pageContext.request.contextPath}/all-tours" style="color: white">All Tours</a>
+        <li class="nav-item me-4 li-nav">
+          <a class="nav-link a-nav" href="${pageContext.request.contextPath}/all-tours" style="color: white">All Tours</a>
         </li>
         
-        <li class="nav-item me-4 dropdown">
+        <li class="nav-item me-4 dropdown li-nav">
           <a
             class="nav-link dropdown-toggle a-nav"
             href="#"
@@ -51,12 +52,12 @@
           </ul>
         </li>
 
-        <li class="nav-item me-4 a-nav">
-          <a class="nav-link" href="${pageContext.request.contextPath}/about" style="color: white">About us</a>
+        <li class="nav-item me-4 li-nav">
+          <a class="nav-link a-nav" href="${pageContext.request.contextPath}/about" style="color: white">About us</a>
         </li>
 
-        <li class="nav-item ms-2">
-          <a class="nav-link nav__cta rounded-pill nav__contact-link a-nav" href="${pageContext.request.contextPath}/contact" style="color: white">Contact</a>
+        <li class="nav-item ms-2 li-nav">
+          <a class="nav-link a-nav" href="${pageContext.request.contextPath}/contact" style="color: white">Contact</a>
         </li>
       </ul>
 
@@ -64,7 +65,7 @@
       	<li class="nav-item mr-3">
       		<a href="${pageContext.request.contextPath}/wishlist"><i class="fas fa-heart fs-4" style="color: white"><span id="wishListNum" class="whilist-number" style="color: white">${wishListNum > 0 ? wishListNum : 0}</span></i></a>
       	</li>
-        <li class="nav-item">
+        <li class="nav-item li-nav">
         <% if (request.getAttribute("username") == null) {%>
           <a class="nav-link text-uppercase a-nav" href="${pageContext.request.contextPath}/sign-in" style="color: white">Sign in</a>
         <% } else {%>
@@ -104,4 +105,16 @@
       </ul>
     </div>
   </div>
+  <script type="text/javascript">
+  var url=window.location.pathname;
+  var li_list=document.querySelectorAll(".li-nav");
+  var a_list=document.querySelectorAll(".a-nav");
+  if (url==a_list[0].pathname) li_list[0].classList.add("li-active")
+  else if(url==a_list[1].pathname) li_list[1].classList.add("li-active")
+  else if(url==a_list[3].pathname) li_list[3].classList.add("li-active")
+  else if(url==a_list[4].pathname) li_list[4].classList.add("li-active")
+  else if(url==a_list[5].pathname) li_list[5].classList.add("li-active")
+  else if(url.slice(0,-2)=="${pageContext.request.contextPath}/tour-detail") li_list[1].classList.add("li-active")
+   else if(url==a_list[2].pathname) li_list[2].classList.add("li-active")
+  </script>
 </nav>
