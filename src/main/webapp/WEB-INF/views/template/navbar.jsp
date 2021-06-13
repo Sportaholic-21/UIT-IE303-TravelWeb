@@ -25,11 +25,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto me-auto mb-lg-0 text-uppercase">
         <li class="nav-item me-4">
-          <a class="nav-link active a-nav" aria-current="page" href="${pageContext.request.contextPath}/home">Home</a>
+          <a class="nav-link active a-nav" aria-current="page" href="${pageContext.request.contextPath}/home" style="color: white">Home</a>
         </li>
         
         <li class="nav-item me-4">
-          <a class="nav-link" href="${pageContext.request.contextPath}/tour-list">All Tours</a>
+          <a class="nav-link" href="${pageContext.request.contextPath}/all-tours" style="color: white">All Tours</a>
         </li>
         
         <li class="nav-item me-4 dropdown">
@@ -40,41 +40,39 @@
             role="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
-          >
+          style="color: white">
             Tour Types
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="${pageContext.request.contextPath}/tour-list?typologyID=1">Relax</a></li>
             <li><a class="dropdown-item" href="${pageContext.request.contextPath}/tour-list?typologyID=2">Cultural</a></li>
             <li><a class="dropdown-item" href="${pageContext.request.contextPath}/tour-list?typologyID=3">Adventure</a></li>
-            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/tour-list?typologyID=4">Sightseeing</a></li>
-            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/tour-list?typologyID=5">Sports</a></li>
-            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/tour-list?typologyID=6">History</a></li>
+            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/tour-list?typologyID=4">History</a></li>
           </ul>
         </li>
 
         <li class="nav-item me-4 a-nav">
-          <a class="nav-link" href="${pageContext.request.contextPath}/about">About us</a>
+          <a class="nav-link" href="${pageContext.request.contextPath}/about" style="color: white">About us</a>
         </li>
 
         <li class="nav-item ms-2">
-          <a class="nav-link nav__cta rounded-pill nav__contact-link a-nav" href="${pageContext.request.contextPath}/contact">Contact</a>
+          <a class="nav-link nav__cta rounded-pill nav__contact-link a-nav" href="${pageContext.request.contextPath}/contact" style="color: white">Contact</a>
         </li>
       </ul>
 
       <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
       	<li class="nav-item mr-3">
-      		<a href="${pageContext.request.contextPath}/wishlist"><i class="fas fa-heart fs-4"><span id="wishListNum" class="whilist-number">${wishListNum > 0 ? wishListNum : 0}</span></i></a>
+      		<a href="${pageContext.request.contextPath}/wishlist"><i class="fas fa-heart fs-4" style="color: white"><span id="wishListNum" class="whilist-number" style="color: white">${wishListNum > 0 ? wishListNum : 0}</span></i></a>
       	</li>
         <li class="nav-item">
         <% if (request.getAttribute("username") == null) {%>
-          <a class="nav-link text-uppercase a-nav" href="${pageContext.request.contextPath}/sign-in">Sign in</a>
+          <a class="nav-link text-uppercase a-nav" href="${pageContext.request.contextPath}/sign-in" style="color: white">Sign in</a>
         <% } else {%>
           <div class="collapse navbar-collapse justify-content-end">
 			<ul class="navbar-nav">
 				<li class="nav-item dropdown"><a class="nav-link"
 					href="javascript:;" id="navbarDropdownProfile"
-					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
 					${username}
 				</a>
 					<div class="dropdown-menu dropdown-menu-right"

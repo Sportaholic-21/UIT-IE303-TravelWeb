@@ -28,6 +28,85 @@
 						</form:form>
 					</div>
 				</section>
+				
+				<!-- Typology section -->
+				<section class="mt-5 pt-5 pb-5">
+					<div class="d-flex justify-content-center">
+						<div class="mb-3 border-0" style="max-width: 540px;">
+						  <div class="row g-0">
+						    <div class="col-md-2">
+						      <img
+								src="${pageContext.request.contextPath}/resources/images/icon-island.png"
+								alt="Relax Tour" class="typo-icon float-end pt-4">
+						    </div>
+						    <div class="col-md-10">
+						      <div class="card-body pl-1">
+						        <p class="text-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas magna at porttitor vehicula nullam augue ipsum dolor.</p>
+						        <a class="rounded-pill btn-typo btn-typo--1"
+									href="${pageContext.request.contextPath}/tour-list?typologyID=1">RELAX</a>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+						
+						<div class="mb-3 border-0" style="max-width: 540px;">
+						  <div class="row g-0">
+						    <div class="col-md-2">
+						      <img
+								src="${pageContext.request.contextPath}/resources/images/icon-landmark.png"
+								alt="Relax Tour" class="typo-icon float-end pt-4">
+						    </div>
+						    <div class="col-md-10">
+						      <div class="card-body pl-1">
+						        <p class="text-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas magna at porttitor vehicula nullam augue ipsum dolor.</p>
+						        <a class="rounded-pill btn-typo btn-typo--2"
+									href="${pageContext.request.contextPath}/tour-list?typologyID=4">HISTORY</a>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+					</div>
+						
+						<div class="d-flex justify-content-center">
+							<div class="mb-3 border-0" style="max-width: 540px;">
+						  <div class="row g-0">
+						    <div class="col-md-2">
+						      <img
+								src="${pageContext.request.contextPath}/resources/images/t-cultural.png"
+								alt="Relax Tour" class="typo-icon float-end pt-4">
+						    </div>
+						    <div class="col-md-10">
+						      <div class="card-body pl-1">
+						        <p class="text-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas magna at porttitor vehicula nullam augue ipsum dolor.</p>
+						        <a class="rounded-pill btn-typo btn-typo--3"
+									href="${pageContext.request.contextPath}/tour-list?typologyID=2">CULTURAL</a>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+						
+						<div class="mb-3 border-0" style="max-width: 540px;">
+						  <div class="row g-0">
+						    <div class="col-md-2">
+						      <img
+								src="${pageContext.request.contextPath}/resources/images/icon-boat.png"
+								alt="Relax Tour" class="typo-icon float-end pt-4">
+						    </div>
+						    <div class="col-md-10">
+						      <div class="card-body pl-1">
+						        <p class="text-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas magna at porttitor vehicula nullam augue ipsum dolor.</p>
+						        <a class="rounded-pill btn-typo btn-typo--4"
+									href="${pageContext.request.contextPath}/tour-list?typologyID=3">ADVENTURE</a>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+						</div>
+						
+						<a class="home-cta--dark rounded-pill mt-5 mb-5"
+				href="${pageContext.request.contextPath}/all-tours">CHECK ALL TOURS</a>
+				</section>
+				
 				<!--Destination Section-->
 				<section class="destination">
 					<h2 class="destination-h2">Popular Destinations</h2>
