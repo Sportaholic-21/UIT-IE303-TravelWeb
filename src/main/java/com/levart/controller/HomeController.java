@@ -17,12 +17,14 @@ import javax.validation.Valid;
 
 import com.levart.entities.Account;
 import com.levart.entities.Image;
+import com.levart.entities.Nation;
 import com.levart.entities.Tour;
 import com.levart.entities.TourBooking;
 import com.levart.form_entities.FormSearch;
 import com.levart.form_entities.FormSearchPackage;
 import com.levart.hibernate.dao.AccountDAO;
 import com.levart.hibernate.dao.ImageDAO;
+import com.levart.hibernate.dao.NationDAO;
 import com.levart.hibernate.dao.TourDAO;
 
 @Controller
@@ -64,11 +66,21 @@ public class HomeController {
 			imgList.add(imgdao.getGalleryImages(tour.getTourID()).get(1));
 		}
 		model.addAttribute("imgList", imgList);
+		
+		List<Tour> listAll = tourdao.getAllTours();
+		NationDAO nationDAO= new NationDAO();
+		List<Nation> nationList=nationDAO.getAllNation();
+		AccountDAO userDAO = new AccountDAO();
+		List<Account> users = userDAO.getAllAccounts();
+		model.addAttribute("totalDestination",listAll.size());
+		model.addAttribute("totalNation", nationList.size());
+		model.addAttribute("totalAccount", users.size());
 		return "home";
 	}
     
     @PostMapping("/tour-list")
 	public String showResult(@ModelAttribute("account") Account account, Model model, @Valid @ModelAttribute("contentSearchPackage") FormSearchPackage formsearchpackage) {
+    	 
     	if (account.getEmail() == null) {
 			model.addAttribute("username", null);
 		} else {
@@ -96,6 +108,8 @@ public class HomeController {
 		}
 		
 		model.addAttribute("imgList", imgList);
+
+		
 		return "tour-list";
 	}
     
