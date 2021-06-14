@@ -71,11 +71,21 @@ public class HomeController {
 			imgList.add(imgdao.getGalleryImages(tour.getTourID()).get(1));
 		}
 		model.addAttribute("imgList", imgList);
+		
+		List<Tour> listAll = tourdao.getAllTours();
+		NationDAO nationDAO= new NationDAO();
+		List<Nation> nationList=nationDAO.getAllNation();
+		AccountDAO userDAO = new AccountDAO();
+		List<Account> users = userDAO.getAllAccounts();
+		model.addAttribute("totalDestination",listAll.size());
+		model.addAttribute("totalNation", nationList.size());
+		model.addAttribute("totalAccount", users.size());
 		return "home";
 	}
     
     @PostMapping("/tour-list")
 	public String showResult(@ModelAttribute("account") Account account, Model model, @Valid @ModelAttribute("contentSearchPackage") FormSearchPackage formsearchpackage) {
+    	 
     	if (account.getEmail() == null) {
 			model.addAttribute("username", null);
 		} else {
@@ -104,6 +114,8 @@ public class HomeController {
 		}
 		
 		model.addAttribute("imgList", imgList);
+
+		
 		return "tour-list";
 	}
     

@@ -6,7 +6,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 
+import com.levart.entities.Account;
 import com.levart.entities.Nation;
+import com.levart.entities.Tour;
 import com.levart.hibernate.utils.HibernateUtils;
 
 public class NationDAO {
@@ -14,7 +16,25 @@ public class NationDAO {
 
 	public NationDAO() {
 	}
-	
+	public List<Nation> getAllNation(){
+		factory = HibernateUtils.getSessionFactory();
+		Session session = factory.openSession();
+		try {
+			@SuppressWarnings("unchecked")
+			Query<Nation> query=session.createQuery("from Nation");
+			List<Nation> nationList = query.getResultList();
+			
+			return nationList;
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+			factory.close();
+		}
+		
+		return null;
+	}
 	//select
 	public List<Nation> getListNationByEndedTour() {
 		factory = HibernateUtils.getSessionFactory();
@@ -35,6 +55,7 @@ public class NationDAO {
 		
 		return null;
 	}
+
 	
 	public List<Nation> getAllNations() {
 		Session session = factory.openSession();
@@ -72,12 +93,15 @@ public class NationDAO {
 			session.close();
 		}
 		return null;
-	}
-	
-	public static void main(String []args){
-		NationDAO nationdao = new NationDAO();
-		List<Nation> list = nationdao.getNationsByContinent(1);
-		System.out.print(list);
+	}		
+	public static void main(String args[]) {
+		TourDAO tourdao = new TourDAO();
 		
+		List<Tour> listAll = tourdao.getAllTours();
+		NationDAO nationDAO= new NationDAO();
+		List<Nation> nationList=nationDAO.getAllNation();
+		AccountDAO userDAO = new AccountDAO();
+		List<Account> users = userDAO.getAllAccounts();
+		System.out.println(listAll.size()+" "+ nationList.size() + users.size());
 	}
 }

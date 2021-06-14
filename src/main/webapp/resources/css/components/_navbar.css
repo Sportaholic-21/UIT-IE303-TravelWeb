@@ -53,3 +53,15 @@
 	right: -10px;
 	top: 10px;
 }
+.li-active{
+background: #BA71DA;
+	border-radius: 20px;
+}
+.li-nav{
+border-radius: 20px;
+
+}
+.li-nav:hover{
+	background: #BA71DA;
+	border-radius: 20px;
+}

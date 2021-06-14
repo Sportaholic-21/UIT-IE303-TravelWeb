@@ -78,8 +78,8 @@
 				                        </p>
 				                        <div class="combo-category">
 				                            <div class="row">
-				                                <div class="col-md-8" style = "line-height: 50px">${searchRes.typology.typologyName}</div>
-				                                <div class="col-md-4" style = "line-height: 50px; color: red; font-size: 25px; font-weight:bold">${searchRes.price} $      
+				                                <div class="col-md-7" style = "line-height: 50px">${searchRes.typology.typologyName}</div>
+				                                <div class="col-md-5" style = "line-height: 50px; color: red; font-size: 25px; font-weight:bold">${searchRes.price} $      
 				                                </div>
 				                            </div>
 				                        </div>
