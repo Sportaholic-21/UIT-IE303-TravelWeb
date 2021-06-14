@@ -4,6 +4,7 @@
 			src="${pageContext.request.contextPath}/resources/images/sidebar-close-btn.png"
 			class="img-fluid" alt="Package thumbnail">
 	</div>
+	
 
 	<h1 class="text-center lh-1 mb-4">
 		<p class="fw-light fs-6 m-0">BEST</p>
@@ -95,5 +96,6 @@
 				700 $</p>
 		</a>
 	</div> --%>
+
 </div>
 
