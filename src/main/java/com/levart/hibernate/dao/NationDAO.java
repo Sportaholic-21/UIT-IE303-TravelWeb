@@ -58,6 +58,7 @@ public class NationDAO {
 
 	
 	public List<Nation> getAllNations() {
+		
 		Session session = factory.openSession();
 		try {
 			@SuppressWarnings("unchecked")
@@ -70,13 +71,14 @@ public class NationDAO {
 			session.getTransaction().rollback();
 			e.printStackTrace();
 		} finally {
-
+			
 			session.close();
 		}
 		return null;
 	}
 	
 	public List<Nation> getNationsByContinent(int id) {
+		
 		Session session = factory.openSession();
 		try {
 			@SuppressWarnings("unchecked")
@@ -89,7 +91,7 @@ public class NationDAO {
 			session.getTransaction().rollback();
 			e.printStackTrace();
 		} finally {
-
+			
 			session.close();
 		}
 		return null;
