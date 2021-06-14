@@ -114,4 +114,23 @@ public class AccountDAO {
 		
 		return null;
 	}
+	
+	public void update(Account newAccount) {
+		factory = HibernateUtils.getSessionFactory();
+		Session session = factory.openSession();
+		Transaction tx = null;
+		
+		try {
+			tx = session.beginTransaction();
+			
+			session.saveOrUpdate(newAccount);
+			tx.commit();
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+			factory.close();
+		}
+	}
 }

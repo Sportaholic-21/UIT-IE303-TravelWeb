@@ -2,6 +2,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%= pageContext.getServletContext().getRealPath("/") %>
 <t:userpage>
 	<jsp:body>
   		<div class="row">
@@ -12,13 +13,15 @@
                   <p class="card-category">Complete your profile</p>
                 </div>
                 <div class="card-body">
-                  <form:form class="needs-validation" modelAttribute="account" action="${pageContext.request.contextPath}/user/personal/api/update" method="POST" novalidate="novalidate">
+                  <form:form enctype="multipart/form-data" class="needs-validation" modelAttribute="account" action="${pageContext.request.contextPath}/user/personal/api/update" method="POST" novalidate="novalidate">
                     <form:hidden path="accountID" />
+                    <form:hidden path="pass" />
+                    <form:hidden path="avatar" />
                     <div class="row">
                       <div class="col-12">
                       	<div class="mb-3">
 						  <label for="formFile" class="form-label bmd-label-floating">New Avatar</label>
-						  <form:input class="form-control" type="file" id="formFile" path="avatar" />
+						  <input class="form-control" type="file" name="file" id="formFile" />
 						</div>
                       </div>
 					</div>
@@ -70,11 +73,20 @@
               <div class="card card-profile">
                 <div class="card-avatar">
                   <a href="javascript:;">
-                    <img class="img"
-							src="${account.avatar}" />
+                  <c:choose>
+                  	<c:when test="${updatedImgFolder && updatedImgFolder != null }">
+                  		<img class="img"
+							src="${updatedImgFolder + account.avatar}" />
+                  	</c:when>
+                  	<c:otherwise>
+                  		<img class="img"
+							src="${pageContext.request.contextPath}/${account.avatar}" />
+                  	</c:otherwise>
+                  </c:choose>
                   </a>
                 </div>
                 <div class="card-body">
+                ${updatedImgFolder }
                   <h4 class="card-title">${account.username }</h4>
                 </div>
               </div>

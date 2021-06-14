@@ -2,6 +2,8 @@ package com.levart.hibernate.utils;
 
 import java.util.Date;
 
+import javax.servlet.ServletContext;
+
 import com.levart.entities.Tour;
 import com.levart.entities.TourBooking;
 import com.levart.hibernate.dao.TourBookingDAO;
@@ -15,5 +17,10 @@ public class CRUDBookedTourOperation {
 				updatedTour.setBookStatus(status);	
 
 				tourBookingDAO.updateTourBooking(updatedTour);
+	}
+
+	public void setServletContext(ServletContext servletContext) {
+		// TODO Auto-generated method stub
+		
 	}
 }
