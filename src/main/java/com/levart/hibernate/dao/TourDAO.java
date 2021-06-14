@@ -45,42 +45,6 @@ public class TourDAO {
 	}
 	
 	
-	//Trích lấy schedule trong db
-//	public ArrayList<List<String>> getTourSchedule(int id){
-//		Session session = factory.openSession();
-//		List<Tour> scheduleList = new ArrayList<Tour>();
-//		try {
-//			// bắt đầu 1 transaction (giao dịch)
-//			Transaction tx = session.beginTransaction();
-//			// thực thi câu query dạng hql
-//			@SuppressWarnings("unchecked")
-//			Query query =session.createQuery("select schedule from Tour where tourID ='"  + id +"'");
-//			List<String> list = (List<String>) query.list();
-//			String listAsString = list.stream()
-//                    .map(Object::toString)
-//                    .collect(Collectors.joining("\n"));
-//			
-//			// Tạo List tách ra thông tin theo từng ngày
-//			List<String> scheduleSpiltDay = Arrays.asList(listAsString.split("/"));
-//			
-//			ArrayList<List<String>> daySpilt = new ArrayList<List<String>>();
-//			
-//			for (String str: scheduleSpiltDay) {
-//				List<String> dailyschedule = Arrays.asList(str.split("\n"));
-//				daySpilt.add(dailyschedule.subList(0, dailyschedule.size()));
-//			}
-//			return daySpilt;
-//		} catch (RuntimeException e) {
-//			session.getTransaction().rollback();
-//			e.printStackTrace();
-//		} finally {
-//			session.close();
-//
-//		}
-//		return null;
-//	}
-
-	
 	public List<String> getTourSchedule(int id){
 		Session session = factory.openSession();
 		List<Tour> scheduleList = new ArrayList<Tour>();
@@ -140,6 +104,90 @@ public class TourDAO {
 			// thực thi câu query dạng hql
 			@SuppressWarnings("unchecked")
 			String hql = "from Tour order by rating desc";
+			Query<Tour> query = session.createQuery(hql).setMaxResults(3);
+			List<Tour> tourList = query.getResultList();
+			return tourList;
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			session.flush();
+			session.close();
+		}
+		return null;
+	}
+	
+	public List<Tour> getTourByTypologyID(int id){
+		Session session = factory.openSession();
+		try {
+			// bắt đầu 1 transaction (giao dịch)
+			Transaction tx = session.beginTransaction();
+			// thực thi câu query dạng hql
+			@SuppressWarnings("unchecked")
+			String hql = "from Tour where typologyID = :searchKey";
+			Query<Tour> query = session.createQuery(hql).setParameter("searchKey", id);
+			List<Tour> tourList = query.getResultList();
+			return tourList;
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			session.flush();
+			session.close();
+		}
+		return null;
+	}
+	
+	public List<Tour> getTourByNationID(int id){
+		Session session = factory.openSession();
+		try {
+			// bắt đầu 1 transaction (giao dịch)
+			Transaction tx = session.beginTransaction();
+			// thực thi câu query dạng hql
+			@SuppressWarnings("unchecked")
+			String hql = "from Tour where nationID = :searchKey";
+			Query<Tour> query = session.createQuery(hql).setParameter("searchKey", id);
+			List<Tour> tourList = query.getResultList();
+			return tourList;
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			session.flush();
+			session.close();
+		}
+		return null;
+	}
+	
+	public List<Tour> getTourByContinentID(int id){
+		Session session = factory.openSession();
+		try {
+			// bắt đầu 1 transaction (giao dịch)
+			Transaction tx = session.beginTransaction();
+			// thực thi câu query dạng hql
+			@SuppressWarnings("unchecked")
+			String hql = "from Tour where nation.continent.continentID = :searchKey";
+			Query<Tour> query = session.createQuery(hql).setParameter("searchKey", id);
+			List<Tour> tourList = query.getResultList();
+			return tourList;
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			session.flush();
+			session.close();
+		}
+		return null;
+	}
+	
+	public List<Tour> getRelatedTour(int typologyID, int nationID, int id ){
+		Session session = factory.openSession();
+		try {
+			// bắt đầu 1 transaction (giao dịch)
+			Transaction tx = session.beginTransaction();
+			// thực thi câu query dạng hql
+			@SuppressWarnings("unchecked")
+			String hql = "from Tour where typologyID = " + typologyID + "and nationID= " + nationID + " and tourID != " + id;
 			Query<Tour> query = session.createQuery(hql).setMaxResults(3);
 			List<Tour> tourList = query.getResultList();
 			return tourList;
@@ -217,48 +265,6 @@ public class TourDAO {
 		return null;
 	}
 	
-	public List<Tour> getTourByTypologyID(int id){
-		Session session = factory.openSession();
-		try {
-			// bắt đầu 1 transaction (giao dịch)
-			Transaction tx = session.beginTransaction();
-			// thực thi câu query dạng hql
-			@SuppressWarnings("unchecked")
-			String hql = "from Tour where typologyID = :searchKey";
-			Query<Tour> query = session.createQuery(hql).setParameter("searchKey", id);
-			List<Tour> tourList = query.getResultList();
-			return tourList;
-		} catch (RuntimeException e) {
-			session.getTransaction().rollback();
-			e.printStackTrace();
-		} finally {
-			session.flush();
-			session.close();
-		}
-		return null;
-	}
-	
-	public List<Tour> getRelatedTour(int typologyID, int nationID, int id ){
-		Session session = factory.openSession();
-		try {
-			// bắt đầu 1 transaction (giao dịch)
-			Transaction tx = session.beginTransaction();
-			// thực thi câu query dạng hql
-			@SuppressWarnings("unchecked")
-			String hql = "from Tour where typologyID = " + typologyID + "and nationID= " + nationID + " and tourID != " + id;
-			Query<Tour> query = session.createQuery(hql).setMaxResults(3);
-			List<Tour> tourList = query.getResultList();
-			return tourList;
-		} catch (RuntimeException e) {
-			session.getTransaction().rollback();
-			e.printStackTrace();
-		} finally {
-			session.flush();
-			session.close();
-		}
-		return null;
-	}
-	
 	
 	//insert
 	public void addTour(Tour tour) {
@@ -288,13 +294,8 @@ public class TourDAO {
 		float price = 200;
 		int typologyID = 4;
 		int nationID = 1;
-		//List<List<String>> list = tourDAO.getTourSchedule(id);
-		//System.out.println(list);
-//		List<Tour> list = tourDAO.getTour(id);
-//		System.out.println(list);
 		
-		List<Tour> list = tourDAO.getRelatedTour(typologyID, nationID, id);
+		List<Tour> list = tourDAO.getTourByContinentID(1);
 		System.out.println(list);
-		
 	}
 }

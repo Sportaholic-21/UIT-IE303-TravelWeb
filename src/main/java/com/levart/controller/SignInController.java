@@ -69,18 +69,21 @@ public class SignInController {
 
 	@PostMapping(value ="/api/forgotPassword", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public HashMap<String,String> sendOTP(@RequestBody String req) throws ParseException {
+	public JSONObject sendOTP(@RequestBody String req) throws ParseException {
 		JSONParser parser = new JSONParser();  
 		JSONObject reqJSON = (JSONObject) parser.parse(req);
 		HashMap<String,String> res = new HashMap<String,String>();
 		String reqEmail = (String) reqJSON.get("email");
-		int index = AccountDAO.findEmail(reqEmail);
+		AccountDAO accountDAO = new AccountDAO();
+		accountDAO.getAllAccounts();
+		int index = accountDAO.findEmail(reqEmail);
 		if (index == -1) res.put("status", "0");
 		else {
 			res.put("status", "1");
 			res.put("otp", genOTP());
 		}
-		return res;
+		System.out.println(res);
+		return new JSONObject(res);
 	}
 
 	public static String genOTP() {

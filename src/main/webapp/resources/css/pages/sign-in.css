@@ -190,9 +190,13 @@ form .field input[type="submit"]{
 	cursor: pointer;
 }
 
+#status {
+	display: none;
+}
 
-
-
+#status .active {
+	display: block;
+}
 
 
 

@@ -91,7 +91,7 @@ public class AccountDAO {
 		return (i == accounts.size()) ? -1 : i;
 	}
 
-	public static int findEmail(String email) {
+	public int findEmail(String email) {
 		int i;
 		for (i = 0; i < accounts.size() 
 					&& !(accounts.get(i).getEmail().equals(email)); 

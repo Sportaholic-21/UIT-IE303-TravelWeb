@@ -18,13 +18,16 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.levart.entities.Account;
 import com.levart.entities.Feedback;
 import com.levart.entities.Image;
+import com.levart.entities.Nation;
 import com.levart.entities.Tour;
 import com.levart.form_entities.FormMessage;
 import com.levart.form_entities.FormSearch;
 import com.levart.form_entities.FormSearchPackage;
 import com.levart.hibernate.dao.AccountDAO;
+import com.levart.hibernate.dao.ContinentDAO;
 import com.levart.hibernate.dao.FeedbackDAO;
 import com.levart.hibernate.dao.ImageDAO;
+import com.levart.hibernate.dao.NationDAO;
 import com.levart.hibernate.dao.TourDAO;
 
 @Controller
@@ -106,6 +109,14 @@ public class TourDetailController {
 			model.addAttribute("feedbackListcheck", 1);
 			model.addAttribute("feedbackList", listAFeedback);
 		}
+		
+		NationDAO nationDAO = new NationDAO();
+		List<Nation> nationList = nationDAO.getNationsByContinent(list.get(0).getNation().getContinent().getContinentID());
+		model.addAttribute("nationList", nationList);
+		
+		ContinentDAO continentDAO = new ContinentDAO();
+		Number num = continentDAO.countToursWithContinents(list.get(0).getNation().getContinent().getContinentID());
+		model.addAttribute("packageNum", num);
 		return "tour-detail";
 	}
 	

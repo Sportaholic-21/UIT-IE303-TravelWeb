@@ -56,16 +56,22 @@
 	<script
 		src="${pageContext.request.contextPath}/resources/admin/assets/demo/chart-area-demo.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/admin/assets/demo/chart-bar-demo.js"></script>
-	<script
 		src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"
 		crossorigin="anonymous"></script>
 	<script
 		src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"
 		crossorigin="anonymous"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/admin/assets/demo/datatables-demo.js"></script>
+		src="${pageContext.request.contextPath}/resources/js/passDataToModalDelete.js"></script>
+		
+		<script
+		src="${pageContext.request.contextPath}/resources/user/js/popper.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/user/js/bootstrap-material-design.min.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/resources/js/passDataToModalDelete.js"></script>
+	<!-- page script -->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/logout.js"></script>
 </body>
 </html>
