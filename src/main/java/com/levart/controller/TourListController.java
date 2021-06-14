@@ -1,5 +1,11 @@
 package com.levart.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.json.simple.JSONObject;
+import org.springframework.http.MediaType;
+
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -122,4 +129,25 @@ public class TourListController {
     		return "tour-list";
     }
     
+
+	@RequestMapping(value={"/sidebarTourList"}, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public JSONObject displayTourOnSideBar() {
+		//List<HashMap<String,HashMap<String,String>>> tourList = new ArrayList<>();
+		HashMap<String,HashMap<String,String>> outerMap = new HashMap<>();
+		TourDAO tourdao = new TourDAO();
+    	List<Tour> list = tourdao.getTop3Tours();
+		ImageDAO imgdao = new ImageDAO();
+		for (Tour tour : list) {
+			HashMap<String,String> innerMap = new HashMap<>();
+			innerMap.put("tourId", String.valueOf(tour.getTourID()));
+			innerMap.put("tourName",tour.getTourName());
+			innerMap.put("nationName",tour.getNation().getNationName());
+			innerMap.put("price",tour.getPrice());
+			innerMap.put("imageURL",imgdao.getGalleryImages(tour.getTourID()).get(1).getImageURL());
+			outerMap.put("tour",innerMap);
+			//tourList.add(outerMap);
+		}
+		return new JSONObject(outerMap);
+	}
 }

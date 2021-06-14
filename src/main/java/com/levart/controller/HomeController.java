@@ -3,11 +3,9 @@ package com.levart.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -119,12 +117,6 @@ public class HomeController {
 		return "tour-list";
 	}
     
-    @SuppressWarnings("unchecked")
-	@RequestMapping(value={""}, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody int displayTourOnSideBar(Model model, HttpServletRequest request) {
-    	
-		return 0;
-	}
     
 	@PostMapping("/signOut")
 	public String handleSignOut(@ModelAttribute(name="account") Account account)

@@ -2,6 +2,7 @@ package com.levart.hibernate.dao;
 
 import java.util.List;
 
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -16,6 +17,7 @@ public class NationDAO {
 
 	public NationDAO() {
 	}
+	
 	public List<Nation> getAllNation(){
 		factory = HibernateUtils.getSessionFactory();
 		Session session = factory.openSession();
@@ -58,6 +60,7 @@ public class NationDAO {
 
 	
 	public List<Nation> getAllNations() {
+		factory = HibernateUtils.getSessionFactory();
 		Session session = factory.openSession();
 		try {
 			@SuppressWarnings("unchecked")
@@ -70,13 +73,14 @@ public class NationDAO {
 			session.getTransaction().rollback();
 			e.printStackTrace();
 		} finally {
-
 			session.close();
+			factory.close();
 		}
 		return null;
 	}
 	
 	public List<Nation> getNationsByContinent(int id) {
+		factory = HibernateUtils.getSessionFactory();
 		Session session = factory.openSession();
 		try {
 			@SuppressWarnings("unchecked")
@@ -89,8 +93,8 @@ public class NationDAO {
 			session.getTransaction().rollback();
 			e.printStackTrace();
 		} finally {
-
 			session.close();
+			factory.close();
 		}
 		return null;
 	}		
