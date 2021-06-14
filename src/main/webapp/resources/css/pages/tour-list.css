@@ -3,7 +3,6 @@
 {
     background: url("./product-page.jpg") no-repeat center;
     background-size: cover;
-    height: 650px;
     padding-bottom: 100px;
     margin-bottom: 100px;
 }
@@ -29,8 +28,6 @@
 .search-container
 {
     background-color: white;
-    width: 40%;
-    padding: 30px;
 }
 
 .search-row

@@ -116,69 +116,19 @@
 				<section class="destination">
 					<h2 class="destination-h2">Popular Destinations</h2>
 					<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+					<c:forEach items = "${popularList}" var = "plist">
 						<div class="col-md-4">
-							<div class="destination-card shadow-sm vietnam" style="background: url('${pageContext.request.contextPath}/resources/images/vietnam.jpg') no-repeat top; 
+							<div class="destination-card shadow-sm vietnam" style="background: url('${pageContext.request.contextPath}/resources/images/${plist.nationName}.jpg') no-repeat top; 
 		   background-size: cover;">
 								<div class="destination-text">
-									<h3>Vietnam</h3>
-									<h4>3 packages</h4>
+									<h3>${plist.nationName}</h3>
+									<h4><c:out value="${plist.tours.size()}"/> packages</h4>
 								</div>
 							</div>
 						</div>
-
-						<div class="col-md-4">
-							<div class="destination-card shadow-sm" style="background: url('${pageContext.request.contextPath}/resources/images/australia.jpg') no-repeat top;
-		   background-size: cover;">
-								<div class="destination-text">
-									<h3>Vietnam</h3>
-									<h4>3 packages</h4>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-md-4">
-							<div class="destination-card shadow-sm" style="background: url('${pageContext.request.contextPath}/resources/images/america.jpg') no-repeat top;
-		   background-size: cover;">
-								<div class="destination-text">
-									<h3>Vietnam</h3>
-									<h4>3 packages</h4>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-md-4">
-							<div class="destination-card shadow-sm" style="background: url('${pageContext.request.contextPath}/resources/images/japan.jpg') no-repeat top;
-		   background-size: cover;">
-								<div class="destination-text">
-									<h3>Vietnam</h3>
-									<h4>3 packages</h4>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-md-4">
-							<div class="destination-card shadow-sm" style="background: url('${pageContext.request.contextPath}/resources/images/madagascar.jpg') no-repeat top;
-		   background-size: cover;">
-								<div class="destination-text">
-									<h3>Vietnam</h3>
-									<h4>3 packages</h4>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-md-4">
-							<div class="destination-card shadow-sm" style="background: url('${pageContext.request.contextPath}/resources/images/italy.jpg') no-repeat top;
-		   background-size: cover;">
-								<div class="destination-text">
-									<h3>Vietnam</h3>
-									<h4>3 packages</h4>
-								</div>
-							</div>
-						</div>
-
+					</c:forEach>
 					</div>
 				</section>
-				
 				<!--banner-->
 				
 				 <div style="float:left; width:100%;" id="post-1140" class="post-1140 page type-page status-publish hentry">
@@ -234,7 +184,6 @@
                 </div>
                  <!-- <p style=" padding: 100px"></p> --> 
 				
-				
 				<!--Combo Section-->
 				<section class="combo">
 				
@@ -249,7 +198,9 @@
 					                        <div class="mb-2">
 					                            <p class="combo-name d-flex justify-content-between align-items-center" style = "font-weight: bold; color: black; font-size: 25px; padding: 5px 0px">
 			                        				<span>${list.tourName}</span>
-			                        				<span style = "color: red; font-size: 15px; font-weight:100;">- ${list.discount} % </span>
+			                        				<c:if test = "${list.discount != 0.0}">
+			                        					<span style = "color: red; font-size: 15px; font-weight:100;">- ${list.discount} % </span>
+			                        				</c:if>
 			                        			</p>
 					                        </div>
 					                        <div class="d-flex justify-content-between align-items-center border-top border-bottom pt-2 pb-2 mb-3">

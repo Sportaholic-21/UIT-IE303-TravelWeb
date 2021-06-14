@@ -31,7 +31,7 @@ public class Nation {
 	private Continent continent;
 	
 	
-	@OneToMany(mappedBy = "nation", fetch = FetchType.LAZY, cascade = {
+	@OneToMany(mappedBy = "nation", fetch = FetchType.EAGER, cascade = {
 			CascadeType.PERSIST, CascadeType.MERGE,
 			CascadeType.DETACH, CascadeType.REFRESH })
 	private List<Tour> tours;
@@ -62,6 +62,11 @@ public class Nation {
 
 	public List<Tour> getTours() {
 		return tours;
+	}
+
+	@Override
+	public String toString() {
+		return "Nation [nationID=" + nationID + ", nationName=" + nationName + ", continent=" + continent + "]";
 	}
 
 	public void setTours(List<Tour> tours) {
