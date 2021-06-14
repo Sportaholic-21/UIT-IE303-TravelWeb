@@ -16,6 +16,7 @@ public class NationDAO {
 
 	public NationDAO() {
 	}
+	
 	public List<Nation> getAllNation(){
 		factory = HibernateUtils.getSessionFactory();
 		Session session = factory.openSession();
@@ -30,7 +31,6 @@ public class NationDAO {
 			e.printStackTrace();
 		} finally {
 			session.close();
-			factory.close();
 		}
 		
 		return null;
@@ -49,8 +49,8 @@ public class NationDAO {
 			session.getTransaction().rollback();
 			e.printStackTrace();
 		} finally {
+			session.flush();
 			session.close();
-			factory.close();
 		}
 		
 		return null;
@@ -71,7 +71,6 @@ public class NationDAO {
 			session.getTransaction().rollback();
 			e.printStackTrace();
 		} finally {
-			
 			session.close();
 		}
 		return null;
@@ -91,7 +90,6 @@ public class NationDAO {
 			session.getTransaction().rollback();
 			e.printStackTrace();
 		} finally {
-			
 			session.close();
 		}
 		return null;
