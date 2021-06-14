@@ -105,7 +105,7 @@ CREATE TABLE tourImage
 (
     tourImageID int IDENTITY(1,1) PRIMARY KEY,
     tourID int FOREIGN KEY REFERENCES tour(tourID),
-    imageURL varchar(50),
+    imageURL varchar(100),
     tourImageName varchar(100),
     imageRole bit default 1 /* 1 la cho gallery, 0 la cover image */
 )

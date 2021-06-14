@@ -6,6 +6,11 @@
 	<jsp:attribute name="pageCSSLink">
 		<link rel="stylesheet" type="text/css"
 			  href="${pageContext.request.contextPath}/resources/css/pages/home.css">
+		<link rel="stylesheet" id="nd_options_style-css" href="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/plugins/nd-shortcodes/css/style.css?ver=5.2.1" type="text/css" media="all">
+    <link rel="stylesheet" id="nicdark-style-css" href="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/themes/lovetravel/style.css?ver=5.2.1" type="text/css" media="all">
+    <link rel="stylesheet" id="js_composer_front-css" href="//www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/js_composer/js_composer_front_custom.css?ver=5.4.7" type="text/css" media="all">
+    <script type="text/javascript" src="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp"></script>
+	
 	</jsp:attribute>
 	<jsp:body>
 		<!--Landing Section-->
@@ -111,70 +116,77 @@
 				<section class="destination">
 					<h2 class="destination-h2">Popular Destinations</h2>
 					<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+					<c:forEach items = "${popularList}" var = "plist">
 						<div class="col-md-4">
-							<div class="destination-card shadow-sm vietnam" style="background: url('${pageContext.request.contextPath}/resources/images/vietnam.jpg') no-repeat top; 
+							<div class="destination-card shadow-sm vietnam" style="background: url('${pageContext.request.contextPath}/resources/images/${plist.nationName}.jpg') no-repeat top; 
 		   background-size: cover;">
 								<div class="destination-text">
-									<h3>Vietnam</h3>
-									<h4>3 packages</h4>
+									<h3>${plist.nationName}</h3>
+									<h4><c:out value="${plist.tours.size()}"/> packages</h4>
 								</div>
 							</div>
 						</div>
-
-						<div class="col-md-4">
-							<div class="destination-card shadow-sm" style="background: url('${pageContext.request.contextPath}/resources/images/australia.jpg') no-repeat top;
-		   background-size: cover;">
-								<div class="destination-text">
-									<h3>Vietnam</h3>
-									<h4>3 packages</h4>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-md-4">
-							<div class="destination-card shadow-sm" style="background: url('${pageContext.request.contextPath}/resources/images/america.jpg') no-repeat top;
-		   background-size: cover;">
-								<div class="destination-text">
-									<h3>Vietnam</h3>
-									<h4>3 packages</h4>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-md-4">
-							<div class="destination-card shadow-sm" style="background: url('${pageContext.request.contextPath}/resources/images/japan.jpg') no-repeat top;
-		   background-size: cover;">
-								<div class="destination-text">
-									<h3>Vietnam</h3>
-									<h4>3 packages</h4>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-md-4">
-							<div class="destination-card shadow-sm" style="background: url('${pageContext.request.contextPath}/resources/images/madagascar.jpg') no-repeat top;
-		   background-size: cover;">
-								<div class="destination-text">
-									<h3>Vietnam</h3>
-									<h4>3 packages</h4>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-md-4">
-							<div class="destination-card shadow-sm" style="background: url('${pageContext.request.contextPath}/resources/images/italy.jpg') no-repeat top;
-		   background-size: cover;">
-								<div class="destination-text">
-									<h3>Vietnam</h3>
-									<h4>3 packages</h4>
-								</div>
-							</div>
-						</div>
-
+					</c:forEach>
 					</div>
 				</section>
+				<!--banner-->
+				
+				 <div style="float:left; width:100%;" id="post-1140" class="post-1140 page type-page status-publish hentry">
+				<div data-vc-full-width="true" data-vc-full-width-init="true" data-vc-parallax="1.5" data-vc-parallax-image="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/2018/04/p-10.jpg" class="vc_row wpb_row vc_row-fluid nd_options_vc_parallax_filter_1_3 vc_custom_1542719726935 vc_row-has-fill vc_general vc_parallax vc_parallax-content-moving"
+                    style="position: relative; left: -87.6px; box-sizing: border-box; width: 923px; margin-bottom: 50px;padding-left: 87.6px; padding-right: 87.4px; padding: 50px">
+                    <div class="wpb_column vc_column_container vc_col-sm-3">
+                        <div class="vc_column-inner ">
+                            <div class="wpb_wrapper">
+                                <div style="  height: 20px;" class="nicdark_section  "></div>
+                                <h1 style="text-align:center; color:#ffffff; font-size:50px; " >${totalDestination }</h1>
+                                <div style="  height: 30px;" class="nicdark_section  "></div>
+                                <p style="color:#ffffff; padding:px; text-align:center; font-size:13px; line-height:13px; letter-spacing: 3px; font-weight:lighter;" class="   nd_options_second_font ">DESTINATIONS</p>
+                                <div style="  height: 20px;" class="nicdark_section  "></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wpb_column vc_column_container vc_col-sm-3">
+                        <div class="vc_column-inner ">
+                            <div class="wpb_wrapper">
+                                <div style=" height: 20px;" class="nicdark_section  "></div>
+                                <h1 style="text-align:center; color:#ffffff; font-size:50px; " >${totalNation}</h1>
+                                <div style=" height: 30px;" class="nicdark_section  "></div>
+                                <p style="color:#ffffff; padding:px; text-align:center; font-size:13px; line-height:13px; letter-spacing: 3px; font-weight:lighter;" class="   nd_options_second_font ">PACKAGES NATION</p>
+                                <div style="height: 20px;" class="nicdark_section  "></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wpb_column vc_column_container vc_col-sm-3">
+                        <div class="vc_column-inner ">
+                            <div class="wpb_wrapper">
+                                <div style="  height: 20px;" class="nicdark_section  "></div>
+                                <h1 style="text-align:center; color:#ffffff; font-size:50px; ">${totalAccount}</h1>
+                                <div style="  height: 30px;" class="nicdark_section  "></div>
+                                <p style="color:#ffffff; padding:px; text-align:center; font-size:13px; line-height:13px; letter-spacing: 3px; font-weight:lighter;" class="   nd_options_second_font ">CUSTOMER MEMBERS</p>
+                                <div style="  height: 20px;" class="nicdark_section  "></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wpb_column vc_column_container vc_col-sm-3">
+                        <div class="vc_column-inner ">
+                            <div class="wpb_wrapper">
+                                <div style="  height: 20px;" class="nicdark_section  "></div>
+                                <h1 style="text-align:center; color:#ffffff; font-size:50px; "  >20</h1>
+                                <div style="  height: 30px;" class="nicdark_section  "></div>
+                                <p style="color:#ffffff; padding:px; text-align:center; font-size:13px; line-height:13px; letter-spacing: 3px; font-weight:lighter;" class="   nd_options_second_font ">YEARS OF EXPERIENCE</p>
+                                <div style="  height: 20px;" class="nicdark_section  "></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vc_parallax-inner skrollable skrollable-before" data-bottom-top="top: -50%;" data-top-bottom="top: 0%;" style="height: 150%; background-image: url(&quot;http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/2018/04/p-10.jpg&quot;); top: -50%;"></div>
+                </div>
+                <div class="vc_row-full-width vc_clearfix"></div>
+                </div>
+                 <!-- <p style=" padding: 100px"></p> --> 
+				
 				<!--Combo Section-->
 				<section class="combo">
+				
 					<h2 class="combo-h2">Promotions</h2>
 					<div class="d-md-flex">
 						<c:forEach items = "${tourList}" var = "list">
@@ -186,7 +198,9 @@
 					                        <div class="mb-2">
 					                            <p class="combo-name d-flex justify-content-between align-items-center" style = "font-weight: bold; color: black; font-size: 25px; padding: 5px 0px">
 			                        				<span>${list.tourName}</span>
-			                        				<span style = "color: red; font-size: 15px; font-weight:100;">- ${list.discount} % </span>
+			                        				<c:if test = "${list.discount != 0.0}">
+			                        					<span style = "color: red; font-size: 15px; font-weight:100;">- ${list.discount} % </span>
+			                        				</c:if>
 			                        			</p>
 					                        </div>
 					                        <div class="d-flex justify-content-between align-items-center border-top border-bottom pt-2 pb-2 mb-3">
@@ -211,5 +225,10 @@
 	                  </c:forEach>
             	</div>
 				</section>
+				
+			<script type="text/javascript" src="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=5.4.7"></script>
+	
+           
+				
 			</jsp:body>
 		</t:genericpage>
