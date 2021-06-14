@@ -45,6 +45,7 @@
 <title>Levart | ${pageTitle}</title>
 </head>
 <body>
+
 	<jsp:include page="/WEB-INF/views/template/navbar.jsp" />
 	<jsp:include page="/WEB-INF/views/template/sidebar.jsp" />
 
@@ -55,6 +56,10 @@
 	<jsp:include page="/WEB-INF/views/template/footer.jsp" />
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
 	
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
@@ -73,11 +78,8 @@
 	<script
 		src="${pageContext.request.contextPath}/resources/js/passDataToModalDelete.js"></script>
 	<!-- page script -->
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-	<script>
-		axios.get("sidebarTourList")
-	</script>
 	<script src="${pageContext.request.contextPath}/resources/js/logout.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/loadSideTours.js"></script>
 	<jsp:invoke fragment="pageScript" />
 </body>
 </html>

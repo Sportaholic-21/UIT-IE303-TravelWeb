@@ -130,11 +130,10 @@ public class TourListController {
     }
     
 
-	@RequestMapping(value={"/sidebarTourList"}, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value={"/sidebarTourList"},method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public JSONObject displayTourOnSideBar() {
-		//List<HashMap<String,HashMap<String,String>>> tourList = new ArrayList<>();
-		HashMap<String,HashMap<String,String>> outerMap = new HashMap<>();
+	public List<HashMap<String,String>> displayTourOnSideBar() {
+		List<HashMap<String,String>> tourList = new ArrayList<>();
 		TourDAO tourdao = new TourDAO();
     	List<Tour> list = tourdao.getTop3Tours();
 		ImageDAO imgdao = new ImageDAO();
@@ -145,9 +144,8 @@ public class TourListController {
 			innerMap.put("nationName",tour.getNation().getNationName());
 			innerMap.put("price",tour.getPrice());
 			innerMap.put("imageURL",imgdao.getGalleryImages(tour.getTourID()).get(1).getImageURL());
-			outerMap.put("tour",innerMap);
-			//tourList.add(outerMap);
+			tourList.add(innerMap);
 		}
-		return new JSONObject(outerMap);
+		return tourList;
 	}
 }
