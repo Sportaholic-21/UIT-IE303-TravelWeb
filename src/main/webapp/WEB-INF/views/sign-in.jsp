@@ -33,7 +33,7 @@
 										<form:password path="pass" placeholder="Password" required="required"/>
 									</div>
 									<div class = "pass-link">
-										<a href="#passForgotten" data-toggle="modal" data-target="#passForgotten">Forgot password ?</a>
+										<a href="#passForgotten" data-bs-toggle="modal" data-bs-target="#passForgotten">Forgot password ?</a>
 									</div>
 									
 									<div class = "remember__field">
@@ -110,6 +110,8 @@
 			  </div>
 			</div>
 		</div>
+		
+	<jsp:attribute name="pageScript">
 	<script>
 		var recoverBtn = document.getElementById("recover")
 		var emailSignIn = document.getElementById("emailSignIn")
@@ -136,12 +138,13 @@
 						break;
 					case 1:
 						console.log("I am here")
-						$("#passForgotten").modal('hide');
-						$("#otpModal").modal();
+						$("#passForgotten").modal('toggle');
+						$("#otpModal").modal('toggle');
 						break;
 				}
 			})
 		})
 	</script>
+	</jsp:attribute>
     </jsp:body>
 </t:genericpage>
