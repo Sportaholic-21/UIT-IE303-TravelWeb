@@ -3,7 +3,10 @@ package com.levart.controller;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,6 +20,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+
 import com.levart.entities.Account;
 import com.levart.form_entities.FormSearch;
 import com.levart.form_entities.FormSignUp;
@@ -25,6 +31,10 @@ import com.levart.hibernate.dao.AccountDAO;
 @Controller
 @SessionAttributes("account")
 public class SignInController {
+
+	@Autowired
+	JavaMailSender mailSender;
+
 	@ModelAttribute("account")
 	public Account setAccount() {
 		return new Account();
@@ -69,7 +79,14 @@ public class SignInController {
 
 	@PostMapping(value ="/api/forgotPassword", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public JSONObject sendOTP(@RequestBody String req) throws ParseException {
+	public JSONObject sendOTP(@RequestBody String req) throws ParseException, MessagingException {
+		//Mail
+		MimeMessage message = mailSender.createMimeMessage();
+		Boolean multipart = true;
+		MimeMessageHelper helper = new MimeMessageHelper(message, multipart);
+		String messageOut, OTP;
+		helper.setFrom("thomnd131200@gmail.com");
+		//JSON status + OTP
 		JSONParser parser = new JSONParser();  
 		JSONObject reqJSON = (JSONObject) parser.parse(req);
 		HashMap<String,String> res = new HashMap<String,String>();
@@ -77,13 +94,39 @@ public class SignInController {
 		AccountDAO accountDAO = new AccountDAO();
 		accountDAO.getAllAccounts();
 		int index = accountDAO.findEmail(reqEmail);
-		if (index == -1) res.put("status", "0");
-		else {
-			res.put("status", "1");
-			res.put("otp", genOTP());
+		switch (index) {
+			case -1: 
+				res.put("status", "0");
+				break;
+			default:
+				OTP = genOTP();
+				messageOut = "<p>Your OTP is " + OTP + "</p>";
+				message.setContent(messageOut, "text/html");
+				res.put("status", "1");
+				res.put("otp", OTP);
+				helper.setTo("boong630@gmail.com");
+				helper.setSubject("[RESET PASSWORD] Your OTP");
+				this.mailSender.send(message);
+				break;
 		}
-		System.out.println(res);
 		return new JSONObject(res);
+	}
+
+	// @PostMapping(value ="/api/otp", produces = MediaType.APPLICATION_JSON_VALUE)
+	// @ResponseBody
+	// public static JSONObject verifyOTP(@RequestBody JSONObject req) {
+	// 	HashMap<String,String> res = new HashMap<String,String>();
+	// 	return new JSONObject(res);
+	// }
+
+	@PostMapping(value = "/api/changePassword")
+	@ResponseBody
+	public int changePassword(@RequestBody JSONObject req) {
+		String email = (String) req.get("email");
+		String password = (String) req.get("password");
+		AccountDAO dao = new AccountDAO();
+		dao.getAllAccounts();
+		return dao.setNewPassword(email,password);
 	}
 
 	public static String genOTP() {

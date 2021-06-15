@@ -62,7 +62,7 @@
 			  <div class="modal-content">
 				<div class="modal-header">
 				  <h5 class="modal-title" id="passForgottenLabel">Forgot Password</h5>
-				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				  </button>
 				</div>
@@ -77,7 +77,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-				  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 				  <button id="recover" type="button" class="btn btn-primary">Recover</button>
 				</div>
 			  </div>
@@ -89,7 +89,7 @@
 			  <div class="modal-content">
 				<div class="modal-header">
 				  <h5 class="modal-title" id="OTPLabel">Enter OTP</h5>
-				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				  </button>
 				</div>
@@ -104,47 +104,38 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-				  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				  <button id="recover" type="button" class="btn btn-primary">Recover</button>
+				  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				  <button id="verifyOTP" type="button" class="btn btn-primary">Continue</button>
 				</div>
 			  </div>
 			</div>
 		</div>
-		
-	<jsp:attribute name="pageScript">
-	<script>
-		var recoverBtn = document.getElementById("recover")
-		var emailSignIn = document.getElementById("emailSignIn")
-		var emailRecovery = document.getElementById("emailRecovery")
-		var status = document.getElementById("status")
-		emailRecovery.value=emailSignIn.value
-		recoverBtn.addEventListener("click", async () => {
-			await axios.post("/UIT-IE303-TravelWeb/api/forgotPassword", {
-				email: emailRecovery.value
-			}).then(function(res) {
-				// var rawDt = res.data;
-				// //All this cuz my java can't send JSON huhuhuhuhuhuhuhu
-				// rawDt = rawDt.replace('{','{"')
-				// rawDt = rawDt.replace('=','":"')
-				// rawDt = rawDt.replace(', ','", "')
-				// rawDt = rawDt.replace('=','":"')
-				// rawDt = rawDt.replace('}','"}')
-				// const data = JSON.parse(rawDt)
-				// //End of me crying cuz java sucks sometimes
-				switch (parseInt(res.data.status)) {
-					case 0:
-						//status.setAttribute("class","active")
-						console.log(status)
-						break;
-					case 1:
-						console.log("I am here")
-						$("#passForgotten").modal('toggle');
-						$("#otpModal").modal('toggle');
-						break;
-				}
-			})
-		})
-	</script>
-	</jsp:attribute>
+		<!--Modal new Password-->
+		<div class="modal fade" id="newPasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <h5 class="modal-title" id="newPasswordLabel">Enter new Password</h5>
+				  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+					<h3>Enter your new Password</h3>
+					<div class="row alert alert-danger" id="status" style="display: none;">
+						Wrong OTP!
+					</div>
+					<div class="row">
+						<label class="col-sm-2" for="">Password:</label>
+					  	<input class="col-sm-5" type="text" id="newPassword">
+					</div>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				  <button id="changePassword" type="button" class="btn btn-primary">Change Password</button>
+				</div>
+			  </div>
+			</div>
+		</div>
     </jsp:body>
 </t:genericpage>
