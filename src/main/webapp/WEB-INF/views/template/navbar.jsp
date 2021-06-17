@@ -36,7 +36,7 @@
         <li class="nav-item me-4 dropdown li-nav">
           <a
             class="nav-link dropdown-toggle a-nav"
-            href="#"
+            href="${pageContext.request.contextPath}/tour-list"
             id="navbarDropdown"
             role="button"
             data-bs-toggle="dropdown"
@@ -72,13 +72,13 @@
           <div class="collapse navbar-collapse justify-content-end">
 			<ul class="navbar-nav">
 				<li class="nav-item dropdown"><a class="nav-link"
-					href="javascript:;" id="navbarDropdownProfile"
+					href="#" id="navbarDropdownProfile"
 					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
 					${username}
 				</a>
 					<div class="dropdown-menu dropdown-menu-right"
 						aria-labelledby="navbarDropdownProfile">
-						<a class="dropdown-item" href="${pageContext.request.contextPath}/${account.username}">Overview</a>
+						<a class="dropdown-item" href="${pageContext.request.contextPath}/overview/${username}">Overview</a>
 						<a class="dropdown-item" href="${pageContext.request.contextPath}/user?tab=profile">Setting</a>
 						<c:choose>
 			              	<c:when test="${account.accountRole == 0}">
@@ -105,16 +105,17 @@
       </ul>
     </div>
   </div>
-  <script type="text/javascript">
+   <script type="text/javascript">
   var url=window.location.pathname;
   var li_list=document.querySelectorAll(".li-nav");
   var a_list=document.querySelectorAll(".a-nav");
   if (url==a_list[0].pathname) li_list[0].classList.add("li-active")
   else if(url==a_list[1].pathname) li_list[1].classList.add("li-active")
+  else if(url==a_list[2].pathname) li_list[2].classList.add("li-active")
   else if(url==a_list[3].pathname) li_list[3].classList.add("li-active")
   else if(url==a_list[4].pathname) li_list[4].classList.add("li-active")
   else if(url==a_list[5].pathname) li_list[5].classList.add("li-active")
   else if(url.slice(0,-2)=="${pageContext.request.contextPath}/tour-detail") li_list[1].classList.add("li-active")
-   else if(url==a_list[2].pathname) li_list[2].classList.add("li-active")
+  
   </script>
 </nav>
