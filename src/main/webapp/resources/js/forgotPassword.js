@@ -1,7 +1,6 @@
 var otp;
 var email;
 //tạm thời lưu otp với email trên frontend luôn, sau này mà ứng dụng security sẽ đẩy nó về backend xử lý!
-var status = document.getElementById("status")
 
 var sendEmail = async () => {
     await axios.post("/UIT-IE303-TravelWeb/api/forgotPassword", {
@@ -9,12 +8,12 @@ var sendEmail = async () => {
     }).then(function(res) {
         switch (parseInt(res.data.status)) {
             case 0:
-                console.log(res.data.status);
+                $("#noEmail").show();
                 break;
             case 1:
                 otp = res.data.otp;
                 email = emailRecovery.value;
-                $("#passForgotten").modal('toggle');
+                $("#passForgotModal").modal('toggle');
                 $("#otpModal").modal('toggle');
                 break;
         }
@@ -25,7 +24,7 @@ var verifyOTP = () => {
     if (otp == $('#otp').val()) {
         $("#otpModal").modal('toggle');
         $("#newPasswordModal").modal('toggle');
-    }
+    } else $("#wrongOTP").show();
 }
 
 var changePassword = async () => {
@@ -39,7 +38,8 @@ var changePassword = async () => {
 }
 
 $(document).ready(function() {
-    $('#recover').on("click", sendEmail);
-    $('#verifyOTP').on("click", verifyOTP);
-    $('#changePassword').on("click", changePassword);
+    $('#noEmail').hide(); $('#wrongOTP').hide();
+    $('#resetBtn').on("click", sendEmail);
+    $('#otpBtn').on("click", verifyOTP);
+    $('#confirmBtn').on("click", changePassword);
 })
