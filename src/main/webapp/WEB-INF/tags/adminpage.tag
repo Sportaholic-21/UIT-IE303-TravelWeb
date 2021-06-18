@@ -21,10 +21,6 @@
 	rel="stylesheet" crossorigin="anonymous" />
 	
 <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/resources/images/logo-color.png"/>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
-	crossorigin="anonymous"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
 </head>
 <body class="sb-nav-fixed">
 	<jsp:include page="/WEB-INF/views/template/admin/navbar.jsp" />
@@ -70,8 +66,12 @@
 		src="${pageContext.request.contextPath}/resources/user/js/bootstrap-material-design.min.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/resources/js/passDataToModalDelete.js"></script>
-	<!-- page script -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+		crossorigin="anonymous"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<!-- page script -->
 	<script src="${pageContext.request.contextPath}/resources/js/logout.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/admin/js/addUser.js"></script>
 </body>
 </html>

@@ -25,7 +25,7 @@
                 <label>Password</label>
               </div>
               <div class="col-sm-5">
-                <form:input type="text" id="passField" class="form-control" path="password"/>
+                <form:input type="password" id="passField" class="form-control" path="password"/>
               </div>
               <div class="col-sm-3">
                 <button type="button" id="pwdGen" class="btn btn-primary">Generate</button>
