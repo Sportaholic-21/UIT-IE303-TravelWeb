@@ -111,7 +111,7 @@
                            ${obj.desc}
                         </p>
 
-                        <button id="printPDF" onclick="print()">Print to PDF</button>
+                        <button id="printPDF">Print to PDF</button>
                      
                         <div class="content__table ">
                             <table class="">
@@ -160,7 +160,7 @@
                 <section class="tour-map section--border-bot pb-4"
 							id="map">
                     <h2 class="tour-map__title mb-3 ">Tour Map</h2>
-                    <div class="">
+                    <div id="map-frame">
                         <iframe class="col col-xl-12 pl-0 pr-0"
 									src="https://www.google.com/maps/d/u/0/embed?mid=1idy021lALsVJj6wBr2dNGF56hvgwm8jX "
 									style="border: none; width: 100%; height: 400px;"></iframe>
@@ -171,7 +171,7 @@
 							id="gallery">
 							
                     <h2 class="tour-gallery__title mb-3 ">Gallery</h2>
-                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div id="gallery-carousel" class="carousel slide" data-ride="carousel">
 						  <div class="carousel-inner">
 						    <c:forEach items = "${galleryImagesDisplay}" var = "gal" varStatus = "loop">
 						    	<c:if test = "${loop.first}">
@@ -206,7 +206,7 @@
                             <li class="d-flex">
                             	<i class="fas fa-plus-square mr-3 color--primary "></i>
                      			<span>
-                     				<strong><a class ="text-danger" data-toggle="collapse" href="#collapse${loop.count}">DAY ${loop.count}</a></strong>
+                     				<strong><a id="day" class ="text-danger" data-toggle="collapse" href="#collapse${loop.count}">DAY ${loop.count}</a></strong>
 	                                <div id="collapse${loop.count}" class="schedule panel-collapse collapse">
 												<span>
 													<c:forTokens items = "${sch}" var = "name" delims = ";" >
@@ -468,11 +468,10 @@
 			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl "
 			crossorigin="anonymous "></script>
   	<script>
-        function print() {
-            var element = document.getElementsByClassName("schedule")
-            element.classList.add("show")
-            window.print()
-        }
+        $("#printPDF").on("click",() => {
+            $(".schedule").addClass("show");
+            window.print();
+        });
     </script>
     </jsp:body>
 </t:genericpage>

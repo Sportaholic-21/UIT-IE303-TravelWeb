@@ -559,9 +559,27 @@ p strong {
 
 /* Print */
 @media print {
-    .navbar, #sidebar, .footer, #gallery
+    .navbar, #sidebar, .footer, #gallery,
     .detail__left__group, .directToParam, button, 
-    .detail__right, .tour-info__related-tour {
+    .detail__right, .tour-info__related-tour,
+    .tour-map__title, #map, #map #map-frame,
+    #gallery-carousel div  {
         display: none;
     } 
+    /* .detail__left__img img {
+        height: 60%;
+    } */
+    body, .content__table, #day {
+        color: #000000;
+        display: block;
+        position: static;
+        overflow: visible !important;
+    }
+    img, .content__table {
+        break-inside: avoid;
+    }
+
+    @page {
+        margin: 2cm;
+    }
 }
