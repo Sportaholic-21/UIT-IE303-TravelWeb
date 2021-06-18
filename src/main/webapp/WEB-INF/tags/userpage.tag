@@ -41,5 +41,8 @@
 		src="${pageContext.request.contextPath}/resources/user/js/bootstrap-material-design.min.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/resources/js/passDataToModalDelete.js"></script>
+	<!-- page script -->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/logout.js"></script>
 </body>
 </html>

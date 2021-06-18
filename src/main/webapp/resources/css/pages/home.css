@@ -113,3 +113,42 @@ a{
 	object-fit: cover;
     object-position: 20% 10%;
 }
+
+.typo-icon {
+	width: 50px;
+}
+
+.btn-typo {
+	font-size: 13px;
+	padding: 3px 0;
+	color: #fff !important;
+	display: block;
+	width: 105px;
+	text-align: center;
+}
+
+.btn-typo--1 {
+	background: #F3A46B;
+}
+
+.btn-typo--2 {
+	background: #1BBC9B;
+}
+
+.btn-typo--3 {
+	background: #F76570;
+}
+
+.btn-typo--4 {
+	background: #14B9D5;
+}
+
+.home-cta--dark {
+	background: #555555;
+	color: #fff !important;
+	text-align: center;
+	display: block;
+	padding: 10px 0;
+	width: 220px;
+	margin: 0 auto;
+}

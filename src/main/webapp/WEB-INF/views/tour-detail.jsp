@@ -7,7 +7,9 @@
 	<jsp:attribute name="pageCSSLink">
 		<link rel="stylesheet" type="text/css"
 			href="${pageContext.request.contextPath}/resources/css/pages/tour-detail.css">
+		<style>
 		
+		</style>
 	</jsp:attribute>
 	<jsp:body>
   	<div class="body__tour-detail pt-0">
@@ -224,10 +226,17 @@
             <div class="detail__right col-4">
                 <section class="form-send-now">
                     <div class="header-form">
-                        <p>
-									<span> ${obj.price}$</span>  ${obj.priceDiscount}$</p>
+                    	<c:choose>
+	                    	<c:when test = "${obj.discount != 0.0}">
+				        		<p><span> ${obj.price}$</span>  ${obj.priceDiscount}$</p>
+				            </c:when>
+				            <c:otherwise>
+				            	<p>${obj.price}$</p>
+				            </c:otherwise>
+			            </c:choose>
+                        
                     </div>
-                    <form:form id="form-send-now" action="sendContact"
+                    <form:form id="form-send-now" action="${pageContext.request.contextPath}/sendContact"
 								modelAttribute="messageContact">
                         <div class="form-row">
                             <div class="form-group col-md-12">
@@ -330,25 +339,33 @@
 							style="background-image: url('${pageContext.request.contextPath}/resources/images/tour-detail-img/parallax-3-1.jpg');">
                
                     <span></span>
-                    <div class="view-destination">
-                        <h5 class="mb-3">Packages</h5>
-                        <a class="" href="#">Berlin</a>
-                        <a class="" href="#">Amsterdam</a>
-                        <a class="" href="#">Tuscany</a>
-                        <a class="" href="#map">Adventure</a>
-                        <a class="" href=""><button class="mt-3 btt" style="color: rgba(0,0,0,0.5)">view destination</button></a>
-                    </div>
-                    <div class="view-destination-before">
-                        <h5>Europe</h5>
-                        <p>3 packages</p>
-                    </div>
+                    
+	                    <div class="view-destination">
+	                        <h5 class="mb-3">Packages</h5>
+	                        <c:forEach items = "${nationList}" var = "nList">
+	                        	<a class="" href="${pageContext.request.contextPath}/tour-list?nationID=${nList.nationID}">${nList.nationName}</a>
+	                        </c:forEach>
+	                        <a class="" href="${pageContext.request.contextPath}/tour-list?continentID=${obj.nation.continent.continentID}"><button class="mt-3 btt" style="color: rgba(0,0,0,0.5)">view destination</button></a>
+	                    </div>
+	                    <div class="view-destination-before">
+	                        <h5>${obj.nation.continent.continentName}</h5>
+	                        <c:choose>
+	                        	<c:when test="${packageNum} > 1">
+	                        		<p><c:out value="${packageNum}"></c:out> packages</p>
+	                        	</c:when>
+	                        	<c:otherwise>
+	                        		<p><c:out value="${packageNum}"></c:out> package</p>
+	                        	</c:otherwise>
+	                        </c:choose>
+	                    </div>
+                    
                 </section>
                 <section class="tags">
                     <h5>Tags</h5>
                     <div class="tags-list">
                         <a class="adetail" href="${pageContext.request.contextPath}/tour-list?nationID=${obj.nation.nationID}">${obj.nation.nationName}</a>
-                        <a class="adetail" href="#">${obj.nation.continent.continentName}</a>
-                        <a class="adetail" href="#">${obj.typology.typologyName }</a>
+                        <a class="adetail" href="${pageContext.request.contextPath}/tour-list?continentID=${obj.nation.continent.continentID}">${obj.nation.continent.continentName}</a>
+                        <a class="adetail" href="${pageContext.request.contextPath}/tour-list?typologyID=${obj.typology.typologyID}">${obj.typology.typologyName }</a>
                     </div>
                 </section>
                 
@@ -365,9 +382,11 @@
 											alt="">
 									</p>
                             <div>
+                            <a href="${pageContext.request.contextPath}/overview/${o.tourBookingID.account.username}">
                                 <h6 class="username" style="margin-top:3px">${o.tourBookingID.account.fullName}</h6>
                                 <p style="margin:0; font-size:10px;"> @${o.tourBookingID.account.username} </p>
                                 <p style="margin:0; font-size:10px;">${o.tourBookingID.bookDate} </p>
+                                </a>
                             </div>
                         </div>
                         <div class="content" style="padding: 15px;">${o.feedbackMessage}</div>
@@ -430,8 +449,7 @@
 		              </c:if>
 		    	</c:forEach>
             </c:forEach>
-
-                
+     
             </div>
 
         </div>

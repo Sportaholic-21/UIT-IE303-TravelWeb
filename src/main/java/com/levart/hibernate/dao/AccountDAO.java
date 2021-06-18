@@ -29,9 +29,9 @@ public class AccountDAO {
 			@SuppressWarnings("unchecked")
 			Query<Account> query=session.createQuery(hql);
 			accounts = query.getResultList();
-			for (Account account: accounts){
-				System.out.println(account.getAccountID());
-			}
+//			for (Account account: accounts){
+//				System.out.println(account.getAccountID());
+//			}
 			tx.commit();
 		} catch (RuntimeException e){
 			session.getTransaction().rollback();

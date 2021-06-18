@@ -37,14 +37,14 @@
 			          <div class="row ">
 			            <div class="card-avatar col-3">
 			              <a href="javascript:;">
-			                <img class="img" src="${account.avatar}" />
+			                <img class="img" src="${accounts.avatar}" />
 			              </a>
 			            </div>
 			            <div class="card-body col-9 d-flex">
-			              <h4 class="card-title text-left mr-auto mt-2">${account.username}</h4>
+			              <h4 class="card-title text-left mr-auto mt-2">${accounts.username}</h4>
 			              <c:choose>
-			              	<c:when test="${account.socialMediaLink ne ''}">
-			              		<a href="${account.socialMediaLink}"
+			              	<c:when test="${accounts.socialMediaLink ne ''}">
+			              		<a href="${accounts.socialMediaLink}"
 													class="btn btn-warning btn-round mr-5">Contact via Social</a>
 			              	</c:when>
 			              </c:choose>
@@ -130,7 +130,7 @@
 			              <i class="fas fa-funnel-dollar"></i>
 			            </div>
 			            <p class="card-category">Points</p>
-			            <h3 class="card-title">${account.point}</h3>
+			            <h3 class="card-title">${accounts.point}</h3>
 			          </div>
 			          <div class="card-footer">
 			            <div class="stats">

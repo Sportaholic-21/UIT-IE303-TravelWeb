@@ -78,8 +78,8 @@
 				                        </p>
 				                        <div class="combo-category">
 				                            <div class="row">
-				                                <div class="col-md-8" style = "line-height: 50px">${searchRes.typology.typologyName}</div>
-				                                <div class="col-md-4" style = "line-height: 50px; color: red; font-size: 25px; font-weight:bold">${searchRes.price} $      
+				                                <div class="col-md-7" style = "line-height: 50px">${searchRes.typology.typologyName}</div>
+				                                <div class="col-md-5" style = "line-height: 50px; color: red; font-size: 25px; font-weight:bold">${searchRes.price} $      
 				                                </div>
 				                            </div>
 				                        </div>
@@ -91,7 +91,7 @@
 								                            <button class="btn btn-danger" style = "font-weight: bold">View</button>
 								              </a>
 				                        </div>
-				                        <button data-type="addWishlist" data-link="${pageContext.request.contextPath}/user/wishlist/api?action=add&id=${tour.tourID}" class="float-right text-danger addWishlist" style = "padding: 0; margin = 0; border:none; background-color:white"><i class="far fa-heart fs-1"></i></button>
+				                        <button data-type="addWishlist" data-link="${pageContext.request.contextPath}/user/wishlist/api?action=add&id=${tour.tourID}" class="float-right text-danger addWishlist" style = "padding: 0; margin : 0; border:none; background-color:white"><i class="far fa-heart fs-1"></i></button>
 				                    </div>
 				                </div>
 				            </div>

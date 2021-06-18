@@ -20,25 +20,35 @@ import com.levart.hibernate.dao.NationDAO;
 import com.levart.hibernate.utils.CRUDBookedTourOperation;
 
 @Controller
+@SessionAttributes("account")
+@RequestMapping("/overview")
 public class OverviewController extends CRUDBookedTourOperation {
 	@ModelAttribute("account")
 	public Account newAccount() {
 		return new Account();
 	}
 	
-	@RequestMapping(value={"/{username}"})
-	public String showPage(@PathVariable String username, Model model) {
+	@RequestMapping(value="{usernames}")
+	public String showPage(@PathVariable String usernames, Model model, @ModelAttribute("account") Account account) {
+		if (account.getEmail() == null) {
+			model.addAttribute("username", null);
+		} else {
+			AccountDAO userDAO = new AccountDAO();
+			List<Account> users = userDAO.getAllAccounts();
+			int i = userDAO.findAccountIndex(account.getEmail(), account.getPass());
+			if (i == -1) return "overview";
+			account = users.get(i);
+			model.addAttribute("username", account.getUsername());
+		}
 		AccountDAO accountDAO = new AccountDAO();
 		NationDAO nationDAO = new NationDAO();
-		
-		Account account = accountDAO.getAccountWithTourBooking(username);
-		
+		Account accounts = accountDAO.getAccountWithTourBooking(usernames);
 			int totalFeedbacks = 0;
 			int count = 0;
 			
 			List<TourBooking> endedTours = new ArrayList<TourBooking>();
 			
-			List<TourBooking> tourBookings = account.getTourBookings();
+			List<TourBooking> tourBookings = accounts.getTourBookings();
 			List<String> coordinates = new ArrayList<String>();
 			List<String> tourNames = new ArrayList<String>();
 			List<Integer> isFeedbacks = new ArrayList<Integer>();
@@ -71,7 +81,7 @@ public class OverviewController extends CRUDBookedTourOperation {
 				}
 			}
 			
-			model.addAttribute("account", account);
+			model.addAttribute("accounts", accounts);
 			model.addAttribute("totalFeedbacks", totalFeedbacks);
 			model.addAttribute("coordinates", coordinates);
 			model.addAttribute("tourNames", tourNames);

@@ -1,28 +1,28 @@
 package com.levart.controller;
 
-import org.springframework.stereotype.Controller;
+import java.util.ArrayList;
+import java.util.List;
 
+
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
-import javax.validation.Valid;
 
 import com.levart.entities.Account;
 import com.levart.entities.Image;
+import com.levart.entities.Nation;
 import com.levart.entities.Tour;
-import com.levart.entities.TourBooking;
 import com.levart.form_entities.FormSearch;
 import com.levart.form_entities.FormSearchPackage;
 import com.levart.hibernate.dao.AccountDAO;
 import com.levart.hibernate.dao.ImageDAO;
+import com.levart.hibernate.dao.NationDAO;
 import com.levart.hibernate.dao.TourDAO;
 
 @Controller
@@ -57,6 +57,11 @@ public class HomeController {
 		}
 		TourDAO tourdao = new TourDAO();
 		ImageDAO imgdao = new ImageDAO();
+		
+		NationDAO nationdao = new NationDAO();
+		List<Nation> popularNations = nationdao.getAllNations();
+		model.addAttribute("popularList", popularNations);
+		
 		List<Tour> list = tourdao.getTop3Tours();
 		model.addAttribute("tourList", list);
 		List<Image> imgList = new ArrayList<Image>();
@@ -64,11 +69,21 @@ public class HomeController {
 			imgList.add(imgdao.getGalleryImages(tour.getTourID()).get(1));
 		}
 		model.addAttribute("imgList", imgList);
+		
+		List<Tour> listAll = tourdao.getAllTours();
+		NationDAO nationDAO= new NationDAO();
+		List<Nation> nationList=nationDAO.getAllNation();
+		AccountDAO userDAO = new AccountDAO();
+		List<Account> users = userDAO.getAllAccounts();
+		model.addAttribute("totalDestination",listAll.size());
+		model.addAttribute("totalNation", nationList.size());
+		model.addAttribute("totalAccount", users.size());
 		return "home";
 	}
     
     @PostMapping("/tour-list")
 	public String showResult(@ModelAttribute("account") Account account, Model model, @Valid @ModelAttribute("contentSearchPackage") FormSearchPackage formsearchpackage) {
+    	 
     	if (account.getEmail() == null) {
 			model.addAttribute("username", null);
 		} else {
@@ -79,6 +94,7 @@ public class HomeController {
 			model.addAttribute("username", account.getUsername());
 		}
 		TourDAO tourdao = new TourDAO();
+		
 		List<Tour> list = tourdao.getAllTours();
 		if(formsearchpackage.getDestination() != "" && formsearchpackage.getMaxPrice() > 0)
 			list = tourdao.findTourWithBoth(formsearchpackage.getDestination(), formsearchpackage.getMaxPrice());	
@@ -96,8 +112,11 @@ public class HomeController {
 		}
 		
 		model.addAttribute("imgList", imgList);
+
+		
 		return "tour-list";
 	}
+    
     
 	@PostMapping("/signOut")
 	public String handleSignOut(@ModelAttribute(name="account") Account account)

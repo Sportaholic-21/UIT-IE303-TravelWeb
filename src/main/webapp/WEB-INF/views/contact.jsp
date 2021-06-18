@@ -101,7 +101,7 @@
 										</li>
 										<li class="list-group-item d-flex justify-content-between">
 											<span>City :</span>
-											<span>HCM City - Viet Nam</span>
+											<span>HCM City, Viet Nam</span>
 										</li>
 										<li class="list-group-item d-flex justify-content-between">
 											<span>Check-In :</span>

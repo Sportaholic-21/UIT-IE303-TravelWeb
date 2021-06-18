@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.levart.entities.Account;
 import com.levart.entities.Tour;
@@ -33,6 +34,7 @@ import com.levart.hibernate.dao.TourBookingDAO;
 import com.levart.hibernate.dao.TourDAO;
 
 @Controller
+@SessionAttributes("account")
 @RequestMapping("/admin/booked-tour")
 public class BookedTourController {
 	
@@ -55,23 +57,49 @@ public class BookedTourController {
 	}
 
 	@RequestMapping(value = { "/", "" })
-	public String showPage(Model model) {
+	public String showPage(@ModelAttribute("account") Account account,  Model model) {
+		if (account.getEmail() == null) {
+			return "redirect:/no-permission";
+		}
+		AccountDAO accountDAO = new AccountDAO();
+
+		List<Account> accounts = accountDAO.getAllAccounts();
+		
+		int index = accountDAO.findAccountIndex(account.getEmail(), account.getPass());
+		
+		if (index == -1) return "redirect:/no-permission";
+		
+		account = accounts.get(index);
+		
 		TourBookingDAO tourBookingDAO = new TourBookingDAO();
 		List<TourBooking> tourBookings = tourBookingDAO.getAllTourBooking();
 
 		model.addAttribute("tourBookings", tourBookings);
-
+		model.addAttribute("account", account);
+		
 		return "/admin/booked-tour/list";
 	}
 
 	@RequestMapping(value = { "/add" })
-	public String showPageAddTourBooking(Model model) {
+	public String showPageAddTourBooking(@ModelAttribute("account") Account account,  Model model) {
+		if (account.getEmail() == null) {
+			return "redirect:/no-permission";
+		}
+		AccountDAO accountDAO = new AccountDAO();
+
+		List<Account> accounts = accountDAO.getAllAccounts();
+		
+		int index = accountDAO.findAccountIndex(account.getEmail(), account.getPass());
+		
+		if (index == -1) return "redirect:/no-permission";
+		
+		account = accounts.get(index);
+		
 		TourDAO tourDAO = new TourDAO();
 		List<Tour> tours = tourDAO.getAllTours();
+		
 		model.addAttribute("tours", tours);
-
-		AccountDAO accountDAO = new AccountDAO();
-		List<Account> accounts = accountDAO.getAllAccounts();
+		model.addAttribute("account", account);
 		model.addAttribute("accounts", accounts);
 
 		return "/admin/booked-tour/addForm";
@@ -85,7 +113,20 @@ public class BookedTourController {
 	}
 
 	@RequestMapping(value = { "/edit" })
-	public String showPage(@RequestParam("id") int id, Model model) {
+	public String showPage(@RequestParam("id") int id, @ModelAttribute("account") Account account,  Model model) {
+		if (account.getEmail() == null) {
+			return "redirect:/no-permission";
+		}
+		AccountDAO accountDAO = new AccountDAO();
+
+		List<Account> accounts = accountDAO.getAllAccounts();
+		
+		int index = accountDAO.findAccountIndex(account.getEmail(), account.getPass());
+		
+		if (index == -1) return "redirect:/no-permission";
+		
+		account = accounts.get(index);
+	
 		// get the booked tour from the db
 		TourBookingDAO tourBookingDAO = new TourBookingDAO();
 		TourBooking editedTourBooking = tourBookingDAO.getTourBooking(id);
@@ -95,6 +136,7 @@ public class BookedTourController {
 		List<Tour> tours = tourDAO.getAllTours();
 
 		// set booked tour as a model attribute to pre-populate the form
+		model.addAttribute("account", account);
 		model.addAttribute("tourBooking", editedTourBooking);
 		model.addAttribute("tours", tours);
 		model.addAttribute("username", editedTourBooking.getAccount().getUsername());

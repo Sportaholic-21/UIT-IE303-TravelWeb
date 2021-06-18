@@ -11,7 +11,10 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <jsp:invoke fragment="pageCSSLink" />
+<link rel="stylesheet" id="nicdark-style-css" href="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/themes/lovetravel/style.css?ver=5.2.1" type="text/css" media="all">
+   
 <!-- bootstrap -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
@@ -20,7 +23,7 @@
 	crossorigin="anonymous">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
-
+	
 <!-- font awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -39,8 +42,6 @@
 			
 <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/resources/images/logo-color.png"/>
 			
-
-
 <title>Levart | ${pageTitle}</title>
 </head>
 <body>
@@ -72,6 +73,11 @@
 	<script
 		src="${pageContext.request.contextPath}/resources/js/passDataToModalDelete.js"></script>
 	<!-- page script -->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script>
+		axios.get("sidebarTourList")
+	</script>
+	<script src="${pageContext.request.contextPath}/resources/js/logout.js"></script>
 	<jsp:invoke fragment="pageScript" />
 </body>
 </html>
