@@ -33,7 +33,7 @@
                 <label>Address</label>
               </div>
               <div class="col-sm-5">
-                <form:input type="email" class="form-control" path="accountAddress"/>
+                <form:input type="text" class="form-control" path="accountAddress"/>
               </div>
             </div>
             <div class="form-group row">
@@ -41,7 +41,7 @@
                 <label>Link Social Media</label>
               </div>
               <div class="col-sm-5">
-                <form:input type="email" class="form-control" path="socialMediaLink"/>
+                <form:input type="text" class="form-control" path="socialMediaLink"/>
               </div>
             </div>
             <div class="form-group row">

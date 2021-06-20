@@ -60,7 +60,7 @@ tagdir="/WEB-INF/tags"%>
                   </button>
                 </td>
                <form:form action="booked-tour/updateStatusBookedTour" modelAttribute="statusBookedTour">
-               	<td style="">${tourBooking.tourBookingID}</td>
+               	<td style="width: 15px"><form:input path="tourBookingID" type="text" value="${tourBooking.tourBookingID}" style="border: none; outline: none;width: 100%" readonly="readonly"/></td>
                 <td style="">${tourBooking.account.username }</td>
                 <td>${tourBooking.account.email}</td>
                 <td>${tourBooking.bookDate}</td>
