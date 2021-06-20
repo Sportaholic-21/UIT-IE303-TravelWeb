@@ -10,8 +10,40 @@
       <div class="col-10">
         <hr />
         <div class="ml-2">
-          <form:form class="needs-validation" modelAttribute="account"
+          <form:form class="needs-validation" modelAttribute="accountModelAttribute"
 			               action="api/add" method="POST" novalidate="novalidate">
+            <div class="form-group row">
+              <div class="col-sm-2">
+                <label>Full Name</label>
+              </div>
+              <div class="col-sm-5">
+                <form:input type="text" class="form-control" path="fullName"/>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-2">
+                <label>Email</label>
+              </div>
+              <div class="col-sm-5">
+                <form:input type="email" class="form-control" path="email"/>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-2">
+                <label>Address</label>
+              </div>
+              <div class="col-sm-5">
+                <form:input type="email" class="form-control" path="accountAddress"/>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-2">
+                <label>Link Social Media</label>
+              </div>
+              <div class="col-sm-5">
+                <form:input type="email" class="form-control" path="socialMediaLink"/>
+              </div>
+            </div>
             <div class="form-group row">
               <div class="col-sm-2">
                 <label>Username</label>
@@ -31,14 +63,7 @@
                 <button type="button" id="pwdGen" class="btn btn-primary">Generate</button>
               </div>
             </div>
-            <div class="form-group row">
-              <div class="col-sm-2">
-                <label>Email:</label>
-              </div>
-              <div class="col-sm-5">
-                <form:input type="email" class="form-control" path="email"/>
-              </div>
-            </div>
+            
             <!-- <div class="form-group row">
               <div class="col-sm-2">
                 <label>Full name:</label>

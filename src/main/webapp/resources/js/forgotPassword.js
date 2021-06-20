@@ -1,7 +1,6 @@
 var otp;
 var email;
 //tạm thời lưu otp với email trên frontend luôn, sau này mà ứng dụng security sẽ đẩy nó về backend xử lý!
-
 var sendEmail = async () => {
     await axios.post("/UIT-IE303-TravelWeb/api/forgotPassword", {
         email: $("#emailRecovery").val()

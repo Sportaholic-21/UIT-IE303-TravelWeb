@@ -66,6 +66,25 @@ public class FeedbackDAO {
 		}
 		return null;
 	}
+	public List<Feedback> getFeedbackList() {
+		factory = HibernateUtils.getSessionFactory();
+		Session session = factory.openSession();
+
+		try {
+			Query<Feedback> query = session.createQuery("from Feedback");
+			List<Feedback> feedback = query.getResultList();
+			
+			return feedback;
+
+		} catch (Exception e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+			factory.close();
+		}
+		return null;
+	}
 
 	public void addFeedBack(Feedback feedback) {
 		factory = HibernateUtils.getSessionFactory();

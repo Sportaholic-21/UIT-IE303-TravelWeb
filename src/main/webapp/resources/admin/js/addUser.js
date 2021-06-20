@@ -108,7 +108,7 @@ Plugin.prototype = {
 
     addStatus: function(percentage){
       var status = '',
-          text = 'Min ' + this.options.minChars + ' chars',
+          text = 'Min ' + this.options.minChars + ' chars, '+ 'and have to include lowercase, uppercase, number and special characters.',
           meter = $(this.element).closest('.passtrengthMeter'),
           tooltip = meter.find('.tooltip');
 
