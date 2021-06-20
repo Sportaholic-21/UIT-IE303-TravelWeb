@@ -77,6 +77,7 @@
 	<script>
 		axios.get("sidebarTourList")
 	</script>
+	<script src="${pageContext.request.contextPath}/resources/js/forgotPassword.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/logout.js"></script>
 	<jsp:invoke fragment="pageScript" />
 </body>

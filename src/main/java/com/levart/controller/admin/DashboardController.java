@@ -19,6 +19,11 @@ import com.levart.hibernate.dao.TourDAO;
 @SessionAttributes("account")
 @RequestMapping("/admin")
 public class DashboardController {
+	
+	@ModelAttribute("account")
+	public Account setAccount() {
+		return new Account();
+	}
 	@RequestMapping(value={"/dashboard", "/", ""})
 	public String showPage(@ModelAttribute("account") Account account,  Model model) {
 		// check valid user

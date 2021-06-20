@@ -27,13 +27,13 @@
 							<div class = "form-inner">
 								<form:form action="signIn" class = "login" modelAttribute="contentSignIn">
 									<div class = "field">
-										<form:input path="email" type="email" placeholder="Email Address" required="required"/>
+										<form:input id="emailSignIn" path="email" type="email" placeholder="Email Address" required="required"/>
 									</div>
 									<div class = "field">
 										<form:password path="pass" placeholder="Password" required="required"/>
 									</div>
 									<div class = "pass-link">
-										<a href="#">Forgot password ?</a>
+										<a href="#passForgotModal" data-bs-toggle="modal" data-bs-target="#passForgotModal">Forgot password ?</a>
 									</div>
 									
 									<div class = "remember__field">
@@ -46,26 +46,6 @@
 									</div>
 								</form:form>
 								
-								<form:form action="signUp" class = "signup" modelAttribute="contentSignUp">
-									<div class = "field">
-										<form:input path="name" type="text" placeholder="Name" required="required"/>
-									</div>
-									<div class = "field">
-										<form:input path="phone" type="tel" placeholder="Phone number" required="required"/>
-									</div>
-									<div class = "field">
-										<form:input path="email" type="email" placeholder="Email Address" required="required"/>
-									</div>
-									<div class = "field">
-										<form:input path="pass" type="password" placeholder="Password" required="required"/>
-									</div>
-									<div class = "field">
-										<form:input path="" type="password" placeholder="Confirm password" required="required"/>
-									</div>									
-									<div class = "field">
-										<input type="submit" value="Sign up" class="submit">
-									</div>
-								</form:form>
 							</div>
 						</div>
 					</div>
@@ -76,24 +56,68 @@
 			</div>	
 		</div>
 		<div class ="mb-5"></div>
-		<script>
-			const loginText = document.querySelector(".title-text .login");
-			const loginForm = document.querySelector("form.login");
-			const loginBtn = document.querySelector("label.login");
-			const signupBtn = document.querySelector("label.signup");
-			const signupLink = document.querySelector("form .signup-link a");
-			signupBtn.onclick = (()=>{
-				loginForm.style.marginLeft = "-50%";
-				loginText.style.marginLeft = "-50%";
-			});
-			loginBtn.onclick = (()=>{
-				loginForm.style.marginLeft = "0%";
-				loginText.style.marginLeft = "0%";
-			});
-			signupLink.onclick = (()=>{
-				signupBtn.click();
-				return false;
-			});
-		</script>
+		<!-- Modal forgot password-->
+		<div class="modal fade" id="passForgotModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <h5 class="modal-title" >Forgot Password</h5>
+				  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+					<div class="mx-auto row alert alert-danger" id="noEmail">
+						This email does not exist!
+					</div>
+					<div class="pb-3 form-group">
+						<input type="text" class="form-control" id="emailRecovery" placeholder="Your Email*" required>
+					</div>
+					<button type="button" class="btn modalBtn" id="resetBtn">Reset Password</button>
+				</div>
+			  </div>
+			</div>
+		</div>
+		<!--Modal OTP-->
+		<div class="modal fade" id="otpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+			  <div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" >Enter OTP</h5>
+					<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+					  <span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="mx-auto row alert alert-danger" id="wrongOTP">
+						Wrong OTP!
+					</div>
+					<div class="pb-3 form-group">
+						<input type="text" class="form-control" id="otp" placeholder="OTP*" required>
+					</div>
+					<button type="button" class="btn modalBtn" id="otpBtn">Verify</button>
+				</div>
+			  </div>
+			</div>
+		</div>
+		<!--Modal new Password-->
+		<div class="modal fade" id="newPasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+			  <div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" >Reset Password</h5>
+					<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+					  <span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="pb-3 form-group">
+						<input type="text" class="form-control" id="newPassword" placeholder="New password*" required>
+					</div>
+					<button type="button" class="btn modalBtn" id="confirmBtn">Confirm Reset Password</button>
+				</div>
+			  </div>
+			</div>
+		</div>
     </jsp:body>
 </t:genericpage>
