@@ -19,7 +19,7 @@
 									<div class="dropdown-menu dropdown-menu-right"
 										aria-labelledby="navbarDropdownProfile">
 										<a class="dropdown-item"
-											href="${pageContext.request.contextPath}/${account.username}">Overview</a>
+											href="${pageContext.request.contextPath}/overview/${account.username}">Overview</a>
 										<a class="dropdown-item"
 											href="${pageContext.request.contextPath}/user?tab=profile">Setting</a>
 										<c:choose>

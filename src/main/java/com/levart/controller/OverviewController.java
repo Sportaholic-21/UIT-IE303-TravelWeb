@@ -42,7 +42,6 @@ public class OverviewController extends CRUDBookedTourOperation {
 		}
 		AccountDAO accountDAO = new AccountDAO();
 		NationDAO nationDAO = new NationDAO();
-		System.out.println(usernames);
 		Account accounts = accountDAO.getAccountWithTourBooking(usernames);
 			int totalFeedbacks = 0;
 			int count = 0;

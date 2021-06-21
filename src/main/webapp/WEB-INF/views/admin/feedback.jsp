@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%> <%@taglib prefix="t"
 tagdir="/WEB-INF/tags"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <t:adminpage pageHeading="Feedback Management">
   <jsp:body>
     <div class="card mb-4">
@@ -19,7 +20,7 @@ tagdir="/WEB-INF/tags"%>
                 <th>Star</th>
                 <th>Comment</th>
                 <th>Date</th>
-                <th>Status</th>
+        
                 <th>Action</th>
               </tr>
             </thead>
@@ -30,31 +31,30 @@ tagdir="/WEB-INF/tags"%>
                 <th>Star</th>
                 <th>Comment</th>
                 <th>Date</th>
-                <th>Status</th>
+                
                 <th>Action</th>
               </tr>
             </tfoot>
             <tbody>
+            <c:forEach var="feedback" items="${feedbackList }">
               <tr>
-                <td>Tiger Nixon</td>
+                <td>${feedback.tourBookingID.account.username }</td>
                 <td>
-                  <a href="${pageContext.request.contextPath}/tour-detail"
-                    >Hong Kong</a
+                  <a href="${pageContext.request.contextPath}/tour-detail/${feedback.tourBookingID.tour.tourID}"
+                    >${feedback.tourBookingID.tour.tourName}</a
                   >
                 </td>
-                <td>5/5</td>
-                <td>Good</td>
-                <td>01/01/2001</td>
-                <td>
-                	<input type="checkbox" />
-                	<label> Approve</label>
-                </td>
+                <td>${feedback.start }/5</td>
+                <td>${feedback.feedbackMessage }</td>
+                <td>${feedback.tourBookingID.scheduleDate}</td>
+                
                 <td>
                   <button data-toggle="modal" data-target="#deleteModel" type="button" class="btn btn-link text-danger">
                     Delete
                   </button>
                 </td>
               </tr>
+              </c:forEach>
             </tbody>
           </table>
         </div>
@@ -81,7 +81,7 @@ tagdir="/WEB-INF/tags"%>
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">Are you sure to delete this booking?</div>
+      <div class="modal-body">Are you sure to delete this feedback?</div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">
           Close
