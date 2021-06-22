@@ -1,0 +1,37 @@
+version: "2.0"
+
+rules:
+- rule: out-of-scope
+  steps:
+  - intent: out_of_scope
+  - action: utter_unclear
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_please_rephrase
+- rule: Thank
+  steps:
+  - intent: thank
+  - action: utter_thank
+
+- rule: get some tour
+  steps:
+  - intent: ask_tour
+  - action: action_list_tour
+
+- rule: get detail tour
+  steps:
+  - intent: ask_detail_tour
+  - action: action_get_detail_tour
+
+- rule: get tour by typo
+  steps:
+  - intent: ask_tour_by_typo
+  - action: action_get_tour_by_typo
+
+- rule: unclear
+  steps:
+  - intent: out_of_scope
+  - action: utter_unclear
+
+

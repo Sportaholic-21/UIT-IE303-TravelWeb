@@ -1,0 +1,65 @@
+version: "2.0"
+
+intents:
+  - greet
+  - thank
+  - bye
+  - ask_func_list
+  - ask_name
+  - ask_detail_tour
+  - ask_tour
+  - ask_tour_by_typo
+  - out_of_scope
+
+entities:
+  - tour
+  - typo
+
+responses:
+  utter_greet:
+  - text: "Welcome to Levart. Wish you have a nice day?"
+    buttons:
+    - title: "What can you do?"
+      payload: '/ask_func_list'
+  utter_bye:
+  - text: "Bye and hope to see you soon!"
+  - text: "Thank you for using our services!"
+  utter_thank:
+  - text: "No problem, this is my responsibility!"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+  utter_func_list:
+  - text: "I can do many things like sing, read poetry, talk,...but now I can only chat. Besides, I can:"
+    buttons:
+    - title: "show me tour"
+      payload: '/ask_tour'
+  utter_ask_name:
+  - text: "I'm Levart bot! You can call me by Cute Bot! What do you need?"
+  - text: "My name is Levart bot. I really admire Alexa, Siri. When I grow up, I will become a intelligent bot as them!"
+  utter_unclear:
+  - text: "Sorry, I can't handle that request."
+    buttons:
+    - title: "What can you do?"
+      payload: '/ask_func_list'
+  - text: "I'm sorry, I can't help you."
+    buttons:
+    - title: "What can you do?"
+      payload: '/ask_func_list'
+  utter_please_rephrase:
+  - text: "I'm sorry, I didn't quite understand that. Could you rephrase?"
+
+actions:
+# templates (as they are reply actions),
+# also custom actions if any
+ - utter_greet
+ - utter_bye
+ - utter_unclear
+ - utter_func_list
+ - utter_please_rephrase
+ - utter_thank
+ - utter_ask_name
+ - action_list_tour
+ - action_get_detail_tour
+ - action_get_tour_by_typo
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: false

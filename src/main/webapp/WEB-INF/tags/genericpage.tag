@@ -80,5 +80,34 @@
 	<script src="${pageContext.request.contextPath}/resources/js/forgotPassword.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/logout.js"></script>
 	<jsp:invoke fragment="pageScript" />
+	<script>
+        !(function() {
+            let e = document.createElement("script"),
+                t = document.head || document.getElementsByTagName("head")[0];
+            (e.src =
+                "https://cdn.jsdelivr.net/npm/rasa-webchat@1.x.x/lib/index.js"),
+            // Replace 1.x.x with the version that you want
+            (e.async = !0),
+            (e.onload = () => {
+                window.WebChat.default({
+                        selector: "#webchat",
+                        initPayload: '/greet',
+                        customData: {
+                            language: "en"
+                        },
+                        socketUrl: "http://localhost:5005",
+                        socketPath: "/socket.io/",
+                        title: "Levart",
+                        subtitle: "Welcome",
+                        params: {
+                            "storage": "session"
+                        }
+                    },
+                    null
+                );
+            }),
+            t.insertBefore(e, t.firstChild);
+        })();
+    </script>
 </body>
 </html>

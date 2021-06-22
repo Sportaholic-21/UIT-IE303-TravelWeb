@@ -1,0 +1,100 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - Hello! I need a support.
+    - Hell! I have some questions.
+    - Hello
+    - Hi
+    - hey
+    - I have some questions
+    - Help me
+    - hello 
+    - How do you do!  
+
+- intent: bye
+  examples: |
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: thank
+  examples: |
+    - thank you
+    - Thank you
+    - Good
+    - Nice
+    - Good job
+    - Amazing. Good chosp em
+    - thank you
+
+- intent: ask_name
+  examples: |
+    - What is your name?
+    - your name?
+    - your name
+    - what your name?
+    - what's your name?
+
+- intent: ask_func_list
+  examples: |
+    - What can you do?
+
+- intent:  ask_tour
+  examples: |
+    - show me some tour
+    - show some tour
+    - show tour
+    - want to find some tour
+    - suggest me some tour
+
+- intent: ask_detail_tour
+  examples: |
+    - [Ha Long Bay](tour)
+    - [Da Nang](tour)
+    - [Nha Trang](tour)
+    - [Sapa City](tour)
+    - [Quang Ninh](tour)
+    - [Sapa](tour)
+    - [ha long bay](tour)
+    - I want to go [Ha Long Bay](tour)
+    - I want to go [Da Nang](tour)
+    - I want to go [Nha Trang](tour)
+    - I want to go [Sapa City](tour)
+    - I want to go [Quang Ninh](tour)
+    - I want to go [Sapa](tour)
+    - I want to go [quang ninh](tour)
+    - show me info [Ha Long Bay](tour)
+    - show me info [Da Nang](tour)
+    - show me info [Nha Trang](tour)
+    - show me info [Sapa City](tour)
+    - show me info [Quang Ninh](tour)
+    - show me info [Sapa](tour) tour
+    - show me info [nha trang](tour)
+
+- intent: ask_tour_by_typo
+  examples: |
+    - I want to know the tour that can explore [cave](typo)
+    - I want to know the tour that can explore [museum](typo)
+    - I want to explore [cave](typo)
+    - I want to visit [museum](typo)
+    - I want to go [beach](typo)
+
+- intent: out_of_scope
+  examples: |
+    - I want to order food
+    - What is 2 + 2?
+    - Who's the US President?
+    - wertyui67okwdru4t5i90yoepeoiwdwudgitjohbk nzjsdkmlrgtb
+    - deruyikm,lgrvfdcfrgtyu78iouigf
+    - 1234667999
+    - 1234567890
+    - aqwertyuiopasdfghjklznmmn
+    - i have dinner
+    - Can you sing?
