@@ -47,8 +47,9 @@ public class OverviewController extends CRUDBookedTourOperation {
 			int count = 0;
 			
 			List<TourBooking> endedTours = new ArrayList<TourBooking>();
-			
-			List<TourBooking> tourBookings = accounts.getTourBookings();
+			List<TourBooking> tourBookings=new ArrayList<TourBooking>();
+			if (accounts !=null)
+				tourBookings= accounts.getTourBookings();
 			List<String> coordinates = new ArrayList<String>();
 			List<String> tourNames = new ArrayList<String>();
 			List<Integer> isFeedbacks = new ArrayList<Integer>();

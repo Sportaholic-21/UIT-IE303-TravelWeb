@@ -9,20 +9,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.levart.entities.Account;
-import com.levart.entities.Feedback;
+import com.levart.entities.Tour;
 import com.levart.hibernate.dao.AccountDAO;
-import com.levart.hibernate.dao.FeedbackDAO;
+import com.levart.hibernate.dao.TourDAO;
 
 @Controller
 @SessionAttributes("account")
-@RequestMapping("/admin")
-public class FeedbackMNController {
-	
+@RequestMapping("/admin/tour")
+public class TourController {
+	@ModelAttribute("TourModelAttribute")
+	public Tour setTourModelAttribute() {
+		return new Tour();
+	}
 	@ModelAttribute("account")
 	public Account setAccount() {
 		return new Account();
 	}
-	@RequestMapping(value={"/feedbacks"})
+
+	@RequestMapping(value = { "/", "" })
 	public String showPage(@ModelAttribute("account") Account account,  Model model) {
 		if (account.getEmail() == null) {
 			return "redirect:/no-permission";
@@ -36,10 +40,13 @@ public class FeedbackMNController {
 		if (index == -1) return "redirect:/no-permission";
 		
 		account = accounts.get(index);
-		FeedbackDAO feedBackDAO=new FeedbackDAO();
-		List<Feedback> feedbackList= feedBackDAO.getFeedbackList();
+		
+		TourDAO tourDAO = new TourDAO();
+		List<Tour> tours = tourDAO.getAllTours();
+
+		model.addAttribute("tours", tours);
 		model.addAttribute("account", account);
-		model.addAttribute("feedbackList", feedbackList);
-		return "/admin/feedback";
+		
+		return "/admin/tour/list";
 	}
 }

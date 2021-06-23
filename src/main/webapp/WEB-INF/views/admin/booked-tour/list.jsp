@@ -19,6 +19,7 @@ tagdir="/WEB-INF/tags"%>
           >
             <thead>
               <tr>
+              	<th>Action</th>
               	<th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
@@ -26,18 +27,19 @@ tagdir="/WEB-INF/tags"%>
                 <th>Schedule Date</th>
                 <th>Booked Tour</th>
                 <th>Status</th>
-                <th>Action</th>
+                
               </tr>
             </thead>
             <tfoot>
               <tr>
+              	<th>Action</th>
               	<th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Booking Date</th>
                 <th>Booked Tour</th>
                 <th>Status</th>
-                <th>Action</th>
+                
               </tr>
             </tfoot>
             <tbody>
@@ -48,9 +50,18 @@ tagdir="/WEB-INF/tags"%>
             	</c:url>
              
               <tr>
+              	<td style="width: 105px">
+                  <a
+                    href="${editLink}"
+                    ><button type="button" class="btn btn-link"><i class="far fa-edit"></i> Edit</button></a
+                  >
+                  <button data-toggle="modal" data-target="#deleteModel" data-id="${tourBooking.tourBookingID}" data-link="booked-tour/api/delete?" type="button" class="btn btn-link text-danger deleteBtn">
+                    <i class="far fa-trash-alt"></i>Delete
+                  </button>
+                </td>
                <form:form action="booked-tour/updateStatusBookedTour" modelAttribute="statusBookedTour">
-               	<td style="width:8px"><form:input path="tourBookingID" value="${tourBooking.tourBookingID}" style="border:none;width:100%"/></td>
-                <td style="width:15px">${tourBooking.account.username }</td>
+               	<td style="width: 15px"><form:input path="tourBookingID" type="text" value="${tourBooking.tourBookingID}" style="border: none; outline: none;width: 100%" readonly="readonly"/></td>
+                <td style="">${tourBooking.account.username }</td>
                 <td>${tourBooking.account.email}</td>
                 <td>${tourBooking.bookDate}</td>
                 <td>${tourBooking.scheduleDate}</td>
@@ -70,15 +81,7 @@ tagdir="/WEB-INF/tags"%>
                   <input class="mt-1 bg-primary" style="float: right; border-radius: 5px; color:white " type="submit" value="Send"></input>
                   </form:form>
                 </td>
-                <td>
-                  <a
-                    href="${editLink}"
-                    ><button type="button" class="btn btn-link">Edit</button></a
-                  >
-                  <button data-toggle="modal" data-target="#deleteModel" data-id="${tourBooking.tourBookingID}" data-link="booked-tour/api/delete?" type="button" class="btn btn-link text-danger deleteBtn">
-                    Delete
-                  </button>
-                </td>
+                
               </tr>
               </c:forEach>
               

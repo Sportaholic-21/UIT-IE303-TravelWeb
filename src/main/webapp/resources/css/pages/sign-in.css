@@ -190,9 +190,20 @@ form .field input[type="submit"]{
 	cursor: pointer;
 }
 
+/* Modal stuff*/
+.modal .modal-body button {
+	background-color: #17c0eb;
+	width: 100%;
+	color: #fff;
+	padding: 10px;
+	font-size: 18px;
+}
 
-
-
+.modal-title{
+	color: #17c0eb;
+	text-align: center;
+	font-weight: bold;
+}
 
 
 

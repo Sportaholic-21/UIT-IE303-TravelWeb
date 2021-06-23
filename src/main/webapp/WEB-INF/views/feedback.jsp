@@ -39,7 +39,7 @@
 	
 					<h2>Leave your Feedback</h2>
 	
-					<p>Phasellus enim libero, blandit vel sapien vitae, condimentum ultricies magna et. Quisque euismod orci ut et lobortis.</p>
+					<p>Every your feedback will help Levart more and more grow up. We always welcome your feedback to improve our services. </p>
 
 					<ul class="list-group list-group-flush mt-auto">
 						<li class="list-group-item d-flex justify-content-between">

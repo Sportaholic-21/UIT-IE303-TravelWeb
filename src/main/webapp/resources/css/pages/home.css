@@ -152,3 +152,25 @@ a{
 	width: 220px;
 	margin: 0 auto;
 }
+
+.home-cta--dark {
+	background: #555555;
+	color: #fff !important;
+	text-align: center;
+	display: block;
+	padding: 10px 0;
+	width: 220px;
+	margin: 0 auto;
+}
+
+.statistic {
+	background-position: center !important;
+	background-size: cover !important;
+	padding: 100px 150px;
+	margin: 100px 0;
+}
+
+.check-symbol {
+	width: 50px;
+	height: 50px;
+}

@@ -3,26 +3,26 @@ package com.levart.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.levart.entities.Account;
 import com.levart.entities.Image;
 import com.levart.entities.Nation;
 import com.levart.entities.Tour;
+import com.levart.entities.TourBooking;
 import com.levart.form_entities.FormSearch;
 import com.levart.form_entities.FormSearchPackage;
 import com.levart.hibernate.dao.AccountDAO;
 import com.levart.hibernate.dao.ImageDAO;
 import com.levart.hibernate.dao.NationDAO;
+import com.levart.hibernate.dao.TourBookingDAO;
 import com.levart.hibernate.dao.TourDAO;
 
 @Controller
@@ -75,9 +75,14 @@ public class HomeController {
 		List<Nation> nationList=nationDAO.getAllNation();
 		AccountDAO userDAO = new AccountDAO();
 		List<Account> users = userDAO.getAllAccounts();
+		TourBookingDAO tourBookingDAO = new TourBookingDAO();
+		List<TourBooking> tourBookings = tourBookingDAO.getAllTourBooking();
+		
 		model.addAttribute("totalDestination",listAll.size());
 		model.addAttribute("totalNation", nationList.size());
 		model.addAttribute("totalAccount", users.size());
+		model.addAttribute("totalBookedTour", tourBookings.size());
+		
 		return "home";
 	}
     
