@@ -1,5 +1,6 @@
 package com.levart.entities;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -16,7 +17,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tour")
-public class Tour {
+public class Tour implements Serializable {
 	@Id
 	@Column(name = "tourID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

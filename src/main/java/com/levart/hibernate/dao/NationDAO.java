@@ -59,7 +59,7 @@ public class NationDAO {
 	}
 
 	
-	public List<Nation> getAllNations() {
+	public List<Nation> getPopularDestinations() {
 		factory = HibernateUtils.getSessionFactory();
 		Session session = factory.openSession();
 		try {
@@ -97,7 +97,26 @@ public class NationDAO {
 			factory.close();
 		}
 		return null;
-	}		
+	}
+	public List<Nation> getNationsByContinentName(String continentName) {
+		factory = HibernateUtils.getSessionFactory();
+		Session session = factory.openSession();
+		try {
+			@SuppressWarnings("unchecked")
+			String hql = "from Nation where continent.continentName = '" + continentName + "'";
+			Query<Nation> query=session.createQuery(hql);
+			List<Nation> nationList = query.getResultList();
+			
+			return nationList;
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+			factory.close();
+		}
+		return null;
+	}
 	public static void main(String args[]) {
 		TourDAO tourdao = new TourDAO();
 		
@@ -106,6 +125,7 @@ public class NationDAO {
 		List<Nation> nationList=nationDAO.getAllNation();
 		AccountDAO userDAO = new AccountDAO();
 		List<Account> users = userDAO.getAllAccounts();
-		System.out.println(listAll.size()+" "+ nationList.size() + users.size());
+		System.out.println(nationDAO.getNationsByContinentName("Asia"));
+		//System.out.println(listAll.size()+" "+ nationList.size() + users.size());
 	}
 }

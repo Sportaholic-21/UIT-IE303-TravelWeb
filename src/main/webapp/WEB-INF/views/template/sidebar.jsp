@@ -11,7 +11,7 @@
 		<p class="fw-bold fs-4 sidebar__heading d-inline-block position-relative">PACKAGES</p>
 	</h1>
 	
-	<c:forEach items = "${sideTourList}" var = "list">
+	<!-- <c:forEach items = "${sideTourList}" var = "list">
 	<div class="d-flex position-relative mt-3 ms-4 me-4 justify-content-center">
 		<div class="sidebar__thumbnail mt-2">
 			<img
@@ -27,9 +27,9 @@
 				${list.price} $</p>
 		</a>
 	</div>
-	</c:forEach>
+	</c:forEach> -->
 	
-	<%-- <div
+	<!--  <div
 		class="d-flex position-relative mt-3 ms-4 me-4 justify-content-center">
 		<div class="sidebar__thumbnail mt-2">
 			<img
@@ -95,7 +95,7 @@
 			<p class="lh-lg mt-3 bg-warning rounded-pill ps-4 pe-4 text-white sidebar__package-price">FROM
 				700 $</p>
 		</a>
-	</div> --%>
+	</div> --%> -->
 
 </div>
 

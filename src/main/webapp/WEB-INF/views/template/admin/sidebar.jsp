@@ -25,7 +25,7 @@
 						<a class="nav-link" href="${pageContext.request.contextPath}/admin/user">User List</a>
 						<a class="nav-link"
 							href="${pageContext.request.contextPath}/admin/user/add">
-							Add Tour
+							Add User
 						</a>
 					</nav>
 					
