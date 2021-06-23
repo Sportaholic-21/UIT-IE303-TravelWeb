@@ -46,7 +46,7 @@
 						    </div>
 						    <div class="col-md-10">
 						      <div class="card-body pl-1">
-						        <p class="text-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas magna at porttitor vehicula nullam augue ipsum dolor.</p>
+						        <p class="text-dark">Have most interesting type of tour, not going around and observing places, but it can guarantee for relaxation after stressfull days at work.</p>
 						        <a class="rounded-pill btn-typo btn-typo--1"
 									href="${pageContext.request.contextPath}/tour-list?typologyID=1">RELAX</a>
 						      </div>
@@ -63,7 +63,7 @@
 						    </div>
 						    <div class="col-md-10">
 						      <div class="card-body pl-1">
-						        <p class="text-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas magna at porttitor vehicula nullam augue ipsum dolor.</p>
+						        <p class="text-dark">Includes tours to discover historic cities and their cultural facilities such as museums and theaters.</p>
 						        <a class="rounded-pill btn-typo btn-typo--2"
 									href="${pageContext.request.contextPath}/tour-list?typologyID=4">HISTORY</a>
 						      </div>
@@ -82,7 +82,7 @@
 						    </div>
 						    <div class="col-md-10">
 						      <div class="card-body pl-1">
-						        <p class="text-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas magna at porttitor vehicula nullam augue ipsum dolor.</p>
+						        <p class="text-dark">Contains tours in urban areas, mainly concerned with a country or region's culture, espeacially it's art.</p>
 						        <a class="rounded-pill btn-typo btn-typo--3"
 									href="${pageContext.request.contextPath}/tour-list?typologyID=2">CULTURAL</a>
 						      </div>
@@ -99,7 +99,7 @@
 						    </div>
 						    <div class="col-md-10">
 						      <div class="card-body pl-1">
-						        <p class="text-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas magna at porttitor vehicula nullam augue ipsum dolor.</p>
+						        <p class="text-dark">Includes the performance of acts that require significant effort and may involve some degress of risk.</p>
 						        <a class="rounded-pill btn-typo btn-typo--4"
 									href="${pageContext.request.contextPath}/tour-list?typologyID=3">ADVENTURE</a>
 						      </div>
