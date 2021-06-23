@@ -13,7 +13,7 @@ var sidebarTourhtml = (tourId, tourName, nationName, price, imageURL) => {
         '<div class="sidebar__thumbnail mt-2">',
         '<img src="{{imageURL}}" class="img-thumbnail" alt="Package thumbnail">',
         '</div>',
-        '<a class="d-block ms-4 text-decoration-none" href="#">',
+        '<a class="d-block ms-4 text-decoration-none" href="{{tourId}}">',
         '<p class="fs-4 m-0">{{tourName}}</p>',
         '<p class="fs-6 fw-light"><span class="sidebar__location-icon d-inline-block me-1">',
         '<img src="/UIT-IE303-TravelWeb/resources/images/sidebar-location-icon.png" class="img-fluid" alt="Location icon">',
@@ -35,7 +35,7 @@ var loadSideTours = (arr, tagID) => {
 }
 
 var getSideTours = async () => {
-    await axios.get("/UIT-IE303-TravelWeb/sidebarTourList").then((res) => {
+    await axios.get("/UIT-IE303-TravelWeb/api/sidebarTourList").then((res) => {
         tourList = res.data
     })
 }

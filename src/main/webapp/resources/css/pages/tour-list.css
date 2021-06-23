@@ -28,6 +28,8 @@
 .search-container
 {
     background-color: white;
+    width: 1400px;
+    padding: 25px;
 }
 
 .search-row
@@ -37,7 +39,7 @@
 
 .search-label
 {
-    font-weight: bold;
+    font-weight: normal;
 }
 
 

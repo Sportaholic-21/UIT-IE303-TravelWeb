@@ -2,11 +2,13 @@ package com.levart.hibernate.dao;
 
 import java.util.List;
 
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 
 import com.levart.entities.Nation;
+import com.levart.entities.Continent;
 import com.levart.hibernate.utils.HibernateUtils;
 
 public class ContinentDAO {
@@ -17,6 +19,24 @@ public class ContinentDAO {
 	}
 	
 	//select
+	public List<Continent> getAllContinents(){
+		factory = HibernateUtils.getSessionFactory();
+		Session session = factory.openSession();
+		try {
+			@SuppressWarnings("unchecked")
+			Query<Continent> query=session.createQuery("from Continent");
+			List<Continent> continentList = query.getResultList();
+			
+			return continentList;
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+			factory.close();
+		}
+		return null;
+	}
 	public List<Nation> getListNationByEndedTour() {
 		factory = HibernateUtils.getSessionFactory();
 		Session session = factory.openSession();

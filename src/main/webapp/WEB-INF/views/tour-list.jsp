@@ -17,8 +17,14 @@
     >
         <h3 class="landing-h3">Our offers</h3>
         <h1 class="landing-h1">FIND YOUR HOLIDAY</h1>
-        <div class="search-container" style = "margin-top: 50px; margin-left: 100px;">
-            <form:form action="tour-list" modelAttribute="contentSearchPackage">
+        <div class="search-container" style = "margin-top: 50px; margin-left: 30px;">
+            <form:form action="tour-list" modelAttribute="contentSearchPackage" method = "GET">
+            	<p style = "font-size: 20px; color: black">
+            		<i class="fas fa-plus-square mr-3 color--primary "></i>
+	            	<span>
+	            		<strong>Search</strong>
+	            	</span>
+	            </p>
                 <div class="row search-row search-dest">
                     <div class="col-sm-5 search-label">Choose Your Destination:</div>
                     <div class="col-sm-7 search-input">
@@ -29,7 +35,7 @@
                     <div class="col-sm-5 search-label">Max Price:</div>
                     <div class="col-sm-7 search-input">
                         <form:input path="maxPrice" name = "maxPrice" type="range" class="form-range" id = "maxPrice" 
-                        min = "0" max = "1000" value = "0" list = "marks" />
+                        min = "0" max = "1000" value="${param.maxPrice}" list = "marks" />
                         <datalist id = "marks">
                         	<option value = "100"></option>
                         	<option value = "200"></option>
@@ -43,20 +49,74 @@
                         	<option value = "1000"></option>
                         </datalist>
                         <p style = "text-align:center; font-size: 30px; color: blue;">
-                        	<span class = "maxPrice">0</span>
+                        	<span class = "maxPrice">${param.maxPrice }</span>
                         	<span> $</span>
                         </p>
                         <script type = "text/javascript">
                         	var priceSeletion = document.querySelector("#maxPrice");
+                        	console.log(priceSeletion.value)
+                        	if (priceSeletion.value==null ||priceSeletion.value==0){
+                        			document.querySelector(".maxPrice").innerText="0";
+                        		}
                         	priceSeletion.oninput = function(){
+                        		
                         		document.querySelector(".maxPrice").innerText = priceSeletion.value;
                         	}
                         </script>
                     </div>
                 </div>
-               	<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-  					<input class="btn btn-primary" type="submit" value = "Search"/>
+                <p style = "font-size: 20px; color: black">
+            		<i class="fas fa-plus-square mr-3 color--primary "></i>
+	            	<span>
+	            		<strong>Filter</strong>
+	            	</span>
+	            </p>
+	        	<div>
+	            	<div class = "row">
+						<div class = "col-sm">
+							<div class = "row search-row">
+				            	<div class="col-sm-6 search-label">Choose a continent:</div>
+				            	<div class = "col-sm-6 search-input">
+					            	<form:select path = "continent" class="form-select" name="continent" id="continent">
+					            		<form:option  value="">--Select one--</form:option>
+					            		<c:forEach items = "${continentList}" var = "conList">
+					            			<form:option value = "${conList.continentName}" label = "${conList.continentName}"/>
+					            		</c:forEach>
+					            	</form:select>
+					            </div>
+				            </div>
+				        </div>
+				        <div class = "col-sm">
+				        	<div class = "row search-row">
+				            	<div class="col-sm-6 search-label">Choose a nation:</div>
+				            	<div class = "col-sm-6 search-input">
+					            	<form:select path = "nation" class="form-select" name="nation" id="nation">
+					            		<form:option  value="">--Select one--</form:option>
+					            		<c:forEach items = "${nationList}" var = "naList">
+					            			<form:option value = "${naList.nationName}" label = "${naList.nationName}"/>
+					            		</c:forEach>
+					            	</form:select>
+					            </div>
+				            </div>	
+				        </div>
+				        <div class = "col-sm">
+				        	<div class = "row search-row">
+				            	<div class="col-sm-6 search-label">Choose a typology:</div>
+					            <div class = "col-sm-6 search-input">
+					            	<form:select path = "typology" class="form-select" name="typology" id="typology">
+					            		<form:option  value="">--Select one--</form:option>
+					            		<c:forEach items = "${typologyList}" var = "tyList">
+					            			<form:option value = "${tyList.typologyName}" label = "${tyList.typologyName}"/>
+					            		</c:forEach>
+					            	</form:select>
+					            </div>
+				            </div>	
+				        </div>
+				    </div>
 				</div>
+               	<div class="d-grid gap-2 d-md-flex justify-content-md-end pt-2">
+  					<input class="btn btn-primary" type="submit" value = "Search"/>
+				</div>            	
             </form:form>
         </div>
     </section>
@@ -74,7 +134,9 @@
 				                    <div class="card-body">
 				                        <p class="combo-name d-flex justify-content-between align-items-center" style = "font-weight: bold; color: black; font-size: 25px; padding: 5px 0px">
 				                        	<span>${searchRes.tourName}</span>
-				                        	<span style = "color: red; font-size: 15px; font-weight:100;">- ${searchRes.discount} % </span>
+				                        	<c:if test = "${searchRes.discount != 0.0}">
+			                        			<span style = "color: red; font-size: 15px; font-weight:100;">- ${searchRes.discount} % </span>
+			                        		</c:if>
 				                        </p>
 				                        <div class="combo-category">
 				                            <div class="row">

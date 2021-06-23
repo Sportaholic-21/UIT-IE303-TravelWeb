@@ -22,8 +22,8 @@
 					<div class="search-container">
 						<form:form action="tour-list" modelAttribute="contentSearchPackage">
 							<div class="search-bar">
-								<form:input path="destination" type="text" placeholder="Where would you want to go?..." name="destination" />
-								<input type="submit" value="    "
+								<form:input path="destination" name="destination" id="" placeholder="Where would you want to go?..."/>
+								<input type="submit" value="  "
 									   width="47px" height="47px"
 									   style="background: url('${pageContext.request.contextPath}/resources/images/icons/magniGlass.svg') no-repeat center transparent;
                         					  background-size: auto;
@@ -121,7 +121,7 @@
 							<div class="destination-card shadow-sm vietnam" style="background: url('${pageContext.request.contextPath}/resources/images/${plist.nationName}.jpg') no-repeat top; 
 		   background-size: cover;">
 								<div class="destination-text">
-									<h3>${plist.nationName}</h3>
+									<a href="${pageContext.request.contextPath}/tour-list?nationID=${plist.nationID}">${plist.nationName}</a>
 									<h4><c:out value="${plist.tours.size()}"/> packages</h4>
 								</div>
 							</div>

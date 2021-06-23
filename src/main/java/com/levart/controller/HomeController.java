@@ -59,7 +59,7 @@ public class HomeController {
 		ImageDAO imgdao = new ImageDAO();
 		
 		NationDAO nationdao = new NationDAO();
-		List<Nation> popularNations = nationdao.getAllNations();
+		List<Nation> popularNations = nationdao.getPopularDestinations();
 		model.addAttribute("popularList", popularNations);
 		
 		List<Tour> list = tourdao.getTop3Tours();
@@ -82,7 +82,7 @@ public class HomeController {
 	}
     
     @PostMapping("/tour-list")
-	public String showResult(@ModelAttribute("account") Account account, Model model, @Valid @ModelAttribute("contentSearchPackage") FormSearchPackage formsearchpackage) {
+	public String showResult(@ModelAttribute("account") Account account, Model model, @ModelAttribute("contentSearchPackage") FormSearchPackage formsearchpackage) {
     	 
     	if (account.getEmail() == null) {
 			model.addAttribute("username", null);
@@ -94,16 +94,7 @@ public class HomeController {
 			model.addAttribute("username", account.getUsername());
 		}
 		TourDAO tourdao = new TourDAO();
-		
-		List<Tour> list = tourdao.getAllTours();
-		if(formsearchpackage.getDestination() != "" && formsearchpackage.getMaxPrice() > 0)
-			list = tourdao.findTourWithBoth(formsearchpackage.getDestination(), formsearchpackage.getMaxPrice());	
-		else if(formsearchpackage.getDestination() == "" || formsearchpackage.getMaxPrice() == 0) {
-			if(formsearchpackage.getDestination() == "")
-				list = tourdao.findTourWithPrice(formsearchpackage.getMaxPrice());
-			else if(formsearchpackage.getMaxPrice() == 0)
-				list = tourdao.findTour(formsearchpackage.getDestination());			
-		}
+		List<Tour> list = tourdao.findTourWithCriteria(formsearchpackage.getDestination(), 0, "", "", "");
     	model.addAttribute("searchResult", list);
     	ImageDAO imgdao = new ImageDAO();
     	List<Image> imgList = new ArrayList<Image>();

@@ -7,6 +7,11 @@ import javax.persistence.*;
 @Entity
 @Table(name = "typology")
 public class Typology {
+	@Override
+	public String toString() {
+		return "Typology [typologyID=" + typologyID + ", typologyName=" + typologyName + "]";
+	}
+
 	@Id
 	@Column(name = "typologyID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
