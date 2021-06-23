@@ -260,6 +260,9 @@ CREATE TRIGGER tg_booking_del ON feedback FOR delete AS BEGIN
 	WHERE tourID = @tourID
 END
 GO
+-- add sentimentStatus field to Feedback table -- update 23/06
+ALTER TABLE feedback
+ADD sentimentStatus bit; -- 0: negative, 1: positive
 
 /* SP_WHO 
 KILL 59
