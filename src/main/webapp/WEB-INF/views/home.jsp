@@ -129,60 +129,37 @@
 					</c:forEach>
 					</div>
 				</section>
-				<!--banner-->
 				
-				 <div style="float:left; width:100%;" id="post-1140" class="post-1140 page type-page status-publish hentry">
-				<div data-vc-full-width="true" data-vc-full-width-init="true" data-vc-parallax="1.5" data-vc-parallax-image="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/2018/04/p-10.jpg" class="vc_row wpb_row vc_row-fluid nd_options_vc_parallax_filter_1_3 vc_custom_1542719726935 vc_row-has-fill vc_general vc_parallax vc_parallax-content-moving"
-                    style="position: relative; left: -87.6px; box-sizing: border-box; width: 923px; margin-bottom: 50px;padding-left: 87.6px; padding-right: 87.4px; padding: 50px">
-                    <div class="wpb_column vc_column_container vc_col-sm-3">
-                        <div class="vc_column-inner ">
-                            <div class="wpb_wrapper">
-                                <div style="  height: 20px;" class="nicdark_section  "></div>
-                                <h1 style="text-align:center; color:#ffffff; font-size:50px; " >${totalDestination }</h1>
-                                <div style="  height: 30px;" class="nicdark_section  "></div>
-                                <p style="color:#ffffff; padding:px; text-align:center; font-size:13px; line-height:13px; letter-spacing: 3px; font-weight:lighter;" class="   nd_options_second_font ">DESTINATIONS</p>
-                                <div style="  height: 20px;" class="nicdark_section  "></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="wpb_column vc_column_container vc_col-sm-3">
-                        <div class="vc_column-inner ">
-                            <div class="wpb_wrapper">
-                                <div style=" height: 20px;" class="nicdark_section  "></div>
-                                <h1 style="text-align:center; color:#ffffff; font-size:50px; " >${totalNation}</h1>
-                                <div style=" height: 30px;" class="nicdark_section  "></div>
-                                <p style="color:#ffffff; padding:px; text-align:center; font-size:13px; line-height:13px; letter-spacing: 3px; font-weight:lighter;" class="   nd_options_second_font ">PACKAGES NATION</p>
-                                <div style="height: 20px;" class="nicdark_section  "></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="wpb_column vc_column_container vc_col-sm-3">
-                        <div class="vc_column-inner ">
-                            <div class="wpb_wrapper">
-                                <div style="  height: 20px;" class="nicdark_section  "></div>
-                                <h1 style="text-align:center; color:#ffffff; font-size:50px; ">${totalAccount}</h1>
-                                <div style="  height: 30px;" class="nicdark_section  "></div>
-                                <p style="color:#ffffff; padding:px; text-align:center; font-size:13px; line-height:13px; letter-spacing: 3px; font-weight:lighter;" class="   nd_options_second_font ">CUSTOMER MEMBERS</p>
-                                <div style="  height: 20px;" class="nicdark_section  "></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="wpb_column vc_column_container vc_col-sm-3">
-                        <div class="vc_column-inner ">
-                            <div class="wpb_wrapper">
-                                <div style="  height: 20px;" class="nicdark_section  "></div>
-                                <h1 style="text-align:center; color:#ffffff; font-size:50px; "  >20</h1>
-                                <div style="  height: 30px;" class="nicdark_section  "></div>
-                                <p style="color:#ffffff; padding:px; text-align:center; font-size:13px; line-height:13px; letter-spacing: 3px; font-weight:lighter;" class="   nd_options_second_font ">YEARS OF EXPERIENCE</p>
-                                <div style="  height: 20px;" class="nicdark_section  "></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="vc_parallax-inner skrollable skrollable-before" data-bottom-top="top: -50%;" data-top-bottom="top: 0%;" style="height: 150%; background-image: url(&quot;http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/2018/04/p-10.jpg&quot;); top: -50%;"></div>
-                </div>
-                <div class="vc_row-full-width vc_clearfix"></div>
-                </div>
-                 <!-- <p style=" padding: 100px"></p> --> 
+				<!--banner-->
+				<section class="text-white statistic" style="background: linear-gradient( rgba(160, 162, 161, 0.6) 100%, rgba(160, 162, 161, 0.6)100%), url('${pageContext.request.contextPath}/resources/images/banner-home.jpg') no-repeat top; ">
+			   			<div class="d-flex">
+			   				<div class="check-symbol mr-3">
+			   					<img src="${pageContext.request.contextPath}/resources/images/check-symbol.png" alt="icon" class="img-fluid">
+			   				</div>
+							<h3 class="d-flex flex-column fw-bold fs-1"><span>Do the right thing,</span> <span>at the right time.</span></h3>
+			   			</div>
+						<div class="ml-5 d-flex mt-5 ml-5">
+							<div class="d-flex flex-column align-items-center">
+								<span class="fw-bold fs-1">${totalDestination }</span>
+								<span class="fs-5">TOURS</span>
+							</div>
+							
+							<div class="ml-5 d-flex flex-column align-items-center">
+								<span class="fw-bold fs-1">${totalNation }</span>
+								<span class="fs-5">NATIONS</span>
+							</div>
+							
+							<div class="ml-5 d-flex flex-column align-items-center">
+								<span class="fw-bold fs-1">${totalBookedTour }</span>
+								<span class="fs-5">BOOKED TOURS</span>
+							</div>
+							
+							<div class="ml-5 d-flex flex-column align-items-center">
+								<span class="fw-bold fs-1">${totalAccount }</span>
+								<span class="fs-5">CUSTOMERS</span>
+							</div>
+						</div>
+				</section>
 				
 				<!--Combo Section-->
 				<section class="combo">
