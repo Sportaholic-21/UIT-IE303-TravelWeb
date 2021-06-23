@@ -110,9 +110,7 @@
                         <p class="mb-3 ">
                            ${obj.desc}
                         </p>
-
-                        <button id="printPDF">Print to PDF</button>
-                     
+                        <button id="printPDF" class="btn btn-warning">Print to PDF <i class="fa fa-print"></i></button>
                         <div class="content__table ">
                             <table class="">
                                 <tr class=" ">

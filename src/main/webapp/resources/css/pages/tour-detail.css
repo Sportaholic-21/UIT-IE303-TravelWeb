@@ -561,9 +561,9 @@ p strong {
 @media print {
     .navbar, #sidebar, .footer, #gallery,
     .detail__left__group, .directToParam, button, 
-    .detail__right, .tour-info__related-tour,
+    .detail__right, #printPDF,
     .tour-map__title, #map, #map #map-frame,
-    #gallery-carousel div  {
+    .tour-info__related-tour, #gallery-carousel div  {
         display: none;
     } 
     /* .detail__left__img img {
@@ -580,6 +580,7 @@ p strong {
     }
 
     @page {
-        margin: 2cm;
+        size: auto;
+        margin: 0;
     }
 }
