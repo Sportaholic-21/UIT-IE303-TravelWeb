@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.levart.entities.Account;
 import com.levart.entities.Feedback;
 import com.levart.entities.Tour;
@@ -34,12 +36,14 @@ public class FeedbackController {
 	public Account newAccount() {
 		return new Account();
 	}
+	private String urlLocal;
 
 	@RequestMapping("/feedback")
 	public String showPage(@RequestParam(value = "tourID", required = false, defaultValue = "0") int tourID,
 			@RequestParam(value = "tourBookingID", required = false, defaultValue = "0") int tourBookingID,
-			@ModelAttribute("account") Account account, Model model) {
-
+			@ModelAttribute("account") Account account, Model model, HttpServletRequest request) {
+		
+		this.urlLocal=request.getHeader("host")+ request.getRequestURI()+"?"+ request.getQueryString();
 		TourDAO tourDAO = new TourDAO();
 		TourBookingDAO tourbookingDAO = new TourBookingDAO();
 		List<Tour> tourList = new ArrayList<Tour>();
@@ -85,9 +89,10 @@ public class FeedbackController {
 	@RequestMapping("/sendFeedback")
 	public String sendFeedback(@ModelAttribute("messageFeedback") FormMessage messageFeedback,
 			@ModelAttribute("account") Account account, Model model) {
-
+		
 		FeedbackDAO dao = new FeedbackDAO();
 		List<Feedback> feedbacklist = dao.getFeedbackByTourBookingID(messageFeedback.getTourBookingID());
+		System.out.println(this.urlLocal);
 		System.out.println(messageFeedback.getTourBookingID());
 		System.out.println(messageFeedback.getName());
 		System.out.println(messageFeedback.getEmail());
@@ -103,7 +108,9 @@ public class FeedbackController {
 			feedback.setFeedbackMessage(messageFeedback.getMessage());
 			feedback.setStart(messageFeedback.getStart());
 		}
+		if (messageFeedback.getMessage()!="")
 		dao.addFeedBack(feedback);
-		return "redirect:/feedback";
+		
+		return "redirect: " + this.urlLocal;
 	}
 }

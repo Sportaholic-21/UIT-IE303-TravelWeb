@@ -112,7 +112,7 @@ public class AdminUserController {
 				+ "            <p>Username: " + username + "</p>\r\n" + "            <p>Password: " + pass + "</p>\r\n"
 				+ "\r\n" + "            <p>\r\n"
 				+ "                ---------------------------------------------- <br> Levart Travel Agency <br> University of Infomation Technology <br> Office : IE303.L21, Tim Tim Team, Han Thuyen Street, Linh Trung Ward, Thu Duc District, Ho Chi Minh City\r\n"
-				+ "                <br> Tel : 12344321 hinh nhu em noi em yeu anh roi | Email: thomnd131200@gmail.com <br> Website : ..... <br> Hotline: 0900 gan song khong co song | Feedback - Complaints: 0902 ngay mai noi tiep\r\n"
+				+ "                <br> Tel : 0123456789 | Email: thomnd131200@gmail.com <br> Website : ..... <br> Hotline: 0900001211| Feedback - Complaints: 0902012345\r\n"
 				+ "            </p>\r\n" + "        </section>\r\n" + "    </div>";
 		message.setContent(htmlMessage, "text/html");
 		helper.setFrom("thomnd131200@gmail.com");

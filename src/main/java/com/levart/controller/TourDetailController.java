@@ -105,7 +105,7 @@ public class TourDetailController {
 		
 		
 		FeedbackDAO feedbackDAO=new FeedbackDAO();
-		List<Feedback> listAFeedback=feedbackDAO.getAllFeedback(id);
+		List<Feedback> listAFeedback=feedbackDAO.getAllFeedback(tourID);
 		if(listAFeedback.isEmpty()) {
 			model.addAttribute("feedbackListcheck", 0);
 		}else {
