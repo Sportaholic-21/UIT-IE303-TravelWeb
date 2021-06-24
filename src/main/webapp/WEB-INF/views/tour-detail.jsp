@@ -363,19 +363,32 @@
                     <h5>Feedback</h5>
                     <c:if test="${feedbackListcheck!=0}">
                     <c:forEach items="${feedbackList}" var="o">
-                    <div class="feedback-content">
+                    <div class="feedback-content mt-5">
                         <div class="feedback-info">
                             <p>
 										<img
 											src="${o.tourBookingID.account.avatar}"
 											alt="">
 									</p>
-                            <div>
+                            <div class="w-100">
                             <a href="${pageContext.request.contextPath}/overview/${o.tourBookingID.account.username}">
-                                <h6 class="username" style="margin-top:3px">${o.tourBookingID.account.fullName}</h6>
-                                <p style="margin:0; font-size:10px;"> @${o.tourBookingID.account.username} </p>
-                                <p style="margin:0; font-size:10px;">${o.tourBookingID.bookDate} </p>
-                                </a>
+                                <h6 class="username text-primary" style="margin-top:3px">${o.tourBookingID.account.fullName}</h6>
+                                <p style="margin:0; font-size:10px;" class="fw-bold text-warning"> @${o.tourBookingID.account.username} </p>
+                              </a>
+                                <div class="d-flex justify-content-between pr-4">
+                                	<p style="margin:0; font-size:10px;">${o.tourBookingID.scheduleDate} </p>
+                                	<p style="font-size:10px;" class="text-info fw-bold">${o.start} / 5 </p>
+                                </div>
+                            </div>
+                            <div class="tour-detail_sentiment-icon">
+                            	<c:choose>
+                            		<c:when test="${o.sentimentStatus == 1}">
+                            			<img class="img-fluid m-0" src="${pageContext.request.contextPath}/resources/images/pos-sentiment-icon.png" />
+                            		</c:when>
+                            		 <c:otherwise>
+										<img class="img-fluid m-0 tour-detail_sentiment-icon--sad" src="${pageContext.request.contextPath}/resources/images/neg-sentiment-icon.png" />
+							        </c:otherwise>
+                            	</c:choose>
                             </div>
                         </div>
                         <div class="content" style="padding: 15px;">${o.feedbackMessage}</div>

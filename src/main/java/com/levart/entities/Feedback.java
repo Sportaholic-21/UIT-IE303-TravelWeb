@@ -20,6 +20,25 @@ public class Feedback {
 	@Column(name="star")
 	private float start;
 	
+	@Column(name="sentimentStatus")
+	private int sentimentStatus;
+	
+	public TourBooking getTourBooking() {
+		return tourBooking;
+	}
+
+	public void setTourBooking(TourBooking tourBooking) {
+		this.tourBooking = tourBooking;
+	}
+
+	public int getSentimentStatus() {
+		return sentimentStatus;
+	}
+
+	public void setSentimentStatus(int sentimentStatus) {
+		this.sentimentStatus = sentimentStatus;
+	}
+
 	public Feedback() {
 		super();
 	}

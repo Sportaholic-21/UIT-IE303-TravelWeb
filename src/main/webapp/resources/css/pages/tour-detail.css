@@ -463,6 +463,7 @@ p strong {
     align-items: center;
     border: 1px solid #ececec;
     margin-bottom: 5px;
+    position: relative;
 }
 
 .feedback .feedback-content img {
@@ -555,4 +556,20 @@ p strong {
     .directToParam {
         flex-direction: column;
     }
+}
+
+.tour-detail_sentiment-icon {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	top: 6px;
+	right: 20px;
+}
+
+.username {
+	width: 110px;
+}
+
+.tour-detail_sentiment-icon--sad {
+	transform: scale(0.7);
 }
