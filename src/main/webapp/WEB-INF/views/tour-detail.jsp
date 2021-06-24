@@ -367,7 +367,7 @@
                         <div class="feedback-info">
                             <p>
 										<img
-											src="${pageContext.request.contextPath}/resources/images/tour-detail-img/testimonial-1.jpg"
+											src="${o.tourBookingID.account.avatar}"
 											alt="">
 									</p>
                             <div>

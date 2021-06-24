@@ -82,7 +82,6 @@ public class OverviewController extends CRUDBookedTourOperation {
 					count++;
 				}
 			}
-			
 			model.addAttribute("accounts", accounts);
 			model.addAttribute("totalFeedbacks", totalFeedbacks);
 			model.addAttribute("coordinates", coordinates);

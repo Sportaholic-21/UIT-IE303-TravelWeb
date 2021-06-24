@@ -115,7 +115,7 @@ public class FeedbackDAO {
 //		for (Feedback a : dao.getAllFeedback()) {
 //			System.out.println(a.getFeedbackID());
 //		}
-		
+		System.out.println(dao.getAllFeedback(4));
 //
 //		URL url = new URL("http://example.com/query?q=random word £500 bank $");
 //		URI uri = new URI(url.getProtocol(), url.getUserInfo(), IDN.toASCII(url.getHost()), url.getPort(),
