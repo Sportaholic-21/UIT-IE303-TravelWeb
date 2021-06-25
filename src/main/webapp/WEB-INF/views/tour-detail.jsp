@@ -7,8 +7,19 @@
 	<jsp:attribute name="pageCSSLink">
 		<link rel="stylesheet" type="text/css"
 			href="${pageContext.request.contextPath}/resources/css/pages/tour-detail.css">
-		<style>
-		
+        <link href="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css" rel="stylesheet">
+		<script src="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.js"></script>
+
+		<style type="text/css">
+			.marker {
+				background:
+					url("${pageContext.request.contextPath}/resources/user/img/map_marker_1.png");
+				background-size: cover;
+				width: 30px;
+				height: 30px;
+				border-radius: 50%;
+				cursor: pointer;
+			}
 		</style>
 	</jsp:attribute>
 	<jsp:body>
@@ -155,14 +166,9 @@
                 </section>
 
 
-                <section class="tour-map section--border-bot pb-4"
-							id="map">
-                    <h2 class="tour-map__title mb-3 ">Tour Map</h2>
-                    <div id="map-frame">
-                        <iframe class="col col-xl-12 pl-0 pr-0"
-									src="https://www.google.com/maps/d/u/0/embed?mid=1idy021lALsVJj6wBr2dNGF56hvgwm8jX "
-									style="border: none; width: 100%; height: 400px;"></iframe>
-                    </div>
+                <h2 class="tour-map__title mb-3">Tour Map</h2>
+                <section class="tour-map section--border-bot pb-4">
+                   <div id="map"></div>
                 </section>
 
                 <section class="tour-gallery section--border-bot pb-4 "
@@ -457,7 +463,65 @@
         </div>
     </div>
   		</div>
+		<script
+				src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
+			<script
+			src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
+			
+  		 <script >
+  		 	var str = "${coordinate_tour}";
+			var tourName = "${tourName_tour}";        
+			var coordinate = str.split(','); 
+			
+			var featureArr = [];
+            var tempGeo = {
+		        type: 'Feature',
+		        geometry: {
+			    	type: 'Point',
+			    	coordinate: coordinate
+		    	},
+		    	properties: {
+			    	title: 'Mapbox',
+			    	description: tourName
+		    	},
+		    	info: {
+			    	place: tourName
+		    	}
+	    	}
+            featureArr.push(tempGeo);
+        	mapboxgl.accessToken = 'pk.eyJ1IjoieWxhbnR0IiwiYSI6ImNrcGdpbGdnejA3Y2sydmprMzk4d2gwM20ifQ.Wz5IizkQcBZ6FCBLz3wnEA';
 
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/light-v10',
+                center: [106, 10],
+                zoom: 1
+                // starting zoom
+            });
+
+            var geojson = {
+                type: 'FeatureCollection',
+                features: featureArr
+            };
+
+        // add markers tomap
+        geojson.features
+            .forEach(function(marker) {
+
+                // create a HTML element for each feature
+                var el = document.createElement('div');
+                el.className = 'marker';
+                // make a marker for each feature and add to the map
+                new mapboxgl.Marker(el)
+                    .setLngLat(marker.geometry.coordinate)
+                    .setPopup(
+                        new mapboxgl.Popup({
+                            offset: 25
+                        })
+                            // add popups
+                            .setHTML('<p class="mb-0">' + marker.info.place + '</p>')).addTo(map);
+            });
+         </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js "
 			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN "
 			crossorigin="anonymous "></script>
