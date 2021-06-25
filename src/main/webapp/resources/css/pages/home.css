@@ -62,6 +62,13 @@
 {  
     position: relative;
     height: 330px;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.1);
+}
+
+.destination-card:hover {
+    box-shadow: 0px 4px 13px 8px rgb(0, 0, 0, 0.13);
 }
 
 .destination-text

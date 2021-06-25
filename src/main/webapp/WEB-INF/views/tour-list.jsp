@@ -129,8 +129,10 @@
 	        		<c:forEach items = "${imgList}" var = "imgList">
 						<c:if test = "${imgList.tourID.tourID == searchRes.tourID}">
 				            <div class="col-md-4">
-				                <div class="card shadow-sm">
+				                <div class="card related-tour__card shadow-sm">
+													<div class="related-tour__card-img">
 				                    <img src="${imgList.imageURL}" alt="${searchRes.tourName} Thumbnail Image" style="width:100%; height: 200px;" />
+													</div>
 				                    <div class="card-body">
 				                        <p class="combo-name d-flex justify-content-between align-items-center" style = "font-weight: bold; color: black; font-size: 25px; padding: 5px 0px">
 				                        	<span>${searchRes.tourName}</span>
@@ -138,12 +140,19 @@
 			                        			<span style = "color: red; font-size: 15px; font-weight:100;">- ${searchRes.discount} % </span>
 			                        		</c:if>
 				                        </p>
-				                        <div class="combo-category">
-				                            <div class="row">
-				                                <div class="col-md-7" style = "line-height: 50px">${searchRes.typology.typologyName}</div>
-				                                <div class="col-md-5" style = "line-height: 50px; color: red; font-size: 25px; font-weight:bold">${searchRes.price} $      
-				                                </div>
-				                            </div>
+				                        <div class="combo-category d-flex justify-content-between">
+																	<div style = "line-height: 50px">${searchRes.typology.typologyName}</div>
+																	<c:choose>
+																		<c:when test = "${searchRes.discount == 0.0}">
+					                            <p style="font-size: 30px; color: red; font-weight: bold;" class="pt-2">${searchRes.price}$</p>
+																		</c:when>
+																		<c:otherwise>
+					                            <div class="d-flex justify-content-between align-items-center pt-2" style = "line-height: 50px">
+																				<p style="font-size: 20px;" class="mr-3"><s>${searchRes.price}$</s></p>
+																				<p style="font-size: 30px; color: red;" class="fw-bold">${searchRes.price - searchRes.price * searchRes.discount / 100}$</p>
+																			</div>
+																		</c:otherwise>
+																	</c:choose>
 				                        </div>
 				                        <div class="combo-content d-flex justify-content-between align-items-center">
 				                            <p style="font-size: 17px; color: rgba(0,0,0,0.5); height: 150px">${searchRes.shortDesc}</p>

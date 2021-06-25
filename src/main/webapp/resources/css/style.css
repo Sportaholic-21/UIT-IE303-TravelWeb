@@ -1433,3 +1433,13 @@ thead.thead-inverse th,
     word-wrap: break-word;
     transition: 0.2s;
 }
+
+.related-tour__card-img {
+  overflow: hidden;
+}
+
+.related-tour__card:hover img {
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+  transform: scale(1.2);
+}
