@@ -44,7 +44,6 @@ public class OverviewController extends CRUDBookedTourOperation {
 		NationDAO nationDAO = new NationDAO();
 		Account accounts = accountDAO.getAccountWithTourBooking(usernames);
 			int totalFeedbacks = 0;
-			int count = 0;
 			
 			List<TourBooking> endedTours = new ArrayList<TourBooking>();
 			List<TourBooking> tourBookings=new ArrayList<TourBooking>();
@@ -73,12 +72,11 @@ public class OverviewController extends CRUDBookedTourOperation {
 					if(tourBKItem.getFeedback() != null) {
 						totalFeedbacks++;
 						
-						stars.add(count, tourBKItem.getFeedback().getStart());
+						stars.add(tourBKItem.getFeedback().getStart());
 					} else {
 						isFeedbacks.add(0);
+						stars.add((float) -1);
 					}
-					
-					count++;
 				}
 			}
 			model.addAttribute("accounts", accounts);
