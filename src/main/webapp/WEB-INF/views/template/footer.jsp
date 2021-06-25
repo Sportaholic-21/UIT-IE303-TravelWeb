@@ -38,9 +38,7 @@
           <h1 class="fw-bold">Levart</h1>
         </div>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut
-          diam et nibh condimentum venenatis eu ac magnasin. Quisque interdum
-          est mauris, eget ullamcorper.
+          Our travel experts craft the perfect trip for every traveler through our award-winning customer service. Real people helping real people. Beside you every step of the way.
         </p>
         <div class="d-flex">
           <a href="https://twitter.com/" class="me-3"
