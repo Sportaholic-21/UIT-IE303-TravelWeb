@@ -80,9 +80,6 @@
 	<!-- page script -->
 
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-	<script>
-		axios.get("sidebarTourList")
-	</script>
 	<script src="${pageContext.request.contextPath}/resources/js/forgotPassword.js"></script>
 
 	<script src="${pageContext.request.contextPath}/resources/js/logout.js"></script>
