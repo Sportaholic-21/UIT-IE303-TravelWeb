@@ -85,11 +85,19 @@ public class TourDetailController {
 		TourDAO tourdao = new TourDAO();
 		List<Tour> list = tourdao.getTour(id);
 		model.addAttribute("tourList", list);
+		
+		String coordinate_tour = list.get(0).getCoordinate();
+		model.addAttribute("coordinate_tour", coordinate_tour); // lấy coordinate
+
+		String tourname = list.get(0).getTourName();
+		model.addAttribute("tourName_tour", tourname); // lấy tourName
+		
 		List<String> scheduleList = tourdao.getTourSchedule(tourID);
 		model.addAttribute("tourSchedule", scheduleList);
 		ImageDAO imageDAO = new ImageDAO();
 		List<Image> coverImage = imageDAO.getCoverImage(tourID);
 		model.addAttribute("coverImageDisplay", coverImage);
+		
 		List<Image> galleryImages = imageDAO.getGalleryImages(tourID);
 		model.addAttribute("galleryImagesDisplay", galleryImages);
 		

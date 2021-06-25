@@ -179,6 +179,10 @@ li {
     border-bottom: solid #e2e2e2 2px;
 }
 
+.section--border-bot #map {
+	 height: 500px;
+}
+
 .section--border-bot:last-child {
     border-bottom: solid #e2e2e2 0px;
 }
@@ -538,6 +542,8 @@ p strong {
 	object-fit: cover;
     object-position: 20% 10%;
 }
+
+
 
 
 /* responsive */
