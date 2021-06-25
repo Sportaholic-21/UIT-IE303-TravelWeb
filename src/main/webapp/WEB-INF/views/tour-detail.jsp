@@ -121,7 +121,7 @@
                         <p class="mb-3 ">
                            ${obj.desc}
                         </p>
-                     
+                        <button id="printPDF" class="btn btn-warning">Print to PDF <i class="fa fa-print"></i></button>
                         <div class="content__table ">
                             <table class="">
                                 <tr class=" ">
@@ -175,7 +175,7 @@
 							id="gallery">
 							
                     <h2 class="tour-gallery__title mb-3 ">Gallery</h2>
-                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div id="gallery-carousel" class="carousel slide" data-ride="carousel">
 						  <div class="carousel-inner">
 						    <c:forEach items = "${galleryImagesDisplay}" var = "gal" varStatus = "loop">
 						    	<c:if test = "${loop.first}">
@@ -210,8 +210,8 @@
                             <li class="d-flex">
                             	<i class="fas fa-plus-square mr-3 color--primary "></i>
                      			<span>
-                     				<strong><a class ="text-danger" data-toggle="collapse" href="#collapse${loop.count}">DAY ${loop.count}</a></strong>
-	                                <div id="collapse${loop.count}" class="panel-collapse collapse">
+                     				<strong><a id="day" class ="text-danger" data-toggle="collapse" href="#collapse${loop.count}">DAY ${loop.count}</a></strong>
+	                                <div id="collapse${loop.count}" class="schedule panel-collapse collapse">
 												<span>
 													<c:forTokens items = "${sch}" var = "name" delims = ";" >
 		         										<c:out value = "${name}"/><p>
@@ -520,7 +520,12 @@
 			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js "
 			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl "
 			crossorigin="anonymous "></script>
-	
+  	<script>
+        $("#printPDF").on("click",() => {
+            $(".schedule").addClass("show");
+            window.print();
+        });
+    </script>
     </jsp:body>
 </t:genericpage>
 </c:forEach>

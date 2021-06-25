@@ -22,7 +22,6 @@
 	</properties>
 
 	<dependencies>
-
 		<!-- JSON Simple -->
 		<dependency>
 			<groupId>com.googlecode.json-simple</groupId>
