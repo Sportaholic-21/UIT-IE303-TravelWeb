@@ -55,7 +55,6 @@ public class OverviewController extends CRUDBookedTourOperation {
 			List<Integer> isFeedbacks = new ArrayList<Integer>();
 			List<Float> stars = new ArrayList<Float>();
 			List<Date> dates = new ArrayList<Date>();
-			
 			List<Nation> nations = nationDAO.getListNationByEndedTour();
 			
 			Iterator<TourBooking> tourBookingItem = tourBookings

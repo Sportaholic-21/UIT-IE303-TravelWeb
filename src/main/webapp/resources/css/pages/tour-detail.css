@@ -556,3 +556,31 @@ p strong {
         flex-direction: column;
     }
 }
+
+/* Print */
+@media print {
+    .navbar, #sidebar, .footer, #gallery,
+    .detail__left__group, .directToParam, button, 
+    .detail__right, #printPDF,
+    .tour-map__title, #map, #map #map-frame,
+    .tour-info__related-tour, #gallery-carousel div  {
+        display: none;
+    } 
+    /* .detail__left__img img {
+        height: 60%;
+    } */
+    body, .content__table, #day {
+        color: #000000;
+        display: block;
+        position: static;
+        overflow: visible !important;
+    }
+    img, .content__table {
+        break-inside: avoid;
+    }
+
+    @page {
+        size: auto;
+        margin: 0;
+    }
+}
