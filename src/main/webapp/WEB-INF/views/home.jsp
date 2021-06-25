@@ -186,7 +186,17 @@
 					                            <div class="card__category">
 					                                <p style = "font-size:20px">${list.typology.typologyName}</p>
 					                            </div>
-					                            <p style="font-size: 30px; color: red; font-weight: bold;">${list.price}$</p>
+																			<c:choose>
+																				<c:when test = "${list.discount == 0.0}">
+					                            		<p style="font-size: 30px; color: red; font-weight: bold;">${list.price}$</p>
+																				</c:when>
+																				<c:otherwise>
+					                            		<div class="d-flex justify-content-between align-items-center">
+																						<p style="font-size: 20px;" class="mr-3"><s>${list.price}$</s></p>
+																						<p style="font-size: 30px; color: red;" class="fw-bold">${list.price - list.price * list.discount / 100}$</p>
+																					</div>
+																				</c:otherwise>
+																			</c:choose>
 					                        </div>
 					
 					                        <div class="card__des mb-3">

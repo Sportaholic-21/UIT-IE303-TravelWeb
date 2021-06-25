@@ -140,12 +140,19 @@
 			                        			<span style = "color: red; font-size: 15px; font-weight:100;">- ${searchRes.discount} % </span>
 			                        		</c:if>
 				                        </p>
-				                        <div class="combo-category">
-				                            <div class="row">
-				                                <div class="col-md-7" style = "line-height: 50px">${searchRes.typology.typologyName}</div>
-				                                <div class="col-md-5" style = "line-height: 50px; color: red; font-size: 25px; font-weight:bold">${searchRes.price} $      
-				                                </div>
-				                            </div>
+				                        <div class="combo-category d-flex justify-content-between">
+																	<div style = "line-height: 50px">${searchRes.typology.typologyName}</div>
+																	<c:choose>
+																		<c:when test = "${searchRes.discount == 0.0}">
+					                            <p style="font-size: 30px; color: red; font-weight: bold;" class="pt-2">${searchRes.price}$</p>
+																		</c:when>
+																		<c:otherwise>
+					                            <div class="d-flex justify-content-between align-items-center pt-2" style = "line-height: 50px">
+																				<p style="font-size: 20px;" class="mr-3"><s>${searchRes.price}$</s></p>
+																				<p style="font-size: 30px; color: red;" class="fw-bold">${searchRes.price - searchRes.price * searchRes.discount / 100}$</p>
+																			</div>
+																		</c:otherwise>
+																	</c:choose>
 				                        </div>
 				                        <div class="combo-content d-flex justify-content-between align-items-center">
 				                            <p style="font-size: 17px; color: rgba(0,0,0,0.5); height: 150px">${searchRes.shortDesc}</p>
