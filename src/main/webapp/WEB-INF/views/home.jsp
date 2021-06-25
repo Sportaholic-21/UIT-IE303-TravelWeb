@@ -118,7 +118,7 @@
 					<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 					<c:forEach items = "${popularList}" var = "plist">
 						<div class="col-md-4">
-							<div class="destination-card shadow-sm vietnam" style="background: url('${pageContext.request.contextPath}/resources/images/${plist.nationName}.jpg') no-repeat top; 
+							<div class="destination-card vietnam" style="background: url('${pageContext.request.contextPath}/resources/images/${plist.nationName}.jpg') no-repeat top; 
 		   background-size: cover;">
 								<div class="destination-text">
 									<a href="${pageContext.request.contextPath}/tour-list?nationID=${plist.nationID}">${plist.nationName}</a>
@@ -170,7 +170,9 @@
 							<c:forEach items = "${imgList}" var = "imgList">
 								<c:if test = "${imgList.tourID.tourID == list.tourID}">
 			                		<div class="related-tour__card col-xl-4 mt-3 mb-3">
-				               			<img src="${imgList.imageURL}" alt="${list.tourName} Thumbnail Image" style="width:100%; height: 200px;">
+				               			<div class="related-tour__card-img">
+															<img src="${imgList.imageURL}" alt="${list.tourName} Thumbnail Image" style="width:100%; height: 200px;" class="img-fluid">
+														 </div>
 					                    <div class="border p-4 ">
 					                        <div class="mb-2">
 					                            <p class="combo-name d-flex justify-content-between align-items-center" style = "font-weight: bold; color: black; font-size: 25px; padding: 5px 0px">

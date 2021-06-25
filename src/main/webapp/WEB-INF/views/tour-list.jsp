@@ -129,8 +129,10 @@
 	        		<c:forEach items = "${imgList}" var = "imgList">
 						<c:if test = "${imgList.tourID.tourID == searchRes.tourID}">
 				            <div class="col-md-4">
-				                <div class="card shadow-sm">
+				                <div class="card related-tour__card shadow-sm">
+													<div class="related-tour__card-img">
 				                    <img src="${imgList.imageURL}" alt="${searchRes.tourName} Thumbnail Image" style="width:100%; height: 200px;" />
+													</div>
 				                    <div class="card-body">
 				                        <p class="combo-name d-flex justify-content-between align-items-center" style = "font-weight: bold; color: black; font-size: 25px; padding: 5px 0px">
 				                        	<span>${searchRes.tourName}</span>
