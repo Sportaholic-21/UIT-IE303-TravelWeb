@@ -57,8 +57,6 @@
 	<script
 		src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"
 		crossorigin="anonymous"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/js/passDataToModalDelete.js"></script>
 		
 		<script
 		src="${pageContext.request.contextPath}/resources/user/js/popper.min.js"></script>
