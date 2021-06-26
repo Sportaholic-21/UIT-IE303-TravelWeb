@@ -416,19 +416,33 @@
                 <c:forEach items = "${imgList}" var = "imgList">
 					<c:if test = "${imgList.tourID.tourID == list.tourID}">
 			        	<div class="related-tour__card col-xl-4 mt-3 mb-3">
-				        	<img src="${imgList.imageURL}" alt="${list.tourName} Thumbnail Image" style="width:100%; height: 200px;">
+				        		<div class="related-tour__card-img"><img src="${imgList.imageURL}" alt="${list.tourName} Thumbnail Image" style="width:100%; height: 200px;"></div>
 					        	<div class="border p-4 ">
 					            	<div class="mb-2">
 					                	<p class="combo-name d-flex justify-content-between align-items-center" style = "font-weight: bold; color: black; font-size: 25px;">
 			                        		<span>${list.tourName}</span>
-			                        		<span style = "color: red; font-size: 15px; font-weight:100;">- ${list.discount} % </span>
+			                        		<c:if test = "${list.discount != 0.0}">
+			                        			<span style = "color: red; font-size: 15px; font-weight:100;">- ${list.discount} % </span>
+			                        		</c:if>
 			                        	</p>
 					                 </div>
 					                 <div class="d-flex justify-content-between align-items-center border-top border-bottom pt-2 pb-2 mb-3">
 					                 	<div class="card__category">
 					                    	<p style = "font-size:20px">${list.typology.typologyName}</p>
 					                    </div>
-					                    	<p style="font-size: 20px; color: red; font-weight: bold;">${list.price}$</p>
+					                    <div>
+					                    	<c:choose>
+												<c:when test = "${list.discount == 0.0}">
+					                            		<p style="font-size: 30px; color: red; font-weight: bold;">${list.price}$</p>
+												</c:when>
+												<c:otherwise>
+					                            	<div class="d-flex justify-content-between align-items-center">
+														<p style="font-size: 20px;" class="mr-3"><s>${list.price}$</s></p>
+														<p style="font-size: 30px; color: red;" class="fw-bold">${list.priceDiscount}$</p>
+													</div>
+												</c:otherwise>
+											</c:choose>																									
+					                    </div>
 					                    </div>
 					
 					                  <div class="card__des mb-3">
