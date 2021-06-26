@@ -1,0 +1,47 @@
+version: "2.0"
+
+stories:
+
+- story: Chào - tên - hỏi chức năng - chào
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_name
+  - action: utter_ask_name
+  - intent: ask_func_list
+  - action: utter_func_list
+  - intent: bye
+  - action: utter_bye
+
+- story: ask what you do
+  steps:
+  - intent: ask_func_list
+  - action: utter_func_list
+  - intent: ask_tour
+  - action: action_list_tour
+
+- story: Thank
+  steps:
+  - intent: thank
+  - action: utter_thank
+
+- story: get some tour
+  steps:
+  - intent: ask_tour
+  - action: action_list_tour
+
+- story: get detail tour
+  steps:
+  - intent: ask_detail_tour
+  - action: action_get_detail_tour
+
+- story: get tour by typo
+  steps:
+  - intent: ask_tour_by_typo
+  - action: action_get_tour_by_typo
+
+- story: unclear
+  steps:
+  - intent: out_of_scope
+  - action: utter_unclear
+  

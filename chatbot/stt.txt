@@ -1,0 +1,6 @@
+#required
+pip install rasa
+
+#run
+python -m rasa_sdk --actions actions
+rasa run -m models --enable-api --cors "*"
