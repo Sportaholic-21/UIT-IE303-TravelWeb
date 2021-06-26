@@ -66,7 +66,6 @@
 		integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
 		crossorigin="anonymous"></script>
 
-	<script src="${pageContext.request.contextPath}/resources/js/passDataToModalDelete.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/toggle-btn-sidebar.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/addWishlist.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/hideShowNav.js"></script>
@@ -79,10 +78,7 @@
 		src="${pageContext.request.contextPath}/resources/js/passDataToModalDelete.js"></script>
 	<!-- page script -->
 
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-	<script>
-		axios.get("sidebarTourList")
-	</script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>	
 	<script src="${pageContext.request.contextPath}/resources/js/forgotPassword.js"></script>
 
 	<script src="${pageContext.request.contextPath}/resources/js/logout.js"></script>
