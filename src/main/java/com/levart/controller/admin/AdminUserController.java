@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
 
 import org.passay.CharacterData;
 import org.passay.CharacterRule;
@@ -20,6 +21,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -67,7 +69,7 @@ public class AdminUserController {
 		return "/admin/user/list";
 	}
 	@RequestMapping(value = { "/add" })
-	public String showPageAddAccount(@ModelAttribute("account") Account account,  Model model) {
+	public String showPageAddAccount(@ModelAttribute("account") Account account,  Model model, @RequestParam(value = "status", required = false, defaultValue = "none") String status) {
 		if (account.getEmail() == null) {
 			return "redirect:/no-permission";
 		}
@@ -83,7 +85,12 @@ public class AdminUserController {
 		
 		model.addAttribute("account", account);
 		
-
+		String action = status;
+		
+		if (action.equals("success")) {
+			model.addAttribute("status", "success");
+		}
+		
 		return "/admin/user/addForm";
 	}
 	@PostMapping("api/add")
@@ -119,7 +126,7 @@ public class AdminUserController {
 		helper.setTo(account.getEmail());
 		helper.setSubject("[Account] Your account on Levart!!!");
 		this.mailSender.send(message);	
-		return "redirect:/admin/user/add";
+		return "redirect:/admin/user/add?status=success";
 	}
 	@PostMapping("/api/generatePassword")
     @ResponseBody

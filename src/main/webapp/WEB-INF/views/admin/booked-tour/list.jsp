@@ -72,7 +72,7 @@ tagdir="/WEB-INF/tags"%>
                 </td>
                 <form:input path="tour.tourID" value="${tourBooking.tour.tourID}"  style="display:none"/>
                 <td>
-                  <form:select path="bookStatus" class="custom-select">
+                  <form:select path="bookStatus" class="custom-select" disabled="${tourBooking.bookStatus == '3' ? 'true' : 'false'}">
                     <option value="1" ${tourBooking.bookStatus == "1" ? "selected" : ''}>Not Start Yet</option>
                     <option value="2" ${tourBooking.bookStatus == "2" ? "selected" : ''}>Started</option>
                     <option value="3" ${tourBooking.bookStatus == "3" ? "selected" : ''}>Ended</option>

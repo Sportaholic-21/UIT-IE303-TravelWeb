@@ -1446,6 +1446,7 @@ thead.thead-inverse th,
   transition: all 0.2s ease-in-out;
   overflow: hidden;
   transform: scale(1.2);
+}
 .rw-launcher {
     background-color: blueviolet !important;
 }
@@ -1466,4 +1467,10 @@ thead.thead-inverse th,
     background-color: rgba(0, 0, 0, 0) !important;
     color: blueviolet !important;
     border: 1px solid blueviolet !important;
+}
+
+#success-anouncement, #exists-anounncement {
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  border: 1px solid #777;
 }
