@@ -18,7 +18,7 @@
 										rgba(0, 0, 0, 0.4)100%),
 		  								url('${pageContext.request.contextPath}/resources/images/home-page-background.jpg') -150px -200px no-repeat;">
 					<h1 class="landing-h1">SEARCH FOR YOUR BEST ADVENTURE</h1>
-					<h3 class="landing-h3">Check out out best promotions</h3>
+					<h3 class="landing-h3">Check out our best promotions</h3>
 					<div class="search-container">
 						<form:form action="tour-list" modelAttribute="contentSearchPackage">
 							<div class="search-bar">
