@@ -1446,6 +1446,7 @@ thead.thead-inverse th,
   transition: all 0.2s ease-in-out;
   overflow: hidden;
   transform: scale(1.2);
+}
 .rw-launcher {
     background-color: blueviolet !important;
 }
