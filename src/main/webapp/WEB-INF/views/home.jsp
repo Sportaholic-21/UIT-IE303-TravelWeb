@@ -121,8 +121,16 @@
 							<div class="destination-card vietnam" style="background: url('${pageContext.request.contextPath}/resources/images/${plist.nationName}.jpg') no-repeat top; 
 		   background-size: cover;">
 								<div class="destination-text">
-									<a href="${pageContext.request.contextPath}/tour-list?nationID=${plist.nationID}">${plist.nationName}</a>
-									<h4><c:out value="${plist.tours.size()}"/> packages</h4>
+									<a href="${pageContext.request.contextPath}/tour-list?nationID=${plist.nationID}" style="background-color:rgba(0,0,0,0.6); padding: 2px 10px 2px 10px;margin-bottom: 3px; border-radius: 10px">${plist.nationName}</a>
+									<c:choose>
+  										<c:when test = "${plist.tours.size()>1}">
+       										<h4 style="background-color:rgba(0,0,0,0.6); padding: 2px 10px 8px 10px; border-radius: 10px; width: max-content;"><c:out value="${plist.tours.size()}"/> packages</h4>
+  										</c:when>
+  										<c:otherwise>
+      										 <h4 style="background-color:rgba(0,0,0,0.6); padding: 2px 10px 8px 10px; border-radius: 10px; width: max-content;"><c:out value="${plist.tours.size()}"/> package</h4>
+   										</c:otherwise>
+									</c:choose>
+									
 								</div>
 							</div>
 						</div>
