@@ -1468,3 +1468,9 @@ thead.thead-inverse th,
     color: blueviolet !important;
     border: 1px solid blueviolet !important;
 }
+
+#success-anouncement, #exists-anounncement {
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  border: 1px solid #777;
+}

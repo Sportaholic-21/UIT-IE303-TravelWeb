@@ -5,6 +5,14 @@
 
 <t:adminpage pageHeading="Add User">
 	<jsp:body>
+	<c:choose>
+		<c:when test="${status eq 'success'}">
+			<div class="col-5 ml-auto alert alert-success alert-dismissible">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              	Add user successfully!!
+            </div>
+		</c:when>
+	</c:choose>
    <div>
     <div class="col-12 w-100 pr-0">
       <div class="col-10">

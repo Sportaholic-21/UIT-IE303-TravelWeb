@@ -121,7 +121,10 @@
                         <p class="mb-3 ">
                            ${obj.desc}
                         </p>
-                        <button id="printPDF" class="btn btn-warning">Print to PDF <i class="fa fa-print"></i></button>
+                        <div class="d-flex justify-content-between">
+                        	<button id="printPDF" class="btn btn-warning">Print to PDF <i class="fa fa-print"></i></button>
+                        	<button data-type="addWishlist" data-link="${pageContext.request.contextPath}/wishlist/api?action=add&id=${obj.tourID}" class="p-2 fs-6 btn btn-danger float-right addWishlist" style = "margin: 0; border:none;"><i class="far fa-heart"></i> Add to wishlist</button>
+                        </div>
                         <div class="content__table ">
                             <table class="">
                                 <tr class=" ">
@@ -368,38 +371,124 @@
                 <section class="feedback">
                     <h5>Feedback</h5>
                     <c:if test="${feedbackListcheck!=0}">
-                    <c:forEach items="${feedbackList}" var="o">
-                    <div class="feedback-content mt-5">
-                        <div class="feedback-info">
-                            <p>
-										<img
-											src="${o.tourBookingID.account.avatar}"
-											alt="">
-									</p>
-                            <div class="w-100">
-                            <a href="${pageContext.request.contextPath}/overview/${o.tourBookingID.account.username}">
-                                <h6 class="username text-primary" style="margin-top:3px">${o.tourBookingID.account.fullName}</h6>
-                                <p style="margin:0; font-size:10px;" class="fw-bold text-warning"> @${o.tourBookingID.account.username} </p>
-                              </a>
-                                <div class="d-flex justify-content-between pr-4">
-                                	<p style="margin:0; font-size:10px;">${o.tourBookingID.scheduleDate} </p>
-                                	<p style="font-size:10px;" class="text-info fw-bold">${o.start} / 5 </p>
-                                </div>
-                            </div>
-                            <div class="tour-detail_sentiment-icon">
-                            	<c:choose>
-                            		<c:when test="${o.sentimentStatus == 1}">
-                            			<img class="img-fluid m-0" src="${pageContext.request.contextPath}/resources/images/pos-sentiment-icon.png" />
-                            		</c:when>
-                            		 <c:otherwise>
-										<img class="img-fluid m-0 tour-detail_sentiment-icon--sad" src="${pageContext.request.contextPath}/resources/images/neg-sentiment-icon.png" />
-							        </c:otherwise>
-                            	</c:choose>
-                            </div>
-                        </div>
-                        <div class="content" style="padding: 15px;">${o.feedbackMessage}</div>
-                    </div>
-					</c:forEach>
+                    <p class="text-danger fs-6"><span class="fw-bold">${obj.numberFeedback}</span> in average based on <span class="fw-bold">${feedbackListcheck}</span> reviews</p>
+                    <hr />
+                    <ul class="nav nav-pills" id="pills-tab" role="tablist">
+					  <li class="nav-item" role="presentation">
+					    <button class="nav-link active" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-home" aria-selected="true">All</button>
+					  </li>
+					  <li class="nav-item" role="presentation">
+					    <button class="nav-link" id="pills-pos-tab" data-bs-toggle="pill" data-bs-target="#pills-pos" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Positive</button>
+					  </li>
+					  <li class="nav-item" role="presentation">
+					    <button class="nav-link" id="pills-neg-tab" data-bs-toggle="pill" data-bs-target="#pills-neg" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Negative</button>
+					  </li>
+					</ul>
+					<div class="tab-content mt-3" id="pills-tabContent">
+					  <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
+					  		<c:forEach items="${feedbackList}" var="o">
+			                    <div class="feedback-content mb-5">
+			                        <div class="feedback-info">
+			                            <p>
+											<img
+												src="${o.tourBookingID.account.avatar}"
+												alt="">
+											</p>
+			                            <div class="w-100">
+			                            <a href="${pageContext.request.contextPath}/overview/${o.tourBookingID.account.username}">
+			                                <h6 class="username text-primary mt-3">${o.tourBookingID.account.fullName}</h6>
+			                                <p class="fw-bold text-warning m-0"> @${o.tourBookingID.account.username} </p>
+			                              </a>
+			                                <div class="d-flex justify-content-between pr-4">
+			                                	<p class="m-0">${o.tourBookingID.scheduleDate} </p>
+			                                	<p class="text-info fw-bold">${o.start} / 5 </p>
+			                                </div>
+			                            </div>
+			                            <div class="tour-detail_sentiment-icon">
+			                            	<c:choose>
+			                            		<c:when test="${o.sentimentStatus == 1}">
+			                            			<img class="img-fluid m-0" src="${pageContext.request.contextPath}/resources/images/pos-sentiment-icon.png" />
+			                            		</c:when>
+			                            		 <c:otherwise>
+													<img class="img-fluid m-0 tour-detail_sentiment-icon--sad" src="${pageContext.request.contextPath}/resources/images/neg-sentiment-icon.png" />
+										        </c:otherwise>
+			                            	</c:choose>
+			                            </div>
+			                        </div>
+			                        <div class="content" style="padding: 15px;">${o.feedbackMessage}</div>
+			                    </div>
+								</c:forEach>
+					  </div>
+					  <div class="tab-pane fade" id="pills-pos" role="tabpanel" aria-labelledby="pills-pos-tab">
+					  		<c:forEach items="${feedbackListPos}" var="o">
+			                    <div class="feedback-content mb-5">
+			                        <div class="feedback-info">
+			                            <p>
+											<img
+												src="${o.tourBookingID.account.avatar}"
+												alt="">
+											</p>
+			                            <div class="w-100">
+			                            <a href="${pageContext.request.contextPath}/overview/${o.tourBookingID.account.username}">
+			                                <h6 class="username text-primary mt-3">${o.tourBookingID.account.fullName}</h6>
+			                                <p class="fw-bold text-warning m-0"> @${o.tourBookingID.account.username} </p>
+			                              </a>
+			                                <div class="d-flex justify-content-between pr-4">
+			                                	<p class="m-0">${o.tourBookingID.scheduleDate} </p>
+			                                	<p class="text-info fw-bold">${o.start} / 5 </p>
+			                                </div>
+			                            </div>
+			                            <div class="tour-detail_sentiment-icon">
+			                            	<c:choose>
+			                            		<c:when test="${o.sentimentStatus == 1}">
+			                            			<img class="img-fluid m-0" src="${pageContext.request.contextPath}/resources/images/pos-sentiment-icon.png" />
+			                            		</c:when>
+			                            		 <c:otherwise>
+													<img class="img-fluid m-0 tour-detail_sentiment-icon--sad" src="${pageContext.request.contextPath}/resources/images/neg-sentiment-icon.png" />
+										        </c:otherwise>
+			                            	</c:choose>
+			                            </div>
+			                        </div>
+			                        <div class="content" style="padding: 15px;">${o.feedbackMessage}</div>
+			                    </div>
+								</c:forEach>
+					  </div>
+					  <div class="tab-pane fade" id="pills-neg" role="tabpanel" aria-labelledby="pills-neg-tab">
+					  		<c:forEach items="${feedbackListNeg}" var="o">
+			                    <div class="feedback-content mb-5">
+			                        <div class="feedback-info">
+			                            <p>
+											<img
+												src="${o.tourBookingID.account.avatar}"
+												alt="">
+											</p>
+			                            <div class="w-100">
+			                            <a href="${pageContext.request.contextPath}/overview/${o.tourBookingID.account.username}">
+			                                <h6 class="username text-primary mt-3">${o.tourBookingID.account.fullName}</h6>
+			                                <p class="fw-bold text-warning m-0"> @${o.tourBookingID.account.username} </p>
+			                              </a>
+			                                <div class="d-flex justify-content-between pr-4">
+			                                	<p class="m-0">${o.tourBookingID.scheduleDate} </p>
+			                                	<p class="text-info fw-bold">${o.start} / 5 </p>
+			                                </div>
+			                            </div>
+			                            <div class="tour-detail_sentiment-icon">
+			                            	<c:choose>
+			                            		<c:when test="${o.sentimentStatus == 1}">
+			                            			<img class="img-fluid m-0" src="${pageContext.request.contextPath}/resources/images/pos-sentiment-icon.png" />
+			                            		</c:when>
+			                            		 <c:otherwise>
+													<img class="img-fluid m-0 tour-detail_sentiment-icon--sad" src="${pageContext.request.contextPath}/resources/images/neg-sentiment-icon.png" />
+										        </c:otherwise>
+			                            	</c:choose>
+			                            </div>
+			                        </div>
+			                        <div class="content" style="padding: 15px;">${o.feedbackMessage}</div>
+			                    </div>
+								</c:forEach>
+					  </div>
+					</div>
+                    
 					
                     </c:if>
                     
@@ -429,19 +518,33 @@
                 <c:forEach items = "${imgList}" var = "imgList">
 					<c:if test = "${imgList.tourID.tourID == list.tourID}">
 			        	<div class="related-tour__card col-xl-4 mt-3 mb-3">
-				        	<img src="${imgList.imageURL}" alt="${list.tourName} Thumbnail Image" style="width:100%; height: 200px;">
+				        		<div class="related-tour__card-img"><img src="${imgList.imageURL}" alt="${list.tourName} Thumbnail Image" style="width:100%; height: 200px;"></div>
 					        	<div class="border p-4 ">
 					            	<div class="mb-2">
 					                	<p class="combo-name d-flex justify-content-between align-items-center" style = "font-weight: bold; color: black; font-size: 25px;">
 			                        		<span>${list.tourName}</span>
-			                        		<span style = "color: red; font-size: 15px; font-weight:100;">- ${list.discount} % </span>
+			                        		<c:if test = "${list.discount != 0.0}">
+			                        			<span style = "color: red; font-size: 15px; font-weight:100;">- ${list.discount} % </span>
+			                        		</c:if>
 			                        	</p>
 					                 </div>
 					                 <div class="d-flex justify-content-between align-items-center border-top border-bottom pt-2 pb-2 mb-3">
 					                 	<div class="card__category">
 					                    	<p style = "font-size:20px">${list.typology.typologyName}</p>
 					                    </div>
-					                    	<p style="font-size: 20px; color: red; font-weight: bold;">${list.price}$</p>
+					                    <div>
+					                    	<c:choose>
+												<c:when test = "${list.discount == 0.0}">
+					                            		<p style="font-size: 30px; color: red; font-weight: bold;">${list.price}$</p>
+												</c:when>
+												<c:otherwise>
+					                            	<div class="d-flex justify-content-between align-items-center">
+														<p style="font-size: 20px;" class="mr-3"><s>${list.price}$</s></p>
+														<p style="font-size: 30px; color: red;" class="fw-bold">${list.priceDiscount}$</p>
+													</div>
+												</c:otherwise>
+											</c:choose>																									
+					                    </div>
 					                    </div>
 					
 					                  <div class="card__des mb-3">
@@ -451,7 +554,7 @@
 					                  <a class="adetail" href="${pageContext.request.contextPath}/tour-detail/${list.tourID}">
 							             <button class="btn btn-danger" style = "font-weight: bold">View</button>
 							          </a>
-										<button data-type="addWishlist" data-link="${pageContext.request.contextPath}/user/wishlist/api?action=add&id=${tour.tourID}" class="float-right text-danger addWishlist" style = "padding: 0; margin: 0; border:none; background-color:white"><i class="far fa-heart fs-1"></i></button>
+										<button data-type="addWishlist" data-link="${pageContext.request.contextPath}/wishlist/api?action=add&id=${list.tourID}" class="float-right text-danger addWishlist" style = "padding: 0; margin: 0; border:none; background-color:white"><i class="far fa-heart fs-1"></i></button>
 					              </div>
 			              </div>
 		              </c:if>

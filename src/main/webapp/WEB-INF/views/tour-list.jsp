@@ -162,7 +162,7 @@
 								                            <button class="btn btn-danger" style = "font-weight: bold">View</button>
 								              </a>
 				                        </div>
-				                        <button data-type="addWishlist" data-link="${pageContext.request.contextPath}/user/wishlist/api?action=add&id=${tour.tourID}" class="float-right text-danger addWishlist" style = "padding: 0; margin : 0; border:none; background-color:white"><i class="far fa-heart fs-1"></i></button>
+				                        <button data-type="addWishlist" data-link="${pageContext.request.contextPath}/wishlist/api?action=add&id=${searchRes.tourID}" class="float-right text-danger addWishlist" style = "padding: 0; margin: 0; border:none; background-color:white"><i class="far fa-heart fs-1"></i></button>
 				                    </div>
 				                </div>
 				            </div>

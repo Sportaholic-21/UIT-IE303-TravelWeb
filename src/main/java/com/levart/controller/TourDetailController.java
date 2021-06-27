@@ -1,8 +1,8 @@
 package com.levart.controller;
 
 import java.util.ArrayList;
-
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -16,12 +16,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.levart.entities.Account;
-import com.levart.entities.Continent;
 import com.levart.entities.Feedback;
 import com.levart.entities.Image;
 import com.levart.entities.Nation;
 import com.levart.entities.Tour;
-import com.levart.entities.Typology;
 import com.levart.form_entities.FormMessage;
 import com.levart.form_entities.FormSearch;
 import com.levart.form_entities.FormSearchPackage;
@@ -31,7 +29,6 @@ import com.levart.hibernate.dao.FeedbackDAO;
 import com.levart.hibernate.dao.ImageDAO;
 import com.levart.hibernate.dao.NationDAO;
 import com.levart.hibernate.dao.TourDAO;
-import com.levart.hibernate.dao.TypologyDAO;
 
 @Controller
 @SessionAttributes("account")
@@ -117,8 +114,13 @@ public class TourDetailController {
 		if(listAFeedback.isEmpty()) {
 			model.addAttribute("feedbackListcheck", 0);
 		}else {
-			model.addAttribute("feedbackListcheck", 1);
+			List<Feedback> listAFeedbackPos =  (List<Feedback>) listAFeedback.stream().filter(i -> i.getSentimentStatus() == 1).collect(Collectors.toList());;
+			List<Feedback> listAFeedbackNeg =  (List<Feedback>) listAFeedback.stream().filter(i -> i.getSentimentStatus() == 0).collect(Collectors.toList());
+			
+			model.addAttribute("feedbackListcheck", listAFeedback.size());
 			model.addAttribute("feedbackList", listAFeedback);
+			model.addAttribute("feedbackListPos", listAFeedbackPos);
+			model.addAttribute("feedbackListNeg", listAFeedbackNeg);
 		}
 		
 		NationDAO nationDAO = new NationDAO();
