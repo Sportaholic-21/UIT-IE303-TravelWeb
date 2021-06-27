@@ -35,7 +35,7 @@
                     <div class="col-sm-5 search-label">Max Price:</div>
                     <div class="col-sm-7 search-input">
                         <form:input path="maxPrice" name = "maxPrice" type="range" class="form-range" id = "maxPrice" 
-                        min = "0" max = "1000" value="${param.maxPrice}" list = "marks" />
+                        min = "0" max = "5000" value="${param.maxPrice}" list = "marks" />
                         <datalist id = "marks">
                         	<option value = "100"></option>
                         	<option value = "200"></option>

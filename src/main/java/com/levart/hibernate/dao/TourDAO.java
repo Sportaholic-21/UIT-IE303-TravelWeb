@@ -23,7 +23,6 @@ public class TourDAO {
 	static SessionFactory factory = HibernateUtils.getSessionFactory();
 
 	public TourDAO() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	public List<Tour> getTour(int id) {
@@ -31,7 +30,7 @@ public class TourDAO {
 		List<Tour> tourList = new ArrayList<Tour>();
 		try {
 			// bắt đầu 1 transaction (giao dịch)
-			Transaction tx = session.beginTransaction();
+			session.beginTransaction();
 			// thực thi câu query dạng hql
 			@SuppressWarnings("unchecked")
 			Query<Tour> query =session.createQuery("from Tour where tourID ='"  + id +"'");

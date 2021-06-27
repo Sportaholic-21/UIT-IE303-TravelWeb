@@ -2,10 +2,8 @@ package com.levart.hibernate.dao;
 
 import java.util.List;
 
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import com.levart.entities.Image;
@@ -15,7 +13,6 @@ public class ImageDAO {
 	static SessionFactory factory = HibernateUtils.getSessionFactory();
 
 	public ImageDAO() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -23,10 +20,9 @@ public class ImageDAO {
 		Session session = factory.openSession();
 		try {
 			// bắt đầu 1 transaction (giao dịch)
-			Transaction tx = session.beginTransaction();
+			session.beginTransaction();
 			// thực thi câu query dạng hql
-			@SuppressWarnings("unchecked")
-			Query query =session.createQuery("from Image where tourID ="+ id +" and imageRole = 0");
+			Query<Image> query =session.createQuery("from Image where tourID ="+ id +" and imageRole = 0");
 			List<Image> list = query.list();
 			return list;
 		} catch (RuntimeException e) {
@@ -42,10 +38,10 @@ public class ImageDAO {
 		Session session = factory.openSession();
 		try {
 			// bắt đầu 1 transaction (giao dịch)
-			Transaction tx = session.beginTransaction();
+			session.beginTransaction();
 			// thực thi câu query dạng hql
 			@SuppressWarnings("unchecked")
-			Query query =session.createQuery("from Image where tourID ="+ id +" and imageRole = 1");
+			Query<Image> query =session.createQuery("from Image where tourID ="+ id +" and imageRole = 1");
 			List<Image> list = query.list();
 			return list;
 		} catch (RuntimeException e) {
@@ -56,12 +52,5 @@ public class ImageDAO {
 		}
 		return null;
 	}
-	
-	public static void main(String []args){
-		ImageDAO imageDAO= new ImageDAO();
-		int id = 1;
-//		List<Image> list = imageDAO.getThumbnailImage(id);
-//		System.out.println(list);
 		
-	}
 }
