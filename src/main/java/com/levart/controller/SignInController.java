@@ -104,7 +104,7 @@ public class SignInController {
 				message.setContent(messageOut, "text/html");
 				res.put("status", "1");
 				res.put("otp", OTP);
-				helper.setTo("boong630@gmail.com");
+				helper.setTo(reqEmail);
 				helper.setSubject("[RESET PASSWORD] Your OTP");
 				this.mailSender.send(message);
 				break;
