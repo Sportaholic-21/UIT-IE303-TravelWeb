@@ -121,7 +121,10 @@
                         <p class="mb-3 ">
                            ${obj.desc}
                         </p>
-                        <button id="printPDF" class="btn btn-warning">Print to PDF <i class="fa fa-print"></i></button>
+                        <div class="d-flex justify-content-between">
+                        	<button id="printPDF" class="btn btn-warning">Print to PDF <i class="fa fa-print"></i></button>
+                        	<button data-type="addWishlist" data-link="${pageContext.request.contextPath}/wishlist/api?action=add&id=${obj.tourID}" class="p-2 fs-6 btn btn-danger float-right addWishlist" style = "margin: 0; border:none;"><i class="far fa-heart"></i> Add to wishlist</button>
+                        </div>
                         <div class="content__table ">
                             <table class="">
                                 <tr class=" ">
@@ -551,7 +554,7 @@
 					                  <a class="adetail" href="${pageContext.request.contextPath}/tour-detail/${list.tourID}">
 							             <button class="btn btn-danger" style = "font-weight: bold">View</button>
 							          </a>
-										<button data-type="addWishlist" data-link="${pageContext.request.contextPath}/user/wishlist/api?action=add&id=${tour.tourID}" class="float-right text-danger addWishlist" style = "padding: 0; margin: 0; border:none; background-color:white"><i class="far fa-heart fs-1"></i></button>
+										<button data-type="addWishlist" data-link="${pageContext.request.contextPath}/wishlist/api?action=add&id=${list.tourID}" class="float-right text-danger addWishlist" style = "padding: 0; margin: 0; border:none; background-color:white"><i class="far fa-heart fs-1"></i></button>
 					              </div>
 			              </div>
 		              </c:if>

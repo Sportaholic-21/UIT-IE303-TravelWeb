@@ -44,11 +44,16 @@
 			
 <title>Levart | ${pageTitle}</title>
 </head>
-<body>
+<body class="position-relative">
 
 	<jsp:include page="/WEB-INF/views/template/navbar.jsp" />
 	<jsp:include page="/WEB-INF/views/template/sidebar.jsp" />
-
+	<div id="success-anouncement" class="p-1 d-print-inline alert alert-success alert-dismissible position-fixed" style="display: none">
+     	Add to wishlist successfully
+     </div>
+     <div id="exists-anounncement" class="p-1 d-print-inline alert alert-warning alert-dismissible position-fixed" style="display: none">
+     	Tour has been in wishlist
+     </div>
 	<main id="body" class="main" style="position: relative; top: -88px;">
 		<jsp:doBody />
 	</main>
