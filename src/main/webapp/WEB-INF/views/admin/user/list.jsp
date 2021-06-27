@@ -24,8 +24,6 @@ tagdir="/WEB-INF/tags"%>
                 <th>Full Name</th>
                 <th>Username</th>
                 <th>Email</th>
-                <th>Password</th>
-                
                 <th>Role</th>
                 <th>Address</th>
                 <th>Social</th>
@@ -40,8 +38,6 @@ tagdir="/WEB-INF/tags"%>
                 <th>Full Name</th>
                 <th>Username</th>
                 <th>Email</th>
-                <th>Password</th>
-    
                 <th>Role</th>
                 <th>Address</th>
                 <th>Social</th>
@@ -72,7 +68,6 @@ tagdir="/WEB-INF/tags"%>
                 <td><a href="${pageContext.request.contextPath}/overview/${account.username }"
                     >${account.username}</a></td>
                 <td>${account.email}</td>
-                <td><input type="password"} value="${account.password}"  readonly="readonly" style="border:none; width: 50px;"/></td>
                 <td>${account.accountRole}</td>
                 <td>${account.accountAddress}</td>     
                 <td>${account.socialMediaLink}</td>
