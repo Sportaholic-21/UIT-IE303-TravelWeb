@@ -578,13 +578,15 @@ p strong {
 
 .tour-detail_sentiment-icon--sad {
 	transform: scale(0.7);
+}
 /* Print */
 @media print {
     .navbar, #sidebar, .footer, #gallery,
     .detail__left__group, .directToParam, button, 
-    .detail__right, #printPDF,
+    .detail__right, #printPDF, #wishlistBtn,
     .tour-map__title, #map, #map #map-frame,
-    .tour-info__related-tour, #gallery-carousel div  {
+    .tour-info__related-tour, #gallery-carousel div,
+    #success-anouncement, #exists-anounncement  {
         display: none;
     } 
     /* .detail__left__img img {
