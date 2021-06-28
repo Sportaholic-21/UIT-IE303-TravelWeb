@@ -10,6 +10,10 @@
 				href="${pageContext.request.contextPath}/user?tab=profile"> <i class="material-icons">person</i>
 					<p>Profile</p>
 			</a></li>
+			<li class="nav-item ${active.equals('security') ? 'active' : ''}"><a class="nav-link"
+				href="${pageContext.request.contextPath}/user?tab=security"> <i class="material-icons">person</i>
+					<p>Security</p>
+			</a></li>
 			<li class="nav-item ${active.equals('bookedTours') ? 'active' : ''}"><a class="nav-link" href="${pageContext.request.contextPath}/user?tab=booked-tours">
 					<i class="material-icons">content_paste</i>
 					<p>Booked Tours</p>
