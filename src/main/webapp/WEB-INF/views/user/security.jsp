@@ -18,6 +18,7 @@
                             <div class="mb-3">
                               <label for="formFile" class="form-label bmd-label-floating">Current Password</label>
                               <input class="form-control" type="text" id="currentPassword" />
+                              <small id="wrongCurrent" class="form-text text-danger"></small>
                             </div>
                           </div>
                       </div>
@@ -26,6 +27,7 @@
                             <div class="mb-3">
                               <label for="formFile" class="form-label bmd-label-floating">New Password</label>
                               <input class="form-control" type="password" id="newPassword" name="password"/>
+                              <small id="noNew" class="form-text text-danger"></small>
                             </div>
                           </div>
                       </div>
@@ -34,6 +36,7 @@
                             <div class="mb-3">
                               <label for="formFile" class="form-label bmd-label-floating">Confirm Password</label>
                               <input class="form-control" type="password" id="confirmPassword" />
+                              <small id="notMatch" class="form-text text-danger"></small>
                             </div>
                           </div>
                       </div>
@@ -62,7 +65,16 @@
   $(document).ready(function() {
     $("#submitPassword").submit(function(e) {
       e.preventDefault();
+      if ($("#currentPassword").val() != '${account.password}') {
+        $("#wrongCurrent").text("Enter a valid password and try again");
+        return false;
+      }
+      if ($("confirmPassword").val() != $("#newPassword").val()) {
+        $("#notMatch").text("Password does not match");
+        return false;
+      }
       sendData();
+      return true;
     })
   })
 </script>
