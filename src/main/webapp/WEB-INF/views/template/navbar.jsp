@@ -79,7 +79,7 @@
 					<div class="dropdown-menu dropdown-menu-right"
 						aria-labelledby="navbarDropdownProfile">
 						<a class="dropdown-item" href="${pageContext.request.contextPath}/overview/${username}">Overview</a>
-						<a class="dropdown-item" href="${pageContext.request.contextPath}/user?tab=profile">Setting</a>
+						<a class="dropdown-item" href="${pageContext.request.contextPath}/user?tab=profile">Settings</a>
 						<c:choose>
 			              	<c:when test="${account.accountRole == 0}">
 			              		<a class="dropdown-item" href="${pageContext.request.contextPath}/admin">Admin Dashboard</a>
