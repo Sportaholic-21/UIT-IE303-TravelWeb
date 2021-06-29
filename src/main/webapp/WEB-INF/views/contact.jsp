@@ -52,7 +52,7 @@
 											id="name" aria-describedby="emailHelp" value="${param.name}" />
 							</div>
 							<div class="mb-3">
-								<label for="phone" class="form-label">Number Phone</label>
+								<label for="phone" class="form-label">Phone Number</label>
 								<form:input path="phone" class="form-control rounded-pill p-2"
 											id="phone" aria-describedby="emailHelp" value="${param.phone}"/>
 							</div>
@@ -65,7 +65,7 @@
 								<label for="message" class="form-label">Message</label>
 								
 								<form:textarea path="message" class="form-control rounded p-2"
-											id="message" aria-describedby="emailHelp" rows="5" placeholder="ahi" ></form:textarea>
+											id="message" aria-describedby="emailHelp" rows="5" placeholder="Type your message here. . ." ></form:textarea>
 								<div class="invalid-feedback">
 									Please provide a valid city.
 								</div>

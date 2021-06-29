@@ -47,8 +47,8 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="${pageContext.request.contextPath}/tour-list?typologyID=1">Relax</a></li>
             <li><a class="dropdown-item" href="${pageContext.request.contextPath}/tour-list?typologyID=2">Cultural</a></li>
-            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/tour-list?typologyID=3">Adventure</a></li>
-            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/tour-list?typologyID=4">History</a></li>
+            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/tour-list?typologyID=3">History</a></li>
+            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/tour-list?typologyID=4">Adventure</a></li>
           </ul>
         </li>
 
