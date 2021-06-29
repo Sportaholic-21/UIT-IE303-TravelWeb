@@ -17,7 +17,7 @@
                           <div class="col-12">
                             <div class="mb-3">
                               <label for="formFile" class="form-label bmd-label-floating">Current Password</label>
-                              <input class="form-control" type="text" id="currentPassword" />
+                              <input class="form-control" type="password" id="currentPassword" />
                               <small id="wrongCurrent" class="form-text text-danger"></small>
                             </div>
                           </div>
@@ -69,10 +69,12 @@
         $("#wrongCurrent").text("Enter a valid password and try again");
         return false;
       }
+      $("#wrongCurrent").text("");
       if ($("confirmPassword").val() != $("#newPassword").val()) {
         $("#notMatch").text("Password does not match");
         return false;
       }
+      $("#notMatch").text("");
       sendData();
       return true;
     })
