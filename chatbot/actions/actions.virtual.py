@@ -32,12 +32,12 @@ from rasa_sdk.events import FollowupAction
 import pyodbc
 
 # connect db
-server = 'DESKTOP-IREKHJ2\SQLEXPRESS'
+server = '?'
 database = 'levart'
-username = 'sa'
-password = 'pastwent12345'
+username = '?'
+password = '?'
 driver = '{ODBC Driver 17 for SQL Server}'
-port = '1433'
+port = '?'
 cnn = pyodbc.connect('DRIVER='+driver+';PORT=port;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username +
                      ';PWD='+password)
 cursor = cnn.cursor()
