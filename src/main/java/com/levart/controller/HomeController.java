@@ -13,17 +13,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.levart.entities.Account;
+import com.levart.entities.Continent;
 import com.levart.entities.Image;
 import com.levart.entities.Nation;
 import com.levart.entities.Tour;
 import com.levart.entities.TourBooking;
+import com.levart.entities.Typology;
 import com.levart.form_entities.FormSearch;
 import com.levart.form_entities.FormSearchPackage;
 import com.levart.hibernate.dao.AccountDAO;
+import com.levart.hibernate.dao.ContinentDAO;
 import com.levart.hibernate.dao.ImageDAO;
 import com.levart.hibernate.dao.NationDAO;
 import com.levart.hibernate.dao.TourBookingDAO;
 import com.levart.hibernate.dao.TourDAO;
+import com.levart.hibernate.dao.TypologyDAO;
 
 @Controller
 @SessionAttributes("account")
@@ -101,6 +105,19 @@ public class HomeController {
 		TourDAO tourdao = new TourDAO();
 		List<Tour> list = tourdao.findTourWithCriteria(formsearchpackage.getDestination(), 0, "", "", "");
     	model.addAttribute("searchResult", list);
+    	NationDAO nationdao = new NationDAO();
+		List<Nation> listNation = nationdao.getAllNation();
+		
+		ContinentDAO continentdao = new ContinentDAO();
+		List<Continent> listContinent = continentdao.getAllContinents();
+		
+		TypologyDAO typologydao = new TypologyDAO();
+		List<Typology> listTypology = typologydao.getAllTypologies();
+		
+		model.addAttribute("typologyList", listTypology);
+		model.addAttribute("continentList", listContinent);
+ 	    model.addAttribute("nationList", listNation);
+ 	    
     	ImageDAO imgdao = new ImageDAO();
     	List<Image> imgList = new ArrayList<Image>();
 		for (Tour tour : list) {

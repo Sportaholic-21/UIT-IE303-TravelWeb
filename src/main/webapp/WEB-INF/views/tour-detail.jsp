@@ -324,7 +324,7 @@
 
                 <section class="search mb-5">
                     <h5>Search</h5>
-                    <form:form action="tour-list" modelAttribute="contentSearchPackage">
+                    <form:form action="${pageContext.request.contextPath}/tour-list" modelAttribute="contentSearchPackage">
                         <div class="form-group col-md-12 pl-0">
                             <form:input path = "destination" class="form-select" name="destination" id="" style="background-image: url('${pageContext.request.contextPath}/resources/images/tour-list/icons/pin.svg')"/>
                         </div>
