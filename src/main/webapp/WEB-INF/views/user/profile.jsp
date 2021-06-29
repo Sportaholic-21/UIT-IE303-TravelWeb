@@ -54,7 +54,7 @@
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Adress</label>
+                          <label class="bmd-label-floating">Address</label>
                           <form:input type="text" class="form-control" path="accountAddress" />
                         </div>
                       </div>

@@ -123,7 +123,7 @@
                         </p>
                         <div class="d-flex justify-content-between">
                         	<button id="printPDF" class="btn btn-warning">Print to PDF <i class="fa fa-print"></i></button>
-                        	<button data-type="addWishlist" data-link="${pageContext.request.contextPath}/wishlist/api?action=add&id=${obj.tourID}" class="p-2 fs-6 btn btn-danger float-right addWishlist" style = "margin: 0; border:none;"><i class="far fa-heart"></i> Add to wishlist</button>
+                        	<button id="wishlistBtn" data-type="addWishlist" data-link="${pageContext.request.contextPath}/wishlist/api?action=add&id=${obj.tourID}" class="p-2 fs-6 btn btn-danger float-right addWishlist" style = "margin: 0; border:none;"><i class="far fa-heart"></i> Add to wishlist</button>
                         </div>
                         <div class="content__table ">
                             <table class="">

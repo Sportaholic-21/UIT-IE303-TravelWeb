@@ -95,8 +95,16 @@ public class UserController extends CRUDBookedTourOperation {
 			
 			return "/user/wishlist";	
 		}
+
 		
+		if (tab.equals("security")) {
+			model.addAttribute("account", account);
+			model.addAttribute("active", "security");
+			return "/user/security";
+		}
+			
 		return "redirect: no-permission";
+
 	}
 	
 	@RequestMapping(value={"/booked-tour/api/cancel"})
