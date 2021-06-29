@@ -70,7 +70,7 @@
         return false;
       }
       $("#wrongCurrent").text("");
-      if ($("confirmPassword").val() != $("#newPassword").val()) {
+      if ($("#confirmPassword").val() != $("#newPassword").val()) {
         $("#notMatch").text("Password does not match");
         return false;
       }
