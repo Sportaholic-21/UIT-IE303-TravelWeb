@@ -82,7 +82,18 @@ public class Tour implements Serializable {
 	@Column(name = "coordinate")
 	private String coordinate;
 	
-	 @Override
+	@Column(name = "scheduleCoordinate")
+	private String scheduleCoordinate;
+	
+	 public String getScheduleCoordinate() {
+		return scheduleCoordinate;
+	}
+
+	public void setScheduleCoordinate(String scheduleCoordinate) {
+		this.scheduleCoordinate = scheduleCoordinate;
+	}
+
+	@Override
 	  public int hashCode() {
 	    final int prime = 31;
 	    int result = 1;
@@ -235,12 +246,11 @@ public class Tour implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Tour [tourID=" + tourID +  ", nation=" + nation
-				+ ", tourName=" + tourName + ", shortDesc="
-				+ shortDesc + ", desc=" + desc + ", schedule="
-				+ schedule + ", price=" + price + ", discount="
-				+ discount + ", duration=" + duration + ", rating="
-				+ rating + ", numberFeedback=" + numberFeedback
-				+ ", numberBooking=" + numberBooking;
+		return "Tour [tourID=" + tourID + ", typology=" + typology + ", nation=" + nation + ", tourBookings="
+				+ tourBookings + ", tourName=" + tourName + ", shortDesc=" + shortDesc + ", desc=" + desc
+				+ ", schedule=" + schedule + ", price=" + price + ", discount=" + discount + ", duration=" + duration
+				+ ", rating=" + rating + ", numberFeedback=" + numberFeedback + ", numberBooking=" + numberBooking
+				+ ", priceDiscount=" + priceDiscount + ", coordinate=" + coordinate + ", scheduleCoordinate="
+				+ scheduleCoordinate + "]";
 	}
 }
