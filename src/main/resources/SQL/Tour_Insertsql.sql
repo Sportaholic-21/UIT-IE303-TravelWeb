@@ -241,7 +241,7 @@ known as the neighborhood that produces the latest trends in fashion, art,..."Gr
 With 266 stores, you can comfortably shop in a space with nature. The southern area is an area with a busy neighborhood spread out with the focus on Namba.
 This is a very attractive neighborhood with Dotonbori having restaurants, amusement parks or Shinsaibashi as a cultural center for young people.',
 1739, 0, 4, 5, 
-' HCM - NARITA - ITAMI (Lunch on the plane, dinner);
+'HCM - NARITA - ITAMI (Lunch on the plane, dinner);
 - You are present at Tan Son Nhat airport, the tour guide will guide you to check in for flight JL750 (08:00-15:35) to Narita (Tokyo), continue you to take flight JL3005 (16). :55-18:15) go to Itami (Osaka).;
 - Delegation to Itami International Airport (Osaka), you do immigration procedures and receive luggage. Car and local guide welcome the group to have dinner at the restaurant.;
 - Check in hotel and rest. Overnight in Osaka.;
@@ -255,7 +255,7 @@ This is a very attractive neighborhood with Dotonbori having restaurants, amusem
 + Golden Temple (Golden Pavilion Temple) - Kinkakuji Temple - the whole temple was inlaid with gold leaf between the emerald lake.;
 + Shopping at Aeon Mall (if you have time).;
 - Dinner at restaurant, check in hotel and rest. Overnight in Tsu.;
-/TSU – GAMAGORI – SHIZOUKA – FUJI/HAKONE (Three Meals);
+/TSU – GAMAGORI – SHIZOUKA – FUJI - HAKONE (Three Meals);
 - Morning: Have breakfast.;
 + You visit FUJI city: Ponagar Tower: a work of the largest scale and plays an important sakura role in the history of Cham religious architectural art.;
 + FUJI Pagoda: the most famous temple in FUJI. The top of the hill is the statue of Kim Than Buddha (also known as the white Buddha) sitting in a lecture, the statue is 21m high, the lotus base is 7m high;
@@ -446,3 +446,90 @@ Note: Avoid the case of altitude sickness, you should limit the use of stimulant
 select * from tour
 
 select * from nation order by (select count(*) from tour group by nationID) desc
+
+
+-- Cập nhật thêm thuộc tính chứa tọa độ địa điểm trong lịch trình
+update tour
+set scheduleCoordinate = '(22.475868, 103.988411)/(22.30774368781965, 103.75955690632118)/(20.97287140293925, 107.04390713755039)/(21.023756680309052, 105.8582641561314)'
+where tourName = 'Ha Long Bay'
+
+update tour
+set scheduleCoordinate = '(22.480243438546413, 103.97441698499703)/(22.3354309794022, 103.8416954576399)/(21.02978888931015, 105.83593358637923)'
+where tourName = 'Sapa City'
+
+update tour
+set scheduleCoordinate = '(21.217900852986123, 105.79476573596718)/(20.97070535606187, 107.03917417656463)/(20.250350021940722, 105.96875534255115)/(21.022738704091708, 105.85644712087739)'
+where tourName = 'Quang Ninh'
+
+update tour
+set scheduleCoordinate = '(15.880189129075003, 108.29938047795513)/(15.99776606894012, 107.98866731247685)/(16.472648521258417, 107.5790008768497)'
+where tourName = 'Da Nang'
+
+update tour
+set scheduleCoordinate = '(10.98303340012986, 108.26091225391383)/(12.216398237260345, 109.24168459774654)/(12.26558728611357, 109.19608114312634)/(12.2529775185103, 109.17966735770432)'
+where tourName = 'Nha Trang'
+
+update tour
+set scheduleCoordinate = '(35.79081594383057, 140.33323664074456)/(35.2512804336085, 139.0267361826666)/(35.36135965085453, 138.72727753758744)/(35.46486862155051, 139.62448597651024)'
+where tourName = 'Tokyo'
+
+
+update tour
+set scheduleCoordinate = '(35.81653150221384, 140.36362951460225)/(34.69169372774142, 135.52998061565725)/(35.36656574740686, 138.72619862018786)/(35.718240852556136, 139.77684730159925)'
+where tourName = 'Osaka'
+
+update tour
+set scheduleCoordinate = '(-37.828904150310606, 144.94630159384488)/(-36.860634769190284, 174.7344322566558)/(-33.871597268314844, 151.2072227821072)/(-33.85339447477942, 151.19713027081974)'
+where tourID = 8 -- Auckland
+
+update tour
+set scheduleCoordinate = '(48.88685988203424, 2.345558897074439)/(48.85673492009218, 2.296526415691078)/(49.61124694117077, 6.105437196607668)/(50.111405258077355, 8.681436604782052)'
+where tourID = 12 -- Paris
+
+update tour
+set scheduleCoordinate = '(51.50266986068257, -0.1250749976450482)/(51.50289821165239, -0.14305028789655344)/(51.7555972584516, -1.259707513674539)/(51.7580992172283, -1.2675911726725428)/(51.83306422937963, -1.8433622456862755)/(4.621301456988099, 114.5470950119866)'
+where tourID = 14 -- London
+
+update tour
+set scheduleCoordinate = '(29.7144072632149, 91.17937908719605)/(29.655634034896515, 91.11910491084905)/(29.342985425996453, 88.95644164697289)/(29.6786169566231, 91.02363939506694)/(30.71336991712082, 104.12566282887131)'
+where tourID = 15 -- Tibet
+
+select * from tour
+
+
+---- Sửa lỗi hiển thị tour Osaka
+update tour 
+set schedule =
+'HCM - NARITA - ITAMI (Lunch on the plane, dinner);
+- You are present at Tan Son Nhat airport, the tour guide will guide you to check in for flight JL750 (08:00-15:35) to Narita (Tokyo), continue you to take flight JL3005 (16). :55-18:15) go to Itami (Osaka).;
+- Delegation to Itami International Airport (Osaka), you do immigration procedures and receive luggage. Car and local guide welcome the group to have dinner at the restaurant.;
+- Check in hotel and rest. Overnight in Osaka.;
+/OSAKA – KOBE – KYOTO – TSU (Three Meals);
+- Breakfast at the hotel, check out procedures. Depart to visit:;
++ Osaka Castle - an ancient castle with winding moats around. This structure is the pride of the people of Osaka (photo taken outside).;
+- Continue to depart for Kobe to visit:;
++ Kobe Tower (Kobe Port Tower);
++ Kobe Harborland - is a commercial complex located in front of Osaka Bay, reconstructed from an old factory. Currently, this complex includes many establishments such as Umie, Umie Mosaic or Kobe Renga Soko, in addition to a series of shopping, entertainment, restaurants and hotels.;
+- Lunch at the restaurant, you will enjoy the famous Kobe beef. Then Depart to Kyoto to visit: ;
++ Golden Temple (Golden Pavilion Temple) - Kinkakuji Temple - the whole temple was inlaid with gold leaf between the emerald lake.;
++ Shopping at Aeon Mall (if you have time).;
+- Dinner at restaurant, check in hotel and rest. Overnight in Tsu.;
+/TSU – GAMAGORI – SHIZOUKA – FUJI - HAKONE (Three Meals);
+- Morning: Have breakfast.;
++ You visit FUJI city: Ponagar Tower: a work of the largest scale and plays an important sakura role in the history of Cham religious architectural art.;
++ FUJI Pagoda: the most famous temple in FUJI. The top of the hill is the statue of Kim Than Buddha (also known as the white Buddha) sitting in a lecture, the statue is 21m high, the lotus base is 7m high;
++ The stone church (Christian King Cathedral) with sakura unique architecture in TOKYO style.;
+- Noon: Have lunch.;
++ Sightseeing, shopping for specialties at TOKYO commercial center. You are free to visit.;
+- Afternoon: Have dinner.;
++ Overnight in TOKYO.;
+/TOKYO – ODAIBA - HANEDA – HCMC (Breakfast, Lunch);
+- Breakfast at the hotel, check out procedures. Depart to visit:;
++ Asakusa Kannon Temple - the most sacred temple in Tokyo, where major national festivals take place along with the legend of the mysterious temple.;
++ Sightseeing and shopping at Nakamise Arcade shopping streetlocated in the temple grounds - is one of the oldest shopping streets in Japan, with a length of about 250m extending from the Kaminarimon gate of Senso-ji Temple to Hozomon. On this street, there are small items with Japanese style such as Edo period toys, bows, fan hairpins; or street foods like Ningyoyaki, Kaminari Okoshi. The famous shops of the Edo period old town line one after another, the lanterns and seasonal decorations in front of the shops, the cobblestone street that extends from the Kaminarimon gate to the Hozomon gate... A Japanese-style street.;
++ Tokyo Sky Tree TV Tower – From the temple, you can see and take pictures of the whole tower.;
+- Have lunch at a restaurant, continue to visit:;
++ Sightseeing and shopping at Akihabara electronics market .;
++ Odaiba Bay - visit and take pictures at the panoramic view of Odaiba Bay at night such as Odaba coastal park, Rainbow bridge connecting Odaiba bay and Tokyo, Statue of Liberty - a symbolic copy of New York approved by the French government brought to celebrate the French year in Japan, Tokyo Big Sight exhibition center, AquaCity Odaiba, Especially, you can take pictures with Giant Robot Gumdam… (if you have time);
+- Have dinner at the restaurant. Until now, the delegation moved to Haneda airport, took flight JL079 (01:25-05:15).to Ho Chi Minh City. Arriving at Tan Son Nhat airport, after receiving the luggage, the tour guide bids you farewell and see you in the following programs.;'
+where tourName = 'Osaka'

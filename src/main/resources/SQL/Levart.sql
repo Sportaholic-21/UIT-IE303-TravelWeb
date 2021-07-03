@@ -67,9 +67,14 @@ CREATE TABLE tour
 	priceDiscount decimal(10,0),
 	numberBooking int default 0, /* so luong dat tour cua tour nay */
 	numberFeedback int default 0, /* so luong feedback cua tour do */
-	coordinate varchar(40) default ''
+	coordinate varchar(40) default '',
+	scheduleCoordinate varchar(500) default ''
 )
 GO
+
+alter table tour
+add scheduleCoordinate varchar(500) default ''
+
 -- Dành cho việc cập nhật bảng tour nếu đã pull file này trước buổi trưa ngày 5/6/2021
 /* alter table tour
 drop CONSTRAINT FK__tour__continentI__30F848ED
@@ -264,6 +269,3 @@ GO
 ALTER TABLE feedback
 ADD sentimentStatus bit; -- 0: negative, 1: positive
 
-/* SP_WHO 
-KILL 59
-drop database levart */
