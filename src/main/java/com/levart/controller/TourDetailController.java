@@ -85,6 +85,7 @@ public class TourDetailController {
 		TourDAO tourdao = new TourDAO();
 		List<Tour> list = tourdao.getTour(id);
 		model.addAttribute("tourList", list);
+		model.addAttribute("schedualCoordinate", list.get(0).getScheduleCoordinate());
 		
 		String coordinate_tour = list.get(0).getCoordinate();
 		model.addAttribute("coordinate_tour", coordinate_tour); // lấy coordinate

@@ -572,58 +572,60 @@
 			src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
 			
   		 <script >
-  		 	var str = "${coordinate_tour}";
-			var tourName = "${tourName_tour}";        
-			var coordinate = str.split(','); 
-			
-			var featureArr = [];
-            var tempGeo = {
-		        type: 'Feature',
-		        geometry: {
-			    	type: 'Point',
-			    	coordinate: coordinate
-		    	},
-		    	properties: {
-			    	title: 'Mapbox',
-			    	description: tourName
-		    	},
-		    	info: {
-			    	place: tourName
-		    	}
-	    	}
-            featureArr.push(tempGeo);
-        	mapboxgl.accessToken = 'pk.eyJ1IjoieWxhbnR0IiwiYSI6ImNrcGdpbGdnejA3Y2sydmprMzk4d2gwM20ifQ.Wz5IizkQcBZ6FCBLz3wnEA';
+  		 var schedualCoordinate = "${schedualCoordinate}";
+  		 var coordinateList = schedualCoordinate.split(',');
 
-            var map = new mapboxgl.Map({
-                container: 'map',
-                style: 'mapbox://styles/mapbox/light-v10',
-                center: [106, 10],
-                zoom: 1
-                // starting zoom
-            });
+		var coordinateArr = [];
+		var featureArr = [];
 
-            var geojson = {
-                type: 'FeatureCollection',
-                features: featureArr
-            };
+		for (var i = 0; i < coordinateList.length; i++) {
+			coordinateArr.push(coordinateList.splice(0, 2));
+			var tempGeo = {
+				type: 'Feature',
+				geometry: {
+					type: 'Point',
+					coordinates: coordinateArr[i]
+				},
+				properties: {
+					title: 'Mapbox',
+				}
+			}
+			featureArr.push(tempGeo);
+		}
 
-        // add markers tomap
-        geojson.features
-            .forEach(function(marker) {
+		mapboxgl.accessToken = 'pk.eyJ1IjoieWxhbnR0IiwiYSI6ImNrcGdpbGdnejA3Y2sydmprMzk4d2gwM20ifQ.Wz5IizkQcBZ6FCBLz3wnEA';
 
-                // create a HTML element for each feature
-                var el = document.createElement('div');
-                el.className = 'marker';
-                // make a marker for each feature and add to the map
-                new mapboxgl.Marker(el)
-                    .setLngLat(marker.geometry.coordinate)
-                    .setPopup(
-                        new mapboxgl.Popup({
-                            offset: 25
-                        })
-                            // add popups
-                            .setHTML('<p class="mb-0">' + marker.info.place + '</p>')).addTo(map);
-            });
+		var map = new mapboxgl.Map({
+			container: 'map',
+			style: 'mapbox://styles/mapbox/light-v10',
+			center: coordinateArr[0],
+			zoom: 5
+			// starting zoom
+		});
+
+		var geojson = {
+			type: 'FeatureCollection',
+			features: featureArr
+		};
+
+		// add markers tomap
+		geojson.features
+			.forEach(function(marker) {
+
+				// create a HTML element for each feature
+				var el = document.createElement('div');
+				el.className = 'marker';
+
+				// make a marker for each feature and add to the map
+				new mapboxgl.Marker(el)
+					.setLngLat(marker.geometry.coordinates)
+					.setPopup(
+						new mapboxgl.Popup({
+							offset: 25
+						})
+							// add popups
+							.setHTML('<p class="text-success font-weight-bold mb-0">hi</p>')).addTo(map);
+			});
          </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js "
 			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN "
