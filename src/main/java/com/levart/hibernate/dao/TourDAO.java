@@ -26,6 +26,7 @@ public class TourDAO {
 	}
 	
 	public List<Tour> getTour(int id) {
+		factory = HibernateUtils.getSessionFactory();
 		Session session = factory.openSession();
 		List<Tour> tourList = new ArrayList<Tour>();
 		try {
@@ -40,13 +41,14 @@ public class TourDAO {
 			e.printStackTrace();
 		} finally {
 			session.close();
-
+			factory.close();
 		}
 		return tourList;
 	}
 	
 	
 	public List<String> getTourSchedule(int id){
+		factory = HibernateUtils.getSessionFactory();
 		Session session = factory.openSession();
 		List<Tour> scheduleList = new ArrayList<Tour>();
 		try {
@@ -68,7 +70,7 @@ public class TourDAO {
 			e.printStackTrace();
 		} finally {
 			session.close();
-
+			factory.close();
 		}
 		return null;
 	}
@@ -76,6 +78,7 @@ public class TourDAO {
 
 	//select
 	public List<Tour> getAllTours() {
+		factory = HibernateUtils.getSessionFactory();
 		Session session = factory.openSession();
 		try {
 			// bắt đầu 1 transaction (giao dịch)
@@ -92,12 +95,14 @@ public class TourDAO {
 		} finally {
 			session.flush();
 			session.close();
+			factory.close();
 		}
 		
 		return null;
 	}
 	
 	public List<Tour> getTop3Tours(){
+		factory = HibernateUtils.getSessionFactory();
 		Session session = factory.openSession();
 		try {
 			// bắt đầu 1 transaction (giao dịch)
@@ -114,11 +119,13 @@ public class TourDAO {
 		} finally {
 			session.flush();
 			session.close();
+			factory.close();
 		}
 		return null;
 	}
 	
 	public List<Tour> getTourByTypologyID(int id){
+		factory = HibernateUtils.getSessionFactory();
 		Session session = factory.openSession();
 		try {
 			// bắt đầu 1 transaction (giao dịch)
@@ -135,11 +142,13 @@ public class TourDAO {
 		} finally {
 			session.flush();
 			session.close();
+			factory.close();
 		}
 		return null;
 	}
 	
 	public List<Tour> getTourByNationID(int id){
+		factory = HibernateUtils.getSessionFactory();
 		Session session = factory.openSession();
 		try {
 			// bắt đầu 1 transaction (giao dịch)
@@ -156,11 +165,13 @@ public class TourDAO {
 		} finally {
 			session.flush();
 			session.close();
+			factory.close();
 		}
 		return null;
 	}
 	
 	public List<Tour> getTourByContinentID(int id){
+		factory = HibernateUtils.getSessionFactory();
 		Session session = factory.openSession();
 		try {
 			// bắt đầu 1 transaction (giao dịch)
@@ -177,11 +188,13 @@ public class TourDAO {
 		} finally {
 			session.flush();
 			session.close();
+			factory.close();
 		}
 		return null;
 	}
 	
 	public List<Tour> getRelatedTour(int typologyID, int nationID, int id ){
+		factory = HibernateUtils.getSessionFactory();
 		Session session = factory.openSession();
 		try {
 			// bắt đầu 1 transaction (giao dịch)
@@ -198,6 +211,7 @@ public class TourDAO {
 		} finally {
 			session.flush();
 			session.close();
+			factory.close();
 		}
 		return null;
 	}
@@ -207,6 +221,7 @@ public class TourDAO {
 	
 		// --- Trường hợp sử dụng criteria trong trang tour-list // 
 	public List<Tour> findTourWithCriteria(String tourName, float price ,String continentName, String nationName, String typologyName){
+		factory = HibernateUtils.getSessionFactory();
 		Session session = factory.openSession();
 		try {
 			// bắt đầu 1 transaction (giao dịch)
@@ -420,13 +435,14 @@ public class TourDAO {
 			e.printStackTrace();
 		} finally {
 			session.close();
-
+			factory.close();
 		}
 		return null;
 	}
 
 	//insert
 	public void addTour(Tour tour) {
+		factory = HibernateUtils.getSessionFactory();
 		Session session = factory.openSession();
 		try {
 			// bắt đầu 1 transaction (giao dịch)
@@ -441,6 +457,7 @@ public class TourDAO {
 		} finally {
 			session.flush();
 			session.close();
+			factory.close();
 		}
 	}
 	
