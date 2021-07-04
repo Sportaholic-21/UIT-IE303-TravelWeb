@@ -25,6 +25,28 @@ public class TourDAO {
 	public TourDAO() {
 	}
 	
+	public List<String> getMatchedTourName(String regex) {
+		factory = HibernateUtils.getSessionFactory();
+		Session session = factory.openSession();
+		try {
+			@SuppressWarnings("unchecked")
+			Query<String> query=session.createQuery("select t.tourName from Tour t where t.tourName like :name");
+			query.setParameter("name", regex);
+			
+			List<String> tourBookings = query.getResultList();
+						
+			return tourBookings;
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+			factory.close();
+		}
+		
+		return null;
+	}
+	
 	public List<Tour> getTour(int id) {
 		factory = HibernateUtils.getSessionFactory();
 		Session session = factory.openSession();

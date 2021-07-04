@@ -28,7 +28,7 @@
                 <div class="row search-row search-dest">
                     <div class="col-sm-5 search-label">Choose Your Destination:</div>
                     <div class="col-sm-7 search-input">
-                        <form:input path = "destination" class="form-select" name="destination" id="" style="background-image: url('${pageContext.request.contextPath}/resources/images/tour-list/icons/pin.svg')"/>
+                        <form:input path = "destination" class="form-select" name="destination" id="search-name-input" style="background-image: url('${pageContext.request.contextPath}/resources/images/tour-list/icons/pin.svg')"/>
                     </div>
                 </div>
                 <div class="row search-row search-price">
@@ -115,7 +115,7 @@
 				    </div>
 				</div>
                	<div class="d-grid gap-2 d-md-flex justify-content-md-end pt-2">
-  					<input class="btn btn-primary" type="submit" value = "Search"/>
+  					<input class="btn btn-primary searchSubmitBtn" type="submit" value = "Search"/>
 				</div>            	
             </form:form>
         </div>
@@ -179,5 +179,10 @@
             
         </div>
     </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    
     </jsp:body>
 </t:genericpage>

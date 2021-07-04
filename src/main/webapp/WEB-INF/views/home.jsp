@@ -22,7 +22,7 @@
 					<div class="search-container">
 						<form:form action="tour-list" modelAttribute="contentSearchPackage">
 							<div class="search-bar">
-								<form:input path="destination" name="destination" id="" placeholder="Where would you want to go?..."/>
+								<form:input path="destination" name="destination" id="search-name-input" placeholder="Where would you want to go?..."/>
 								<input type="submit" value="  "
 									   width="47px" height="47px"
 									   style="background: url('${pageContext.request.contextPath}/resources/images/icons/magniGlass.svg') no-repeat center transparent;

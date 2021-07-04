@@ -54,6 +54,14 @@ public class TourListController {
 		return new FormSearch();
 	}
 	
+	@RequestMapping("/api/searchComplete")
+	@ResponseBody
+	public List<String> getAutoData(@RequestParam("query") String query, Model model) {
+		String regex = "%" + query + "%";
+    	TourDAO tourdao = new TourDAO();
+    	return tourdao.getMatchedTourName(regex);
+    }
+	
 	@RequestMapping(value = "/tour-list")
 	public String showPage(@ModelAttribute("account") Account account, Model model, @ModelAttribute("contentSearchPackage") FormSearchPackage formsearchpackage, 
 			@RequestParam(value = "typologyID", required = false, defaultValue = "0") int typologyID,
